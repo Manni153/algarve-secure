@@ -3,26 +3,23 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, panel, renderPage } = require('./layout');
+const { esc, heroPhoto, renderPage } = require('./layout');
 
 function renderHome() {
-  const heroStats = site.trustStats
-    .map((s) => `<div><span class="v">${esc(s.value)}</span>${esc(s.label)}</div>`)
-    .join('');
-
-  const indexList = site.trustSection
+  const trustCards = site.trustSection
     .map(
-      (t, i) => `<div>
-        <span class="idx">${String(i + 1).padStart(2, '0')}</span>
-        <div><h3>${esc(t.heading)}</h3><p>${esc(t.text)}</p></div>
+      (t) => `<div class="card">
+        <div class="icon-dot"></div>
+        <h3>${esc(t.heading)}</h3>
+        <p>${esc(t.text)}</p>
       </div>`
     )
     .join('');
 
-  const bentoTiles = services
+  const serviceCards = services
     .map(
-      (s, i) => `<a href="/${s.slug}" class="bento-tile${s.flagship ? ' flagship' : ''}">
-        <span class="tile-tag">SERVICE ${String(i + 1).padStart(2, '0')}</span>
+      (s) => `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
+        ${s.flagship ? '<span class="badge">Flagship Service</span>' : ''}
         <h3>${esc(s.name)}</h3>
         <p>${esc(s.heroSubhead)}</p>
         <span class="card-link">Learn more &rarr;</span>
@@ -39,66 +36,56 @@ function renderHome() {
     )
     .join('');
 
+  const hero = heroPhoto({
+    alt: 'Modern Algarve villa exterior at golden hour with discreet CCTV camera visible on the wall',
+    eyebrow: 'Security &amp; Smart Home Installation &middot; The Algarve',
+    h1Html: 'English-Speaking Security &amp; Smart Home Systems <em>for the Algarve</em>',
+    lede: 'CCTV, alarms, access control and smart home automation — supplied, installed and explained in plain English for homeowners across the Algarve.',
+    trustStats: site.trustStats,
+  });
+
   const body = `
-  <section class="hero">
-    <div class="split">
-      <div class="split-text">
-        <span class="eyebrow">Security &amp; Smart Home Installation &middot; The Algarve</span>
-        <h1>English-Speaking Security &amp; Smart Home Systems <em>for the Algarve</em></h1>
-        <p class="lede">CCTV, alarms, access control and smart home automation — supplied, installed and explained in plain English for homeowners across the Algarve.</p>
-        <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone">${site.phoneDisplay}</a>
-        <div class="hero-stats">${heroStats}</div>
+  ${hero}
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why Homeowners Choose Us</span>
+        <h2>A local installer that speaks your language</h2>
+        <p class="lede">Straightforward communication and one team handling everything from planning to install.</p>
       </div>
-      <div class="split-panel">
-        ${panel('Modern Algarve villa exterior at dusk with discreet CCTV camera and smart lighting', { camera: true })}
-      </div>
+      <div class="trust-grid">${trustCards}</div>
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="section-alt" id="services">
     <div class="container">
-      <div class="sec-head">
-        <span class="sec-num">01 — Why Us</span>
-        <div><h2>A local installer that speaks your language</h2></div>
+      <div class="section-head">
+        <span class="eyebrow">What We Install</span>
+        <h2>Security &amp; smart home services</h2>
+        <p class="lede">From a single camera to a fully connected smart property, every system is planned around how you actually use it.</p>
       </div>
-      <div class="trust-split">
-        <p class="pull-quote">Everything explained in English, from the first call to the finished install — not translated, not guessed at.</p>
-        <div class="index-list">${indexList}</div>
-      </div>
+      <div class="card-grid cols-3">${serviceCards}</div>
     </div>
   </section>
 
-  <section id="services">
+  <section id="areas">
     <div class="container">
-      <div class="sec-head">
-        <span class="sec-num">02 — Services</span>
-        <div><h2>What we install</h2><p class="desc">From a single camera to a fully connected smart property, every system is planned around how you actually use the property.</p></div>
-      </div>
-      <div class="bento">${bentoTiles}</div>
-    </div>
-  </section>
-
-  <section class="section-alt" id="areas">
-    <div class="container">
-      <div class="sec-head">
-        <span class="sec-num">03 — Coverage</span>
-        <div><h2>Serving homeowners across the Algarve</h2><p class="desc">From Sagres in the west to Vila Real de Santo António in the east.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Where We Work</span>
+        <h2>Serving homeowners across the Algarve</h2>
+        <p class="lede">From Sagres in the west to Vila Real de Santo António in the east.</p>
       </div>
       <div class="directory">${directoryCols}</div>
     </div>
   </section>
 
   <section class="cta-band">
-    <div class="split reverse">
-      <div class="split-panel">
-        ${panel('Villa driveway gate with automated access control at dusk', { camera: false })}
-      </div>
-      <div class="split-text">
-        <span class="eyebrow">Get Started</span>
-        <h2>Ready to secure your property?</h2>
-        <p class="lede">Call now to talk through cameras, alarms or smart home options for your property — in English, with no confusion.</p>
-        <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone">${site.phoneDisplay}</a>
-      </div>
+    <div class="container">
+      <span class="eyebrow">Get Started</span>
+      <h2>Ready to secure your property?</h2>
+      <p class="lede">Call now to talk through cameras, alarms or smart home options for your property — in English, with no confusion.</p>
+      <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
     </div>
   </section>
   `;

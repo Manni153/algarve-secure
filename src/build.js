@@ -47,14 +47,14 @@ function build() {
   pages.push({ loc: '/', priority: '1.0' });
 
   // Service pages
-  services.forEach((service, index) => {
-    writePage(`/${service.slug}`, renderService(service, index));
+  services.forEach((service) => {
+    writePage(`/${service.slug}`, renderService(service));
     pages.push({ loc: `/${service.slug}`, priority: service.flagship ? '0.9' : '0.8' });
   });
 
   // Town pages
-  towns.forEach((town, index) => {
-    writePage(`/${town.slug}`, renderTown(town, index));
+  towns.forEach((town) => {
+    writePage(`/${town.slug}`, renderTown(town));
     pages.push({ loc: `/${town.slug}`, priority: '0.7' });
   });
 

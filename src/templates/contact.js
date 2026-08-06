@@ -10,22 +10,22 @@ function renderContact() {
     .join('');
 
   const body = `
-  <section class="hero hero-plain">
-    <div class="container" style="max-width:720px;">
+  <section style="padding-bottom:0;">
+    <div class="container narrow">
       ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
       <h1>Contact <em>AlgarveSecure</em></h1>
       <p class="lede">Call or WhatsApp for the fastest response, or send a few details below and we'll get back to you.</p>
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section>
     <div class="container">
       <div class="two-col">
         <div class="contact-direct">
           <div class="contact-direct-card">
             <h3>Call Us</h3>
             <span class="big-phone">${site.phoneDisplay}</span>
-            <a href="${site.telHref}" class="btn btn-call btn-block btn-icon-phone">${site.phoneDisplay}</a>
+            <a href="${site.telHref}" class="btn btn-block btn-icon">${site.phoneDisplay}</a>
           </div>
           <div class="contact-direct-card">
             <h3>WhatsApp</h3>
@@ -72,7 +72,7 @@ function renderContact() {
             <label for="message">Message</label>
             <textarea id="message" name="message" required placeholder="Tell us a little about your property and what you need..."></textarea>
           </div>
-          <button type="submit" class="btn btn-call btn-block">Send Message</button>
+          <button type="submit" class="btn btn-block">Send Message</button>
           <p class="form-note">For a faster response, call or WhatsApp us directly using the details on the left.</p>
         </form>
       </div>
