@@ -102,7 +102,7 @@ function renderHome() {
       <div class="section-head">
         <span class="eyebrow">How It Works</span>
         <h2>From first call to finished install</h2>
-        <p class="lede">The same team handles every step, so nothing gets lost between a quote and the equipment actually going in.</p>
+        <p class="lede">Every step is handled as one connected process, so nothing gets lost between a quote and the equipment actually going in.</p>
       </div>
       <div class="pillar-list">${processSteps}</div>
     </div>

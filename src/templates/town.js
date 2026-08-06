@@ -15,6 +15,18 @@ function renderTown(town) {
     )
     .join('');
 
+  const relevantCards = (town.relevantServices || [])
+    .map((r) => {
+      const s = services.find((sv) => sv.slug === r.slug);
+      if (!s) return '';
+      return `<a href="/${s.slug}" class="card">
+        <h3>${esc(s.name)} in ${esc(town.name)}</h3>
+        <p>${esc(r.reason)}</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>`;
+    })
+    .join('');
+
   const nearby = nearbyTowns(town.slug, 3);
   const nearbyLine = nearby
     .map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`)
@@ -41,13 +53,52 @@ function renderTown(town) {
           <a href="${site.telHref}" class="btn btn-icon mt-32">${site.phoneDisplay}</a>
         </div>
         <div class="two-col-media">
-          ${placeholder(`Street or coastal view of ${town.name}, Algarve`, { ratio: 'tall' })}
+          ${placeholder(town.streetscapeAlt || `Street or coastal view of ${town.name}, Algarve`, { ratio: 'tall' })}
         </div>
       </div>
     </div>
   </section>
 
   <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Property Profile</span>
+        <h2>What properties look like in ${esc(town.name)}</h2>
+      </div>
+      <div class="narrow" style="margin: 0 auto;">
+        <p>${esc(town.propertyProfile)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Local Considerations</span>
+        <h2>What owners in ${esc(town.name)} tend to ask about</h2>
+      </div>
+      <div class="narrow" style="margin: 0 auto;">
+        <p>${esc(town.concerns)}</p>
+      </div>
+    </div>
+  </section>
+
+  ${
+    relevantCards
+      ? `<section class="section-alt">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">Most Relevant</span>
+              <h2>Best-suited services for ${esc(town.name)} properties</h2>
+              <p class="lede">Every service is available here — these tend to matter most given the local property mix.</p>
+            </div>
+            <div class="card-grid cols-3">${relevantCards}</div>
+          </div>
+        </section>`
+      : ''
+  }
+
+  <section>
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Services</span>
@@ -57,11 +108,14 @@ function renderTown(town) {
     </div>
   </section>
 
-  <section>
+  <section class="section-alt">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Nearby</span>
         <h2>Also serving areas near ${esc(town.name)}</h2>
+      </div>
+      <div class="narrow" style="margin: 0 auto 32px;">
+        <p>${esc(town.proximity)}</p>
       </div>
       <div class="link-line center">${nearbyLine}</div>
     </div>

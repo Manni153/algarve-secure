@@ -12,6 +12,7 @@ const renderService = require('./templates/service');
 const renderTown = require('./templates/town');
 const renderAbout = require('./templates/about');
 const renderContact = require('./templates/contact');
+const renderHowWeWork = require('./templates/how-we-work');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'public');
@@ -59,6 +60,9 @@ function build() {
   });
 
   // Supporting pages
+  writePage('/how-we-work', renderHowWeWork());
+  pages.push({ loc: '/how-we-work', priority: '0.5' });
+
   writePage('/about', renderAbout());
   pages.push({ loc: '/about', priority: '0.5' });
 

@@ -21,6 +21,45 @@ function renderService(service) {
     )
     .join('');
 
+  const scenarioItems = (service.scenarios || [])
+    .map(
+      (s, i) => `<div class="pillar">
+        <span class="num">${String(i + 1).padStart(2, '0')}</span>
+        <div><h3>${esc(s.heading)}</h3><p>${esc(s.text)}</p></div>
+      </div>`
+    )
+    .join('');
+
+  const propertyTypeCards = (service.propertyTypes || [])
+    .map(
+      (p) => `<div class="card">
+        <h3>${esc(p.type)}</h3>
+        <p>${esc(p.text)}</p>
+      </div>`
+    )
+    .join('');
+
+  const faqItems = (service.faqs || [])
+    .map(
+      (f) => `<div class="faq-item">
+        <h3>${esc(f.q)}</h3>
+        <p>${esc(f.a)}</p>
+      </div>`
+    )
+    .join('');
+
+  const faqSchema = service.faqs
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: service.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      })
+    : '';
+
   // Every service page links to all 22 town pages using a "[Service] in
   // [Town]" anchor text pattern, grouped by region for scannability.
   const townLinksHtml = regionGroups()
@@ -63,7 +102,7 @@ function renderService(service) {
           <ul class="check-list mt-32">${includedList}</ul>
         </div>
         <div class="two-col-media">
-          ${placeholder(`${service.name} equipment detail shot`, { ratio: 'tall' })}
+          ${placeholder(service.imageAlt, { ratio: 'tall' })}
         </div>
       </div>
     </div>
@@ -86,16 +125,70 @@ function renderService(service) {
   </section>
 
   ${
+    scenarioItems
+      ? `<section>
+          <div class="container">
+            <div class="two-col">
+              <div class="two-col-text">
+                <span class="eyebrow">Real-World Scenarios</span>
+                <h2>Where ${esc(service.name.toLowerCase())} actually gets used</h2>
+                <div class="pillar-list mt-32">${scenarioItems}</div>
+              </div>
+              <div class="two-col-media">
+                ${placeholder(service.scenarioImageAlt, { ratio: 'tall' })}
+              </div>
+            </div>
+          </div>
+        </section>`
+      : ''
+  }
+
+  ${
+    propertyTypeCards
+      ? `<section class="section-alt">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">By Property Type</span>
+              <h2>How this applies to your property</h2>
+              <p class="lede">The same service, sized differently depending on what you own.</p>
+            </div>
+            <div class="card-grid cols-2">${propertyTypeCards}</div>
+          </div>
+        </section>`
+      : ''
+  }
+
+  ${
     extraCards
       ? `<section>
           <div class="container">
-            <div class="section-head">
-              <span class="eyebrow">In Detail</span>
-              <h2>${esc(service.name)}, done properly</h2>
+            <div class="two-col reverse">
+              <div class="two-col-media">
+                ${placeholder(service.detailImageAlt, { ratio: 'tall' })}
+              </div>
+              <div class="two-col-text">
+                <span class="eyebrow">In Detail</span>
+                <h2>${esc(service.name)}, done properly</h2>
+              </div>
             </div>
-            <div class="card-grid cols-2">${extraCards}</div>
+            <div class="card-grid cols-2 mt-32">${extraCards}</div>
           </div>
         </section>`
+      : ''
+  }
+
+  ${
+    faqItems
+      ? `<section class="section-alt">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">Questions</span>
+              <h2>Frequently asked questions</h2>
+            </div>
+            <div class="faq-list">${faqItems}</div>
+          </div>
+        </section>
+        ${faqSchema ? `<script type="application/ld+json">${faqSchema}</script>` : ''}`
       : ''
   }
 

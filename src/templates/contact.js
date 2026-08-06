@@ -32,11 +32,6 @@ function renderContact() {
             <p>Message us directly for a quick reply.</p>
             <a href="${site.whatsappHref}" class="btn btn-outline btn-block" target="_blank" rel="noopener">Chat on WhatsApp</a>
           </div>
-          <div class="contact-direct-card">
-            <h3>Email</h3>
-            <p>Prefer email? Reach us at:</p>
-            <a href="mailto:${esc(site.email)}" class="btn btn-outline btn-block">${esc(site.email)}</a>
-          </div>
         </div>
 
         <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company">

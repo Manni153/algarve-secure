@@ -13,8 +13,8 @@ const pillars = [
     text: 'Villas with pools and long boundary walls, apartments in gated blocks, holiday rentals that sit empty between guests — property types across the Algarve differ, and systems are planned around the property rather than fitted from a standard template.',
   },
   {
-    heading: 'One Team, Supply to Install',
-    text: 'The same team sources the equipment and fits it, so cameras, alarms and smart home devices are set up to work together properly, rather than being pieced together from separate suppliers.',
+    heading: 'Supplied and Installed as One Job',
+    text: 'Equipment is sourced and fitted as a single job, so cameras, alarms and smart home devices are set up to work together properly, rather than being pieced together from separate suppliers.',
   },
   {
     heading: 'Support That Doesn’t Disappear After Install',

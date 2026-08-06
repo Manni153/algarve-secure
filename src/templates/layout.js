@@ -148,6 +148,7 @@ function renderFooter() {
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
+            <li><a href="/how-we-work">How We Work</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
@@ -156,16 +157,12 @@ function renderFooter() {
           <h4>Direct</h4>
           <ul>
             <li><a href="${site.telHref}">${esc(site.phoneDisplay)}</a></li>
-            <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom" style="border-top:none;flex-direction:column;align-items:flex-start;padding-top:0;">
-        <p class="footer-disclaimer">${esc(site.complianceFooterNote)}</p>
-      </div>
       <div class="footer-bottom">
         <p>&copy; ${year} AlgarveSecure. All rights reserved.</p>
-        <p>${esc(site.phoneDisplay)} &middot; ${esc(site.email)}</p>
+        <p>${esc(site.phoneDisplay)}</p>
       </div>
     </div>
   </footer>`;

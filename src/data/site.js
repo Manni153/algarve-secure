@@ -13,7 +13,6 @@ module.exports = {
   whatsappHref: `https://wa.me/351923272806?text=${encodeURIComponent(
     "Hi AlgarveSecure, I'd like to ask about security systems for my property."
   )}`,
-  email: 'info@algarvesecure.com',
 
   // Primary nav shown inside the hamburger menu on every page.
   serviceNav: [
@@ -27,6 +26,7 @@ module.exports = {
   ],
 
   companyNav: [
+    { label: 'How We Work', href: '/how-we-work' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -47,8 +47,8 @@ module.exports = {
       text: 'Based in the Algarve and working across the region, with a real understanding of villas, apartments, gated communities and holiday rental properties.',
     },
     {
-      heading: 'Supply & Install, One Team',
-      text: 'Equipment sourced and fitted by the same team, so your cameras, alarms and access control are set up to work together properly from day one.',
+      heading: 'Supplied & Installed as One System',
+      text: 'Equipment is supplied and installed as a single job, rather than sourced separately and handed off, so your cameras, alarms and access control are set up to work together properly from day one.',
     },
     {
       heading: 'One Company, Every System',
@@ -61,26 +61,26 @@ module.exports = {
   process: [
     {
       heading: 'Get in Touch',
-      text: 'Call or WhatsApp to talk through the property and what you’d like covered.',
+      text: 'A call or WhatsApp message starts things off, and that first conversation happens entirely in English — no translation, no guessing at technical terms in a second language. It covers the basics: what the property is, roughly what needs covering, and what’s realistic for that kind of property, so there’s a clear idea of next steps before anything is booked in.',
     },
     {
       heading: 'Assessment',
-      text: 'The property is looked at and what’s actually needed is worked out — camera positions, sensor coverage, where a gate motor or access point makes sense — sized to the property rather than a standard package.',
+      text: 'What actually gets installed is worked out from the property itself, not picked off a standard package list. That means camera positions that cover the real entry points and blind spots, sensor coverage sized to the layout, and a decision on whether a gate motor or access point makes sense for how the property is used — a large villa with several access points needs a different plan than a single apartment with one door.',
     },
     {
       heading: 'Installation',
-      text: 'Equipment is installed and configured on-site by the same team that supplied it, set up to work together rather than as separate standalone pieces.',
+      text: 'Equipment goes in on-site, supplied and fitted as one job rather than sourced from one place and installed by someone else. That matters in practice: cameras, alarms and access control end up configured to work together — arming an alarm through the same app that shows the camera feed, for example — rather than functioning as separate systems that happen to share a property.',
     },
     {
       heading: 'Ongoing Support',
-      text: 'Support continues after the install — questions about the app, adding a device later, or troubleshooting don’t stop the day the installation is finished.',
+      text: 'The relationship doesn’t end when the equipment is switched on. Questions about the app, adding a camera or sensor later, or troubleshooting an alert are handled through the same number used to arrange the original installation — one point of contact throughout, not a new call centre to find every time something needs attention.',
     },
   ],
 
   faqs: [
     {
       q: 'Do you supply the equipment as well as install it?',
-      a: 'Yes. Equipment is supplied and installed by the same team, rather than sourced separately and handed off to an installer — so cameras, alarms, access control and the rest of a system are set up to work together from the start.',
+      a: 'Yes. Equipment is supplied and installed as one job, rather than sourced separately and handed off — so cameras, alarms, access control and the rest of a system are set up to work together from the start.',
     },
     {
       q: 'What areas of the Algarve do you cover?',
@@ -102,8 +102,21 @@ module.exports = {
       q: 'What types of properties do you work with?',
       a: 'Residences, condominiums and commercial premises — from a single villa to shared entrances and common areas in a gated development or apartment block.',
     },
+    {
+      q: 'How much does a security or smart home system cost?',
+      a: 'It depends on the property, the number of cameras or sensors involved, and how much cabling or network work is needed — there’s no single price that fits every property. Call or WhatsApp with a few details about yours and you’ll get an answer specific to your situation rather than a generic estimate.',
+    },
+    {
+      q: 'Do I need a site visit before I can get a quote?',
+      a: 'Often a site visit gives the most accurate picture, particularly for larger or more complex properties, but a first conversation and some photos or a description can be enough to start scoping out what makes sense before anything is booked in.',
+    },
+    {
+      q: 'Can I start with one system and add others later?',
+      a: 'Yes — CCTV, alarms, access control and the rest don’t have to go in all at once. A camera system installed now can have an alarm or access control added later, and connected together at that point rather than needing to start over.',
+    },
+    {
+      q: 'What happens if there’s a power cut or the internet goes down?',
+      a: 'Backup power (UPS) can be added to keep equipment running through a short power interruption, and footage is recorded to a local NVR or DVR on-site rather than relying solely on the cloud — so an internet outage doesn’t mean losing everything in the meantime.',
+    },
   ],
-
-  complianceFooterNote:
-    'AlgarveSecure installs security and smart home systems for residential and commercial properties across the Algarve, with support in English for homeowners based locally and abroad.',
 };
