@@ -4,14 +4,14 @@ const phoneDisplay = '+351 923 272 806';
 const phoneTel = '+351923272806';
 
 module.exports = {
-  brand: 'AlgarveSecure',
+  brand: 'Algarve Smart Home',
   domainDisplay: 'AlgarveSecure.com',
   baseUrl: 'https://www.algarvesecure.com',
   phoneDisplay,
   phoneTel,
   telHref: `tel:${phoneTel}`,
   whatsappHref: `https://wa.me/351923272806?text=${encodeURIComponent(
-    "Hi AlgarveSecure, I'd like to ask about security systems for my property."
+    "Hi Algarve Smart Home, I'd like to ask about security systems for my property."
   )}`,
 
   // Primary nav shown inside the hamburger menu on every page.

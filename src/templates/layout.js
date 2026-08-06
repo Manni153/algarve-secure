@@ -64,10 +64,10 @@ function renderHeader() {
   return `
   <header class="site-header">
     <div class="container">
-      <a href="/" class="wordmark">Algarve<span class="accent">Secure</span></a>
+      <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
       <div class="header-actions">
-        <a href="${site.telHref}" class="header-phone" aria-label="Call AlgarveSecure">
-          <span class="icon">&#9742;</span>${site.phoneDisplay}
+        <a href="${site.telHref}" class="header-phone" aria-label="Call Algarve Smart Home">
+          <span class="icon">&#9742;</span><span class="phone-digits">${site.phoneDisplay}</span>
         </a>
         <button type="button" class="hamburger" data-nav-open aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
           <span></span><span></span><span></span>
@@ -92,7 +92,7 @@ function renderNavDrawer() {
   <div class="nav-drawer" id="nav-drawer" data-nav-drawer>
     <nav class="nav-panel" aria-label="Main menu">
       <div class="nav-panel-top">
-        <a href="/" class="wordmark">Algarve<span class="accent">Secure</span></a>
+        <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
         <button type="button" class="nav-close" data-nav-close aria-label="Close menu">&#10005;</button>
       </div>
 
@@ -131,7 +131,7 @@ function renderFooter() {
     <div class="container">
       <div class="footer-masthead">
         <div>
-          <a href="/" class="wordmark">Algarve<span class="accent">Secure</span></a>
+          <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
           <p>English-speaking security systems and smart home installation for homeowners across the Algarve.</p>
         </div>
         <a href="${site.telHref}" class="btn btn-icon">${site.phoneDisplay}</a>
@@ -161,7 +161,7 @@ function renderFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; ${year} AlgarveSecure. All rights reserved.</p>
+        <p>&copy; ${year} Algarve Smart Home. All rights reserved.</p>
         <p>${esc(site.phoneDisplay)}</p>
       </div>
     </div>
@@ -170,7 +170,7 @@ function renderFooter() {
 
 function renderFloatingButtons() {
   return `
-  <a href="${site.whatsappHref}" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with AlgarveSecure on WhatsApp">
+  <a href="${site.whatsappHref}" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with Algarve Smart Home on WhatsApp">
     ${whatsappIcon}
   </a>
   <div class="mobile-call-bar">
@@ -189,7 +189,7 @@ function renderPage({ path, metaTitle, metaDescription, bodyHtml }) {
 <meta name="description" content="${esc(metaDescription)}">
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AlgarveSecure">
+<meta property="og:site_name" content="Algarve Smart Home">
 <meta property="og:title" content="${esc(metaTitle)}">
 <meta property="og:description" content="${esc(metaDescription)}">
 <meta property="og:url" content="${canonical}">

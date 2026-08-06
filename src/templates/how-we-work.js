@@ -6,7 +6,7 @@ const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
 const stages = [
   {
     heading: 'Get in Touch',
-    text: 'You call or message AlgarveSecure directly — the same phone number and WhatsApp link you see everywhere on this site. That first conversation happens in English and covers the basics: what the property is, what you\'re trying to cover, and roughly what you have in mind.',
+    text: 'You call or message Algarve Smart Home directly — the same phone number and WhatsApp link you see everywhere on this site. That first conversation happens in English and covers the basics: what the property is, what you\'re trying to cover, and roughly what you have in mind.',
   },
   {
     heading: 'Assessment',
@@ -18,18 +18,18 @@ const stages = [
   },
   {
     heading: 'Ongoing Support',
-    text: 'After installation, you call the same number for support — questions about the app, adding a device later, or troubleshooting an alert. AlgarveSecure stays the point of contact even after the on-site work is finished.',
+    text: 'After installation, you call the same number for support — questions about the app, adding a device later, or troubleshooting an alert. Algarve Smart Home stays the point of contact even after the on-site work is finished.',
   },
 ];
 
 const faqs = [
   {
     q: 'Do I need to contact the installation partner separately?',
-    a: 'No. You contact AlgarveSecure, by phone or WhatsApp, for enquiries, quotes and ongoing support. The local partner team handles the on-site work, but AlgarveSecure stays the point of contact throughout.',
+    a: 'No. You contact Algarve Smart Home, by phone or WhatsApp, for enquiries, quotes and ongoing support. The local partner team handles the on-site work, but Algarve Smart Home stays the point of contact throughout.',
   },
   {
     q: 'Does this change how the installation is carried out?',
-    a: 'No. The property assessment, the installation itself and the equipment used are what you\'d expect from a dedicated local installer — coordinating through AlgarveSecure just means one consistent point of contact across the whole process.',
+    a: 'No. The property assessment, the installation itself and the equipment used are what you\'d expect from a dedicated local installer — coordinating through Algarve Smart Home just means one consistent point of contact across the whole process.',
   },
   {
     q: 'Which areas does this cover?',
@@ -59,7 +59,7 @@ function renderHowWeWork() {
   const hero = heroPhoto({
     alt: 'Phone and notepad with an Algarve property photo and site plan on a desk',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'How We Work' }],
-    h1Html: 'How <em>AlgarveSecure</em> Works',
+    h1Html: 'How <em>Algarve Smart Home</em> Works',
     lede: 'A straightforward look at how an enquiry turns into a working system on your property.',
   });
 
@@ -70,9 +70,9 @@ function renderHowWeWork() {
     <div class="container">
       <div class="two-col">
         <div class="two-col-text">
-          <span class="eyebrow">What AlgarveSecure Does</span>
+          <span class="eyebrow">What Algarve Smart Home Does</span>
           <h2>A marketing service, connecting you to local installers</h2>
-          <p><strong>AlgarveSecure is a marketing service connecting Algarve homeowners with local, experienced installation partners.</strong> In practice, that means AlgarveSecure is your first point of contact — the phone number and WhatsApp link on this site — and the team that actually assesses, supplies and installs the system on your property is a local partner working across the region.</p>
+          <p><strong>Algarve Smart Home is a marketing service connecting Algarve homeowners with local, experienced installation partners.</strong> In practice, that means Algarve Smart Home is your first point of contact — the phone number and WhatsApp link on this site — and the team that actually assesses, supplies and installs the system on your property is a local partner working across the region.</p>
           <p>That doesn't change what happens on the ground: the same conversation about your property, the same site assessment, the same equipment installed and configured properly. It just means there's one consistent number to call, whether you're getting a quote, arranging an install, or following up with a question afterwards.</p>
         </div>
         <div class="two-col-media">
@@ -102,7 +102,7 @@ function renderHowWeWork() {
         <div class="two-col-text">
           <span class="eyebrow">Why It's Set Up This Way</span>
           <h2>One number, coverage across the whole region</h2>
-          <p>Coordinating with local installation partners means AlgarveSecure can cover towns across the whole Algarve — from Sagres to Vila Real de Santo António — through people who already work in those areas day-to-day, rather than one small team trying to reach every property in the region alone.</p>
+          <p>Coordinating with local installation partners means Algarve Smart Home can cover towns across the whole Algarve — from Sagres to Vila Real de Santo António — through people who already work in those areas day-to-day, rather than one small team trying to reach every property in the region alone.</p>
           <p>For you, the practical difference is small: one number to call, one point of contact for support, and a system installed by people who know the area.</p>
         </div>
       </div>

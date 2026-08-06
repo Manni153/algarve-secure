@@ -43,9 +43,9 @@ function renderAbout() {
     .join('');
 
   const hero = heroPhoto({
-    alt: 'AlgarveSecure installer fitting an outdoor security camera on a villa wall',
+    alt: 'Algarve Smart Home installer fitting an outdoor security camera on a villa wall',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'About' }],
-    h1Html: 'About <em>AlgarveSecure</em>',
+    h1Html: 'About <em>Algarve Smart Home</em>',
     lede: "A local installer built around one idea: security and smart home systems should be easy to understand, whoever you are and wherever you're from.",
   });
 
@@ -58,7 +58,7 @@ function renderAbout() {
         <div class="two-col-text">
           <span class="eyebrow">Who We Are</span>
           <h2>Built for English-speaking homeowners in the Algarve</h2>
-          <p>AlgarveSecure installs CCTV, alarms, access control, gate automation, fire detection, networking and smart home systems for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.</p>
+          <p>Algarve Smart Home installs CCTV, alarms, access control, gate automation, fire detection, networking and smart home systems for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.</p>
           <p>That back-and-forth is exactly why the service is built the way it is: clear English communication, systems you can check on remotely, and support that's easy to reach when you need it, whether you're at the property or on the other side of Europe.</p>
         </div>
         <div class="two-col-media">
@@ -82,7 +82,7 @@ function renderAbout() {
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">How We Work</span>
-        <h2>What makes AlgarveSecure different</h2>
+        <h2>What makes Algarve Smart Home different</h2>
       </div>
       <div class="pillar-list">${pillarItems}</div>
     </div>
@@ -91,7 +91,7 @@ function renderAbout() {
   <section class="cta-band">
     <div class="container">
       <span class="eyebrow">Get Started</span>
-      <h2>Talk to AlgarveSecure about your property</h2>
+      <h2>Talk to Algarve Smart Home about your property</h2>
       <p class="lede">Call now to discuss cameras, alarms or smart home options — in English, with no confusion.</p>
       <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
     </div>

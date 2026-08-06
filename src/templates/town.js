@@ -124,7 +124,7 @@ function renderTown(town) {
   <section class="cta-band">
     <div class="container">
       <span class="eyebrow">Get Started</span>
-      <h2>Speak to AlgarveSecure about your property in ${esc(town.name)}</h2>
+      <h2>Speak to Algarve Smart Home about your property in ${esc(town.name)}</h2>
       <p class="lede">Call now to talk through cameras, alarms or smart home options — in English, with no confusion.</p>
       <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
     </div>

@@ -131,11 +131,16 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
   border-bottom: 1px solid var(--stone);
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.wordmark { font-family: var(--ui); font-weight: 800; font-size: 1.15rem; color: var(--ink); display: flex; align-items: baseline; gap: 2px; }
+.wordmark { font-family: var(--ui); font-weight: 800; font-size: clamp(0.86rem, 4vw, 1.15rem); color: var(--ink); display: flex; align-items: baseline; gap: 0; white-space: nowrap; }
 .wordmark span.accent { color: var(--terracotta); }
 
 .header-actions { display: flex; align-items: center; gap: 14px; }
-.header-phone { font-family: var(--ui); font-weight: 700; color: var(--terracotta); font-size: clamp(0.88rem, 2vw, 1.08rem); display: flex; align-items: center; gap: 8px; }
+.header-phone { font-family: var(--ui); font-weight: 700; color: var(--terracotta); font-size: clamp(0.88rem, 2vw, 1.08rem); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.header-phone .icon { font-size: 1.15em; }
+@media (max-width: 480px) {
+  .header-phone .phone-digits { display: none; }
+  .header-phone .icon { font-size: 1.5rem; }
+}
 
 .hamburger {
   display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -325,7 +330,7 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    ------------------------------------------------------------------------- */
 .site-footer { background: var(--ink); color: rgba(247, 241, 228, 0.75); }
 .footer-masthead { padding: 44px 0; border-bottom: 1px solid rgba(247, 241, 228, 0.14); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
-.footer-masthead .wordmark { font-size: 1.3rem; color: var(--cream); }
+.footer-masthead .wordmark { font-size: clamp(1rem, 5vw, 1.3rem); color: var(--cream); }
 .footer-masthead .wordmark span.accent { color: #f3caa4; }
 .footer-masthead p { margin: 6px 0 0; max-width: 42ch; font-size: 0.92rem; color: rgba(247, 241, 228, 0.65); }
 .footer-grid { display: grid; gap: 32px; grid-template-columns: 1fr; padding: 44px 0; }
