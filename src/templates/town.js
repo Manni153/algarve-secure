@@ -15,7 +15,7 @@ function renderTown(town) {
     )
     .join('');
 
-  const nearby = nearbyTowns(town.slug, 4);
+  const nearby = nearbyTowns(town.slug, 3);
   const nearbyLine = nearby
     .map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`)
     .join('<span class="sep">&middot;</span>');

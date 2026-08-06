@@ -2,15 +2,8 @@
 
 const site = require('../data/site');
 const services = require('../data/services');
-const { towns, regionGroups } = require('../data/towns');
+const { regionGroups } = require('../data/towns');
 const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
-
-// Curated cross-region subset used on non-flagship service pages for internal
-// linking. CCTV (the flagship page) links to all 22 towns instead.
-const CORE_TOWN_SLUGS = [
-  'albufeira', 'lagos', 'tavira', 'vilamoura', 'carvoeiro',
-  'portimao', 'faro', 'loule', 'quarteira', 'almancil',
-];
 
 function renderService(service) {
   const otherServices = services.filter((s) => s.slug !== service.slug);
@@ -28,23 +21,16 @@ function renderService(service) {
     )
     .join('');
 
-  const townLinksHtml = service.flagship
-    ? regionGroups()
-        .map(
-          (g) => `<div class="directory-col">
-            <div class="head">${esc(g.label.toUpperCase())}</div>
-            ${g.towns.map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`).join('')}
-          </div>`
-        )
-        .join('')
-    : '';
-
-  const townLinkLine = !service.flagship
-    ? towns
-        .filter((t) => CORE_TOWN_SLUGS.includes(t.slug))
-        .map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`)
-        .join('<span class="sep">&middot;</span>')
-    : '';
+  // Every service page links to all 22 town pages using a "[Service] in
+  // [Town]" anchor text pattern, grouped by region for scannability.
+  const townLinksHtml = regionGroups()
+    .map(
+      (g) => `<div class="directory-col">
+        <div class="head">${esc(g.label.toUpperCase())}</div>
+        ${g.towns.map((t) => `<a href="/${t.slug}">${esc(service.name)} in ${esc(t.name)}</a>`).join('')}
+      </div>`
+    )
+    .join('');
 
   const otherServiceCards = otherServices
     .map(
@@ -127,9 +113,9 @@ function renderService(service) {
       <div class="section-head">
         <span class="eyebrow">Where We Work</span>
         <h2>${esc(service.name)} across the Algarve</h2>
-        <p class="lede">${service.flagship ? 'Installed for homeowners in every town we cover.' : 'Installed for homeowners across the Algarve, including:'}</p>
+        <p class="lede">Installed for homeowners in every town we cover.</p>
       </div>
-      ${service.flagship ? `<div class="directory">${townLinksHtml}</div>` : `<div class="link-line center">${townLinkLine}</div>`}
+      <div class="directory">${townLinksHtml}</div>
     </div>
   </section>
 
