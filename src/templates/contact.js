@@ -10,10 +10,10 @@ function renderContact() {
     .join('');
 
   const body = `
-  <section class="hero" style="padding-bottom:0;">
-    <div class="container">
+  <section class="hero hero-plain">
+    <div class="container" style="max-width:720px;">
       ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
-      <h1>Contact AlgarveSecure</h1>
+      <h1>Contact <em>AlgarveSecure</em></h1>
       <p class="lede">Call or WhatsApp for the fastest response, or send a few details below and we'll get back to you.</p>
     </div>
   </section>

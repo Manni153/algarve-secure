@@ -63,4 +63,14 @@ function nearbyTowns(slug, count = 3) {
   return [...sameRegion, ...rest].slice(0, count);
 }
 
-module.exports = { towns, nearbyTowns };
+const REGION_LABELS = { west: 'West Algarve', central: 'Central Algarve', east: 'East Algarve' };
+
+function regionGroups() {
+  return ['west', 'central', 'east'].map((key) => ({
+    key,
+    label: REGION_LABELS[key],
+    towns: towns.filter((t) => t.region === key),
+  }));
+}
+
+module.exports = { towns, nearbyTowns, regionGroups };

@@ -47,16 +47,16 @@ function build() {
   pages.push({ loc: '/', priority: '1.0' });
 
   // Service pages
-  for (const service of services) {
-    writePage(`/${service.slug}`, renderService(service));
+  services.forEach((service, index) => {
+    writePage(`/${service.slug}`, renderService(service, index));
     pages.push({ loc: `/${service.slug}`, priority: service.flagship ? '0.9' : '0.8' });
-  }
+  });
 
   // Town pages
-  for (const town of towns) {
-    writePage(`/${town.slug}`, renderTown(town));
+  towns.forEach((town, index) => {
+    writePage(`/${town.slug}`, renderTown(town, index));
     pages.push({ loc: `/${town.slug}`, priority: '0.7' });
-  }
+  });
 
   // Supporting pages
   writePage('/about', renderAbout());

@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, placeholder, renderPage, renderBreadcrumb } = require('./layout');
+const { esc, panel, renderPage, renderBreadcrumb } = require('./layout');
 
 const pillars = [
   {
@@ -34,8 +34,7 @@ function renderAbout() {
 
   const trustCards = site.trustSection
     .map(
-      (t, i) => `<div class="feature-card">
-        <div class="icon-badge">${i + 1}</div>
+      (t) => `<div class="card-arch">
         <h3>${esc(t.heading)}</h3>
         <p>${esc(t.text)}</p>
       </div>`
@@ -43,28 +42,30 @@ function renderAbout() {
     .join('');
 
   const body = `
-  <section class="hero" style="padding-bottom:0;">
-    <div class="container">
-      ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: 'About' }])}
-      <h1>About AlgarveSecure</h1>
-      <p class="lede">A local installer built around one idea: security and smart home systems should be easy to understand, whoever you are and wherever you're from.</p>
-      <div class="hero-image-slot">
-        ${placeholder('[Placeholder: AlgarveSecure installer at work on a residential CCTV installation]', 'ratio-wide')}
+  <section class="hero">
+    <div class="split">
+      <div class="split-text">
+        ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: 'About' }])}
+        <h1>About <em>AlgarveSecure</em></h1>
+        <p class="lede">A local installer built around one idea: security and smart home systems should be easy to understand, whoever you are and wherever you're from.</p>
+      </div>
+      <div class="split-panel">
+        ${panel('AlgarveSecure installer fitting an outdoor security camera on a villa wall', { camera: true })}
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="two-col">
-        <div>
+      <div class="split reverse contained">
+        <div class="split-panel">
+          ${panel('Close-up of installer wiring a CCTV camera bracket')}
+        </div>
+        <div class="split-text">
           <span class="eyebrow">Who We Are</span>
-          <h2>Built for English-Speaking Homeowners in the Algarve</h2>
+          <h2>Built for English-speaking homeowners in the Algarve</h2>
           <p>AlgarveSecure installs CCTV, alarms, access control, gate automation, fire detection, networking and smart home systems for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.</p>
           <p>That back-and-forth is exactly why the service is built the way it is: clear English communication, systems you can check on remotely, and support that's easy to reach when you need it, whether you're at the property or on the other side of Europe.</p>
-        </div>
-        <div>
-          ${placeholder('[Placeholder: Close-up of installer fitting an outdoor security camera]', 'ratio-tall')}
         </div>
       </div>
     </div>
@@ -72,29 +73,35 @@ function renderAbout() {
 
   <section class="section-alt">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Why Homeowners Choose Us</span>
-        <h2>What You Can Expect</h2>
+      <div class="sec-head">
+        <span class="sec-num">Why Homeowners Choose Us</span>
+        <div><h2>What you can expect</h2></div>
       </div>
-      <div class="grid-3">${trustCards}</div>
+      <div class="card-grid cols-3">${trustCards}</div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">How We Work</span>
-        <h2>What Makes AlgarveSecure Different</h2>
+      <div class="sec-head">
+        <span class="sec-num">How We Work</span>
+        <div><h2>What makes AlgarveSecure different</h2></div>
       </div>
       <div class="pillar-list">${pillarItems}</div>
     </div>
   </section>
 
   <section class="cta-band">
-    <div class="container">
-      <h2>Talk to AlgarveSecure About Your Property</h2>
-      <p class="lede">Call now to discuss cameras, alarms or smart home options — in English, with no confusion.</p>
-      <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone">${site.phoneDisplay}</a>
+    <div class="split reverse">
+      <div class="split-panel">
+        ${panel('Algarve villa exterior with smart home lighting at dusk')}
+      </div>
+      <div class="split-text">
+        <span class="eyebrow">Get Started</span>
+        <h2>Talk to AlgarveSecure about your property</h2>
+        <p class="lede">Call now to discuss cameras, alarms or smart home options — in English, with no confusion.</p>
+        <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone">${site.phoneDisplay}</a>
+      </div>
     </div>
   </section>
   `;
