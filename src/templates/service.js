@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { towns } = require('../data/towns');
-const { esc, placeholder, renderPage, renderBreadcrumb } = require('./layout');
+const { esc, placeholder, heroBackground, renderPage, renderBreadcrumb } = require('./layout');
 
 // Curated cross-region subset used on non-flagship service pages for internal
 // linking. CCTV (the flagship page) links to all 22 towns instead.
@@ -46,15 +46,13 @@ function renderService(service) {
     .join('');
 
   const body = `
-  <section class="hero" style="padding-bottom:0;">
+  <section class="hero hero-has-bg">
+    ${heroBackground(service.imageAlt)}
     <div class="container">
       ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: service.name }])}
       <h1>${esc(service.h1)}</h1>
       <p class="lede">${esc(service.heroSubhead)}</p>
       <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone hero-cta">${site.phoneDisplay}</a>
-      <div class="hero-image-slot">
-        ${placeholder(service.imageAlt, 'ratio-wide')}
-      </div>
     </div>
   </section>
 

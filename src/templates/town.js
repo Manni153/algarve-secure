@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, placeholder, renderPage, renderBreadcrumb } = require('./layout');
+const { esc, placeholder, heroBackground, renderPage, renderBreadcrumb } = require('./layout');
 
 function renderTown(town) {
   const serviceCards = services
@@ -22,15 +22,13 @@ function renderTown(town) {
     .join('');
 
   const body = `
-  <section class="hero" style="padding-bottom:0;">
+  <section class="hero hero-has-bg">
+    ${heroBackground(`[Placeholder: Property exterior in ${town.name}, Algarve, with security camera detail]`)}
     <div class="container">
       ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: town.name }])}
       <h1>English-Speaking Security &amp; Smart Home Systems in ${esc(town.name)}</h1>
       <p class="lede">CCTV, alarms and smart home installation for homeowners in ${esc(town.name)} and the surrounding area, with support in plain English from start to finish.</p>
       <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone hero-cta">${site.phoneDisplay}</a>
-      <div class="hero-image-slot">
-        ${placeholder(`[Placeholder: Property exterior in ${town.name}, Algarve, with security camera detail]`, 'ratio-wide')}
-      </div>
     </div>
   </section>
 

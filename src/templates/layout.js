@@ -17,6 +17,16 @@ function placeholder(alt, ratioClass) {
   return `<div class="placeholder-block ${ratioClass || 'ratio-wide'}" role="img" aria-label="${esc(alt)}">${esc(alt)}</div>`;
 }
 
+// Full-bleed hero background placeholder: fills the entire hero section behind
+// the overlaid headline/CTA content, with a dark navy gradient on top for
+// text readability. Still a clearly marked placeholder, not a real image.
+function heroBackground(alt) {
+  return `<div class="hero-bg" role="img" aria-label="${esc(alt)}">
+    <span class="hero-bg-label">${esc(alt)}</span>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>`;
+}
+
 function renderHeader() {
   return `
   <header class="site-header">
@@ -177,6 +187,7 @@ ${renderFloatingButtons()}
 module.exports = {
   esc,
   placeholder,
+  heroBackground,
   renderPage,
   renderBreadcrumb,
 };

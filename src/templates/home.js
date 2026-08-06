@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { towns } = require('../data/towns');
-const { esc, placeholder, renderPage } = require('./layout');
+const { esc, heroBackground, renderPage } = require('./layout');
 
 function renderHome() {
   const trustStats = site.trustStats
@@ -37,16 +37,14 @@ function renderHome() {
     .join('');
 
   const body = `
-  <section class="hero">
+  <section class="hero hero-has-bg">
+    ${heroBackground('[Placeholder: Modern Algarve villa exterior at dusk with discreet CCTV camera and smart lighting]')}
     <div class="container">
       <span class="eyebrow">Security &amp; Smart Home Installation &middot; The Algarve</span>
       <h1>English-Speaking Security &amp; Smart Home Systems for the Algarve</h1>
       <p class="lede">CCTV, alarms, access control and smart home automation — supplied, installed and explained in plain English for homeowners across the Algarve.</p>
       <a href="${site.telHref}" class="btn btn-call btn-hero btn-icon-phone hero-cta">${site.phoneDisplay}</a>
       <div class="trust-stats">${trustStats}</div>
-      <div class="hero-image-slot">
-        ${placeholder('[Placeholder: Modern Algarve villa exterior with discreet CCTV camera and smart lighting]', 'ratio-wide')}
-      </div>
     </div>
   </section>
 
