@@ -1,0 +1,13 @@
+{
+  "name": "algarvesecure-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing site for AlgarveSecure — security systems & smart home installation lead generation across the Algarve.",
+  "scripts": {
+    "build": "node src/build.js",
+    "serve": "npx --yes serve public -l 4173"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
