@@ -36,8 +36,8 @@ function renderTown(town) {
         <div class="two-col-text">
           <span class="eyebrow">Local to ${esc(town.name)}</span>
           <h2>Security &amp; smart home installation in ${esc(town.name)}</h2>
-          <p>${esc(town.name)} is ${esc(town.character)}. Whether it's a villa, apartment or holiday rental, we plan cameras, alarms and smart home systems around how the property is actually used — and explain every step in English.</p>
-          <p>From a single CCTV camera covering a driveway to a fully connected system with alarms, access control and smart lighting, systems are sized to the property, not sold as a one-size-fits-all package.</p>
+          <p>${esc(town.name)} is ${esc(town.character)}. Whether it's a villa, apartment or holiday rental, we plan cameras, alarms and access systems around how the property is actually used — and explain every step in English.</p>
+          <p>${esc(town.context)}</p>
           <a href="${site.telHref}" class="btn btn-icon mt-32">${site.phoneDisplay}</a>
         </div>
         <div class="two-col-media">

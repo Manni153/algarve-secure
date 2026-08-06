@@ -36,6 +36,34 @@ function renderHome() {
     )
     .join('');
 
+  const processSteps = site.process
+    .map(
+      (p, i) => `<div class="pillar">
+        <span class="num">${String(i + 1).padStart(2, '0')}</span>
+        <div><h3>${esc(p.heading)}</h3><p>${esc(p.text)}</p></div>
+      </div>`
+    )
+    .join('');
+
+  const faqItems = site.faqs
+    .map(
+      (f) => `<div class="faq-item">
+        <h3>${esc(f.q)}</h3>
+        <p>${esc(f.a)}</p>
+      </div>`
+    )
+    .join('');
+
+  const faqSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: site.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+
   const hero = heroPhoto({
     alt: 'Modern Algarve villa exterior at golden hour with discreet CCTV camera visible on the wall',
     eyebrow: 'Security &amp; Smart Home Installation &middot; The Algarve',
@@ -69,7 +97,18 @@ function renderHome() {
     </div>
   </section>
 
-  <section id="areas">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How It Works</span>
+        <h2>From first call to finished install</h2>
+        <p class="lede">The same team handles every step, so nothing gets lost between a quote and the equipment actually going in.</p>
+      </div>
+      <div class="pillar-list">${processSteps}</div>
+    </div>
+  </section>
+
+  <section class="section-alt" id="areas">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Where We Work</span>
@@ -79,6 +118,17 @@ function renderHome() {
       <div class="directory">${directoryCols}</div>
     </div>
   </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">${faqItems}</div>
+    </div>
+  </section>
+  <script type="application/ld+json">${faqSchema}</script>
 
   <section class="cta-band">
     <div class="container">

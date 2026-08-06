@@ -48,7 +48,59 @@ module.exports = {
     },
     {
       heading: 'Supply & Install, One Team',
-      text: 'Equipment sourced and fitted by the same team, so your cameras, alarms and smart home devices are set up to work together properly from day one.',
+      text: 'Equipment sourced and fitted by the same team, so your cameras, alarms and access control are set up to work together properly from day one.',
+    },
+    {
+      heading: 'One Company, Every System',
+      text: 'CCTV, alarms, access control, gate automation, fire detection and networking are all handled under one roof, so a camera system and an alarm system are designed to work together rather than being sourced from two different suppliers.',
+    },
+  ],
+
+  // General process outline. Deliberately no specific timelines or response
+  // commitments — only what's actually true of how the work happens.
+  process: [
+    {
+      heading: 'Get in Touch',
+      text: 'Call or WhatsApp to talk through the property and what you’d like covered.',
+    },
+    {
+      heading: 'Assessment',
+      text: 'The property is looked at and what’s actually needed is worked out — camera positions, sensor coverage, where a gate motor or access point makes sense — sized to the property rather than a standard package.',
+    },
+    {
+      heading: 'Installation',
+      text: 'Equipment is installed and configured on-site by the same team that supplied it, set up to work together rather than as separate standalone pieces.',
+    },
+    {
+      heading: 'Ongoing Support',
+      text: 'Support continues after the install — questions about the app, adding a device later, or troubleshooting don’t stop the day the installation is finished.',
+    },
+  ],
+
+  faqs: [
+    {
+      q: 'Do you supply the equipment as well as install it?',
+      a: 'Yes. Equipment is supplied and installed by the same team, rather than sourced separately and handed off to an installer — so cameras, alarms, access control and the rest of a system are set up to work together from the start.',
+    },
+    {
+      q: 'What areas of the Algarve do you cover?',
+      a: 'We work across the Algarve, from Sagres in the west to Vila Real de Santo António in the east. See the areas we cover below, or get in touch to check your specific location.',
+    },
+    {
+      q: 'Is support really in English?',
+      a: 'Yes — every call, quote and site visit is handled in English, from the first enquiry through to the finished installation and any support afterwards.',
+    },
+    {
+      q: 'Can I view my cameras or control my alarm remotely?',
+      a: 'CCTV systems support remote viewing from a phone or tablet through a dedicated app, and alarm systems can be armed, disarmed and checked through an app as well.',
+    },
+    {
+      q: 'Do you work with holiday rental and seasonal properties, or only full-time homes?',
+      a: 'Both. Systems are sized to the property and how it’s used, whether that’s a full-time residence, a holiday home used for part of the year, or a rental property between guests.',
+    },
+    {
+      q: 'What types of properties do you work with?',
+      a: 'Residences, condominiums and commercial premises — from a single villa to shared entrances and common areas in a gated development or apartment block.',
     },
   ],
 
