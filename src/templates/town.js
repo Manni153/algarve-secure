@@ -3,13 +3,51 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
+
+// Keyword -> service page map, used to turn a first natural mention of a
+// service inside a town's prose into a real link, without hand-editing 22
+// town entries. Matched in this order; each service links at most once per
+// page so the prose doesn't turn into a wall of links.
+const SERVICE_KEYWORDS = [
+  { re: /\bCCTV\b/, slug: 'cctv-installation' },
+  { re: /\balarm(?: system| coverage| systems)?\b/i, slug: 'alarm-systems' },
+  { re: /\baccess control\b/i, slug: 'access-control' },
+  { re: /\bgate automation\b/i, slug: 'gate-automation' },
+  { re: /\bfire detection\b/i, slug: 'fire-detection' },
+  { re: /\bnetwork(?:ing|ed)?\b/i, slug: 'home-networking' },
+  { re: /\bsmart home\b/i, slug: 'smart-home-automation' },
+];
+
+function linkifyServices(text, linkedSlugs) {
+  let result = text;
+  for (const kw of SERVICE_KEYWORDS) {
+    if (linkedSlugs.has(kw.slug)) continue;
+    if (kw.re.test(result)) {
+      result = result.replace(kw.re, (match) => `<a href="/${kw.slug}">${match}</a>`);
+      linkedSlugs.add(kw.slug);
+    }
+  }
+  return result;
+}
+
+function linkifyTownNames(text, nearby) {
+  let result = text;
+  for (const t of nearby) {
+    // Word-boundary-safe replace of the first mention only.
+    const re = new RegExp(`\\b${t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+    if (re.test(result)) {
+      result = result.replace(re, `<a href="/${t.slug}">${t.name}</a>`);
+    }
+  }
+  return result;
+}
 
 function renderTown(town) {
   const serviceRows = services
     .map(
       (s) => `<a href="/${s.slug}">
-        <div><h3>${esc(s.name)} in ${esc(town.name)}</h3><p>${esc(s.heroSubhead)}</p></div>
+        <h3>${esc(s.name)} in ${esc(town.name)}</h3>
         <span class="arrow">&rarr;</span>
       </a>`
     )
@@ -32,10 +70,47 @@ function renderTown(town) {
     .map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`)
     .join('<span class="sep">&middot;</span>');
 
+  // Cross-link a first natural mention of a service within the prose, and
+  // the nearby-town names already named in the proximity paragraph.
+  const linkedSlugs = new Set();
+  const propertyProfileHtml = linkifyServices(esc(town.propertyProfile), linkedSlugs);
+  const concernsHtml = linkifyServices(esc(town.concerns), linkedSlugs);
+  const proximityHtml = linkifyTownNames(esc(town.proximity), nearby);
+
+  const faqItems = (town.faqs || [])
+    .map(
+      (f) => `<div class="faq-item">
+        <h3>${esc(f.q)}</h3>
+        <p>${esc(f.a)}</p>
+      </div>`
+    )
+    .join('');
+
+  const faqSchema = town.faqs
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: town.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
+      { '@type': 'ListItem', position: 2, name: town.name, item: `${site.baseUrl}/${town.slug}` },
+    ],
+  };
+
   const hero = heroPhoto({
     alt: `Property exterior in ${town.name}, Algarve, with security camera detail`,
     breadcrumb: [{ label: 'Home', href: '/' }, { label: town.name }],
-    h1Html: `English-Speaking Security &amp; Smart Home Systems in ${esc(town.name)}`,
+    h1Html: `Security &amp; Smart Home Installation in ${esc(town.name)}`,
     lede: `CCTV, alarms and smart home installation for homeowners in ${town.name} and the surrounding area, with support in plain English from start to finish.`,
   });
 
@@ -48,7 +123,7 @@ function renderTown(town) {
         <div class="two-col-text">
           <span class="eyebrow">Local to ${esc(town.name)}</span>
           <h2>Security &amp; smart home installation in ${esc(town.name)}</h2>
-          <p>${esc(town.name)} is ${esc(town.character)}. Whether it's a villa, apartment or holiday rental, we plan cameras, alarms and access systems around how the property is actually used — and explain every step in English.</p>
+          <p>${esc(town.name)} is ${esc(town.character)}. Whether it's a villa, apartment or holiday rental, systems are planned around how the property is actually used — and every step is explained in English.</p>
           <p>${esc(town.context)}</p>
           <a href="${site.telHref}" class="btn btn-icon mt-32">${site.phoneDisplay}</a>
         </div>
@@ -67,9 +142,9 @@ function renderTown(town) {
       </div>
       <div class="narrow" style="margin: 0 auto;">
         <h3>Property Types &amp; Profile</h3>
-        <p>${esc(town.propertyProfile)}</p>
+        <p>${rich(propertyProfileHtml)}</p>
         <h3>What Owners Tend to Ask About</h3>
-        <p>${esc(town.concerns)}</p>
+        <p>${rich(concernsHtml)}</p>
       </div>
     </div>
   </section>
@@ -99,6 +174,20 @@ function renderTown(town) {
     </div>
   </section>
 
+  ${
+    faqItems
+      ? `<section id="faq">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">Questions</span>
+              <h2>Frequently asked questions about ${esc(town.name)}</h2>
+            </div>
+            <div class="faq-list">${faqItems}</div>
+          </div>
+        </section>`
+      : ''
+  }
+
   <section>
     <div class="container">
       <div class="section-head">
@@ -106,7 +195,7 @@ function renderTown(town) {
         <h2>Also serving areas near ${esc(town.name)}</h2>
       </div>
       <div class="narrow" style="margin: 0 auto 32px;">
-        <p>${esc(town.proximity)}</p>
+        <p>${rich(proximityHtml)}</p>
       </div>
       <div class="link-line center">${nearbyLine}</div>
     </div>
@@ -124,9 +213,8 @@ function renderTown(town) {
 
   return renderPage({
     path: `/${town.slug}`,
-    metaTitle: `Security & Smart Home Installer in ${town.name}, Algarve | AlgarveSecure`,
-    metaDescription: `English-speaking CCTV, alarm and smart home installation for homeowners in ${town.name}, Algarve. Call +351 923 272 806.`,
     bodyHtml: body,
+    schema: [breadcrumbSchema, faqSchema].filter(Boolean),
   });
 }
 

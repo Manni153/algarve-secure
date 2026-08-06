@@ -16,9 +16,6 @@ const services = [
     name: 'CCTV Installation',
     navLabel: 'CCTV Installation',
     flagship: true,
-    metaTitle: 'CCTV Installation Algarve | English-Speaking Installer | AlgarveSecure',
-    metaDescription:
-      'CCTV camera installation for homes and businesses across the Algarve. Indoor & outdoor cameras, NVR/DVR recording, remote app viewing. Call +351 923 272 806.',
     h1: 'CCTV Installation in the Algarve',
     heroSubhead:
       'Indoor and outdoor camera systems with remote viewing, installed and explained in plain English for homeowners across the Algarve.',
@@ -92,7 +89,7 @@ const services = [
     faqs: [
       {
         q: 'How much does CCTV installation cost?',
-        a: 'Costs vary depending on the number of cameras, the size of the property and how much cabling or network work is needed — there’s no single price that applies to every property. Call or WhatsApp with a few details and you’ll get an answer specific to your situation, not a generic estimate.',
+        a: 'Costs vary depending on the number of cameras, the size of the property and how much cabling or network work is needed — there’s no single price that applies to every property. The most accurate way to get a number is a quick call or WhatsApp message describing the property.',
       },
       {
         q: 'How long does installation take?',
@@ -100,7 +97,7 @@ const services = [
       },
       {
         q: 'Do I need a fast internet connection for remote viewing?',
-        a: 'A stable connection helps, particularly for viewing multiple cameras or higher-resolution footage remotely. If a property has a patchy connection, that’s worth mentioning early — it may be worth pairing CCTV with a home networking assessment.',
+        a: 'A stable connection helps, particularly for viewing multiple cameras or higher-resolution footage remotely. If a property has a patchy connection, that’s worth mentioning early — it may be worth pairing CCTV with a <a href="/home-networking">home networking assessment</a>.',
       },
       {
         q: 'Where is the footage stored?',
@@ -108,7 +105,7 @@ const services = [
       },
       {
         q: 'Can I view cameras from outside Portugal?',
-        a: 'Yes — once set up, cameras can be viewed from a phone or tablet through a dedicated app wherever there’s an internet connection, whether that’s elsewhere in the Algarve or back in the UK, Ireland, the Netherlands or Germany.',
+        a: 'Yes — the app works over any working internet connection, so it makes no difference whether the viewer is a few streets from the property or on a completely different continent.',
       },
       {
         q: 'Is CCTV suitable for a holiday rental?',
@@ -116,7 +113,7 @@ const services = [
       },
       {
         q: 'Can CCTV be combined with an alarm system?',
-        a: 'Yes — cameras and alarm systems are commonly installed together and can be set up to work as one connected system rather than two separate installs.',
+        a: 'Yes — cameras and <a href="/alarm-systems">alarm systems</a> are commonly installed together and can be set up to work as one connected system rather than two separate installs.',
       },
       {
         q: 'What happens if a camera is damaged or stops working?',
@@ -129,9 +126,6 @@ const services = [
     name: 'Alarm Systems',
     navLabel: 'Alarm Systems',
     flagship: false,
-    metaTitle: 'Alarm System Installation Algarve | AlgarveSecure',
-    metaDescription:
-      'Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas and holiday homes across the Algarve. Call +351 923 272 806.',
     h1: 'Alarm Systems in the Algarve',
     heroSubhead:
       'Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.',
@@ -217,7 +211,7 @@ const services = [
       },
       {
         q: 'Can I add an alarm system to an existing CCTV setup?',
-        a: 'Yes — alarms and cameras are commonly installed together and can be set up to work as one connected system.',
+        a: 'Yes — alarms and <a href="/cctv-installation">cameras</a> are commonly installed together and can be set up to work as one connected system.',
       },
       {
         q: 'Is an alarm system suitable for an apartment?',
@@ -225,11 +219,11 @@ const services = [
       },
       {
         q: 'Does the alarm need a landline or broadband connection?',
-        a: 'The connected control panel and app-based alerts rely on a working network connection at the property — worth mentioning if a property has a patchy connection, so it can be factored into the assessment.',
+        a: 'The connected control panel and app-based alerts rely on a working network connection at the property — worth mentioning if a property has a patchy connection, so a <a href="/home-networking">home networking</a> assessment can be factored in alongside it.',
       },
       {
         q: 'How much does an alarm system cost?',
-        a: 'Costs depend on the size of the property and how many sensors are needed — get in touch with a few details and you’ll get an answer specific to your property rather than a generic figure.',
+        a: 'Costs depend on the size of the property and how many sensors are needed. A larger property with more entry points and outdoor coverage naturally costs more than a compact apartment with a handful of door and window sensors — get in touch with a few specifics and the difference becomes clear.',
       },
     ],
   },
@@ -238,9 +232,6 @@ const services = [
     name: 'Access Control',
     navLabel: 'Access Control',
     flagship: false,
-    metaTitle: 'Access Control Systems Algarve | AlgarveSecure',
-    metaDescription:
-      'Intelligent readers, electronic locks and video intercoms for gated properties, apartment blocks and businesses in the Algarve. Call +351 923 272 806.',
     h1: 'Access Control Systems in the Algarve',
     heroSubhead:
       'Intelligent readers, electronic locks and video intercoms, so only the people you want on the property can get in.',
@@ -256,7 +247,7 @@ const services = [
       },
       {
         heading: 'Where Access Control Meets the Rest of the Property',
-        text: "Access control rarely stands alone. It usually connects to whatever handles the gate — so a code that opens the front door can open the driveway gate too — and increasingly ties into the same app used for cameras and the alarm, so checking who came through the gate and seeing the camera footage from that moment happen in one place rather than two separate systems that don't talk to each other.",
+        text: "Access control rarely stands alone. It usually connects to whatever handles the <a href=\"/gate-automation\">gate</a> — so a code that opens the front door can open the driveway gate too — and increasingly ties into the same app used for <a href=\"/cctv-installation\">cameras</a> and the <a href=\"/alarm-systems\">alarm</a>, so checking who came through the gate and seeing the camera footage from that moment happen in one place rather than two separate systems that don't talk to each other.",
       },
     ],
     included: [
@@ -322,7 +313,7 @@ const services = [
       },
       {
         q: 'Can access control work with an existing gate?',
-        a: 'Yes — access control commonly integrates with gate automation, so a code or card can open the gate as well as a door.',
+        a: 'Yes — access control commonly integrates with <a href="/gate-automation">gate automation</a>, so a code or card can open the gate as well as a door.',
       },
       {
         q: 'Is a video intercom necessary, or is a keypad enough?',
@@ -343,9 +334,6 @@ const services = [
     name: 'Gate Automation',
     navLabel: 'Gate Automation',
     flagship: false,
-    metaTitle: 'Automated Gate Installation Algarve | AlgarveSecure',
-    metaDescription:
-      'Motorised gates, barriers, security doors and sectional gates for villas and gated developments across the Algarve. Call +351 923 272 806.',
     h1: 'Automated Gate Systems in the Algarve',
     heroSubhead:
       'Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.',
@@ -361,7 +349,7 @@ const services = [
       },
       {
         heading: 'What Happens When the Power Goes Out',
-        text: 'A motorised gate that only works with mains power becomes a real inconvenience during a power cut, which is a genuine consideration in areas prone to interruptions. Backup power can be added specifically so the gate keeps working through a short outage rather than leaving a car stuck on the wrong side of it, and the same backup can extend to whatever access control or intercom is tied into the same entrance.',
+        text: 'A motorised gate that only works with mains power becomes a real inconvenience during a power cut, which is a genuine consideration in areas prone to interruptions. Backup power can be added specifically so the gate keeps working through a short outage rather than leaving a car stuck on the wrong side of it, and the same backup can extend to whatever <a href="/access-control">access control</a> or intercom is tied into the same entrance.',
       },
     ],
     included: [
@@ -431,7 +419,7 @@ const services = [
       },
       {
         q: 'Can the gate be linked to an intercom?',
-        a: 'Yes — gate automation commonly integrates with intercom and access control systems, so a visitor can be seen, spoken to and let in from one setup.',
+        a: 'Yes — gate automation commonly integrates with intercom and <a href="/access-control">access control</a> systems, so a visitor can be seen, spoken to and let in from one setup.',
       },
       {
         q: 'Is gate automation only for large villas?',
@@ -448,9 +436,6 @@ const services = [
     name: 'Fire Detection',
     navLabel: 'Fire Detection',
     flagship: false,
-    metaTitle: 'Fire Detection Installation Algarve | AlgarveSecure',
-    metaDescription:
-      'Optical smoke detectors and addressable fire panels for homes and businesses in the Algarve. Call +351 923 272 806.',
     h1: 'Fire Detection Systems in the Algarve',
     heroSubhead:
       'Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.',
@@ -532,7 +517,7 @@ const services = [
       },
       {
         q: 'Can fire detection be combined with an alarm system?',
-        a: 'Yes — it can be set up alongside an existing security setup rather than as a completely separate system.',
+        a: 'Yes — it can be set up alongside an existing <a href="/alarm-systems">alarm system</a> rather than as a completely separate system.',
       },
       {
         q: 'What happens if one detector develops a fault?',
@@ -553,9 +538,6 @@ const services = [
     name: 'Home Networking',
     navLabel: 'Home Networking',
     flagship: false,
-    metaTitle: 'Home Networking Installation Algarve | AlgarveSecure',
-    metaDescription:
-      'Structured cabling, network racks and backup power, built to support your cameras, alarms and access control across the Algarve. Call +351 923 272 806.',
     h1: 'Home Networking in the Algarve',
     heroSubhead:
       'Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.',
@@ -567,7 +549,7 @@ const services = [
     deepDive: [
       {
         heading: 'Why a Security System Is Only as Reliable as the Network Under It',
-        text: "A camera that drops offline, an alarm that's slow to report its status, or a video intercom that lags before releasing a door are frequently network problems rather than faults with the devices themselves. Wi-Fi alone struggles in larger or thick-walled properties, multi-floor villas, and anywhere cameras sit outdoors at the edge of a signal's range, which is why a structured cabling backbone is recommended for fixed devices wherever it's practical to run — it removes an entire category of intermittent, hard-to-diagnose faults.",
+        text: "A <a href=\"/cctv-installation\">camera</a> that drops offline, an <a href=\"/alarm-systems\">alarm</a> that's slow to report its status, or a video intercom that lags before releasing a door are frequently network problems rather than faults with the devices themselves. Wi-Fi alone struggles in larger or thick-walled properties, multi-floor villas, and anywhere cameras sit outdoors at the edge of a signal's range, which is why a structured cabling backbone is recommended for fixed devices wherever it's practical to run — it removes an entire category of intermittent, hard-to-diagnose faults.",
       },
       {
         heading: 'What a Properly Set Up Network Actually Looks Like',
@@ -645,7 +627,7 @@ const services = [
       },
       {
         q: 'Can networking be added after cameras and alarms are already installed?',
-        a: 'Yes — though it’s more efficient to plan the network alongside a new system than to retrofit it afterwards, especially if cabling needs to be run.',
+        a: 'Yes — though it’s more efficient to plan the network alongside a new <a href="/cctv-installation">CCTV</a> or <a href="/alarm-systems">alarm</a> system than to retrofit it afterwards, especially if cabling needs to be run.',
       },
       {
         q: 'Is this only relevant for large properties?',
@@ -658,9 +640,6 @@ const services = [
     name: 'Smart Home Automation',
     navLabel: 'Smart Home Automation',
     flagship: false,
-    metaTitle: 'Smart Home & Property Automation Algarve | AlgarveSecure',
-    metaDescription:
-      'Connected gate, access control, camera and alarm automation for homes and properties across the Algarve, managed from one app. Call +351 923 272 806.',
     h1: 'Smart Home Automation in the Algarve',
     heroSubhead:
       'Gates, access control, cameras and alarms connected together and managed from one app, rather than run as separate systems.',
@@ -668,7 +647,7 @@ const services = [
     scenarioImageAlt: '[Placeholder: Phone screen showing a connected app with gate, camera and alarm controls]',
     detailImageAlt: '[Placeholder: Wall-mounted tablet controlling gate and camera systems in a villa hallway]',
     intro:
-      'Automation, for most properties, starts with connecting the systems already in place — the gate, the access control, the cameras, the alarm — so they work together and can be managed from a single app, rather than being separate installs that don’t talk to each other.',
+      'Automation, for most properties, starts with connecting the systems already in place — the <a href="/gate-automation">gate</a>, the <a href="/access-control">access control</a>, the <a href="/cctv-installation">cameras</a>, the <a href="/alarm-systems">alarm</a> — so they work together and can be managed from a single app, rather than being separate installs that don’t talk to each other.',
     deepDive: [
       {
         heading: "What 'Connected' Actually Means in Practice",

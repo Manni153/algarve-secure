@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
 
 function renderService(service) {
   const otherServices = services.filter((s) => s.slug !== service.slug);
@@ -43,26 +43,56 @@ function renderService(service) {
     .map(
       (f) => `<div class="faq-item">
         <h3>${esc(f.q)}</h3>
-        <p>${esc(f.a)}</p>
+        <p>${rich(f.a)}</p>
       </div>`
     )
     .join('');
 
   const deepDiveHtml = (service.deepDive || [])
-    .map((d) => `<h3>${esc(d.heading)}</h3><p>${esc(d.text)}</p>`)
+    .map((d) => `<h3>${esc(d.heading)}</h3><p>${rich(d.text)}</p>`)
     .join('');
 
+  // FAQPage answers must be plain text for the schema (no markup), so this
+  // strips the same anchor tags that are rendered live in the page copy.
+  const stripTags = (str) => String(str).replace(/<[^>]+>/g, '');
+
   const faqSchema = service.faqs
-    ? JSON.stringify({
+    ? {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: service.faqs.map((f) => ({
           '@type': 'Question',
           name: f.q,
-          acceptedAnswer: { '@type': 'Answer', text: f.a },
+          acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
         })),
-      })
-    : '';
+      }
+    : null;
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: service.name,
+    name: `${service.name} in the Algarve`,
+    description: stripTags(service.intro),
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: 'Algarve, Portugal',
+    },
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Algarve Smart Home',
+      telephone: site.phoneTel,
+    },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
+      { '@type': 'ListItem', position: 2, name: service.name, item: `${site.baseUrl}/${service.slug}` },
+    ],
+  };
 
   // Every service page links to all 22 town pages using a "[Service] in
   // [Town]" anchor text pattern, grouped by region for scannability.
@@ -125,7 +155,7 @@ function renderService(service) {
         <div class="two-col-text">
           <span class="eyebrow">What's Included</span>
           <h2>What our ${esc(service.name)} service covers</h2>
-          <p>${esc(service.intro)}</p>
+          <p>${rich(service.intro)}</p>
           <ul class="check-list mt-32">${includedList}</ul>
         </div>
         <div class="two-col-media">
@@ -228,8 +258,7 @@ function renderService(service) {
             </div>
             <div class="faq-list">${faqItems}</div>
           </div>
-        </section>
-        ${faqSchema ? `<script type="application/ld+json">${faqSchema}</script>` : ''}`
+        </section>`
       : ''
   }
 
@@ -266,9 +295,8 @@ function renderService(service) {
 
   return renderPage({
     path: `/${service.slug}`,
-    metaTitle: service.metaTitle,
-    metaDescription: service.metaDescription,
     bodyHtml: body,
+    schema: [serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean),
   });
 }
 

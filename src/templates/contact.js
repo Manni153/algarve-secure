@@ -79,12 +79,19 @@ function renderContact() {
   </section>
   `;
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: `${site.baseUrl}/contact` },
+    ],
+  };
+
   return renderPage({
     path: '/contact',
-    metaTitle: 'Contact AlgarveSecure | Security & Smart Home Installer, Algarve',
-    metaDescription:
-      'Get in touch with AlgarveSecure about CCTV, alarms or smart home installation across the Algarve. Call +351 923 272 806.',
     bodyHtml: body,
+    schema: [breadcrumbSchema],
   });
 }
 

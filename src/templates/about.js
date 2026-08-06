@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
 
 const pillars = [
   {
@@ -58,7 +58,7 @@ function renderAbout() {
         <div class="two-col-text">
           <span class="eyebrow">Who We Are</span>
           <h2>Built for English-speaking homeowners in the Algarve</h2>
-          <p>Algarve Smart Home installs CCTV, alarms, access control, gate automation, fire detection, networking and smart home systems for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.</p>
+          <p>${rich('Algarve Smart Home installs <a href="/cctv-installation">CCTV</a>, <a href="/alarm-systems">alarms</a>, <a href="/access-control">access control</a>, <a href="/gate-automation">gate automation</a>, <a href="/fire-detection">fire detection</a>, <a href="/home-networking">networking</a> and <a href="/smart-home-automation">smart home systems</a> for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.')}</p>
           <p>That back-and-forth is exactly why the service is built the way it is: clear English communication, systems you can check on remotely, and support that's easy to reach when you need it, whether you're at the property or on the other side of Europe.</p>
         </div>
         <div class="two-col-media">
@@ -98,12 +98,19 @@ function renderAbout() {
   </section>
   `;
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${site.baseUrl}/about` },
+    ],
+  };
+
   return renderPage({
     path: '/about',
-    metaTitle: 'About AlgarveSecure | English-Speaking Security Installer, Algarve',
-    metaDescription:
-      'AlgarveSecure installs CCTV, alarms and smart home systems for English-speaking homeowners across the Algarve. Call +351 923 272 806.',
     bodyHtml: body,
+    schema: [breadcrumbSchema],
   });
 }
 

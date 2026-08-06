@@ -129,12 +129,29 @@ function renderHowWeWork() {
   </section>
   `;
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'How We Work', item: `${site.baseUrl}/how-we-work` },
+    ],
+  };
+
   return renderPage({
     path: '/how-we-work',
-    metaTitle: 'How AlgarveSecure Works | Security & Smart Home Installation, Algarve',
-    metaDescription:
-      'How AlgarveSecure connects Algarve homeowners with local installation partners for CCTV, alarms and smart home systems. Call +351 923 272 806.',
     bodyHtml: body,
+    schema: [breadcrumbSchema, faqSchema],
   });
 }
 

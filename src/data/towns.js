@@ -27,8 +27,12 @@ const towns = [
     context: 'Lagos combines a historic old town — narrow streets, a marina, apartment buildings — with newer villa developments spreading out toward Meia Praia and the surrounding hills. That mix means different priorities depending on where a property sits: apartments in the old town tend to lean on access control and video intercoms for shared entrances, while standalone villas further out are usually more focused on CCTV coverage of the garden and driveway, alarm systems, and a gate that can be opened without getting out of the car.',
     propertyProfile: 'Properties range from apartments and townhouses in the historic old town to standalone villas spreading out toward Meia Praia, Porto de Mós and the hills above the marina. Old-town buildings typically have shared entrances with several units per stairwell, while the newer villa developments sit on individual plots with private driveways, gardens and, often, a pool. Marina-front apartments form a third category, generally with some building-level entry security already in place.',
     concerns: "Owners who split time between Lagos and the UK or Ireland tend to worry most about a property standing empty for stretches of the year without a way to check on it. In the old town, narrow streets and close neighbours make discreet camera placement more of a priority than raw coverage. Around the newer developments near Meia Praia, the bigger question is usually covering a larger boundary and driveway properly rather than fitting equipment into a tight urban footprint.",
-    proximity: "Lagos sits at the western end of the Algarve's main resort coastline, a short drive from Praia da Luz and around 30 minutes from Sagres at the region's south-western tip. Aljezur, further north along the wilder west coast, is also within reach for owners with property in both areas.",
+    proximity: "Lagos sits at the western end of the Algarve's main resort coastline, a short drive from Praia da Luz and around 30 minutes from Sagres at the region's south-western tip. Aljezur, further north along the wilder west coast, is close enough for owners with property in both areas to treat as one patch.",
     streetscapeAlt: '[Placeholder: Whitewashed apartment balconies overlooking Lagos marina]',
+    faqs: [
+      { q: 'Do old-town apartments in Lagos need a different approach to access control than the villas near Meia Praia?', a: 'Yes — old-town buildings usually mean fitting access control around an existing shared entrance and stairwell, while villas near Meia Praia have more room for a full driveway gate and standalone alarm coverage.' },
+      { q: 'Is CCTV coverage different for a marina-front apartment compared to a hillside villa?', a: 'Generally, yes — marina-front apartments typically need coverage of just the unit\'s own entrance and terrace, since the building often already covers shared areas, while a hillside villa needs full perimeter coverage across a larger plot.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Villa developments around Meia Praia benefit from full perimeter and driveway coverage across larger plots.' },
       { slug: 'access-control', reason: 'Old-town apartment buildings with shared stairwells suit video intercom and card-based entry.' },
@@ -41,8 +45,12 @@ const towns = [
     context: "Praia da Luz is a small resort village rather than a large town, with most properties being villas and townhouses, many owned as holiday or second homes rather than full-time residences. For owners who aren't on-site for weeks or months at a time, CCTV and an alarm system that can be checked and controlled remotely tend to matter more here than they would for a full-time residence, simply because the property is empty more often.",
     propertyProfile: 'Praia da Luz is a small resort village rather than a large town, and the property stock reflects that — mostly villas and townhouses built for holiday or seasonal use, with fewer large apartment blocks than towns like Lagos or Albufeira. Many properties sit within short walking distance of each other in low-rise developments rather than sprawling estates, and gardens and pools are common even on smaller plots.',
     concerns: 'Because a large share of properties here are second homes, extended vacancy is the central concern — owners are often back in the UK or Ireland for months at a stretch. Being able to check that a villa is secure, that the alarm is armed, and that nothing has been disturbed matters more here than in a town with a larger full-time resident population keeping an eye on things informally.',
-    proximity: 'Praia da Luz sits between Lagos, a few minutes east along the coast, and Sagres, roughly 20 minutes further west. Alvor and the Portimão area are also within easy reach for owners who split their time across the western coast.',
+    proximity: 'Praia da Luz sits between Lagos, a few minutes east along the coast, and Sagres, roughly 20 minutes further west. Alvor and the Portimão area are a short drive further east again, convenient for owners who split their time across the western coast.',
     streetscapeAlt: '[Placeholder: Low-rise villa street in Praia da Luz near the seafront]',
+    faqs: [
+      { q: 'Do most properties in Praia da Luz need full-time monitoring, or just coverage while empty?', a: 'Given how many properties here are second homes, the priority is usually a system that can be checked and armed remotely during the months an owner isn\'t on-site, rather than constant on-site monitoring.' },
+      { q: 'Are villas in Praia da Luz typically gated?', a: 'Not universally — many sit within low-rise developments without a shared gate, which is why an individual property\'s own alarm and camera coverage carries more weight than in a fully gated development.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Remote viewing suits owners checking on a holiday villa from outside Portugal.' },
       { slug: 'alarm-systems', reason: 'A property left empty for months benefits from remote arm and disarm rather than relying on being on-site.' },
@@ -52,11 +60,15 @@ const towns = [
   {
     slug: 'sagres', name: 'Sagres', region: 'west', nearby: ['praia-da-luz', 'lagos', 'aljezur'],
     character: 'a remote coastal town at the Algarve’s south-western tip, popular for its quieter, off-grid feel',
-    context: "Sagres sits at the Algarve's south-western tip and has a quieter, more remote character than the towns further east — fewer dense developments, more standalone properties spread further apart. That spacing makes CCTV and alarm coverage more important on their own, since there are fewer neighbours nearby, and a stable network connection is worth planning for properly given the more rural setting.",
+    context: "Sagres sits at the Algarve's south-western tip and has a quieter, more remote character than the towns further east — fewer dense developments, more standalone properties spread further apart. That spacing makes CCTV and alarm coverage more important on their own, since there are fewer neighbours nearby, and it's worth budgeting time for a proper network survey rather than assuming a router out of the box will reach every corner of the plot.",
     propertyProfile: 'Sagres has a more remote, spread-out property profile than towns further east — standalone houses and villas on larger plots, with far fewer apartment blocks or dense developments. Distances between neighbouring properties are often greater here than anywhere else on the western coast, and many homes sit along the approach roads into town rather than clustered around a centre.',
     concerns: "The relative isolation that draws owners to Sagres is also what makes security more of a standalone concern — there are simply fewer neighbours nearby to notice anything out of place. A stable network connection can't be assumed either, given the more rural setting, which makes it worth factoring into any camera or alarm system from the start rather than treating it as an afterthought.",
     proximity: "Sagres sits at the Algarve's south-western tip, about 20 minutes from Praia da Luz and 30 minutes from Lagos. Aljezur, up the west coast, is the nearest town in the other direction, roughly 30-40 minutes north.",
     streetscapeAlt: '[Placeholder: Standalone villa on a remote clifftop road near Sagres]',
+    faqs: [
+      { q: 'Does the remote location around Sagres cause problems for camera or alarm connectivity?', a: 'It can — mobile and broadband coverage is less consistent than on the busier coast, so a network assessment is worth doing alongside any camera or alarm installation rather than assuming standard coverage will reach.' },
+      { q: 'Are properties near Sagres typically close enough together to share a security setup?', a: 'No — properties here tend to sit further apart than elsewhere in the Algarve, so each one usually needs its own independent coverage rather than relying on a neighbour\'s cameras or a shared development gate.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Wider property boundaries with fewer neighbours nearby benefit from full perimeter coverage.' },
       { slug: 'home-networking', reason: 'A more rural setting makes a properly planned, stable network worth getting right from the start.' },
@@ -66,11 +78,15 @@ const towns = [
   {
     slug: 'aljezur', name: 'Aljezur', region: 'west', nearby: ['sagres', 'monchique', 'silves'],
     character: 'a laid-back town on the west coast, popular with owners drawn to the wilder Costa Vicentina coastline',
-    context: 'Aljezur and the surrounding Costa Vicentina coastline have a more rural, spread-out character than the resort towns further south — smallholdings, converted farmhouses and standalone properties rather than dense villa developments. Larger boundaries and driveways make gate automation and CCTV covering the approach to the property particularly relevant, and a reliable network connection is worth getting right given the more rural setting.',
+    context: 'Aljezur and the surrounding Costa Vicentina coastline have a more rural, spread-out character than the resort towns further south — smallholdings, converted farmhouses and standalone properties rather than dense villa developments. Larger boundaries and driveways make gate automation and CCTV covering the approach to the property particularly relevant, and coverage can vary enough between properties here that a network check is worth doing before anything else goes in.',
     propertyProfile: 'Aljezur and the surrounding Costa Vicentina have a rural property profile — smallholdings, converted farmhouses and standalone houses on larger plots of land, rather than the dense villa developments common further south. Boundaries are often longer and less clearly defined than a typical resort-town garden wall, and outbuildings are common.',
     concerns: "The main concern for owners here tends to be the property's more remote setting: longer approach roads, fewer immediate neighbours, and boundaries that are harder to keep an eye on casually. A gate at the start of a long driveway is often the first real security measure a property has, and getting a network connection that reaches across a larger plot reliably takes more planning than in a compact urban setting.",
     proximity: 'Aljezur sits on the west coast, around 30-40 minutes north of Sagres and a similar distance from Monchique inland. Silves, further south-east, is also within a reasonable drive for owners covering multiple properties in the region.',
     streetscapeAlt: '[Placeholder: Converted farmhouse with land on the outskirts of Aljezur]',
+    faqs: [
+      { q: 'Do smallholdings and converted farmhouses around Aljezur need different gate setups than a standard villa?', a: 'Often, yes — longer, less formal driveways and larger boundaries mean gate automation and camera coverage typically need to stretch further than a standard villa entrance.' },
+      { q: 'Is a stable network connection guaranteed in the Aljezur area?', a: 'Not automatically — the more rural setting means coverage can vary by exact location, so it\'s worth checking as part of any camera or alarm installation.' },
+    ],
     relevantServices: [
       { slug: 'gate-automation', reason: 'Longer driveways and rural approach roads make an automated gate a practical first step.' },
       { slug: 'cctv-installation', reason: 'Larger, less-defined boundaries benefit from cameras covering the approach to the property.' },
@@ -83,8 +99,12 @@ const towns = [
     context: 'Alvor has grown from a fishing town into a popular residential and holiday destination, with a mix of apartments near the estuary and villas further back from the centre. Apartment owners tend to prioritise access control and intercom systems for shared building entrances, while villa owners more often start with CCTV and an alarm system covering the property on its own.',
     propertyProfile: "Alvor's property mix reflects its growth from fishing town to residential destination — apartment blocks near the estuary and marina, and villas further back toward the surrounding hills. Estuary-front apartments are often part of larger developments with shared grounds, while the villas tend to sit on individual plots with more separation from neighbours.",
     concerns: "Apartment owners near the estuary are usually more focused on their own unit's entry security, since the building itself often already has some shared-entrance measures in place. Villa owners further back tend to think more about the whole property boundary and about coverage while away, since a number of properties in Alvor are used seasonally rather than year-round.",
-    proximity: 'Alvor sits between Praia da Luz, about 15 minutes west, and Portimão, a similar distance east. Lagos is a bit further west along the same coast road, within easy reach for owners covering more than one property.',
+    proximity: 'Alvor sits between Praia da Luz, about 15 minutes west, and Portimão, a similar distance east. Lagos is a bit further west along the same coast road, straightforward for owners covering more than one property in the area.',
     streetscapeAlt: '[Placeholder: Apartment block overlooking the Alvor estuary]',
+    faqs: [
+      { q: 'Do estuary-front apartments in Alvor already have building-level security?', a: 'Many do, at least at the shared entrance, which is why access control here is often about covering the individual unit alongside — not replacing — whatever the building already has.' },
+      { q: 'Are villas further back from the Alvor estuary handled differently?', a: 'Yes — they tend to sit on more separated plots, so the focus shifts to boundary and driveway coverage rather than a single shared building entrance.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Estuary-front apartment blocks suit card or fob entry alongside existing building security.' },
       { slug: 'cctv-installation', reason: 'Villas further from the centre benefit from full boundary and driveway coverage.' },
@@ -95,10 +115,14 @@ const towns = [
     slug: 'portimao', name: 'Portimão', region: 'west', nearby: ['alvor', 'ferragudo', 'lagoa'],
     character: 'a larger town and commercial hub on the western Algarve, with a mix of apartments, villas and businesses',
     context: 'Portimão is the largest town on the western Algarve, with a genuine mix of apartments, villas and commercial premises rather than being purely residential. That range means the full spread of services applies here — access control and networking are particularly relevant for business premises and apartment blocks, alongside the CCTV and alarm systems that suit standalone villas in the surrounding areas.',
-    propertyProfile: "As the largest town on the western Algarve, Portimão has the widest property mix in the area — apartment blocks in the centre, villas in the surrounding residential areas, and a genuine amount of commercial and retail premises. It's one of the few towns covered here where business security is as relevant as residential.",
-    concerns: 'Commercial premises in Portimão tend to have different priorities than a holiday villa — access control for staff and stock areas, and a reliable network to support point-of-sale and camera systems together. Residential owners, meanwhile, split fairly evenly between apartment-block concerns (shared entrances, building security) and villa concerns (boundary coverage, remote monitoring while away).',
-    proximity: "Portimão sits centrally on the western Algarve, close to Alvor to the west and Ferragudo and Lagoa just across the estuary and coast to the east. It's a natural hub for owners with interests spread across the western towns.",
+    propertyProfile: "Portimão's property mix reflects a town built around its marina, historic riverfront and — a short drive south — Praia da Rocha, where high-rise apartment blocks and hotels line one of the Algarve's best-known beaches. Inland from the waterfront, the mix shifts to ordinary residential streets and, on the outskirts, retail parks and light-industrial premises rather than the golf-resort villas found further east.",
+    concerns: "Praia da Rocha's apartment towers raise fairly standard high-rise concerns — access control and intercom at a shared entrance, rather than a private boundary to cover. Retail and light-industrial premises on the outskirts have different priorities again: stock security and staff access rather than anything holiday-related. Away from both, Portimão's ordinary residential streets look closer to what you'd expect anywhere else in the western Algarve — alarm and camera coverage sized to a normal house or apartment.",
+    proximity: "Portimão sits centrally on the western Algarve, close to Alvor to the west and Ferragudo and Lagoa just across the estuary and coast to the east — a useful midpoint for owners with property scattered across the western towns.",
     streetscapeAlt: '[Placeholder: Mixed apartment and commercial street in central Portimão]',
+    faqs: [
+      { q: 'Does a commercial premises in Portimão need a different setup to a residential property?', a: 'Yes — commercial premises usually prioritise controlled staff access and networking that can support point-of-sale systems alongside cameras, while residential properties focus more on entrances and boundaries.' },
+      { q: 'Are apartment blocks in central Portimão handled the same way as villas on the outskirts?', a: 'No — central apartment blocks typically need access control and intercom at a shared entrance, while villas further out are more focused on full perimeter CCTV and alarm coverage.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Commercial premises and apartment blocks both benefit from controlled entry at shared or staff access points.' },
       { slug: 'home-networking', reason: 'Business premises running cameras, alarms and point-of-sale systems need networking that can support all of them reliably.' },
@@ -113,6 +137,10 @@ const towns = [
     concerns: "In the tighter village core, discreet camera and sensor placement matters more than in a standalone villa, simply because there's less distance between a property and the street or a neighbour's window. Villas on the outskirts have more conventional concerns — boundary coverage and a gate at the driveway — closer to what you'd see in the larger developments nearby.",
     proximity: "Ferragudo sits directly across the estuary from Portimão, with Lagoa and Carvoeiro both within about 10-15 minutes to the east. It's a compact, walkable village, with most surrounding properties reachable within a short drive.",
     streetscapeAlt: "[Placeholder: Narrow traditional street in Ferragudo's village centre]",
+    faqs: [
+      { q: 'Do the narrow streets in Ferragudo\'s village centre limit where cameras can go?', a: 'They do influence placement — compact, discreetly mounted cameras tend to work better in the tighter village core than the wider setups used on villas further out.' },
+      { q: 'Are villas on the outskirts of Ferragudo treated differently to the village-centre houses?', a: 'Yes — outskirts villas usually have a driveway and garden worth covering with gate automation, while village-centre houses focus more on discreet door and window coverage.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Village-centre properties benefit from compact, discreetly placed cameras suited to a tighter street layout.' },
       { slug: 'alarm-systems', reason: 'Closely built properties still benefit from sensor coverage independent of what neighbours can see.' },
@@ -125,8 +153,12 @@ const towns = [
     context: 'Lagoa is a municipality covering several coastal towns and villages, with a strong holiday-villa and rental market throughout. For owners renting properties out between stays, CCTV that can be checked remotely is particularly useful for keeping an eye on a property between guests, and access control suits gated developments where several units share an entrance.',
     propertyProfile: 'Lagoa covers several coastal towns and villages under one municipality, with a property market weighted heavily toward holiday villas and rental properties rather than full-time residences. Many are part of small, purpose-built developments with shared access roads, alongside standalone villas on larger individual plots.',
     concerns: 'With so much of the property stock here used for holiday lets or as second homes, the recurring theme is managing a property between stays — knowing when guests have arrived or left, and being able to check on the property without being on-site for every changeover. Shared developments also raise questions about where private security ends and any development-level measures begin.',
-    proximity: "Lagoa sits between Ferragudo and Carvoeiro along the coast, both around 10 minutes away, with Portimão a short drive to the west. It's a convenient base for owners with rental properties spread across the immediate area.",
+    proximity: "Lagoa sits between Ferragudo and Carvoeiro along the coast, both around 10 minutes away, with Portimão a short drive to the west — well placed for owners managing rental properties spread across the immediate area.",
     streetscapeAlt: '[Placeholder: Small villa development near Lagoa with a shared access road]',
+    faqs: [
+      { q: 'How does high rental turnover in the Lagoa area change what a camera system needs to do?', a: 'It shifts the priority toward remote viewing — confirming guests have arrived or left, and checking a property is secure between bookings, rather than constant on-site monitoring.' },
+      { q: 'Are properties in Lagoa\'s smaller developments managed differently to standalone villas?', a: 'Somewhat — properties in shared developments often need access control to work alongside the development\'s own gate, while standalone villas can be self-contained.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Remote viewing helps confirm guest arrival and departure on rental properties between stays.' },
       { slug: 'access-control', reason: 'Code-based entry suits rental properties, removing the need for physical key handovers.' },
@@ -141,6 +173,10 @@ const towns = [
     concerns: "The recurring concern here is time — owners and property managers alike are frequently not on-site, whether that's an owner back in the UK or a rental changing over between guests every week. Confirming a property is secure and undamaged between visits matters more in Carvoeiro than in towns with a larger share of permanent residents.",
     proximity: 'Carvoeiro sits between Lagoa, a short drive east, and Silves inland to the north. Ferragudo and Portimão are both within about 15-20 minutes for owners managing multiple properties along this stretch of coast.',
     streetscapeAlt: '[Placeholder: Villa with pool on a hillside above Carvoeiro]',
+    faqs: [
+      { q: 'Does Carvoeiro\'s concentration of rental villas change how alarm systems are typically set up?', a: 'Yes — remote arm and disarm matters more here than in towns with more full-time residents, since a property can be unattended between bookings for stretches at a time.' },
+      { q: 'Is a property manager\'s access handled differently to an owner\'s?', a: 'In practice, code-based access control makes this straightforward — a property manager or cleaning team can be given their own code without an owner handing over a physical key.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'High rental turnover makes remote viewing between guest stays particularly useful.' },
       { slug: 'alarm-systems', reason: 'Properties frequently left unattended benefit from remote arm, disarm and status checks.' },
@@ -153,8 +189,12 @@ const towns = [
     context: 'Silves is an inland, historic town with a growing number of expat homeowners, and a property mix that runs from town houses in the centre to rural quintas on the outskirts. Rural properties tend to need more thought given to networking and CCTV coverage across a larger boundary, while town-centre properties are usually more straightforward access control and alarm installs.',
     propertyProfile: 'Silves has two fairly distinct property types: historic town houses in the centre, close to the old castle and cathedral, and rural quintas and country properties on the outskirts. The inland setting means fewer holiday-villa developments than the coastal towns, and a higher share of owners living in the property full-time or for extended periods.',
     concerns: 'Town-centre owners deal with the same discretion and shared-wall considerations as any historic core, while rural quinta owners further out have to think about larger boundaries, longer driveways and a network connection that has to reach across more ground. Both groups tend to be less focused on holiday-rental turnover than the coastal towns and more on straightforward day-to-day security.',
-    proximity: "Silves sits inland from Lagoa and Portimão, both around 15-20 minutes away, with Monchique further north into the hills. It's a natural base for owners drawn to the quieter, inland side of the western Algarve.",
+    proximity: "Silves sits inland from Lagoa and Portimão, each a 15-20 minute drive, with Monchique further north into the hills. It's a natural base for owners drawn to the quieter, inland side of the western Algarve.",
     streetscapeAlt: '[Placeholder: Historic town house near Silves castle]',
+    faqs: [
+      { q: 'Do rural quintas near Silves need different networking than the town-centre houses?', a: 'Usually — quintas cover more ground, so a network has to reach further and more reliably, while town-centre houses are a more contained setup.' },
+      { q: 'Are historic buildings in central Silves harder to fit with access control?', a: 'Not usually a barrier — electronic locks and readers can generally be fitted to existing doors without needing to alter the building\'s original features.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Historic town-centre properties benefit from electronic locks without altering original doors and frames.' },
       { slug: 'cctv-installation', reason: 'Rural quintas with larger boundaries benefit from coverage across the approach and grounds.' },
@@ -166,9 +206,13 @@ const towns = [
     character: 'a hillside town in the Algarve’s inland hills, popular with owners seeking a quieter rural setting',
     context: "Monchique sits up in the Algarve's inland hills, with a rural, spread-out character quite different from the coastal resort towns. Properties here tend to have larger grounds and more distance from neighbours, which makes CCTV and alarm coverage more self-contained, and a properly planned network connection more important given the more rural location.",
     propertyProfile: "Monchique's hillside, inland setting produces a different property profile from anywhere on the coast — traditional houses in the town itself, and larger rural properties with significant land scattered through the surrounding hills. Plots here are often irregular, following the contours of the hillside rather than a flat, rectangular garden.",
-    concerns: 'The rural, hillside setting is both the appeal and the security challenge — properties are more spread out, distances to neighbours are greater, and mobile or broadband coverage can be less consistent than on the coast. Planning a network connection properly, rather than assuming standard coverage will reach every part of the property, matters more here than almost anywhere else covered.',
+    concerns: "The rural, hillside setting is both the appeal and the security challenge — properties are more spread out, distances to neighbours are greater, and mobile or broadband coverage can be less consistent than on the coast. A network survey before anything else goes in isn't optional here the way it might be treated elsewhere; the hills genuinely do create dead spots a flat coastal plot never would.",
     proximity: "Monchique sits inland and uphill from Silves, about 20 minutes away, with Aljezur reachable over the hills to the west and Portimão back down toward the coast. It's a distinct, quieter alternative to the resort towns for owners who prefer that setting.",
     streetscapeAlt: '[Placeholder: Hillside rural property in the hills above Monchique]',
+    faqs: [
+      { q: 'Why does Monchique\'s hillside setting matter for camera placement?', a: 'The irregular, sloped plots common here mean camera angles have to follow the terrain rather than a flat garden layout, so positions are worked out on a site-by-site basis.' },
+      { q: 'Is mobile signal reliable enough for remote camera viewing around Monchique?', a: 'It varies by exact location, which is why a network check is worth doing before finalising a camera or alarm setup this far into the hills.' },
+    ],
     relevantServices: [
       { slug: 'home-networking', reason: 'Hillside terrain and rural coverage make a properly planned network essential before adding other systems.' },
       { slug: 'cctv-installation', reason: 'Larger, irregular plots benefit from cameras covering multiple approach points rather than a single entrance.' },
@@ -183,8 +227,12 @@ const towns = [
     context: 'Albufeira is one of the busiest resort towns in the Algarve, with a large and varied mix of villas, apartments and holiday rentals packed close together. That density makes access control and video intercoms particularly relevant for apartment blocks and gated resorts, while CCTV and alarm systems suit the high turnover of holiday-rental villas where owners aren’t on-site between bookings.',
     propertyProfile: "Albufeira has one of the densest and most varied property markets in the Algarve — high-rise apartment blocks near the marina and old town, gated villa developments on the outskirts, and a large stock of holiday rentals throughout. Few towns in the region combine this much density with this much villa development at the same time.",
     concerns: "In the busier apartment areas, shared-entrance security and managing who has access to a building matter as much as any single unit's own system. In the villa developments and gated resorts further out, the concern shifts toward the high turnover of holiday rentals — properties changing guests weekly, sometimes with an owner who's never actually on-site to manage it directly.",
-    proximity: "Albufeira sits centrally, close to Vilamoura and Quarteira to the east, both around 15-20 minutes away, with Loulé a bit further inland. It's one of the best-connected towns in the central Algarve for owners managing more than one property.",
+    proximity: "Albufeira sits centrally, with Vilamoura and Quarteira a short hop east — 15-20 minutes by car — and Loulé a bit further inland. It's one of the best-connected towns in the central Algarve for owners managing more than one property.",
     streetscapeAlt: '[Placeholder: High-rise apartment blocks near Albufeira marina]',
+    faqs: [
+      { q: 'Do gated resort villas in Albufeira need a different access setup to the apartment blocks near the old town?', a: 'Yes — gated resort villas usually add their own access control on top of the resort\'s shared gate, while old-town apartment blocks rely more on intercom and card entry at a single shared entrance.' },
+      { q: 'How does high rental turnover affect security planning in Albufeira?', a: 'It puts more weight on remote camera viewing and code-based access, so a property can be checked and guest access managed without an owner or manager being on-site for every changeover.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Dense apartment blocks and gated resorts both rely on managed entry at shared access points.' },
       { slug: 'cctv-installation', reason: 'High rental turnover across villa developments benefits from remote viewing between guest stays.' },
@@ -199,6 +247,10 @@ const towns = [
     concerns: "Because so much of Vilamoura is gated, the main question for an individual property isn't whether there's any security at the development's edge, but how a private system complements it — controlling entry to your own villa or apartment specifically, rather than relying solely on the development's shared gate. Coordinating a personal system with an existing development setup is more relevant here than almost anywhere else covered.",
     proximity: "Vilamoura sits between Albufeira, a short drive west, and Quarteira immediately to the south, with Loulé inland to the north. Its marina and golf estates make it a natural cluster for owners with more than one property in the immediate area.",
     streetscapeAlt: '[Placeholder: Gated villa entrance within a Vilamoura golf estate]',
+    faqs: [
+      { q: 'If a villa in Vilamoura is already inside a gated golf estate, is a separate alarm system still worth it?', a: 'Yes — a development\'s shared gate covers the estate\'s perimeter, not an individual property, so a villa\'s own alarm and camera coverage still matters for the property itself.' },
+      { q: 'Does gate automation make sense for a property already behind a development gate?', a: 'Often yes — many villas in Vilamoura\'s estates still have their own driveway gate at the property itself, separate from the development\'s main entrance.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Properties within gated developments benefit from managed entry at the individual unit alongside the development gate.' },
       { slug: 'gate-automation', reason: "Villas within golf estates commonly have their own driveway gate worth automating separately." },
@@ -213,6 +265,10 @@ const towns = [
     concerns: "Apartment security in Quarteira tends to centre on the building's shared entrance and stairwell rather than an individual garden or boundary, since most units don't have private outdoor space beyond a balcony or terrace. For seasonally used units, checking on the property remotely and knowing the building's shared areas are secure both matter more than boundary coverage.",
     proximity: "Quarteira sits right next to Vilamoura, a few minutes' drive, with Albufeira also close by to the west and Almancil a short drive inland to the east. It's well placed for owners covering the central Algarve's coastal strip.",
     streetscapeAlt: '[Placeholder: Mid-rise apartment building near Quarteira seafront]',
+    faqs: [
+      { q: 'Do apartments in Quarteira typically have outdoor space worth covering with a camera?', a: 'Not always — many units have a balcony or terrace rather than a garden, so coverage tends to focus on the entrance and any shared or private outdoor space rather than a full perimeter.' },
+      { q: 'Is access control more relevant here than CCTV?', a: 'Both matter, but access control at a shared building entrance is often the first thing apartment owners in Quarteira ask about, given how many properties here are apartments rather than standalone villas.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Apartment block entrances benefit from video intercom and card or fob entry.' },
       { slug: 'cctv-installation', reason: 'Seasonal owners benefit from remote viewing of communal or private outdoor space.' },
@@ -225,8 +281,12 @@ const towns = [
     context: 'Loulé’s municipality spans everything from historic town houses in the old town to modern villa developments further out, so there’s no single property type that dominates. Older town-centre properties tend to prioritise alarm systems and access control, while newer villa developments more often go for a fuller setup including CCTV and gate automation.',
     propertyProfile: "Loulé's municipality is genuinely broad — a historic old town with traditional houses and a well-known market, alongside modern villa developments and golf-adjacent properties further out toward the coast. Few towns covered here span such a wide range of property ages and styles within the same area.",
     concerns: "Old-town properties raise the same discretion and shared-wall questions as any historic centre, while newer villa developments further out have more conventional villa concerns — boundary coverage, a gate, and remote monitoring while away. There isn't a single dominant concern in Loulé the way there is in a resort town; it depends heavily on which part of the municipality a property sits in.",
-    proximity: "Loulé sits inland from Albufeira and Vilamoura, both around 15-20 minutes away, with Almancil and Quarteira also within easy reach toward the coast. Its central position makes it a natural hub for owners covering the wider central Algarve.",
+    proximity: "Loulé sits inland from Albufeira and Vilamoura, roughly 15-20 minutes from each, with Almancil and Quarteira also close by toward the coast. Its central position makes it a convenient base for owners with interests on both sides of the central Algarve.",
     streetscapeAlt: "[Placeholder: Traditional building near Loulé's historic market]",
+    faqs: [
+      { q: 'Does a historic building in Loulé\'s old town limit what security equipment can be fitted?', a: 'It can influence the approach — installation is planned around the building\'s existing doors and structure rather than assuming a modern villa\'s setup will transfer directly.' },
+      { q: 'Are newer villa developments near Loulé\'s coast handled differently to the old town?', a: 'Yes — newer developments toward the coast tend to go for a fuller setup including CCTV and gate automation, while old-town properties often start with access control and an alarm.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Historic old-town properties suit electronic locks and intercom without altering original doors.' },
       { slug: 'cctv-installation', reason: 'Newer villa developments further out benefit from full boundary coverage.' },
@@ -241,6 +301,10 @@ const towns = [
     concerns: "With larger properties come more entry points and a bigger boundary to account for — a single camera or sensor covering the front door isn't enough when a property has several access points across a large plot. Owners here are also more likely to have staff (cleaners, gardeners, pool maintenance) coming and going regularly, which makes managing access without physical keys a bigger practical concern than in a smaller property.",
     proximity: 'Almancil sits between Loulé, a short drive inland, and Quarteira toward the coast, with Faro and its airport also within easy reach to the east. Its location between the coast and inland Loulé makes it convenient for owners covering both.',
     streetscapeAlt: '[Placeholder: Large villa with pool within an Almancil golf resort development]',
+    faqs: [
+      { q: 'Why do golf resort villas around Almancil typically need more entry points covered than a standard property?', a: 'Larger plots with multiple access points — a main gate, a side entrance, staff or delivery access — mean coverage has to extend beyond a single front door.' },
+      { q: 'Does regular staff access change how access control is set up in Almancil?', a: 'Yes — with cleaners, gardeners and pool maintenance regularly coming and going, code-based access that can be reissued easily is usually more practical than physical keys.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Larger plots with multiple entry points benefit from full perimeter coverage rather than a single camera.' },
       { slug: 'access-control', reason: 'Regular staff access (cleaners, gardeners, pool maintenance) suits managed entry without physical keys.' },
@@ -253,10 +317,14 @@ const towns = [
     slug: 'faro', name: 'Faro', region: 'east', nearby: ['almancil', 'olhao', 'sao-bras-de-alportel'],
     character: 'the Algarve’s capital and main transport hub, with a wide mix of residential property types',
     context: 'Faro is the Algarve’s capital and main transport hub, with a genuinely wide mix of residential property types alongside a significant amount of commercial and office space. That range means access control and networking are particularly relevant for business premises, while the residential mix covers everything from apartments to standalone houses that suit the fuller range of CCTV, alarm and access control options.',
-    propertyProfile: "As the Algarve's capital, Faro has the most varied property mix covered here — apartment blocks and townhouses in the city itself, standalone houses in the surrounding suburbs, and a genuine amount of office and commercial space given its role as the region's administrative and transport hub.",
-    concerns: "Commercial and office premises in Faro have different priorities from residential properties — controlled staff access, and often a higher standard of camera and alarm coverage given the volume of people passing through. Residential owners split between city-apartment concerns (shared entrances, building security) and suburban-house concerns (boundary coverage, a gate), depending on where in the wider Faro area the property sits.",
+    propertyProfile: "Faro's property mix is shaped by being the Algarve's working capital rather than a resort town — the historic walled old town has traditional townhouses close to the cathedral, the newer city area has apartment blocks housing university staff, students and civil servants, and the outskirts run to standalone suburban houses. With the region's main airport on its doorstep, there's also more office and transport-related commercial space here than in most towns covered.",
+    concerns: "Faro's population leans more toward full-time residents — civil servants, university staff, airport workers — than the seasonal-owner pattern common in the resort towns, which shifts the emphasis toward everyday reliability rather than remote monitoring for a property left empty for months at a time. Office and transport-related premises near the airport have their own priorities: controlled staff access and a network built to support more connected devices than a typical home runs.",
     proximity: 'Faro sits centrally on the eastern side of the Algarve, close to Almancil to the west and Olhão a short drive east along the coast. Its airport and transport links make it a practical base for owners with property spread across the wider region.',
     streetscapeAlt: '[Placeholder: Mixed residential and commercial street in central Faro]',
+    faqs: [
+      { q: 'Does a commercial property in Faro need different networking to a residential one?', a: 'Usually — commercial premises tend to run more connected systems (cameras, access control, sometimes point-of-sale) at once, which puts more demand on the network than a typical home.' },
+      { q: 'Are apartments in central Faro handled the same way as houses in the suburbs?', a: 'No — central apartments usually need access control at a shared entrance, while suburban houses focus more on boundary coverage and a driveway gate.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Commercial and office premises benefit from controlled staff access and visitor management.' },
       { slug: 'home-networking', reason: 'Business premises running multiple security systems need networking built to support them reliably.' },
@@ -271,6 +339,10 @@ const towns = [
     concerns: "In the town centre, tightly packed streets mean discreet installation matters, similar to other historic cores in the region. On the outskirts, where properties have more land, the concerns shift toward boundary coverage and a gate at the driveway. Olhão's growing expat community also means more owners than in the past are looking for straightforward, English-explained options rather than navigating the process in Portuguese.",
     proximity: "Olhão sits between Faro, a short drive west, and Tavira further east, with São Brás de Alportel reachable inland to the north. It's a convenient midpoint for owners covering the stretch between Faro and the eastern towns.",
     streetscapeAlt: '[Placeholder: Traditional fishing-town house in central Olhão]',
+    faqs: [
+      { q: 'Do Olhão\'s closely built town-centre houses need a different camera setup than properties on the outskirts?', a: 'Yes — town-centre houses usually call for compact, discreetly placed cameras given the tighter street layout, while outskirts properties have more room for wider perimeter coverage.' },
+      { q: 'Is gate automation common in Olhão?', a: 'More so on the outskirts, where properties have more land and a driveway — less relevant in the working fishing-town centre, where entrances open directly onto the street.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Town-centre properties benefit from compact, discreet camera placement suited to a tighter street layout.' },
       { slug: 'alarm-systems', reason: 'Closely built properties still benefit from independent sensor coverage.' },
@@ -280,11 +352,15 @@ const towns = [
   {
     slug: 'sao-bras-de-alportel', name: 'São Brás de Alportel', region: 'east', nearby: ['faro', 'olhao', 'loule'],
     character: 'a quiet inland town popular with homeowners looking to be away from the coastal crowds',
-    context: 'São Brás de Alportel sits inland, away from the coastal crowds, with a quieter, more residential character. Properties here are often standalone houses with more surrounding land than a coastal apartment, which makes CCTV and alarm coverage across the whole boundary more relevant, alongside a properly planned network given the more rural setting.',
+    context: 'São Brás de Alportel sits inland, away from the coastal crowds, with a quieter, more residential character. Properties here are often standalone houses with more surrounding land than a coastal apartment, which makes CCTV and alarm coverage across the whole boundary more relevant, alongside a network built to reach every part of a larger plot rather than just the rooms nearest the router.',
     propertyProfile: "São Brás de Alportel sits away from the coast entirely, and its property profile reflects that — standalone houses with real gardens and land, rather than apartments or the tightly packed villa developments found in the resort towns. It's a genuinely residential, inland town rather than a holiday destination.",
     concerns: "Because most properties here are full-time or long-term residences rather than seasonal homes, the concerns are more everyday than holiday-specific: covering a boundary that's often larger than a typical coastal plot, and making sure a network connection reaches reliably across the property, given the more rural setting than the towns directly on the coast.",
-    proximity: 'São Brás de Alportel sits inland between Faro and Loulé, both around 15-20 minutes away, with Olhão also within easy reach toward the coast. It offers a quieter, inland alternative for owners who want distance from the busier resort towns without moving far from Faro.',
+    proximity: 'São Brás de Alportel sits inland between Faro and Loulé, each roughly 15-20 minutes by car, with Olhão also close by toward the coast. It offers a quieter, inland alternative for owners who want distance from the busier resort towns without moving far from Faro.',
     streetscapeAlt: '[Placeholder: Standalone house with garden in São Brás de Alportel]',
+    faqs: [
+      { q: 'Why does São Brás de Alportel\'s inland setting change what a security system needs to cover?', a: 'Properties here tend to have more surrounding land than a coastal apartment, so covering the full boundary — not just the entrance — matters more than it would for a smaller coastal plot.' },
+      { q: 'Is this a full-time residence area, or mostly holiday homes?', a: 'Mostly full-time or long-term residences, which shifts the focus toward everyday coverage rather than the remote-monitoring priorities of a seasonal holiday-home area.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Larger inland plots benefit from coverage across the whole boundary rather than just the entrance.' },
       { slug: 'alarm-systems', reason: 'Full-time residences benefit from sensor coverage independent of casual passers-by.' },
@@ -297,8 +373,12 @@ const towns = [
     context: 'Tavira is one of the more historic towns on the eastern Algarve, popular with retirees and second-home owners drawn to its quieter pace. Many properties here are left empty for periods of the year, which makes CCTV and an alarm system that can be checked remotely particularly useful, while historic town-centre properties sometimes call for more discreet installation than a modern villa would.',
     propertyProfile: "Tavira's property market is weighted toward its historic centre — townhouses and traditional buildings along the river and around the town's churches and bridges — with modern developments and villas more common on the outskirts. It has a notably older and more retiree-heavy owner profile than the western resort towns.",
     concerns: "Many properties in Tavira sit empty for real stretches of the year, whether that's a retiree spending part of the year back home or a second-home owner visiting seasonally. Historic town-centre buildings also often can't accommodate a standard camera or sensor installation the way a modern villa can, which makes planning around the property's existing structure more important here than in newer developments.",
-    proximity: 'Tavira sits between Olhão to the west and Castro Marim further east toward the Spanish border, both within about 20-30 minutes. São Brás de Alportel is also reachable inland for owners covering the wider eastern Algarve.',
+    proximity: 'Tavira sits between Olhão to the west and Castro Marim further east toward the Spanish border, both within about 20-30 minutes. São Brás de Alportel is also reachable inland, useful for owners with interests further into the eastern Algarve.',
     streetscapeAlt: '[Placeholder: Historic townhouse along the river in Tavira]',
+    faqs: [
+      { q: 'Do historic buildings in central Tavira limit camera or sensor placement?', a: 'They can — older town-centre buildings sometimes need installation planned around the existing structure, whereas a modern villa on the outskirts has more flexibility.' },
+      { q: 'Why does Tavira\'s retiree and second-home population matter for security planning?', a: 'Because many properties sit empty for real stretches of the year, remote monitoring and app-based alerts tend to matter more here than in towns with a younger, more full-time resident base.' },
+    ],
     relevantServices: [
       { slug: 'alarm-systems', reason: 'Properties left empty for extended periods benefit from remote arm, disarm and status checks.' },
       { slug: 'cctv-installation', reason: 'Remote viewing suits owners checking on a property from outside Portugal for part of the year.' },
@@ -313,6 +393,10 @@ const towns = [
     concerns: "With fewer large developments and a smaller overall population, individual property security tends to matter more on its own terms here — there's less of a shared-development safety net to rely on than in a gated resort. Straightforward, reliable coverage of a standalone house is generally the priority rather than anything more elaborate.",
     proximity: "Castro Marim sits at the eastern edge of the Algarve, close to Vila Real de Santo António on the border and around 20 minutes from Tavira to the west. It's the natural final stop for owners covering the Algarve's eastern reach toward Spain.",
     streetscapeAlt: "[Placeholder: Standalone house near Castro Marim's hilltop castle]",
+    faqs: [
+      { q: 'Are there many gated developments in Castro Marim, or mostly standalone houses?', a: 'Mostly standalone houses — there\'s a smaller number of gated or shared developments here than in the busier resort towns, so individual property coverage tends to carry more weight.' },
+      { q: 'Does being near the Guadiana river change anything about installation?', a: 'Not directly — it\'s more about the town\'s quieter, lower-density character generally, which tends to mean more straightforward CCTV and alarm coverage on standalone properties.' },
+    ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Standalone houses without a shared development benefit from independent perimeter coverage.' },
       { slug: 'alarm-systems', reason: 'Straightforward sensor coverage suits smaller, standalone properties well.' },
@@ -325,8 +409,12 @@ const towns = [
     context: 'Vila Real de Santo António sits right on the border with Spain, with a residential mix of apartments and houses rather than large villa estates. Apartment buildings benefit from access control and intercom systems at shared entrances, while standalone houses in and around the town more commonly start with CCTV and an alarm system.',
     propertyProfile: "Vila Real de Santo António's property stock is mostly apartments and townhouses rather than large villa estates, reflecting its planned, grid-laid-out town centre near the border crossing into Spain. It has a more urban feel than most other towns covered here, closer in character to a small city than a resort village.",
     concerns: 'Apartment buildings in the town centre benefit most from shared-entrance security, given the density of the layout, while standalone houses on the edges of town have more typical boundary and gate concerns. Being right on the border also means a genuinely international mix of owners and visitors passing through, which makes clear English-language support a practical consideration alongside the security work itself.',
-    proximity: "Vila Real de Santo António sits at the Algarve's easternmost point, a short drive from Castro Marim and around 30-40 minutes from Tavira further west. Olhão is also within reach for owners covering the wider eastern stretch of the region.",
+    proximity: "Vila Real de Santo António sits at the Algarve's easternmost point, a short drive from Castro Marim and around 30-40 minutes from Tavira further west. Olhão sits further along the same stretch, useful for owners with interests spanning the wider eastern Algarve.",
     streetscapeAlt: '[Placeholder: Grid-planned apartment street in central Vila Real de Santo António]',
+    faqs: [
+      { q: 'Do the grid-planned apartment blocks in Vila Real de Santo António need different coverage than houses on the town\'s edges?', a: 'Yes — the town-centre blocks typically need access control and video intercom at a shared entrance, while houses on the edges are more focused on boundary and driveway coverage.' },
+      { q: 'Does being on the Spanish border affect how the service works here?', a: 'Not for the installation itself, but it does mean a genuinely international mix of owners, which is part of why clear English-language support matters as much as the security work.' },
+    ],
     relevantServices: [
       { slug: 'access-control', reason: 'Town-centre apartment buildings benefit from video intercom and card or fob entry at shared entrances.' },
       { slug: 'cctv-installation', reason: "Standalone houses on the town's edges benefit from boundary and driveway coverage." },

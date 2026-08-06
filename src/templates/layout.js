@@ -13,6 +13,13 @@ function esc(str) {
     .replace(/>/g, '&gt;');
 }
 
+// For trusted, hand-authored copy fields that intentionally contain inline
+// <a> links (contextual cross-links between services/towns). Never use on
+// anything that isn't a literal string written in our own data files.
+function rich(str) {
+  return String(str);
+}
+
 // Plain, unobtrusive image placeholder — clearly marked, not decorative.
 // Real photography drops in later; this just needs to hold the space.
 function placeholder(alt, { ratio } = {}) {
@@ -178,20 +185,21 @@ function renderFloatingButtons() {
   </div>`;
 }
 
-function renderPage({ path, metaTitle, metaDescription, bodyHtml }) {
+// Title tags and meta descriptions are managed entirely outside this
+// codebase (hosting-platform level) — deliberately not generated here.
+function renderPage({ path, bodyHtml, schema }) {
   const canonical = `${site.baseUrl}${path === '/' ? '' : path}`;
+  const schemaHtml = (schema || [])
+    .map((s) => `<script type="application/ld+json">${JSON.stringify(s).replace(/<\/script/gi, '<\\/script')}</script>`)
+    .join('\n');
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(metaTitle)}</title>
-<meta name="description" content="${esc(metaDescription)}">
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Algarve Smart Home">
-<meta property="og:title" content="${esc(metaTitle)}">
-<meta property="og:description" content="${esc(metaDescription)}">
 <meta property="og:url" content="${canonical}">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#fbf6ec">
@@ -199,6 +207,7 @@ function renderPage({ path, metaTitle, metaDescription, bodyHtml }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
+${schemaHtml}
 </head>
 <body>
 ${renderHeader()}
@@ -215,6 +224,7 @@ ${renderFloatingButtons()}
 
 module.exports = {
   esc,
+  rich,
   placeholder,
   heroPhoto,
   renderPage,
