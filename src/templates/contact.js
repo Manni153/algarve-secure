@@ -20,6 +20,10 @@ function renderContact() {
 
   <section>
     <div class="container">
+      <div class="section-head left">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Call, WhatsApp or send a few details</h2>
+      </div>
       <div class="two-col">
         <div class="contact-direct">
           <div class="contact-direct-card">

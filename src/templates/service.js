@@ -48,6 +48,10 @@ function renderService(service) {
     )
     .join('');
 
+  const deepDiveHtml = (service.deepDive || [])
+    .map((d) => `<h3>${esc(d.heading)}</h3><p>${esc(d.text)}</p>`)
+    .join('');
+
   const faqSchema = service.faqs
     ? JSON.stringify({
         '@context': 'https://schema.org',
@@ -89,10 +93,33 @@ function renderService(service) {
     lede: service.heroSubhead,
   });
 
+  // Jump-link table of contents — only lists sections this service actually
+  // has, so it stays accurate if a section is ever conditionally empty.
+  const tocSections = [
+    { id: 'included', label: "What's Included" },
+    { id: 'why-it-matters', label: 'Why It Matters' },
+    deepDiveHtml ? { id: 'in-depth', label: 'In Depth' } : null,
+    scenarioItems ? { id: 'scenarios', label: 'Real-World Scenarios' } : null,
+    propertyTypeCards ? { id: 'property-types', label: 'By Property Type' } : null,
+    extraCards ? { id: 'in-detail', label: 'In Detail' } : null,
+    faqItems ? { id: 'faq', label: 'FAQ' } : null,
+  ].filter(Boolean);
+
+  const tocHtml = tocSections
+    .map((t) => `<a href="#${t.id}">${esc(t.label)}</a>`)
+    .join('');
+
   const body = `
   ${hero}
 
-  <section>
+  <nav class="toc" aria-label="Page sections">
+    <div class="container">
+      <span class="toc-label">On this page</span>
+      <div class="toc-links">${tocHtml}</div>
+    </div>
+  </nav>
+
+  <section id="included">
     <div class="container">
       <div class="two-col">
         <div class="two-col-text">
@@ -108,7 +135,7 @@ function renderService(service) {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="section-alt" id="why-it-matters">
     <div class="container">
       <div class="two-col reverse">
         <div class="two-col-media">
@@ -125,8 +152,22 @@ function renderService(service) {
   </section>
 
   ${
+    deepDiveHtml
+      ? `<section id="in-depth">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">In Depth</span>
+              <h2>How ${esc(service.name.toLowerCase())} actually works</h2>
+            </div>
+            <div class="narrow" style="margin: 0 auto;">${deepDiveHtml}</div>
+          </div>
+        </section>`
+      : ''
+  }
+
+  ${
     scenarioItems
-      ? `<section>
+      ? `<section class="section-alt" id="scenarios">
           <div class="container">
             <div class="two-col">
               <div class="two-col-text">
@@ -145,7 +186,7 @@ function renderService(service) {
 
   ${
     propertyTypeCards
-      ? `<section class="section-alt">
+      ? `<section id="property-types">
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">By Property Type</span>
@@ -160,7 +201,7 @@ function renderService(service) {
 
   ${
     extraCards
-      ? `<section>
+      ? `<section class="section-alt" id="in-detail">
           <div class="container">
             <div class="two-col reverse">
               <div class="two-col-media">
@@ -179,7 +220,7 @@ function renderService(service) {
 
   ${
     faqItems
-      ? `<section class="section-alt">
+      ? `<section id="faq">
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">Questions</span>

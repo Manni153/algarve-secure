@@ -62,22 +62,13 @@ function renderTown(town) {
   <section class="section-alt">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Property Profile</span>
-        <h2>What properties look like in ${esc(town.name)}</h2>
+        <span class="eyebrow">Security in ${esc(town.name)}</span>
+        <h2>What to know before installing in ${esc(town.name)}</h2>
       </div>
       <div class="narrow" style="margin: 0 auto;">
+        <h3>Property Types &amp; Profile</h3>
         <p>${esc(town.propertyProfile)}</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Local Considerations</span>
-        <h2>What owners in ${esc(town.name)} tend to ask about</h2>
-      </div>
-      <div class="narrow" style="margin: 0 auto;">
+        <h3>What Owners Tend to Ask About</h3>
         <p>${esc(town.concerns)}</p>
       </div>
     </div>
@@ -85,7 +76,7 @@ function renderTown(town) {
 
   ${
     relevantCards
-      ? `<section class="section-alt">
+      ? `<section>
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">Most Relevant</span>
@@ -98,7 +89,7 @@ function renderTown(town) {
       : ''
   }
 
-  <section>
+  <section class="section-alt">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Services</span>
@@ -108,7 +99,7 @@ function renderTown(town) {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Nearby</span>

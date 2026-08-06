@@ -27,6 +27,16 @@ const services = [
     detailImageAlt: '[Placeholder: NVR recording unit and cabling in a utility cupboard]',
     intro:
       'A CCTV system is often the first thing an owner installs to keep an eye on a property from a distance — whether that means checking on a pool area, seeing who has come to the gate, or looking in on a holiday rental between guests.',
+    deepDive: [
+      {
+        heading: 'How Camera Positions Actually Get Decided',
+        text: "Camera placement isn't picked from a fixed formula. It usually starts with a conversation about the property — where the entrances are, which areas already have a clear sightline from inside the house, and which parts of the plot would otherwise go unwatched — followed by a site visit where that's possible, or a review of photos and a description where it isn't. A villa with a long driveway and a rear garden backing onto open land needs a different camera count and placement to a townhouse with one street-facing entrance, and getting the positions right matters more than the total number of cameras: four cameras covering genuine blind spots do more than eight covering the same few angles from slightly different heights.",
+      },
+      {
+        heading: 'Why Two Quotes for Similar Properties Can Differ',
+        text: 'The most common reason two CCTV quotes for what look like similar properties come out differently is cabling, not cameras. A property with easy access to a utility space and short, direct cable runs to each camera position is a more contained job than one where cabling has to be routed through finished walls, across multiple floors, or out to a detached garage or pool house. The number of cameras, the resolution and features chosen, and how much of the property needs covering all play a part too, which is why an accurate quote comes from a conversation about the specific property rather than a flat per-camera price.',
+      },
+    ],
     included: [
       'Outdoor cameras built to handle the Algarve’s sun, salt air and rain',
       'Indoor cameras for hallways, living areas and entry points',
@@ -130,6 +140,16 @@ const services = [
     detailImageAlt: '[Placeholder: Wall-mounted alarm keypad next to a front door]',
     intro:
       'An alarm system covers the parts of a property a camera can’t always watch — doors, windows and internal movement — and adds an on-site deterrent alongside whatever a camera records.',
+    deepDive: [
+      {
+        heading: 'Matching Sensor Coverage to How a Property Is Actually Used',
+        text: 'An alarm system is planned around how a property is actually used, not a checklist. A full-time home with pets or regular visitors needs sensors set up to avoid tripping on normal daily movement, while a property that’s empty for months at a stretch can run a wider, more sensitive coverage without that concern. Perimeter sensors on doors and windows form the baseline; internal motion sensors get added where they make sense — hallways and living areas rather than every room — and outdoor sensors covering a driveway or gate approach are common on larger villas where the alarm needs to pick up movement before someone reaches the building.',
+      },
+      {
+        heading: 'What Actually Causes False Alarms, and How It’s Avoided',
+        text: "Most false alarms trace back to a handful of predictable causes: an outdoor sensor picking up a cat or a gust of wind through foliage, a door left slightly ajar registering as open, or a sensor placed somewhere it catches sunlight moving across a wall at certain times of day. Outdoor sensors are chosen and positioned specifically to filter these out, and getting the initial placement right avoids the more common alternative — an alarm that gets disarmed altogether because it goes off too often to be trusted.",
+      },
+    ],
     included: [
       'Motion sensors covering both indoor rooms and outdoor perimeter areas',
       'Outdoor sensors designed to resist false alarms from wind, weather and animals',
@@ -229,6 +249,16 @@ const services = [
     detailImageAlt: '[Placeholder: Electronic door lock with card reader on an apartment entrance]',
     intro:
       'Access control puts you in charge of who can get onto a property — cleaners, gardeners, guests and delivery drivers — without needing to hand out physical keys or be on-site to let people in.',
+    deepDive: [
+      {
+        heading: 'Deciding Between a Keypad, a Card Reader and a Video Intercom',
+        text: 'Which access method makes sense depends on who needs to get in and how often. A property with a small, fairly fixed group of people coming and going — an owner, a cleaner, a gardener — often works fine with a keypad or fob, where a code or fob can be reissued without a locksmith call-out. A building with a rotating cast of visitors, deliveries and guests benefits more from a video intercom, where a person can be seen and spoken to before the door or gate is released. Many properties end up with a combination: a fob for regular access and an intercom at the main entrance for everyone else.',
+      },
+      {
+        heading: 'Where Access Control Meets the Rest of the Property',
+        text: "Access control rarely stands alone. It usually connects to whatever handles the gate — so a code that opens the front door can open the driveway gate too — and increasingly ties into the same app used for cameras and the alarm, so checking who came through the gate and seeing the camera footage from that moment happen in one place rather than two separate systems that don't talk to each other.",
+      },
+    ],
     included: [
       'Intelligent readers for card, fob or code-based entry',
       'Electronic locks controlled without a physical key',
@@ -324,6 +354,16 @@ const services = [
     detailImageAlt: '[Placeholder: Gate motor and control unit mounted beside a driveway gate]',
     intro:
       'A gate that opens smoothly and reliably is often the first thing that makes a property feel secure — and the first thing that frustrates an owner when it doesn’t.',
+    deepDive: [
+      {
+        heading: 'Sliding, Swing or Barrier — What the Site Actually Decides',
+        text: "The type of gate a property ends up with is usually decided by the site rather than preference. A narrow driveway with a wall close to one side often can't accommodate a swing gate's arc and works better with a sliding gate instead; a wide, flat entrance has more flexibility either way; and shared or commercial entrances handling frequent vehicle movement are often better served by a barrier than a full gate. Automating an existing gate is possible in many cases without replacing it outright, provided the gate itself is in good enough condition to take a motor.",
+      },
+      {
+        heading: 'What Happens When the Power Goes Out',
+        text: 'A motorised gate that only works with mains power becomes a real inconvenience during a power cut, which is a genuine consideration in areas prone to interruptions. Backup power can be added specifically so the gate keeps working through a short outage rather than leaving a car stuck on the wrong side of it, and the same backup can extend to whatever access control or intercom is tied into the same entrance.',
+      },
+    ],
     included: [
       'Automation for swing gates, sliding gates and barriers',
       'Remote controls and keypad entry',
@@ -419,6 +459,16 @@ const services = [
     detailImageAlt: '[Placeholder: Addressable fire panel mounted on a utility room wall]',
     intro:
       'A property standing empty for long stretches is exactly where early fire detection matters most — there’s nobody there to smell smoke or notice a fault before it becomes serious.',
+    deepDive: [
+      {
+        heading: "Why Detector Placement Follows the Property's Layout, Not a Fixed Count",
+        text: "The number of detectors a property needs comes from its layout, not a general rule of thumb. Bedrooms, hallways connecting sleeping areas, and living spaces where electrical equipment runs are the typical starting points, with additional coverage added for larger properties, multiple floors, or outbuildings where a fire could develop unnoticed for longer. Interlinking the detectors means a trigger anywhere in the property is heard everywhere in it, which matters most in larger homes or ones with guests unfamiliar with the layout.",
+      },
+      {
+        heading: 'Addressable Panels and Why They Matter More on Bigger Properties',
+        text: "A basic smoke detector just sounds an alarm; an addressable panel identifies exactly which detector triggered it. On a small apartment that distinction barely matters, but on a larger villa, a property with outbuildings, or a commercial premises, knowing the location immediately — rather than searching room to room — is the difference that addressable systems are built to provide.",
+      },
+    ],
     included: [
       'Optical smoke detectors for early detection',
       'Addressable fire panels, so the system can identify exactly which detector triggered',
@@ -514,6 +564,16 @@ const services = [
     detailImageAlt: '[Placeholder: Organised network rack with labelled cabling in a utility room]',
     intro:
       'Every camera, alarm and access control device in a property depends on a network connection that doesn’t drop out. A poorly planned network is one of the most common reasons security systems become unreliable.',
+    deepDive: [
+      {
+        heading: 'Why a Security System Is Only as Reliable as the Network Under It',
+        text: "A camera that drops offline, an alarm that's slow to report its status, or a video intercom that lags before releasing a door are frequently network problems rather than faults with the devices themselves. Wi-Fi alone struggles in larger or thick-walled properties, multi-floor villas, and anywhere cameras sit outdoors at the edge of a signal's range, which is why a structured cabling backbone is recommended for fixed devices wherever it's practical to run — it removes an entire category of intermittent, hard-to-diagnose faults.",
+      },
+      {
+        heading: 'What a Properly Set Up Network Actually Looks Like',
+        text: "In practice, that means a network rack with equipment organised and labelled rather than left as a pile of boxes behind a router, cabling run to fixed points like cameras and access control readers, and backup power in place so a short outage doesn't take the whole system offline along with the electricity. It's a less visible part of a security installation than a camera or a keypad, but it's frequently the part that determines whether everything else works reliably.",
+      },
+    ],
     included: [
       'Structured cabling for a stable, wired backbone',
       'Organised network racks, so equipment is installed properly rather than left as a tangle of cables',
@@ -609,6 +669,16 @@ const services = [
     detailImageAlt: '[Placeholder: Wall-mounted tablet controlling gate and camera systems in a villa hallway]',
     intro:
       'Automation, for most properties, starts with connecting the systems already in place — the gate, the access control, the cameras, the alarm — so they work together and can be managed from a single app, rather than being separate installs that don’t talk to each other.',
+    deepDive: [
+      {
+        heading: "What 'Connected' Actually Means in Practice",
+        text: "Automation here isn't a separate system bolted on top — it's the gate, access control, cameras and alarm that are already being installed, set up to share one app instead of four. That distinction matters because it changes how a property gets managed day to day: checking a camera, seeing whether the gate is closed, and confirming the alarm is armed become one habit instead of three, particularly useful for an owner checking on a property from outside Portugal.",
+      },
+      {
+        heading: 'Starting Small and Building Up Over Time',
+        text: "Most properties don't connect everything at once. A common starting point is linking whatever two systems are already installed — a camera setup and an alarm, for instance — and adding the gate or access control into the same app later, when that work happens anyway. Because the underlying systems are the same regardless of when they're connected, there's no need to plan the full setup upfront before getting started.",
+      },
+    ],
     included: [
       'Gate and barrier automation as part of a connected setup',
       'Access control integrated with automated entry points',

@@ -64,7 +64,7 @@ p { margin: 0 0 1em; color: var(--teal-muted); }
 .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
 @media (min-width: 900px) { .container { padding: 0 32px; } }
 
-section { padding: 56px 0; }
+section { padding: 56px 0; scroll-margin-top: calc(var(--header-h) + 16px); }
 @media (min-width: 900px) { section { padding: 84px 0; } }
 .section-alt { background: var(--sand-alt); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
 
@@ -272,6 +272,7 @@ body.nav-open { overflow: hidden; }
   box-shadow: 0 10px 28px rgba(15, 50, 56, 0.07);
 }
 .card .icon-dot { width: 40px; height: 40px; border-radius: 10px; background: var(--terracotta-tint); margin-bottom: 16px; }
+.card .placeholder { margin: -28px -24px 20px; border-radius: 16px 16px 0 0; min-height: 0; }
 .card h3 { margin-bottom: 8px; }
 .card p:last-child { margin-bottom: 0; }
 .card-link { display: inline-block; margin-top: 14px; font-family: var(--ui); font-weight: 700; color: var(--terracotta); font-size: 0.88rem; }
@@ -316,6 +317,16 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
 .breadcrumb { font-family: var(--body); font-size: 0.76rem; color: var(--teal-muted); margin-bottom: 16px; }
 .breadcrumb a { color: var(--teal-muted); }
 .breadcrumb a:hover { color: var(--terracotta); }
+
+/* -------------------------------------------------------------------------
+   Table of contents — jump-links bar under the hero on longer service pages
+   ------------------------------------------------------------------------- */
+.toc { background: var(--sand-alt); border-bottom: 1px solid var(--stone); padding: 16px 0; }
+.toc .container { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; }
+.toc-label { font-family: var(--ui); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-muted); white-space: nowrap; }
+.toc-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc-links a { font-family: var(--ui); font-weight: 600; font-size: 0.82rem; color: var(--ink-700); background: var(--white); border: 1px solid var(--stone); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+.toc-links a:hover { color: var(--terracotta); border-color: var(--terracotta); }
 
 /* -------------------------------------------------------------------------
    CTA band — simple, centered, no imagery

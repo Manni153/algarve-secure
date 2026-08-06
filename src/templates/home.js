@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, heroPhoto, renderPage } = require('./layout');
+const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
 
 function renderHome() {
   const trustCards = site.trustSection
@@ -19,6 +19,7 @@ function renderHome() {
   const serviceCards = services
     .map(
       (s) => `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
+        ${placeholder(s.imageAlt, { ratio: 'wide' })}
         ${s.flagship ? '<span class="badge">Flagship Service</span>' : ''}
         <h3>${esc(s.name)}</h3>
         <p>${esc(s.heroSubhead)}</p>
@@ -75,6 +76,36 @@ function renderHome() {
   const body = `
   ${hero}
 
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What We Install</span>
+        <h2>Security &amp; smart home services</h2>
+        <p class="lede">From a single camera to a fully connected smart property, every system is planned around how you actually use it.</p>
+      </div>
+      <div class="card-grid cols-3">${serviceCards}</div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The Algarve, in Practice</span>
+        <h2>Security and smart home installation for English-speaking homeowners</h2>
+      </div>
+      <div class="narrow" style="margin: 0 auto;">
+        <h3>A Region Where Properties Sit Empty for Months at a Time</h3>
+        <p>A large share of homes across the Algarve are only occupied for part of the year. Owners split their time between the region and the UK, Ireland, the Netherlands or Germany, and a property can sit unoccupied for weeks or months between visits. That pattern shapes what actually matters here: a camera system that can be checked from a phone anywhere in Europe, an alarm that can be armed and disarmed remotely, and a gate that doesn't need someone standing at it to open. Security in the Algarve isn't primarily about occasional break-ins — it's about knowing a property is fine while nobody is there to check on it in person.</p>
+
+        <h3>One Point of Contact, From CCTV to Smart Home Automation</h3>
+        <p>Algarve Smart Home covers seven services — CCTV, alarm systems, access control, gate automation, fire detection, home networking and smart home automation — coordinated through a single phone number rather than split across separate suppliers. In practice, that matters because these systems overlap: a camera feed and an alarm's arm/disarm status often live in the same app, a gate motor connects into the same access control setup as a video intercom, and a network that hasn't been planned properly is one of the most common reasons a security system becomes unreliable. Planning them together, from one call, avoids the gaps that show up when each system is bought and installed separately.</p>
+
+        <h3>Built for Villas, Apartments and Everything In Between</h3>
+        <p>Property types across the Algarve vary widely, and a system that works for a hillside villa with a long driveway doesn't automatically make sense for an apartment with a single shared entrance. A villa typically needs full perimeter coverage, an automated gate and standalone alarm sensors; an apartment usually needs access control and a video intercom at the building's own entrance, layered on top of whatever the building itself already has; a holiday rental raises different questions again, mostly around managing access between guests without physical keys changing hands. Every install starts from the property itself rather than a fixed package, in a first conversation that happens entirely in English.</p>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <div class="section-head">
@@ -86,18 +117,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section class="section-alt" id="services">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">What We Install</span>
-        <h2>Security &amp; smart home services</h2>
-        <p class="lede">From a single camera to a fully connected smart property, every system is planned around how you actually use it.</p>
-      </div>
-      <div class="card-grid cols-3">${serviceCards}</div>
-    </div>
-  </section>
-
-  <section>
+  <section class="section-alt">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">How It Works</span>
@@ -108,7 +128,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section class="section-alt" id="areas">
+  <section id="areas">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Where We Work</span>
@@ -119,7 +139,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section>
+  <section class="section-alt">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Questions</span>
