@@ -423,7 +423,7 @@ const services = [
       },
       {
         q: 'Is gate automation only for large villas?',
-        a: 'No — it applies to any driveway or entrance, from a single villa gate to a shared development entrance or commercial access point.',
+        a: 'No — it applies just as well to a single villa gate as to a shared development entrance or commercial access point.',
       },
       {
         q: 'How much does gate automation cost?',
@@ -647,7 +647,7 @@ const services = [
     scenarioImageAlt: '[Placeholder: Phone screen showing a connected app with gate, camera and alarm controls]',
     detailImageAlt: '[Placeholder: Wall-mounted tablet controlling gate and camera systems in a villa hallway]',
     intro:
-      'Automation, for most properties, starts with connecting the systems already in place — the <a href="/gate-automation">gate</a>, the <a href="/access-control">access control</a>, the <a href="/cctv-installation">cameras</a>, the <a href="/alarm-systems">alarm</a> — so they work together and can be managed from a single app, rather than being separate installs that don’t talk to each other.',
+      'Automation, for most properties, starts with connecting the systems already in place — the <a href="/gate-automation">gate</a>, the <a href="/access-control">access control</a>, the <a href="/cctv-installation">cameras</a>, the <a href="/alarm-systems">alarm</a> — so they work together and can be managed from a single app, rather than being separate installs that don’t talk to each other. Beyond that core connection, automation can extend further depending on the property — what makes sense is worked out directly rather than sold as a fixed package.',
     deepDive: [
       {
         heading: "What 'Connected' Actually Means in Practice",
@@ -657,6 +657,10 @@ const services = [
         heading: 'Starting Small and Building Up Over Time',
         text: "Most properties don't connect everything at once. A common starting point is linking whatever two systems are already installed — a camera setup and an alarm, for instance — and adding the gate or access control into the same app later, when that work happens anyway. Because the underlying systems are the same regardless of when they're connected, there's no need to plan the full setup upfront before getting started.",
       },
+      {
+        heading: 'Automation Beyond Connecting Security Systems',
+        text: "Connecting the gate, cameras, alarm and access control is the starting point for most properties, but it isn't necessarily the ceiling. Depending on what a property already has and what an owner is trying to achieve, automation can extend into other parts of how the property runs. Because that scope varies so much from one property to the next, it's discussed directly during the initial conversation rather than presented as a fixed menu.",
+      },
     ],
     included: [
       'Gate and barrier automation as part of a connected setup',
@@ -665,6 +669,7 @@ const services = [
       'Remote control of gates and access points from your phone',
       'Automation scaled to the property — residential, condominium or commercial',
       'Suited to both new installations and connecting up existing systems',
+      'Additional automation scoped to the property directly, beyond the core connected setup',
     ],
     whyItMatters:
       'Managing a property from a distance is easier when the gate, the cameras, the alarm and the access control all work through one app rather than several different logins. In practice, automation is mostly about making the systems already in place work together.',
@@ -713,7 +718,7 @@ const services = [
     faqs: [
       {
         q: 'What does "smart home automation" actually include here?',
-        a: 'In practice, it means connecting the gate, access control, cameras and alarm so they’re managed from one app rather than as separate systems. It doesn’t currently extend to lighting, climate control or blinds.',
+        a: 'At its core, it means connecting the gate, access control, cameras and alarm so they’re managed from one app rather than as separate systems. Depending on the property, automation can extend further than that — the exact scope is worked out directly rather than fixed in advance.',
       },
       {
         q: 'Can automation be added to systems already installed?',
