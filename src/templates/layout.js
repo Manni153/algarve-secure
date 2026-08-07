@@ -47,7 +47,7 @@ function renderBreadcrumb(items) {
 // below the CTA, full width of the content column (not full-bleed), so it
 // reads as evidence rather than a backdrop. Trust stats render as a
 // separate band directly after, so they're the first thing seen on scroll.
-function heroIntro({ alt, breadcrumb, h1Text, headlineHtml, subtext, trustStats }) {
+function heroIntro({ alt, breadcrumb, h1Text, headlineHtml, subtext, ctaNote, trustStats }) {
   const statsHtml = trustStats
     ? `<div class="hero-trust-band"><div class="container">${trustStats
         .map((s) => `<div class="stat"><span class="v">${esc(s.value)}</span><span class="l">${esc(s.label)}</span></div>`)
@@ -63,6 +63,7 @@ function heroIntro({ alt, breadcrumb, h1Text, headlineHtml, subtext, trustStats 
         <h2 class="hero-headline">${headlineHtml}</h2>
         <p class="hero-subtext">${esc(subtext)}</p>
         <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
+        ${ctaNote ? `<p class="cta-note">${esc(ctaNote)}</p>` : ''}
       </div>
       <div class="hero-stack-media">
         ${placeholder(alt, {})}

@@ -38,6 +38,7 @@ function renderAbout() {
     h1Text: 'About Algarve Smart Home',
     headlineHtml: 'A local installer that explains everything in plain English.',
     subtext: 'Built around one idea: security systems should be easy to understand, whoever you are.',
+    ctaNote: 'Questions welcome — no pitch, just answers.',
   });
 
   const body = `

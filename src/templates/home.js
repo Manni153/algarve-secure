@@ -70,6 +70,7 @@ function renderHome() {
     h1Text: 'Security & Smart Home Installation in the Algarve',
     headlineHtml: 'Stop wondering if your property is <em>okay</em>.',
     subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
+    ctaNote: 'A quick call costs nothing — and commits you to nothing.',
     trustStats: site.trustStats,
   });
 

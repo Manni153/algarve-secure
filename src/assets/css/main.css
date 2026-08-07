@@ -70,6 +70,10 @@ body {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
+/* In-prose links (body copy, FAQ answers, region link paragraphs) need to
+   actually look like links; nav/buttons/cards override this locally. */
+main p a { color: var(--terracotta); text-decoration: underline; text-underline-offset: 2px; }
+main p a:hover { color: var(--terracotta-dark); }
 ul { margin: 0; padding: 0; list-style: none; }
 button { font: inherit; cursor: pointer; background: none; border: none; }
 input, textarea, select { font: inherit; }
@@ -247,6 +251,14 @@ body.nav-open { overflow: hidden; }
 .hero-stack .btn { margin-top: 4px; }
 @media (min-width: 1025px) { .hero-stack .btn { margin-top: 0; } }
 
+/* Short risk-reversal line directly under the hero CTA button. */
+.cta-note {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  color: var(--teal-muted);
+  margin: 10px 0 0;
+}
+
 .hero-stack-media { margin-top: 32px; }
 @media (min-width: 1025px) { .hero-stack-media { margin-top: 12px; } }
 .hero-stack-media .placeholder {
@@ -263,7 +275,7 @@ body.nav-open { overflow: hidden; }
      container's max content width) instead of a viewport-height-driven
      box, so the full image sits within the fold alongside the text above
      it on typical laptop screens, without needing to shrink the headline. */
-  .hero-stack-media .placeholder { height: 370px; aspect-ratio: unset; }
+  .hero-stack-media .placeholder { height: 340px; aspect-ratio: unset; }
 }
 .hero-stack-media img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 

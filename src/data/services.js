@@ -19,8 +19,10 @@ const services = [
     h1: 'CCTV Installation in the Algarve',
     heroHeadline: 'See what\'s happening at home, from anywhere.',
     heroTagline: 'Camera systems with remote viewing — installed and explained in plain English.',
+    ctaNote: 'Describe your property — get a straight answer in one call.',
+    reassurance: { heading: 'Not sure how many cameras you actually need?', body: 'That\'s exactly what a first call sorts out. Describe the property, hear an honest read on what\'s worth covering and what isn\'t — no site-visit commitment, and no pressure to go bigger than the property needs.' },
     heroSubhead:
-      'Indoor and outdoor camera systems with remote viewing, installed and explained in plain English for homeowners across the Algarve.',
+      'Indoor and outdoor camera systems with remote viewing, planned around each property\'s actual entrances and blind spots.',
     imageAlt: '[Placeholder: CCTV camera close-up, mounted on villa exterior wall]',
     scenarioImageAlt: '[Placeholder: Aerial or wide shot of a villa boundary wall and pool area showing camera coverage angles]',
     detailImageAlt: '[Placeholder: NVR recording unit and cabling in a utility cupboard]',
@@ -73,7 +75,7 @@ const services = [
     commonProblems: [
       {
         symptom: 'Camera showing no picture, or a frozen or black screen in the app',
-        text: 'Usually a power problem at that specific camera — a tripped socket, a disconnected PoE cable, or a fault on that circuit — rather than the camera itself. A wireless unit losing picture is more often a dropped Wi-Fi connection than a hardware failure, worth checking before assuming the camera has died.',
+        text: 'Usually a power problem at that specific camera — a tripped socket, a disconnected PoE cable, or a fault on that circuit — rather than the camera itself. A wireless unit losing picture is more often a dropped Wi-Fi connection than a hardware failure, check that before assuming the camera has died.',
       },
       {
         symptom: "App says the system is offline even though the cameras are clearly still running at the property",
@@ -81,7 +83,7 @@ const services = [
       },
       {
         symptom: 'A gap in the recording after a power cut',
-        text: "The NVR didn't restart cleanly, or its hard drive needs reformatting after being interrupted mid-write. Battery backup on the recorder avoids this happening again — worth adding if power cuts are a regular occurrence in the area.",
+        text: "The NVR didn't restart cleanly, or its hard drive needs reformatting after being interrupted mid-write. Battery backup on the recorder avoids this happening again; if power cuts are regular in your area, add it.",
       },
       {
         symptom: 'Night vision has gone patchy, washed out, or shows a ring of reflected glare',
@@ -89,7 +91,7 @@ const services = [
       },
       {
         symptom: 'Motion alerts have stopped coming through, even though the camera is clearly still recording',
-        text: 'Detection zones and phone notification permissions can both get reset by an app update without anyone noticing. Worth checking the zone settings and the phone\'s own notification permissions before assuming the camera has stopped detecting movement.',
+        text: 'Detection zones and phone notification permissions can both get reset by an app update without anyone noticing. Check the zone settings and the phone\'s own notification permissions first — the camera usually hasn\'t stopped detecting anything.',
       },
       {
         symptom: 'Constant false alerts from trees moving, shadows, or cars passing outside the gate',
@@ -97,15 +99,15 @@ const services = [
       },
       {
         symptom: "A camera's field of view catches a neighbour's garden or the street outside the property",
-        text: 'Adjusting the angle, or masking off part of the frame in software, keeps coverage on the property itself rather than areas that aren\'t yours to cover — worth checking during installation rather than after it becomes a conversation with a neighbour.',
+        text: 'Adjusting the angle, or masking off part of the frame in software, keeps coverage on the property itself rather than areas that aren\'t yours to cover — get this set during installation, not after it becomes a conversation with a neighbour.',
       },
       {
         symptom: 'Footage from a specific date has gone missing',
-        text: "Recorders overwrite older footage once storage fills up, so how far back footage actually reaches depends on camera count, resolution and drive size — not a fixed number of days that applies to every system. Worth knowing your system's actual retention window rather than assuming footage is kept indefinitely.",
+        text: "Recorders overwrite older footage once storage fills up, so how far back footage actually reaches depends on camera count, resolution and drive size — not a fixed number of days that applies to every system. Know your system's actual retention window rather than assuming footage is kept indefinitely.",
       },
       {
         symptom: 'Bought a property that already has cameras installed, but nobody has the login',
-        text: 'A legacy system left behind by a previous owner can usually be taken over and re-commissioned with new credentials, rather than ripped out and replaced — worth having it assessed before assuming a full replacement is needed.',
+        text: 'A legacy system left behind by a previous owner can usually be taken over and re-commissioned with new credentials, rather than ripped out and replaced — have it assessed before assuming a full replacement is needed.',
       },
       {
         symptom: 'A wireless camera keeps lagging or dropping out on live view',
@@ -113,7 +115,7 @@ const services = [
       },
       {
         symptom: "Holiday-let guests keep asking whether the cameras cover inside the villa",
-        text: "Worth having a clear, honest answer ready before it comes up. Outdoor-only coverage of entrances and driveways is the more common setup on rental properties for exactly this reason — indoor cameras raise real privacy questions that most owners choose not to introduce.",
+        text: "Have a clear, honest answer ready before it comes up. Outdoor-only coverage of entrances and driveways is the more common setup on rental properties for exactly this reason — indoor cameras raise real privacy questions that most owners choose not to introduce.",
       },
     ],
     extraSections: [
@@ -192,7 +194,9 @@ const services = [
     flagship: false,
     h1: 'Alarm Systems in the Algarve',
     heroHeadline: 'Know the moment something\'s wrong — not after the fact.',
-    heroTagline: 'Motion sensors and app alerts — installed and explained in plain English.',
+    heroTagline: 'Sensors and app alerts you can actually trust — without the false alarms.',
+    ctaNote: 'Quick call, plain English, no pressure.',
+    reassurance: { heading: 'No pressure — just a straight answer about your property.', body: 'A five-minute call is enough to tell you what sensor coverage actually makes sense for your layout. If a basic setup covers it, that\'s exactly what you\'ll hear.' },
     heroSubhead:
       'Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.',
     imageAlt: '[Placeholder: Alarm control panel and door sensor installed indoors]',
@@ -251,7 +255,7 @@ const services = [
       },
       {
         symptom: 'Control panel shows a fault light but the system still arms normally',
-        text: "Often a specific sensor reporting a low battery or a communication fault, rather than a problem with the whole panel. Worth having it looked at rather than ignoring — a faulty zone can end up excluded from coverage without anyone realising until it matters.",
+        text: "Often a specific sensor reporting a low battery or a communication fault, rather than a problem with the whole panel. Have it looked at rather than ignoring it — a faulty zone can end up excluded from coverage without anyone realising until it matters.",
       },
       {
         symptom: 'Set the alarm off by forgetting to disarm before opening the door',
@@ -267,11 +271,11 @@ const services = [
       },
       {
         symptom: 'Returned after months away to find the alarm had been sitting disarmed the whole time',
-        text: "Remote status checks let an owner confirm the arm/disarm state from outside Portugal, rather than only finding out on arrival. Worth checking status periodically during an extended absence, not just arming it once on the way out.",
+        text: "Remote status checks let an owner confirm the arm/disarm state from outside Portugal, rather than only finding out on arrival. Check status periodically during an extended absence, not just once on the way out.",
       },
       {
         symptom: 'Siren sounds at the property but no notification reaches the phone',
-        text: "The on-site siren and the phone notification are two separate things — a network or connectivity gap at the property can affect one without affecting the other. Worth understanding that distinction rather than assuming one failure means the whole system is broken.",
+        text: "The on-site siren and the phone notification are two separate things — a network or connectivity gap at the property can affect one without affecting the other. Understand that distinction, and one failure stops looking like a whole broken system.",
       },
       {
         symptom: 'New tenant, family member or property manager needs their own way to arm and disarm',
@@ -283,7 +287,7 @@ const services = [
       },
       {
         symptom: 'Not sure the alarm would actually reach anyone during a genuine break-in attempt',
-        text: "Worth thinking through what happens after an alert lands — who sees it, and what they can realistically do from a distance — as part of setup, rather than assuming the alert alone is the whole plan.",
+        text: "In practice this works in layers: the siren and the app alert come first; cameras — if installed — show within seconds whether it's a genuine intrusion or a false trigger; and a local keyholder (a property manager, a trusted neighbour, or a paid keyholding service) is who physically attends when the owner is in another country. If something is genuinely wrong, 112 reaches the emergency services anywhere in Portugal. Agree that chain during setup, not the first time the siren goes off.",
       },
     ],
     extraSections: [
@@ -351,7 +355,7 @@ const services = [
       },
       {
         q: 'What happens if the alarm is triggered while I’m out of the country?',
-        a: 'The alert reaches the app wherever you are, provided there’s a working connection. What happens next — checking cameras, contacting someone locally — is worth thinking through as part of setup rather than deciding in the moment.',
+        a: 'The alert reaches your phone wherever you are. From there, the practical sequence is: check the cameras (if fitted) to see what actually triggered it; if it looks genuine, call your local keyholder — a property manager, neighbour or keyholding service — to attend, and the emergency services on 112 if it’s serious. Owners away for long stretches should have that chain agreed before it’s ever needed, and setting it up is part of planning the system.',
       },
     ],
   },
@@ -362,7 +366,9 @@ const services = [
     flagship: false,
     h1: 'Access Control Systems in the Algarve',
     heroHeadline: 'Know exactly who\'s coming and going, before you open the door.',
-    heroTagline: 'Electronic locks and video intercoms — installed and explained in plain English.',
+    heroTagline: 'Electronic locks and video intercoms — no more key cutting, no more lockboxes.',
+    ctaNote: 'One call to find out what actually fits your property.',
+    reassurance: { heading: 'Ask before you commit to anything.', body: 'Whether a keypad is enough or a video intercom earns its keep depends entirely on who comes and goes — a quick call settles it before any equipment enters the conversation.' },
     heroSubhead:
       'Intelligent readers, electronic locks and video intercoms, so only the people you want on the property can get in.',
     imageAlt: '[Placeholder: Video intercom panel mounted beside a gated entrance]',
@@ -390,7 +396,7 @@ const services = [
       'Video door entry and intercom systems',
       'Turnstiles for shared entrances in condominiums and commercial premises',
       'Integration with gate automation for full perimeter control',
-      'Access limited to authorised people only',
+      'Time-limited and scheduled codes for cleaners, contractors and rental guests',
     ],
     whyItMatters:
       'For gated villas, condominiums and rental properties, controlling who comes through the front gate matters — especially when you’re not there to answer the door yourself. Access control makes it possible to manage entry for cleaners, gardeners, guests and delivery drivers without handing out physical keys.',
@@ -429,11 +435,11 @@ const services = [
       },
       {
         symptom: 'Video intercom shows a picture but no sound, or sound but no picture',
-        text: "Usually a wiring or settings issue isolated to the audio or video path separately, not a full unit failure — worth reporting which one is missing rather than assuming the whole intercom needs replacing.",
+        text: "Usually a wiring or settings issue isolated to the audio or video path separately, not a full unit failure — report which one is missing rather than assuming the whole intercom needs replacing.",
       },
       {
         symptom: "Locked out because the app won't load or the phone has no signal",
-        text: 'An offline backup entry method — a physical key override or a standalone keypad code — matters for exactly this moment. Worth confirming one exists as part of the original setup rather than discovering there isn\'t one while standing at the door.',
+        text: 'An offline backup entry method — a physical key override or a standalone keypad code — matters for exactly this moment. Confirm one exists during the original setup — not while standing at the door.',
       },
       {
         symptom: "A cleaner or gardener needs access, but a permanent shared code doesn't feel right",
@@ -449,11 +455,11 @@ const services = [
       },
       {
         symptom: "A former cleaner or guest's code still works even though it shouldn't",
-        text: "Codes don't expire automatically unless they were scheduled to — a code needs to be actively revoked once someone no longer needs access, which is worth building into a routine rather than assuming it happens on its own.",
+        text: "Codes don't expire automatically unless they were scheduled to — a code needs to be actively revoked once someone no longer needs access, so build revoking into a routine rather than assuming it happens on its own.",
       },
       {
         symptom: "Electronic lock feels sluggish or occasionally doesn't release on the first try",
-        text: "Usually a battery or alignment issue with the lock itself, rather than a problem with the reader or the credential — worth flagging early, since a lock that's starting to struggle is easier to address before it fails outright.",
+        text: "Usually a battery or alignment issue with the lock itself, rather than a problem with the reader or the credential — flag it early — a lock that's starting to struggle is far easier to sort before it fails outright.",
       },
     ],
     extraSections: [
@@ -519,6 +525,10 @@ const services = [
         q: 'Can different people have different levels of access — some doors but not others?',
         a: 'Yes — access can be set per door or per gate rather than all-or-nothing, so a cleaner’s code might open the front door but not a separate storage area, for example.',
       },
+      {
+        q: 'Can lighting be added to the same setup?',
+        a: 'Basic remote-controlled lighting can be added alongside an access control or camera install — switched from the same app, as part of the <a href="/smart-home-automation">smart home add-on</a> rather than a separate project.',
+      },
     ],
   },
   {
@@ -528,7 +538,9 @@ const services = [
     flagship: false,
     h1: 'Automated Gate Systems in the Algarve',
     heroHeadline: 'Open your gate from your phone — no one waiting at the intercom.',
-    heroTagline: 'Motorised gates and barriers — installed and explained in plain English.',
+    heroTagline: 'Motorised gates and barriers that open from the car, the keypad or your phone.',
+    ctaNote: 'Describe your gate — hear what\'s realistic before anything else.',
+    reassurance: { heading: 'Wondering if your existing gate can take a motor?', body: 'Describe the gate on a quick call — its age, whether it drags, how it hangs — and you\'ll get an honest answer, including when the right answer is fixing the gate before automating it.' },
     heroSubhead:
       'Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.',
     imageAlt: '[Placeholder: Automated sliding driveway gate at villa entrance]',
@@ -587,11 +599,11 @@ const services = [
     commonProblems: [
       {
         symptom: 'Remote stopped working, but the gate still opens fine from the keypad',
-        text: "Usually a flat battery in the remote itself, or it's lost sync with the receiver — rarely a fault with the motor. Worth trying a spare or a battery swap before assuming the whole system needs attention.",
+        text: "Usually a flat battery in the remote itself, or it's lost sync with the receiver — rarely a fault with the motor. Try a spare or a battery swap before assuming the whole system needs attention.",
       },
       {
         symptom: 'Lost the only gate remote or fob, and no spare was ever set up',
-        text: 'A new remote or fob can be programmed to the existing receiver without replacing any of the gate hardware — worth having at least one spare made once a replacement is issued, so this doesn\'t happen twice.',
+        text: 'A new remote or fob can be programmed to the existing receiver without replacing any of the gate hardware — have at least one spare made once a replacement is issued, so this doesn\'t happen twice.',
       },
       {
         symptom: 'Gate has become slow, jerky, or stops partway through opening',
@@ -607,7 +619,7 @@ const services = [
       },
       {
         symptom: 'Gate stopped working entirely after a storm or a power cut',
-        text: "Worth checking backup power or battery status first — a gate without backup simply won't move until mains power returns, which can look like a fault when it's actually just waiting on electricity.",
+        text: "Check backup power or battery status first — a gate without backup simply won't move until mains power returns, which can look like a fault when it's actually just waiting on electricity.",
       },
       {
         symptom: "App shows the gate as closed, but it's visibly standing open",
@@ -619,7 +631,7 @@ const services = [
       },
       {
         symptom: 'Gate opens fine but makes a loud grinding or straining noise doing it',
-        text: "An early sign of mechanical wear worth having looked at before it fails completely — a noise that's new or getting louder is a useful early warning rather than something to wait out.",
+        text: "An early sign of mechanical wear — have it looked at before it fails completely — a noise that's new or getting louder is a useful early warning rather than something to wait out.",
       },
     ],
     extraSections: [
@@ -629,11 +641,11 @@ const services = [
       },
       {
         heading: 'Security Doors',
-        text: 'Resistant, modern security door solutions for entrances that need more than a standard domestic door — residential, commercial or industrial.',
+        text: 'Security doors come up most often for ground-floor entrances and commercial premises where a standard door is the obvious weak point. The door, frame and locking have to work as one unit — a heavy door in a weak frame achieves little — which is why they go in as complete assemblies rather than being swapped leaf-for-leaf.',
       },
       {
         heading: 'Sectional Gates',
-        text: 'Sectional gate solutions sized to the entrance, from a single villa driveway to a commercial or industrial access point.',
+        text: 'Sectional gates open vertically in guided panels rather than swinging or sliding, which suits garages and entrances with no room for a gate\'s travel — the driveway stays usable right up to the door. Most common on garages, loading entrances and commercial units.',
       },
       {
         heading: 'Backup Power',
@@ -685,6 +697,10 @@ const services = [
         q: 'Can different family members or guests each have their own remote instead of sharing one?',
         a: 'Yes — remotes and codes can be issued individually rather than everyone sharing a single one.',
       },
+      {
+        q: 'Can anything else be controlled from the same app as the gate?',
+        a: 'Cameras, the alarm and access control can share the app, and simple add-ons like <a href="/smart-home-automation">remote-controlled lighting</a> can be included alongside — useful for making an empty property look occupied without running a separate system.',
+      },
     ],
   },
   {
@@ -694,7 +710,9 @@ const services = [
     flagship: false,
     h1: 'Fire Detection Systems in the Algarve',
     heroHeadline: 'Know the moment smoke is detected, not when it\'s too late.',
-    heroTagline: 'Smoke detectors and fire panels — installed and explained in plain English.',
+    heroTagline: 'Smoke detectors and addressable panels that catch problems while they\'re still small.',
+    ctaNote: 'A short call is enough to scope what you need.',
+    reassurance: { heading: 'A straight answer about what your property actually needs.', body: 'Detector counts and positions come from the layout, not a sales target. Call, describe the property, and hear what coverage genuinely makes sense — nothing more.' },
     heroSubhead:
       'Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.',
     imageAlt: '[Placeholder: Smoke detector mounted on ceiling in hallway]',
@@ -753,7 +771,7 @@ const services = [
     commonProblems: [
       {
         symptom: 'Detector chirps intermittently, especially at night',
-        text: "Almost always a low-battery warning rather than smoke detected — a distinct, repeating chirp rather than a continuous alarm. Worth telling the two apart, since ignoring the chirp risks not noticing the difference when it matters.",
+        text: "Almost always a low-battery warning rather than smoke detected — a distinct, repeating chirp rather than a continuous alarm. Learn to tell the two apart — ignoring the chirp risks missing the real thing when it matters.",
       },
       {
         symptom: "Alarm triggers from cooking or steam rather than an actual fire",
@@ -765,7 +783,7 @@ const services = [
       },
       {
         symptom: 'New villa purchase came with existing smoke detectors of unknown age or condition',
-        text: "Worth having them assessed rather than assuming they still function as intended — detectors do have a working lifespan, and there's no way to know from looking at one whether it's still reliable.",
+        text: "Have them assessed rather than assuming they still function as intended — detectors do have a working lifespan, and there's no way to know from looking at one whether it's still reliable.",
       },
       {
         symptom: 'One hallway detector keeps triggering with no smoke or steam anywhere nearby',
@@ -798,8 +816,8 @@ const services = [
         text: 'Detectors are wired with isolation built in, so a single faulty or triggered detector doesn’t take the rest of the fire loop offline.',
       },
       {
-        heading: 'Built for Prevention and a Quick Response',
-        text: 'The goal is catching a problem early: detection and alert systems designed for prevention, safety and a quick response if something does trigger.',
+        heading: 'Detectors Age — and Look Fine Doing It',
+        text: 'A detector\'s sensing chamber degrades with dust and time long before anything visible changes on the ceiling. Age and service history matter more than appearance, which is why detectors of unknown age in a newly purchased property get assessed rather than trusted on looks.',
       },
     ],
     faqs: [
@@ -852,7 +870,9 @@ const services = [
     flagship: false,
     h1: 'Home Networking in the Algarve',
     heroHeadline: 'The reason your cameras and alarm actually work when you need them.',
-    heroTagline: 'Structured cabling and network hardware — installed and explained in plain English.',
+    heroTagline: 'The wired backbone that keeps cameras, alarms and intercoms actually online.',
+    ctaNote: 'Explain the problem — hear the fix before committing to anything.',
+    reassurance: { heading: 'Not sure if your network is the problem?', body: 'Describe what\'s dropping out and where — half the time the fix is smaller than a full re-cable, and you\'ll be told when it is.' },
     heroSubhead:
       'Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.',
     imageAlt: '[Placeholder: Network router and cabling panel installed in utility cupboard]',
@@ -874,7 +894,7 @@ const services = [
       'Structured cabling for a stable, wired backbone',
       'Organised network racks, so equipment is installed properly rather than left as a tangle of cables',
       'Backup power (UPS) to keep the network running through a power interruption',
-      'Telecommunications infrastructure connecting communication and access systems',
+      'Wi-Fi access points positioned for real coverage — indoors, outdoors and across outbuildings',
       'A network built to support CCTV, alarms and access control running reliably',
       'Suited to homes, offices and larger properties with more equipment to connect',
     ],
@@ -919,7 +939,7 @@ const services = [
       },
       {
         symptom: 'Router restarts randomly and takes the whole security system down with it',
-        text: "A consumer router under sustained load from several connected devices can be the actual point of failure, rather than any individual camera or sensor — worth looking at the router itself before assuming a fault with the devices connected to it.",
+        text: "A consumer router under sustained load from several connected devices can be the actual point of failure, rather than any individual camera or sensor — look at the router itself before blaming the devices connected to it.",
       },
       {
         symptom: 'Property has multiple buildings — main house, guest annex, pool house — and none of them get reliable signal',
@@ -927,11 +947,11 @@ const services = [
       },
       {
         symptom: 'New router installed by the internet provider, and the cameras stopped working the same day',
-        text: "Provider-supplied routers can reset port or IP settings that other devices were relying on. Worth flagging in advance if a router swap is planned, so the cameras and other devices get reconfigured to match rather than left disconnected.",
+        text: "Provider-supplied routers can reset port or IP settings that other devices were relying on. Flag it in advance if a router swap is planned, so the cameras and other devices get reconfigured to match rather than left disconnected.",
       },
       {
         symptom: "Cabling behind the wall or in the utility cupboard was never labelled",
-        text: 'A proper network rack and labelling scheme prevents this becoming a guessing game the next time something needs troubleshooting — worth sorting out once rather than living with an unlabelled tangle indefinitely.',
+        text: 'A proper network rack and labelling scheme prevents this becoming a guessing game the next time something needs troubleshooting — sort it once rather than living with an unlabelled tangle indefinitely.',
       },
       {
         symptom: 'Property is rented out and needs guest Wi-Fi kept separate from the network running the security system',
@@ -939,7 +959,7 @@ const services = [
       },
       {
         symptom: "Signal reaches the garden but drops the moment you're by the pool or at the far boundary wall",
-        text: "Outdoor coverage at range needs a purpose-placed access point rather than relying on the router's default reach — worth mapping the property's actual outdoor use before assuming standard Wi-Fi will cover it.",
+        text: "Outdoor coverage at range needs a purpose-placed access point rather than relying on the router's default reach — map the property's actual outdoor use before assuming standard Wi-Fi will cover it.",
       },
     ],
     extraSections: [
@@ -1014,26 +1034,23 @@ const services = [
     flagship: false,
     h1: 'Smart Home Automation in the Algarve',
     heroHeadline: 'Control your gate, cameras and alarm from one app, not three.',
-    heroTagline: 'Connected systems managed from one app — installed and explained in plain English.',
-    heroSubhead:
-      'Gates, access control, cameras and alarms connected together and managed from one app, rather than run as separate systems.',
-    imageAlt: '[Placeholder: Smart home control panel and app interface on wall-mounted tablet]',
+    heroTagline: 'An add-on to a security install — one app for your systems, plus simple lighting control.',
+    ctaNote: 'Ask what\'s realistic for your setup — no packages, no pressure.',
+    reassurance: { heading: 'Unsure whether automation is worth it for your setup?', body: 'It\'s an add-on, not a hard sell. If connecting your systems into one app wouldn\'t genuinely make life easier, you\'ll hear that on the call.' },
+    heroSubhead: 'Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.',
+    imageAlt: '[Placeholder: Phone showing one app controlling gate, cameras and alarm]',
     scenarioImageAlt: '[Placeholder: Phone screen showing a connected app with gate, camera and alarm controls]',
-    detailImageAlt: '[Placeholder: Wall-mounted tablet controlling gate and camera systems in a villa hallway]',
+    detailImageAlt: '[Placeholder: Wall switch and phone app controlling the same villa lighting]',
     intro:
-      'Automation, for most properties, starts with connecting the systems already in place — the <a href="/gate-automation">gate</a>, the <a href="/access-control">access control</a>, the <a href="/cctv-installation">cameras</a>, the <a href="/alarm-systems">alarm</a> — so they work together and can be managed from a single app, rather than being separate installs that don’t talk to each other. Beyond that core connection, automation can extend further depending on the property — what makes sense is worked out directly rather than sold as a fixed package.',
+      'Smart home automation here is deliberately scoped as an add-on to a security installation, not a standalone service. When a <a href="/gate-automation">gate</a>, <a href="/cctv-installation">cameras</a>, an <a href="/alarm-systems">alarm</a> or <a href="/access-control">access control</a> go in, they can be connected to work from a single app — and simple automation, like remote-controlled lighting, can be added alongside. That\'s the honest scope: making the systems being installed work together, plus the basics that naturally extend from them.',
     deepDive: [
       {
         heading: "What 'Connected' Actually Means in Practice",
-        text: "Automation here isn't a separate system bolted on top — it's the gate, access control, cameras and alarm that are already being installed, set up to share one app instead of four. That distinction matters because it changes how a property gets managed day to day: checking a camera, seeing whether the gate is closed, and confirming the alarm is armed become one habit instead of three, particularly useful for an owner checking on a property from outside Portugal.",
+        text: "Automation here isn\'t a separate system bolted on top — it\'s the gate, access control, cameras and alarm that are already being installed, set up to share one app instead of four. That changes how a property gets managed day to day: checking a camera, seeing whether the gate is closed, and confirming the alarm is armed become one habit instead of three, particularly for an owner checking on a property from outside Portugal. Systems can also be connected incrementally as they\'re added — there\'s no need to plan a complete setup before starting with whatever is already in place.",
       },
       {
-        heading: 'Starting Small and Building Up Over Time',
-        text: "Most properties don't connect everything at once. A common starting point is linking whatever two systems are already installed — a camera setup and an alarm, for instance — and adding the gate or access control into the same app later, when that work happens anyway. Because the underlying systems are the same regardless of when they're connected, there's no need to plan the full setup upfront before getting started.",
-      },
-      {
-        heading: 'Automation Beyond Connecting Security Systems',
-        text: "Connecting the gate, cameras, alarm and access control is the starting point for most properties, but it isn't necessarily the ceiling. Depending on what a property already has and what an owner is trying to achieve, automation can extend into other parts of how the property runs. Because that scope varies so much from one property to the next, it's discussed directly during the initial conversation rather than presented as a fixed menu.",
+        heading: 'Remote-Controlled Lighting: The Add-On That Earns Its Place',
+        text: "The most requested extra alongside a security install is also the simplest: lights that can be switched from the same app as the cameras and alarm. For a property that stands empty for weeks, turning lights on for the evening — from another country — makes the place read as occupied in a way a permanently dark villa never does. And because it rides along with an install that\'s happening anyway, it\'s a small addition rather than a project of its own.",
       },
     ],
     included: [
@@ -1041,35 +1058,24 @@ const services = [
       'Access control integrated with automated entry points',
       'Cameras, alarms and access control connected through a single app rather than run separately',
       'Remote control of gates and access points from your phone',
-      'Automation scaled to the property — residential, condominium or commercial',
+      'Basic remote-controlled lighting, added alongside a security install',
       'Suited to both new installations and connecting up existing systems',
-      'Additional automation scoped to the property directly, beyond the core connected setup',
     ],
     whyItMatters:
-      'Managing a property from a distance is easier when the gate, the cameras, the alarm and the access control all work through one app rather than several different logins. In practice, automation is mostly about making the systems already in place work together.',
+      'Managing a property from a distance is easier when the gate, the cameras, the alarm and the access control all work through one app rather than several different logins. This is deliberately a modest offering: connect what\'s being installed, add simple extras like lighting control where they genuinely help, and skip the smart-home theatre a holiday property doesn\'t need.',
     scenarios: [
       {
         heading: 'Managing Multiple Systems From One App',
         text: 'Instead of separate apps for the gate, the cameras and the alarm, a connected setup brings them together — useful for checking on a property remotely without switching between logins.',
       },
       {
-        heading: 'Gated Villa With Several Access Points',
-        text: 'A property with a driveway gate, a front door and a side gate benefits from having all of them connected and controllable from the same place, rather than managed separately.',
-      },
-      {
-        heading: 'Condominium With Shared Entrances',
-        text: 'Automation scaled to a condominium’s shared gates and entrances means access can be managed consistently across the development, not just at an individual unit.',
+        heading: "Lights On While You\'re Away",
+        text: 'An empty villa that\'s dark every night for a month reads as empty. Remote-controlled lighting from the same app as the cameras lets an owner put lights on for the evening from anywhere.',
       },
       {
         heading: 'Connecting Up an Existing System',
         text: 'A property with cameras or an alarm already installed can often have gate or access automation added and connected to the existing setup, rather than starting over.',
       },
-    ],
-    propertyTypes: [
-      { type: 'Villa', text: 'Gate, access control, cameras and alarm connected and controlled from one app, sized to the property’s entry points.' },
-      { type: 'Apartment', text: 'Automation typically applies to the unit’s own access point, alongside whatever the building manages at shared entrances.' },
-      { type: 'Condominium / Gated Community', text: 'Automation scales to shared gates and entrances as well as individual properties within the development.' },
-      { type: 'Commercial', text: 'The same connected approach applies to a commercial property’s gates, access points and security systems.' },
     ],
     commonProblems: [
       {
@@ -1077,68 +1083,52 @@ const services = [
         text: 'Connecting them into one app is exactly the starting point most properties begin from — the individual systems stay the same, only how they\'re managed changes.',
       },
       {
-        symptom: "Added a camera system after the gate was already automated, and now the two don't talk to each other",
-        text: "Existing systems can usually be connected retroactively rather than needing the original gate install redone — worth having it assessed rather than assuming a full rebuild is required.",
-      },
-      {
-        symptom: "Not sure whether to connect everything now or wait until more systems are installed",
-        text: 'Systems can be connected incrementally as they\'re added — there\'s no need to wait for a "complete" setup before getting started with whatever is already in place.',
-      },
-      {
-        symptom: 'Condominium wants shared gates and entrances managed consistently across the development, not just individual units',
-        text: 'Automation scales to shared infrastructure as well as single properties, so a development\'s entrances can be managed as one system rather than each owner handling their own separately.',
+        symptom: "Added a camera system after the gate was already automated, and now the two don\'t talk to each other",
+        text: "Existing systems can usually be connected retroactively rather than needing the original gate install redone — have it assessed before assuming a full rebuild is required.",
       },
       {
         symptom: 'Managing a property from outside Portugal means checking several different apps just to confirm everything is fine',
-        text: 'A connected app removes exactly that friction for a remote owner — one check instead of several, particularly useful when the property is being checked on from a different country and time zone.',
+        text: 'A connected app removes exactly that friction for a remote owner — one check instead of several, particularly useful when the property is being checked from a different country and time zone.',
+      },
+      {
+        symptom: 'The villa sits dark for weeks at a time and visibly looks unoccupied',
+        text: "Remote-controlled lighting is the simple fix — switch lights on for the evening from the same app as the cameras, so an empty property doesn\'t advertise itself as one.",
       },
       {
         symptom: 'Bought a property with an existing automated gate from a different installer and want it brought into a connected setup',
-        text: "Existing gate, camera or alarm hardware can often be connected into a combined setup rather than replaced outright — worth having the existing equipment assessed before assuming a full swap-out is needed.",
-      },
-      {
-        symptom: "Unsure what automation actually covers beyond connecting the systems already being installed",
-        text: 'A specific, direct answer is more useful than a generic list — worth asking exactly what\'s realistic for your property on the first call, since the honest answer depends entirely on what\'s already installed and what you\'re trying to achieve.',
-      },
-      {
-        symptom: 'Family members each want their own access within the connected system rather than one shared login for everything',
-        text: 'Individual access can be set up within a connected system, so each person has their own way in rather than everyone sharing a single account for the whole property.',
+        text: "Existing gate, camera or alarm hardware can often be connected into a combined setup rather than replaced outright — have the existing equipment assessed before assuming a full swap-out is needed.",
       },
     ],
     extraSections: [
       {
         heading: 'Gate & Entry Automation',
-        text: 'Driveway gates, barriers and entry points are motorised and connected, so access doesn’t rely on someone being physically there to open them.',
-      },
-      {
-        heading: 'Access Control Integration',
-        text: 'Access control is built into the same connected setup as the gate and cameras, rather than installed as a separate, standalone system.',
+        text: 'Driveway gates, barriers and entry points are motorised and connected, so access doesn\'t rely on someone being physically there to open them.',
       },
       {
         heading: 'One App, Several Systems',
         text: 'Cameras, alarms, access control and gates connect through a single app, avoiding the need to switch between separate logins to check different parts of the property.',
       },
       {
-        heading: 'Scales With the Property',
-        text: 'The same approach works for a single villa, a condominium’s shared entrances, or a commercial property — the setup is sized to what’s actually there.',
+        heading: 'Simple Lighting Control',
+        text: 'Remote-controlled lighting can be added alongside a security install — switch lights from the same app used for the cameras and alarm, so an empty property doesn\'t have to look empty.',
       },
     ],
     faqs: [
       {
         q: 'What does "smart home automation" actually include here?',
-        a: 'At its core, it means connecting the gate, access control, cameras and alarm so they’re managed from one app rather than as separate systems. Depending on the property, automation can extend further than that — the exact scope is worked out directly rather than fixed in advance.',
+        a: 'It\'s an add-on to a security installation rather than a standalone service: the gate, access control, cameras and alarm connected into one app, plus simple automation such as remote-controlled lighting. It deliberately doesn\'t stretch beyond that.',
+      },
+      {
+        q: 'Can lighting be controlled remotely as part of this?',
+        a: 'Yes — basic remote-controlled lighting is one of the add-ons offered alongside a security install, managed from the same app as the cameras and alarm rather than as a separate system.',
       },
       {
         q: 'Can automation be added to systems already installed?',
-        a: 'Often, yes — existing gates, cameras or alarms can frequently be connected into a single setup rather than needing to be replaced.',
+        a: 'Often, yes — existing gates, cameras or alarms can frequently be connected into a single setup rather than needing to be replaced, and it can happen incrementally as systems are added or upgraded.',
       },
       {
         q: 'Do I need all four systems — gate, access, cameras and alarm — to use automation?',
         a: 'No — automation can apply to whichever systems are in place. Two connected systems still means fewer separate logins than running them independently.',
-      },
-      {
-        q: 'Is this suitable for a commercial property?',
-        a: 'Yes — the same connected approach applies whether the property is a single villa or a commercial premises with multiple access points.',
       },
       {
         q: 'How does "one app" actually work in practice?',
@@ -1146,23 +1136,11 @@ const services = [
       },
       {
         q: 'What happens if the internet goes down — do the gate, alarm and cameras stop working, or just the connected app?',
-        a: 'The individual systems — the gate motor, the alarm panel, the cameras — keep working on their own regardless of the connection; it\'s specifically the remote app view and cross-system control that needs a working connection. Worth understanding that distinction rather than assuming a connectivity issue takes everything offline.',
+        a: 'The individual systems — the gate motor, the alarm panel, the cameras — keep working on their own regardless of the connection; it\'s specifically the remote app view and cross-system control that needs a working connection.',
       },
       {
         q: 'Does connecting systems together make any one of them less reliable running on its own?',
-        a: 'No — each system (the gate motor, the alarm panel) still operates independently; connecting them adds a shared layer for viewing and control rather than making one dependent on another to function at all.',
-      },
-      {
-        q: 'Can automation be added later, or does it need to be planned from the start?',
-        a: 'It can be added incrementally as systems are installed or upgraded — there\'s no need to plan the full connected setup before getting started.',
-      },
-      {
-        q: 'Can each family member or staff member have their own separate access instead of one shared login?',
-        a: 'Yes — individual access can be set up within the connected system, rather than everyone sharing a single account.',
-      },
-      {
-        q: 'Does automation work the same way for a condominium’s shared entrances as it does for a single villa?',
-        a: 'Yes — the same connected approach scales to shared infrastructure, managing a development’s entrances as one system rather than each owner handling their own separately.',
+        a: 'No — each system still operates independently; connecting them adds a shared layer for viewing and control rather than making one dependent on another to function at all.',
       },
     ],
   },

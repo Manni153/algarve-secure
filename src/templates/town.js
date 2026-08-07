@@ -3,7 +3,69 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage } = require('./layout');
+
+// Hesitation-addressing block, varied by town character rather than repeated
+// verbatim on all 22 pages. Each variant appears on at most three towns.
+const REASSURANCE_VARIANTS = {
+  secondHome: {
+    heading: 'No pressure, no hard sell — just a straight answer.',
+    body: "A quick call tells you what makes sense for a property that stands empty between visits. Most owners who'd been putting it off say the same thing afterwards: they wish they'd called sooner.",
+  },
+  rental: {
+    heading: 'A quick call, not a sales pitch.',
+    body: "Describe the property and how often it turns over, and you'll get an honest read on what's worth installing before the next changeover — and what isn't.",
+  },
+  rural: {
+    heading: "An honest answer about what works out here.",
+    body: "Rural properties get a straight assessment — including checking the connection first — before any equipment is discussed. If something won't work reliably at your property, you'll hear that on the call.",
+  },
+  ruralInland: {
+    heading: 'No pressure, and no one-size packages.',
+    body: "A short call is enough to tell you what a larger inland plot genuinely needs, and what it doesn't. The property decides the plan, not a price list.",
+  },
+  estate: {
+    heading: 'A straight answer, even inside a gated estate.',
+    body: "A quick call clarifies what your development already covers and what your own property still needs — no overlap with the estate's systems, no overselling on top of them.",
+  },
+  urban: {
+    heading: 'Describe the property. Get a straight answer.',
+    body: "No hard sell — if a compact setup covers your property, that's exactly what you'll be told. The call costs nothing and commits you to nothing.",
+  },
+  historic: {
+    heading: 'An honest read on an older building.',
+    body: "Village-centre and historic properties get a plan built around the building itself — and a frank answer about what's realistic before any commitment is asked of you.",
+  },
+  quietEast: {
+    heading: 'One quick call settles it.',
+    body: "You'll hear what actually makes sense for a property out this way — no pressure on the call, and no follow-up campaign afterwards.",
+  },
+};
+
+const TOWN_REASSURANCE = {
+  'lagos': 'urban', 'praia-da-luz': 'secondHome', 'sagres': 'rural', 'aljezur': 'rural',
+  'alvor': 'secondHome', 'portimao': 'urban', 'ferragudo': 'historic', 'lagoa': 'rental',
+  'carvoeiro': 'rental', 'silves': 'ruralInland', 'monchique': 'rural', 'albufeira': 'rental',
+  'vilamoura': 'estate', 'quarteira': 'quietEast', 'loule': 'historic', 'almancil': 'estate',
+  'faro': 'urban', 'olhao': 'historic', 'sao-bras-de-alportel': 'ruralInland',
+  'tavira': 'secondHome', 'castro-marim': 'quietEast', 'vila-real-de-santo-antonio': 'quietEast',
+};
+
+// Short line under the hero CTA button, varied across towns.
+const CTA_NOTES = [
+  'Call about your property — straight answer, no pressure.',
+  'One quick call tells you what makes sense here.',
+  'Describe the property — get a clear answer in plain English.',
+  'No pressure — just a clear answer about your options.',
+  'A five-minute call is enough to point you right.',
+];
+const TOWN_CTA_NOTE = {
+  'lagos': 0, 'praia-da-luz': 1, 'sagres': 2, 'aljezur': 3, 'alvor': 4,
+  'portimao': 0, 'ferragudo': 1, 'lagoa': 2, 'carvoeiro': 3, 'silves': 4,
+  'monchique': 0, 'albufeira': 1, 'vilamoura': 2, 'quarteira': 3, 'loule': 4,
+  'almancil': 0, 'faro': 1, 'olhao': 2, 'sao-bras-de-alportel': 3, 'tavira': 4,
+  'castro-marim': 0, 'vila-real-de-santo-antonio': 1,
+};
 
 // Keyword -> service page map, used to turn a first natural mention of a
 // service inside a town's prose into a real link, without hand-editing 22
@@ -124,8 +186,13 @@ function renderTown(town) {
     breadcrumb: [{ label: 'Home', href: '/' }, { label: town.name }],
     h1Text: `Security & Smart Home Installation in ${town.name}`,
     headlineHtml: esc(town.heroHeadline),
-    subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
+    subtext: town.heroSubtext,
+    ctaNote: CTA_NOTES[TOWN_CTA_NOTE[town.slug] ?? 0],
   });
+
+  const reassurance = reassuranceBand(
+    REASSURANCE_VARIANTS[TOWN_REASSURANCE[town.slug] || 'urban']
+  );
 
   const body = `
   ${hero}
@@ -228,6 +295,8 @@ function renderTown(town) {
       <div class="link-line center">${nearbyLine}</div>
     </div>
   </section>
+
+  ${reassurance}
 
   <section class="cta-band">
     <div class="container">

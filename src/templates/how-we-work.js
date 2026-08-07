@@ -62,6 +62,7 @@ function renderHowWeWork() {
     h1Text: 'How Algarve Smart Home Works',
     headlineHtml: 'From first call to finished install — no surprises along the way.',
     subtext: 'A straightforward look at how an enquiry turns into a working system.',
+    ctaNote: 'Start with a call — see exactly how it works.',
   });
 
   const body = `

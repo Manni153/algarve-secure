@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage } = require('./layout');
 
 function renderService(service) {
   const otherServices = services.filter((s) => s.slug !== service.slug);
@@ -103,16 +103,22 @@ function renderService(service) {
     ],
   };
 
-  // Every service page links to all 22 town pages using a "[Service] in
-  // [Town]" anchor text pattern, grouped by region for scannability.
-  const townLinksHtml = regionGroups()
-    .map(
-      (g) => `<div class="directory-col">
-        <div class="head">${esc(g.label.toUpperCase())}</div>
-        ${g.towns.map((t) => `<a href="/${t.slug}">${esc(service.name)} in ${esc(t.name)}</a>`).join('')}
-      </div>`
-    )
-    .join('');
+  // Every service page still links to all 22 town pages, but as flowing,
+  // regionally-framed sentences with town-name anchors rather than a
+  // mechanical 22-item list of "[Service] in [Town]" entries.
+  const groups = regionGroups();
+  const linkList = (towns) => {
+    const links = towns.map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`);
+    if (links.length === 1) return links[0];
+    return `${links.slice(0, -1).join(', ')} and ${links[links.length - 1]}`;
+  };
+  const west = groups.find((g) => g.key === 'west');
+  const central = groups.find((g) => g.key === 'central');
+  const east = groups.find((g) => g.key === 'east');
+  const townLinksHtml = `
+    <p>Across the <strong>West Algarve</strong>, ${esc(service.name.toLowerCase())} is installed in ${linkList(west.towns)}.</p>
+    <p>In the <strong>Central Algarve</strong>, that coverage runs through ${linkList(central.towns)}.</p>
+    <p>And along the <strong>East Algarve</strong>, it reaches ${linkList(east.towns)} — the full stretch to the Spanish border.</p>`;
 
   const otherServiceCards = otherServices
     .map(
@@ -131,7 +137,12 @@ function renderService(service) {
     h1Text: service.h1,
     headlineHtml: esc(service.heroHeadline),
     subtext: service.heroTagline,
+    ctaNote: service.ctaNote,
   });
+
+  const reassurance = service.reassurance
+    ? reassuranceBand({ heading: service.reassurance.heading, body: service.reassurance.body })
+    : '';
 
   // Jump-link table of contents — only lists sections this service actually
   // has, so it stays accurate if a section is ever conditionally empty.
@@ -288,6 +299,8 @@ function renderService(service) {
       : ''
   }
 
+  ${reassurance}
+
   <section class="cta-band">
     <div class="container">
       <span class="eyebrow">Get Started</span>
@@ -302,9 +315,8 @@ function renderService(service) {
       <div class="section-head">
         <span class="eyebrow">Where We Work</span>
         <h2>${esc(service.name)} across the Algarve</h2>
-        <p class="lede">Installed for homeowners in every town we cover.</p>
       </div>
-      <div class="directory">${townLinksHtml}</div>
+      <div class="narrow region-links" style="margin: 0 auto;">${townLinksHtml}</div>
     </div>
   </section>
 

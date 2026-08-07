@@ -15,6 +15,7 @@ function renderContact() {
     h1Text: 'Contact Algarve Smart Home',
     headlineHtml: 'Call or WhatsApp — get a straight answer today.',
     subtext: "Send a few details and hear back quickly, or call now for the fastest response.",
+    ctaNote: 'Fastest way to a clear answer.',
   });
 
   const body = `
