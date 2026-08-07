@@ -253,6 +253,7 @@ body.nav-open { overflow: hidden; }
    ------------------------------------------------------------------------- */
 .hero-stack { padding-top: 40px; padding-bottom: 40px; }
 @media (min-width: 768px) { .hero-stack { padding-top: 56px; padding-bottom: 56px; } }
+@media (min-width: 1025px) { .hero-stack { padding-top: 20px; padding-bottom: 18px; } }
 .hero-stack-text { max-width: 720px; }
 .hero-stack .breadcrumb { margin-bottom: 14px; }
 
@@ -266,12 +267,14 @@ body.nav-open { overflow: hidden; }
   margin: 0 0 14px;
   line-height: 1.3;
 }
+@media (min-width: 1025px) { .hero-kicker { margin-bottom: 6px; } }
 .hero-headline {
   font-size: clamp(2.1rem, 5vw, 3.4rem);
   line-height: 1.12;
   letter-spacing: -0.01em;
   margin: 0 0 0.42em;
 }
+@media (min-width: 1025px) { .hero-headline { margin-bottom: 0.14em; } }
 .hero-subtext {
   font-family: var(--body);
   font-size: clamp(1rem, 2vw, 1.15rem);
@@ -279,9 +282,21 @@ body.nav-open { overflow: hidden; }
   margin: 0 0 22px;
   max-width: 60ch;
 }
+@media (min-width: 1025px) {
+  .hero-subtext {
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+    max-width: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 .hero-stack .btn { margin-top: 4px; }
+@media (min-width: 1025px) { .hero-stack .btn { margin-top: 0; } }
 
 .hero-stack-media { margin-top: 32px; }
+@media (min-width: 1025px) { .hero-stack-media { margin-top: 12px; } }
 .hero-stack-media .placeholder {
   aspect-ratio: unset;
   min-height: 0;
@@ -292,7 +307,11 @@ body.nav-open { overflow: hidden; }
   .hero-stack-media .placeholder { height: clamp(460px, 62vh, 660px); }
 }
 @media (min-width: 1025px) {
-  .hero-stack-media .placeholder { height: clamp(480px, 58vh, 680px); }
+  /* Fixed, flat height (roughly a 2.8:1 wide-banner shape at the
+     container's max content width) instead of a viewport-height-driven
+     box, so the full image sits within the fold alongside the text above
+     it on typical laptop screens, without needing to shrink the headline. */
+  .hero-stack-media .placeholder { height: 370px; aspect-ratio: unset; }
 }
 .hero-stack-media img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 
@@ -315,10 +334,13 @@ body.nav-open { overflow: hidden; }
 .hero-trust-band .stat:last-child { border-right: none; }
 .hero-trust-band .v { display: block; font-family: var(--ui); font-weight: 800; color: var(--terracotta); font-size: clamp(0.95rem, 2.4vw, 1.15rem); }
 .hero-trust-band .l { font-family: var(--body); font-size: 0.78rem; color: var(--teal-muted); }
-@media (max-width: 640px) {
-  .hero-trust-band .container { grid-template-columns: 1fr; }
-  .hero-trust-band .stat { border-right: none; border-bottom: 1px solid var(--stone); }
-  .hero-trust-band .stat:last-child { border-bottom: none; }
+/* Stays a horizontal 3-up row at every width, including mobile — labels
+   are free to wrap to a second line within their own column rather than
+   the stats stacking on top of one another. */
+@media (max-width: 480px) {
+  .hero-trust-band .stat { padding: 14px 6px; }
+  .hero-trust-band .v { font-size: 0.82rem; }
+  .hero-trust-band .l { font-size: 0.62rem; line-height: 1.25; }
 }
 
 /* -------------------------------------------------------------------------

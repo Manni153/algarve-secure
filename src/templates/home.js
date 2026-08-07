@@ -69,7 +69,7 @@ function renderHome() {
     alt: '[Placeholder: installer mounting a CCTV camera on a villa exterior wall, cabling visible]',
     h1Text: 'Security & Smart Home Installation in the Algarve',
     headlineHtml: 'Stop wondering if your property is <em>okay</em>.',
-    subtext: 'CCTV, alarms and smart home systems for Algarve homeowners — installed and explained in plain English, so you can check in from anywhere.',
+    subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
     trustStats: site.trustStats,
   });
 
