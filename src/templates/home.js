@@ -83,7 +83,7 @@ function renderHome() {
   ${hero}
   ${reassurance}
 
-  <section id="services">
+  <section id="services" class="bleed">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">What We Install</span>
@@ -94,7 +94,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="section-alt bleed">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">The Algarve, in Practice</span>
@@ -113,7 +113,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section>
+  <section class="bleed">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Why Homeowners Choose Us</span>
@@ -124,7 +124,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="section-alt bleed">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">How It Works</span>
@@ -135,7 +135,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section id="areas">
+  <section id="areas" class="bleed">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Where We Work</span>
@@ -146,7 +146,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="section-alt bleed">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Questions</span>
@@ -156,7 +156,7 @@ function renderHome() {
     </div>
   </section>
 
-  <section class="cta-band">
+  <section class="cta-band bleed">
     <div class="container">
       <span class="eyebrow">Get Started</span>
       <h2>Ready to secure your property?</h2>

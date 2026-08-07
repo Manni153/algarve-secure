@@ -49,13 +49,13 @@ function renderBreadcrumb(items) {
 // separate band directly after, so they're the first thing seen on scroll.
 function heroIntro({ alt, breadcrumb, h1Text, headlineHtml, subtext, ctaNote, trustStats }) {
   const statsHtml = trustStats
-    ? `<div class="hero-trust-band"><div class="container">${trustStats
+    ? `<div class="hero-trust-band bleed"><div class="container">${trustStats
         .map((s) => `<div class="stat"><span class="v">${esc(s.value)}</span><span class="l">${esc(s.label)}</span></div>`)
         .join('')}</div></div>`
     : '';
 
   return `
-  <section class="hero-stack">
+  <section class="hero-stack bleed">
     <div class="container">
       <div class="hero-stack-text">
         ${breadcrumb ? renderBreadcrumb(breadcrumb) : ''}
@@ -77,7 +77,7 @@ function heroIntro({ alt, breadcrumb, h1Text, headlineHtml, subtext, ctaNote, tr
 // right after the hero/CTA, before the page moves into main content.
 function reassuranceBand({ heading, body }) {
   return `
-  <section class="reassurance-band">
+  <section class="reassurance-band bleed">
     <div class="container narrow">
       <h2>${esc(heading)}</h2>
       <p>${esc(body)}</p>
@@ -87,7 +87,7 @@ function reassuranceBand({ heading, body }) {
 
 function renderHeader() {
   return `
-  <header class="site-header">
+  <nav class="site-header bleed" aria-label="Primary">
     <div class="container">
       <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
       <div class="header-actions">
@@ -99,7 +99,7 @@ function renderHeader() {
         </button>
       </div>
     </div>
-  </header>`;
+  </nav>`;
 }
 
 function renderNavDrawer() {
@@ -152,7 +152,7 @@ function renderFooter() {
   const year = new Date().getFullYear();
 
   return `
-  <footer class="site-footer">
+  <footer class="site-footer bleed">
     <div class="container">
       <div class="footer-masthead">
         <div>
