@@ -89,9 +89,13 @@ p { margin: 0 0 1em; color: var(--teal-muted); }
    Bleed — breaks a full-width section out of whatever narrower container a
    host page (e.g. a page-builder's embed block) wraps pasted content in.
    The section itself spans the full viewport width; the .container inside
-   it still centers and constrains the actual content as normal.
+   it still centers and constrains the actual content as normal. Uses a
+   margin-only technique (no position/left/right) so it doesn't fight a
+   sticky-positioned element's own `position` and `top` — an earlier
+   position:relative + left:50% version shifted the sticky header off
+   the visible viewport entirely.
    ------------------------------------------------------------------------- */
-.bleed { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+.bleed { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
 
 section { padding: 56px 0; scroll-margin-top: calc(var(--header-h) + 16px); }
 @media (min-width: 900px) { section { padding: 84px 0; } }
