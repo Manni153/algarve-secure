@@ -156,8 +156,8 @@ const services = [
         a: 'Yes — the app works over any working internet connection, so it makes no difference whether the viewer is a few streets from the property or on a completely different continent.',
       },
       {
-        q: 'Is CCTV suitable for a holiday rental?',
-        a: 'Outdoor cameras covering entrances and driveways are common on rental properties, mainly for security and confirming guest arrival or departure. Indoor cameras raise real privacy considerations for guests and are worth thinking through carefully rather than assuming they’re appropriate everywhere.',
+        q: 'Do cameras need to be cleaned or serviced, or is it a fit-and-forget install?',
+        a: 'Outdoor units in particular benefit from an occasional lens clean — salt air and dust build-up gradually affect image and night-vision quality more than most owners expect. It’s a five-minute job, not a service contract, but worth doing a couple of times a year rather than never.',
       },
       {
         q: 'Can CCTV be combined with an alarm system?',
@@ -338,16 +338,16 @@ const services = [
         a: 'Get in touch and it can be reset as part of ongoing support — no need to replace the panel over a forgotten code.',
       },
       {
-        q: 'Can family members or a property manager each have their own code?',
-        a: 'Yes — codes can be issued individually and changed or revoked one at a time, without resetting access for everyone else on the system.',
+        q: 'How often should sensors and the control panel actually be checked?',
+        a: 'Periodic checking catches a fault — a low battery, a sensor drifting out of alignment — before it turns into a real gap in coverage. Worth asking what a sensible interval looks like for your specific system rather than assuming it’s a fit-and-forget install.',
       },
       {
-        q: 'How do I know for certain the alarm is armed before I leave?',
-        a: 'The app shows arm status, and the panel has its own status indicator too — both confirm the system is genuinely armed rather than leaving it to guesswork at the door.',
+        q: 'Does an outdoor siren need to be visible, or can it be fitted more discreetly?',
+        a: 'Either works — a visible siren adds a deterrent effect on its own, while a more discreetly housed unit still sounds just as loudly without advertising exactly where it is. Which makes sense is more a preference than a technical requirement.',
       },
       {
-        q: 'Will pets set off the indoor motion sensors?',
-        a: 'Sensor type and placement can be chosen to reduce pet-triggered false alarms — worth mentioning pets during setup so it’s planned for rather than dealt with afterwards.',
+        q: 'Can a specific zone or sensor be switched off temporarily — like a room being renovated — without disarming the whole system?',
+        a: 'Yes — individual zones can usually be excluded temporarily without disarming the whole panel, useful during building work or when a room’s normal use changes for a while.',
       },
       {
         q: 'What happens if the alarm is triggered while I’m out of the country?',
@@ -508,8 +508,8 @@ const services = [
         a: 'Yes — scheduled or time-limited codes suit cleaners, contractors and rental guests who only need access within a specific window rather than permanently.',
       },
       {
-        q: 'Can a lost or stolen fob be deactivated remotely?',
-        a: 'Yes — it can be deactivated immediately without affecting anyone else’s access, and a replacement issued.',
+        q: 'If a property has multiple doors or gates, do access logs show which one was used?',
+        a: 'Yes — logs can typically break access down by specific door or gate rather than one combined log for the whole property, useful once there’s more than one entry point to keep track of.',
       },
       {
         q: 'Does a condominium need to replace its whole entry system to add this?',
@@ -666,16 +666,16 @@ const services = [
         a: 'It depends on the size and type of gate, and whether it’s a new installation or automating an existing one — get in touch with details of the gate and you’ll get a specific answer.',
       },
       {
-        q: 'I’ve lost my only remote or fob — what now?',
-        a: 'A new one can be programmed to the existing receiver without replacing any gate hardware. Worth keeping at least one spare once a replacement is issued.',
+        q: 'Can two different gates on the same property — say, a pedestrian gate and a vehicle gate — be controlled from the same remote or app?',
+        a: 'Yes — multiple gates or barriers on one property can usually be brought under the same remote and app control, rather than needing a separate system for each.',
       },
       {
-        q: 'Why does the gate reverse or stop partway through closing?',
-        a: 'Safety sensors detecting an obstruction — sometimes a genuine one, sometimes a false trigger from debris or a sensor that’s drifted slightly out of alignment. Worth having it checked rather than working around it.',
+        q: 'Is there a limit to how many remotes or app users a single gate can have?',
+        a: 'Not in any meaningful sense for a typical household — remotes and app access can be issued to as many family members, staff or regular visitors as the property actually needs.',
       },
       {
-        q: 'Can a very old or slightly warped gate still be automated?',
-        a: 'Often yes, if it’s structurally sound — though a gate that’s dragging or misaligned may need adjustment first so the motor isn’t straining against it long-term.',
+        q: 'Can a gate be set to close automatically after a set time, rather than needing to be closed manually every time?',
+        a: 'Yes — an auto-close timer can be set so the gate shuts itself after a defined interval, useful for anyone who forgets to close it manually after driving through.',
       },
       {
         q: 'How long does backup battery keep the gate working during a power cut?',
@@ -733,7 +733,7 @@ const services = [
       },
       {
         heading: 'Property Left Empty for Weeks',
-        text: 'A property standing empty for long stretches is exactly where early detection matters most — there’s nobody there to smell smoke or notice a fault before it becomes serious.',
+        text: 'An electrical fault or a fridge left running are common, unglamorous causes of a fire starting in a property nobody\'s currently in — an addressable panel reporting a fault immediately, rather than staying silent until someone happens to test it, is what actually catches this kind of problem early in an unattended property.',
       },
       {
         heading: 'Larger Properties or Outbuildings',
@@ -809,7 +809,7 @@ const services = [
       },
       {
         q: 'How many detectors does a property need?',
-        a: 'It depends on the size and layout — bedrooms, hallways and living areas are typical locations, worked out as part of the assessment rather than a fixed number applied to every property.',
+        a: 'There\'s no fixed number — it comes from walking the property and identifying where a fire could start or spread unnoticed. As a rough guide, most homes end up with at least one detector per bedroom and hallway, with more added for extra floors or outbuildings.',
       },
       {
         q: 'Can fire detection be combined with an alarm system?',
@@ -825,7 +825,7 @@ const services = [
       },
       {
         q: 'Does fire detection need to be checked periodically?',
-        a: 'Like any fire safety equipment, detectors benefit from periodic checking. Get in touch if you have questions about a specific system.',
+        a: 'Like any fire safety equipment, detectors have a working lifespan and benefit from an occasional check rather than being fitted and forgotten — particularly on a property that stands empty for stretches, where nobody\'s around to notice a fault. Worth asking what a sensible check-in interval looks like for your specific system.',
       },
       {
         q: 'Why does a detector chirp even when there’s clearly no fire?',
@@ -891,7 +891,7 @@ const services = [
       },
       {
         heading: 'Property With an Existing Unreliable Network',
-        text: 'A network that drops out or has dead spots is one of the most common reasons a security system becomes unreliable — sorting out the underlying network often resolves problems that look like camera or alarm faults.',
+        text: 'A property that\'s had cameras or an alarm reinstalled more than once, with each installer blaming the last one\'s equipment, often just has an underlying network that was never properly assessed — sorting out cabling and access points first, before touching the security devices again, is usually what actually fixes it.',
       },
       {
         heading: 'New Build or Renovation',
@@ -986,12 +986,12 @@ const services = [
         a: 'No — any property running more than one or two connected security devices benefits from a properly planned network, regardless of size.',
       },
       {
-        q: 'Why does Wi-Fi work fine in some rooms but not others?',
-        a: 'Thick walls, floors between levels, and distance from the router all weaken a signal — a dead spot is usually a sign the network wasn’t planned for the property’s actual layout, not a fault with any one device.',
+        q: 'Does upgrading the network mean ripping open walls and redecorating?',
+        a: 'Not necessarily — cable runs are planned to use existing routes where possible (under floors, through cupboards, along skirting), and a mix of cabled and wireless equipment can reduce how much needs to be chased into walls. Worth discussing a property’s specific construction before assuming extensive building work is required.',
       },
       {
-        q: 'Can a guest Wi-Fi network be kept separate from the one the security system uses?',
-        a: 'Yes — a separate guest network is common practice on rental properties, keeping visitor devices off the same network as cameras and alarms.',
+        q: 'How long does a typical home networking install take?',
+        a: 'Depends on how much cabling needs to be run and whether it’s new-build, renovation, or retrofitting into a finished property — retrofitting through existing walls and floors takes longer than running cable during a build, and timing is confirmed as part of the assessment.',
       },
       {
         q: 'What’s the difference between mesh Wi-Fi and structured cabling for fixing dead spots?',
@@ -1098,7 +1098,7 @@ const services = [
       },
       {
         symptom: "Unsure what automation actually covers beyond connecting the systems already being installed",
-        text: 'Scope varies from property to property and is worked out directly during the initial conversation, rather than sold as a fixed package — worth asking specifically what applies to your property rather than assuming a standard list.',
+        text: 'A specific, direct answer is more useful than a generic list — worth asking exactly what\'s realistic for your property on the first call, since the honest answer depends entirely on what\'s already installed and what you\'re trying to achieve.',
       },
       {
         symptom: 'Family members each want their own access within the connected system rather than one shared login for everything',
@@ -1145,12 +1145,12 @@ const services = [
         a: 'Once systems are connected, cameras can be checked, the alarm armed or disarmed, and the gate opened from the same app, rather than switching between separate ones for each system.',
       },
       {
-        q: 'Can an existing gate or camera system from a different installer be connected into this?',
-        a: 'Often, yes — worth having the existing equipment assessed rather than assuming it needs to be replaced before it can be connected.',
+        q: 'What happens if the internet goes down — do the gate, alarm and cameras stop working, or just the connected app?',
+        a: 'The individual systems — the gate motor, the alarm panel, the cameras — keep working on their own regardless of the connection; it\'s specifically the remote app view and cross-system control that needs a working connection. Worth understanding that distinction rather than assuming a connectivity issue takes everything offline.',
       },
       {
-        q: 'Do I need to replace my current systems to add automation?',
-        a: 'No — the point is connecting what\'s already there, not replacing it. Automation sits on top of the existing gate, cameras, alarm and access control.',
+        q: 'Does connecting systems together make any one of them less reliable running on its own?',
+        a: 'No — each system (the gate motor, the alarm panel) still operates independently; connecting them adds a shared layer for viewing and control rather than making one dependent on another to function at all.',
       },
       {
         q: 'Can automation be added later, or does it need to be planned from the start?',

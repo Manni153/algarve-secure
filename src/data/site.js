@@ -80,7 +80,7 @@ module.exports = {
   faqs: [
     {
       q: 'Do you supply the equipment as well as install it?',
-      a: 'Yes. Equipment is supplied and installed as one job, rather than sourced separately and handed off — so cameras, alarms, access control and the rest of a system are set up to work together from the start.',
+      a: 'Yes — and because it comes from one job rather than a separate hardware supplier and a separate installer, there\'s a single point of contact if anything ever needs attention, rather than being sent back and forth between two companies.',
     },
     {
       q: 'What areas of the Algarve do you cover?',
@@ -88,7 +88,7 @@ module.exports = {
     },
     {
       q: 'Is support really in English?',
-      a: 'Yes — every call, quote and site visit is handled in English, from the first enquiry through to the finished installation and any support afterwards.',
+      a: 'Yes — including technical terms explained in plain language rather than assuming familiarity with security jargon. If a term like "NVR" or "addressable panel" doesn\'t mean anything to you, that\'s normal, and explaining it clearly is part of the job.',
     },
     {
       q: 'Can I view my cameras or control my alarm remotely?',

@@ -32,16 +32,6 @@ function renderAbout() {
     )
     .join('');
 
-  const trustCards = site.trustSection
-    .map(
-      (t) => `<div class="card">
-        <div class="icon-dot"></div>
-        <h3>${esc(t.heading)}</h3>
-        <p>${esc(t.text)}</p>
-      </div>`
-    )
-    .join('');
-
   const hero = heroIntro({
     alt: 'Algarve Smart Home installer fitting an outdoor security camera on a villa wall',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'About' }],
@@ -73,16 +63,6 @@ function renderAbout() {
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Why Homeowners Choose Us</span>
-        <h2>What you can expect</h2>
-      </div>
-      <div class="trust-grid">${trustCards}</div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">How We Work</span>
         <h2>What makes Algarve Smart Home different</h2>
       </div>
       <div class="pillar-list">${pillarItems}</div>
