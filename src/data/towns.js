@@ -608,9 +608,9 @@ const towns = [
       { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Castro Marim?', a: 'There\'s less of a shared-building question here than almost anywhere else covered — Castro Marim has a noticeably lower density than the resort towns further west, with standalone houses making up most of the property stock rather than apartment blocks with a communal entrance to secure.' },
     ],
     relevantServices: [
-      { slug: 'cctv-installation', reason: 'Standalone houses without a shared development benefit from independent perimeter coverage.' },
-      { slug: 'alarm-systems', reason: 'Straightforward sensor coverage suits smaller, standalone properties well.' },
-      { slug: 'access-control', reason: 'The smaller number of gated or shared developments in the area still benefit from managed entry.' },
+      { slug: 'cctv-installation', reason: 'Both profiles start here — discreet coverage on a town house, fuller boundary and pool-area coverage on a golf-side villa.' },
+      { slug: 'alarm-systems', reason: 'Town houses suit straightforward sensor coverage; resort villas add remote arm and disarm for owners away part of the year.' },
+      { slug: 'access-control', reason: 'Gated entrances are standard on the golf development\'s villas — managed entry and per-person codes suit them better than shared keys.' },
     ],
   },
   {
