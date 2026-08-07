@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, placeholder, heroIntro, renderPage } = require('./layout');
 
 const stages = [
   {
@@ -56,11 +56,12 @@ function renderHowWeWork() {
     )
     .join('');
 
-  const hero = heroPhoto({
+  const hero = heroIntro({
     alt: 'Phone and notepad with an Algarve property photo and site plan on a desk',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'How We Work' }],
-    h1Html: 'How <em>Algarve Smart Home</em> Works',
-    lede: 'A straightforward look at how an enquiry turns into a working system on your property.',
+    h1Text: 'How Algarve Smart Home Works',
+    headlineHtml: 'From first call to finished install — no surprises along the way.',
+    subtext: 'A straightforward look at how an enquiry turns into a working system.',
   });
 
   const body = `

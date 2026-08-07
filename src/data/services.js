@@ -17,6 +17,8 @@ const services = [
     navLabel: 'CCTV Installation',
     flagship: true,
     h1: 'CCTV Installation in the Algarve',
+    heroHeadline: 'See what\'s happening at home, from anywhere.',
+    heroTagline: 'Camera systems with remote viewing — installed and explained in plain English.',
     heroSubhead:
       'Indoor and outdoor camera systems with remote viewing, installed and explained in plain English for homeowners across the Algarve.',
     imageAlt: '[Placeholder: CCTV camera close-up, mounted on villa exterior wall]',
@@ -127,6 +129,8 @@ const services = [
     navLabel: 'Alarm Systems',
     flagship: false,
     h1: 'Alarm Systems in the Algarve',
+    heroHeadline: 'Know the moment something\'s wrong — not after the fact.',
+    heroTagline: 'Motion sensors and app alerts — installed and explained in plain English.',
     heroSubhead:
       'Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.',
     imageAlt: '[Placeholder: Alarm control panel and door sensor installed indoors]',
@@ -233,6 +237,8 @@ const services = [
     navLabel: 'Access Control',
     flagship: false,
     h1: 'Access Control Systems in the Algarve',
+    heroHeadline: 'Know exactly who\'s coming and going, before you open the door.',
+    heroTagline: 'Electronic locks and video intercoms — installed and explained in plain English.',
     heroSubhead:
       'Intelligent readers, electronic locks and video intercoms, so only the people you want on the property can get in.',
     imageAlt: '[Placeholder: Video intercom panel mounted beside a gated entrance]',
@@ -335,6 +341,8 @@ const services = [
     navLabel: 'Gate Automation',
     flagship: false,
     h1: 'Automated Gate Systems in the Algarve',
+    heroHeadline: 'Open your gate from your phone — no one waiting at the intercom.',
+    heroTagline: 'Motorised gates and barriers — installed and explained in plain English.',
     heroSubhead:
       'Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.',
     imageAlt: '[Placeholder: Automated sliding driveway gate at villa entrance]',
@@ -437,6 +445,8 @@ const services = [
     navLabel: 'Fire Detection',
     flagship: false,
     h1: 'Fire Detection Systems in the Algarve',
+    heroHeadline: 'Know the moment smoke is detected, not when it\'s too late.',
+    heroTagline: 'Smoke detectors and fire panels — installed and explained in plain English.',
     heroSubhead:
       'Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.',
     imageAlt: '[Placeholder: Smoke detector mounted on ceiling in hallway]',
@@ -539,6 +549,8 @@ const services = [
     navLabel: 'Home Networking',
     flagship: false,
     h1: 'Home Networking in the Algarve',
+    heroHeadline: 'The reason your cameras and alarm actually work when you need them.',
+    heroTagline: 'Structured cabling and network hardware — installed and explained in plain English.',
     heroSubhead:
       'Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.',
     imageAlt: '[Placeholder: Network router and cabling panel installed in utility cupboard]',
@@ -641,6 +653,8 @@ const services = [
     navLabel: 'Smart Home Automation',
     flagship: false,
     h1: 'Smart Home Automation in the Algarve',
+    heroHeadline: 'Control your gate, cameras and alarm from one app, not three.',
+    heroTagline: 'Connected systems managed from one app — installed and explained in plain English.',
     heroSubhead:
       'Gates, access control, cameras and alarms connected together and managed from one app, rather than run as separate systems.',
     imageAlt: '[Placeholder: Smart home control panel and app interface on wall-mounted tablet]',

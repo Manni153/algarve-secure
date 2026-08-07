@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
 
 // Keyword -> service page map, used to turn a first natural mention of a
 // service inside a town's prose into a real link, without hand-editing 22
@@ -107,11 +107,12 @@ function renderTown(town) {
     ],
   };
 
-  const hero = heroPhoto({
-    alt: `Property exterior in ${town.name}, Algarve, with security camera detail`,
+  const hero = heroIntro({
+    alt: `[Placeholder: security camera being mounted on a property exterior wall in ${town.name}]`,
     breadcrumb: [{ label: 'Home', href: '/' }, { label: town.name }],
-    h1Html: `Security &amp; Smart Home Installation in ${esc(town.name)}`,
-    lede: `CCTV, alarms and smart home installation for homeowners in ${town.name} and the surrounding area, with support in plain English from start to finish.`,
+    h1Text: `Security & Smart Home Installation in ${town.name}`,
+    headlineHtml: esc(town.heroHeadline),
+    subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
   });
 
   const body = `

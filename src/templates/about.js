@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
 
 const pillars = [
   {
@@ -42,11 +42,12 @@ function renderAbout() {
     )
     .join('');
 
-  const hero = heroPhoto({
+  const hero = heroIntro({
     alt: 'Algarve Smart Home installer fitting an outdoor security camera on a villa wall',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'About' }],
-    h1Html: 'About <em>Algarve Smart Home</em>',
-    lede: "A local installer built around one idea: security and smart home systems should be easy to understand, whoever you are and wherever you're from.",
+    h1Text: 'About Algarve Smart Home',
+    headlineHtml: 'A local installer that explains everything in plain English.',
+    subtext: 'Built around one idea: security systems should be easy to understand, whoever you are.',
   });
 
   const body = `

@@ -40,33 +40,6 @@ function renderBreadcrumb(items) {
   return `<p class="breadcrumb">${parts}</p>`;
 }
 
-// The lead conversion device: full-bleed photo (placeholder for now) with a
-// scrim for text legibility and headline/CTA overlaid low on the image,
-// matching the electricianalgarve.com hero pattern. Optional trust band.
-function heroPhoto({ alt, breadcrumb, eyebrow, h1Html, lede, trustStats }) {
-  const statsHtml = trustStats
-    ? `<div class="hero-trust-band"><div class="container">${trustStats
-        .map((s) => `<div class="stat"><span class="v">${esc(s.value)}</span><span class="l">${esc(s.label)}</span></div>`)
-        .join('')}</div></div>`
-    : '';
-
-  return `
-  <section class="hero-photo">
-    <div class="hero-photo-bg" role="img" aria-label="${esc(alt)}">
-      <span class="ph-label">${esc(alt)}</span>
-    </div>
-    <div class="hero-photo-scrim"></div>
-    <div class="hero-photo-content container">
-      ${breadcrumb ? renderBreadcrumb(breadcrumb) : ''}
-      ${eyebrow ? `<span class="eyebrow">${eyebrow}</span>` : ''}
-      <h1>${h1Html}</h1>
-      <p class="lede">${esc(lede)}</p>
-      <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
-    </div>
-  </section>
-  ${statsHtml}`;
-}
-
 // Headline-first hero, single column, stacked top to bottom:
 // nav (rendered separately) -> small keyword H1 (crawlable, the real <h1>)
 // -> large emotional headline (a separate, visually dominant heading, NOT
@@ -270,7 +243,6 @@ module.exports = {
   esc,
   rich,
   placeholder,
-  heroPhoto,
   heroIntro,
   reassuranceBand,
   renderPage,

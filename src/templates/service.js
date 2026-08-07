@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
 
 function renderService(service) {
   const otherServices = services.filter((s) => s.slug !== service.slug);
@@ -116,11 +116,12 @@ function renderService(service) {
     )
     .join('');
 
-  const hero = heroPhoto({
+  const hero = heroIntro({
     alt: service.imageAlt,
     breadcrumb: [{ label: 'Home', href: '/' }, { label: service.name }],
-    h1Html: esc(service.h1),
-    lede: service.heroSubhead,
+    h1Text: service.h1,
+    headlineHtml: esc(service.heroHeadline),
+    subtext: service.heroTagline,
   });
 
   // Jump-link table of contents — only lists sections this service actually

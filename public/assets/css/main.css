@@ -195,54 +195,6 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
 body.nav-open { overflow: hidden; }
 
 /* -------------------------------------------------------------------------
-   Hero photo — the lead conversion device. Full-bleed image (placeholder
-   until real photography is dropped in), warm scrim for legibility,
-   headline/CTA overlaid low on the image. Optional trust band underneath.
-   ------------------------------------------------------------------------- */
-.hero-photo {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  /* Full-bleed: fills the viewport below the fixed header (and above the
-     fixed mobile call bar, mobile only) so only the hero is visible on
-     first load — everything else requires a scroll. dvh is redeclared
-     after vh so it wins where supported, without breaking older browsers. */
-  min-height: calc(100vh - var(--header-h) - var(--mobile-bar-h));
-  min-height: calc(100dvh - var(--header-h) - var(--mobile-bar-h));
-}
-@media (min-width: 768px) {
-  .hero-photo {
-    min-height: calc(100vh - var(--header-h));
-    min-height: calc(100dvh - var(--header-h));
-  }
-}
-.hero-photo-bg { position: absolute; inset: 0; background: var(--placeholder-fill); }
-.hero-photo-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero-photo-bg .ph-label {
-  position: absolute; top: 18px; left: 18px; max-width: calc(100% - 36px);
-  font-family: var(--body); font-size: 0.74rem; color: rgba(15, 50, 56, 0.75);
-  border: 1px dashed rgba(15, 50, 56, 0.35); border-radius: 8px; padding: 6px 12px;
-  background: rgba(255, 253, 249, 0.6);
-}
-.hero-photo-scrim {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(15, 50, 56, 0) 0%, rgba(15, 50, 56, 0.18) 45%, rgba(15, 50, 56, 0.82) 100%);
-}
-.hero-photo-content { position: relative; z-index: 2; padding: 48px 20px 44px; max-width: 640px; }
-@media (min-width: 900px) { .hero-photo-content { padding: 64px 32px 56px; } }
-.hero-photo-content .breadcrumb { color: rgba(247, 241, 228, 0.7); }
-.hero-photo-content .breadcrumb a { color: rgba(247, 241, 228, 0.7); }
-.hero-photo-content .breadcrumb a:hover { color: var(--cream); }
-.hero-photo-content .eyebrow { color: #f3caa4; }
-.hero-photo-content h1 { color: var(--cream); }
-.hero-photo-content h1 em { color: #f3caa4; }
-.hero-photo-content .lede { color: rgba(247, 241, 228, 0.9); }
-.hero-photo-content .btn { margin-top: 6px; }
-
-/* -------------------------------------------------------------------------
    Hero stack — headline-first, single column, top to bottom: kicker (the
    real, crawlable <h1>, keyword-driven and small) -> large emotional
    headline (a separate heading, not the H1, carrying the visual weight)

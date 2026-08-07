@@ -2,18 +2,19 @@
 
 const site = require('../data/site');
 const services = require('../data/services');
-const { esc, heroPhoto, renderPage } = require('./layout');
+const { esc, heroIntro, renderPage } = require('./layout');
 
 function renderContact() {
   const serviceOptions = services
     .map((s) => `<option value="${esc(s.slug)}">${esc(s.name)}</option>`)
     .join('');
 
-  const hero = heroPhoto({
+  const hero = heroIntro({
     alt: 'Phone and notepad on a desk beside an Algarve property photo',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'Contact' }],
-    h1Html: 'Contact <em>Algarve Smart Home</em>',
-    lede: "Call or WhatsApp for the fastest response, or send a few details below and we'll get back to you.",
+    h1Text: 'Contact Algarve Smart Home',
+    headlineHtml: 'Call or WhatsApp — get a straight answer today.',
+    subtext: "Send a few details and hear back quickly, or call now for the fastest response.",
   });
 
   const body = `
