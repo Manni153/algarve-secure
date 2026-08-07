@@ -2,21 +2,22 @@
 
 const site = require('../data/site');
 const services = require('../data/services');
-const { esc, renderPage, renderBreadcrumb } = require('./layout');
+const { esc, heroPhoto, renderPage } = require('./layout');
 
 function renderContact() {
   const serviceOptions = services
     .map((s) => `<option value="${esc(s.slug)}">${esc(s.name)}</option>`)
     .join('');
 
+  const hero = heroPhoto({
+    alt: 'Phone and notepad on a desk beside an Algarve property photo',
+    breadcrumb: [{ label: 'Home', href: '/' }, { label: 'Contact' }],
+    h1Html: 'Contact <em>Algarve Smart Home</em>',
+    lede: "Call or WhatsApp for the fastest response, or send a few details below and we'll get back to you.",
+  });
+
   const body = `
-  <section style="padding-bottom:0;">
-    <div class="container narrow">
-      ${renderBreadcrumb([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
-      <h1>Contact <em>Algarve Smart Home</em></h1>
-      <p class="lede">Call or WhatsApp for the fastest response, or send a few details below and we'll get back to you.</p>
-    </div>
-  </section>
+  ${hero}
 
   <section>
     <div class="container">

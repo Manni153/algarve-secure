@@ -74,7 +74,7 @@ function renderHeader() {
       <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
       <div class="header-actions">
         <a href="${site.telHref}" class="header-phone" aria-label="Call Algarve Smart Home">
-          <span class="icon">&#9742;</span><span class="phone-digits">${site.phoneDisplay}</span>
+          <span class="icon" aria-hidden="true"></span><span class="phone-digits">${site.phoneDisplay}</span>
         </a>
         <button type="button" class="hamburger" data-nav-open aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
           <span></span><span></span><span></span>
