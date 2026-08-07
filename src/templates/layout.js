@@ -197,10 +197,7 @@ function renderFloatingButtons() {
   return `
   <a href="${site.whatsappHref}" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with Algarve Smart Home on WhatsApp">
     ${whatsappIcon}
-  </a>
-  <div class="mobile-call-bar">
-    <a href="${site.telHref}" class="btn btn-icon">Call ${site.phoneDisplay}</a>
-  </div>`;
+  </a>`;
 }
 
 // Title tags and meta descriptions are managed entirely outside this
