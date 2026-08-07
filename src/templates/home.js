@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroPhoto, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage } = require('./layout');
 
 function renderHome() {
   const trustCards = site.trustSection
@@ -65,16 +65,22 @@ function renderHome() {
     })),
   };
 
-  const hero = heroPhoto({
-    alt: 'Modern Algarve villa exterior at golden hour with discreet CCTV camera visible on the wall',
+  const hero = heroIntro({
+    alt: '[Placeholder: installer mounting a CCTV camera on a villa exterior wall, cabling visible]',
     eyebrow: 'Security &amp; Smart Home Installation &middot; The Algarve',
-    h1Html: 'Security &amp; Smart Home Installation <em>in the Algarve</em>',
-    lede: 'CCTV, alarms, access control and smart home automation — supplied, installed and explained in plain English for homeowners across the Algarve.',
+    h1Html: 'Stop wondering if your property is <em>okay</em>.',
+    lede: 'CCTV, alarms and smart home systems for Algarve homeowners — installed and explained in plain English, so you can check in from anywhere.',
     trustStats: site.trustStats,
+  });
+
+  const reassurance = reassuranceBand({
+    heading: 'No pressure, no hard sell — just a straight answer.',
+    body: "A quick call costs you nothing and tells you exactly what makes sense for your property. Most owners who've been meaning to sort this out for months say the same thing afterward: they wish they'd called sooner.",
   });
 
   const body = `
   ${hero}
+  ${reassurance}
 
   <section id="services">
     <div class="container">

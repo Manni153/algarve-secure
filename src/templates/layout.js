@@ -67,6 +67,49 @@ function heroPhoto({ alt, breadcrumb, eyebrow, h1Html, lede, trustStats }) {
   ${statsHtml}`;
 }
 
+// Headline-first hero: headline/subhead/CTA sit on a plain background so
+// they stay fully readable regardless of image quality; the supporting
+// photo sits beside (desktop) or below (mobile) the text as evidence of
+// competence, not as a mood-setting backdrop. Optional trust band below.
+function heroIntro({ alt, breadcrumb, eyebrow, h1Html, lede, trustStats, ratio = 'wide' }) {
+  const statsHtml = trustStats
+    ? `<div class="hero-trust-band"><div class="container">${trustStats
+        .map((s) => `<div class="stat"><span class="v">${esc(s.value)}</span><span class="l">${esc(s.label)}</span></div>`)
+        .join('')}</div></div>`
+    : '';
+
+  return `
+  <section class="hero-intro">
+    <div class="container">
+      <div class="two-col hero-intro-grid">
+        <div class="two-col-text">
+          ${breadcrumb ? renderBreadcrumb(breadcrumb) : ''}
+          ${eyebrow ? `<span class="eyebrow">${eyebrow}</span>` : ''}
+          <h1>${h1Html}</h1>
+          <p class="lede">${esc(lede)}</p>
+          <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
+        </div>
+        <div class="two-col-media">
+          ${placeholder(alt, { ratio })}
+        </div>
+      </div>
+    </div>
+  </section>
+  ${statsHtml}`;
+}
+
+// Small reassurance callout addressing hesitation directly — meant to sit
+// right after the hero/CTA, before the page moves into main content.
+function reassuranceBand({ heading, body }) {
+  return `
+  <section class="reassurance-band">
+    <div class="container narrow">
+      <h2>${esc(heading)}</h2>
+      <p>${esc(body)}</p>
+    </div>
+  </section>`;
+}
+
 function renderHeader() {
   return `
   <header class="site-header">
@@ -227,6 +270,8 @@ module.exports = {
   rich,
   placeholder,
   heroPhoto,
+  heroIntro,
+  reassuranceBand,
   renderPage,
   renderBreadcrumb,
 };

@@ -242,6 +242,33 @@ body.nav-open { overflow: hidden; }
 .hero-photo-content .lede { color: rgba(247, 241, 228, 0.9); }
 .hero-photo-content .btn { margin-top: 6px; }
 
+/* -------------------------------------------------------------------------
+   Hero intro — headline-first hero. Headline/subhead/CTA on a plain
+   background (always fully readable); the supporting photo sits beside the
+   text on desktop, below it on mobile, via the shared .two-col grid. Image
+   is evidence (camera mount, panel detail), not a mood-setting backdrop.
+   ------------------------------------------------------------------------- */
+.hero-intro { padding-top: 40px; padding-bottom: 40px; }
+@media (min-width: 768px) { .hero-intro { padding-top: 56px; padding-bottom: 56px; } }
+.hero-intro-grid { align-items: center; }
+.hero-intro .breadcrumb { margin-bottom: 14px; }
+.hero-intro h1 { margin-bottom: 0.4em; }
+.hero-intro .lede { font-size: clamp(1rem, 2vw, 1.15rem); }
+.hero-intro .btn { margin-top: 8px; }
+
+/* -------------------------------------------------------------------------
+   Reassurance band — a short callout addressing hesitation directly, right
+   after the hero/CTA. Distinct from the standard section-head pattern so it
+   reads as a callout, not another content block.
+   ------------------------------------------------------------------------- */
+.reassurance-band {
+  background: var(--terracotta-tint);
+  padding: 32px 0;
+  text-align: center;
+}
+.reassurance-band h2 { font-size: clamp(1.25rem, 2.6vw, 1.6rem); margin-bottom: 0.45em; }
+.reassurance-band p { color: var(--ink-700); margin: 0; }
+
 .hero-trust-band { background: var(--white); border-bottom: 1px solid var(--stone); }
 .hero-trust-band .container { display: grid; grid-template-columns: repeat(3, 1fr); }
 .hero-trust-band .stat { padding: 22px 16px; text-align: center; border-right: 1px solid var(--stone); }
