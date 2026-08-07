@@ -33,6 +33,13 @@ const towns = [
     faqs: [
       { q: 'Do old-town apartments in Lagos need a different approach to access control than the villas near Meia Praia?', a: 'Yes — old-town buildings usually mean fitting access control around an existing shared entrance and stairwell, while villas near Meia Praia have more room for a full driveway gate and standalone alarm coverage.' },
       { q: 'Is CCTV coverage different for a marina-front apartment compared to a hillside villa?', a: 'Generally, yes — marina-front apartments typically need coverage of just the unit\'s own entrance and terrace, since the building often already covers shared areas, while a hillside villa needs full perimeter coverage across a larger plot.' },
+      { q: 'Does CCTV make sense for a property in Lagos?', a: 'Villa developments around Meia Praia benefit from full perimeter and driveway coverage across larger plots.' },
+      { q: 'What access control makes sense for a property in Lagos?', a: 'Old-town apartment buildings with shared stairwells suit video intercom and card-based entry.' },
+      { q: 'Is an alarm system worth it for a property in Lagos?', a: 'Properties left empty for weeks at a time benefit from remote arm, disarm and status checks.' },
+      { q: 'Can access control be added to a historic property in Lagos without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Lagos?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
+      { q: 'How does CCTV work for a holiday rental in Lagos between guest stays?', a: 'Outdoor cameras covering the entrance and driveway let an owner or property manager confirm guests have arrived or left without being on-site for every changeover. Indoor cameras raise real privacy questions for guests and are generally left out of a rental setup for that reason.' },
+      { q: 'Can guests in Lagos let themselves in without a physical key or lockbox?', a: 'Yes — code-based access control removes the need for a physical key handover or a lockbox at the gate, and the code can be changed automatically between bookings.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Villa developments around Meia Praia benefit from full perimeter and driveway coverage across larger plots.' },
@@ -52,6 +59,11 @@ const towns = [
     faqs: [
       { q: 'Do most properties in Praia da Luz need full-time monitoring, or just coverage while empty?', a: 'Given how many properties here are second homes, the priority is usually a system that can be checked and armed remotely during the months an owner isn\'t on-site, rather than constant on-site monitoring.' },
       { q: 'Are villas in Praia da Luz typically gated?', a: 'Not universally — many sit within low-rise developments without a shared gate, which is why an individual property\'s own alarm and camera coverage carries more weight than in a fully gated development.' },
+      { q: 'Does CCTV make sense for a property in Praia da Luz?', a: 'Remote viewing suits owners checking on a holiday villa from outside Portugal.' },
+      { q: 'Is an alarm system worth it for a property in Praia da Luz?', a: 'A property left empty for months benefits from remote arm and disarm rather than relying on being on-site.' },
+      { q: 'Does smart home automation make sense for a property in Praia da Luz?', a: 'Connecting cameras and alarm into one app suits owners managing a property from a distance.' },
+      { q: 'How does CCTV work for a holiday rental in Praia da Luz between guest stays?', a: 'Outdoor cameras covering the entrance and driveway let an owner or property manager confirm guests have arrived or left without being on-site for every changeover. Indoor cameras raise real privacy questions for guests and are generally left out of a rental setup for that reason.' },
+      { q: 'Can guests in Praia da Luz let themselves in without a physical key or lockbox?', a: 'Yes — code-based access control removes the need for a physical key handover or a lockbox at the gate, and the code can be changed automatically between bookings.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Remote viewing suits owners checking on a holiday villa from outside Portugal.' },
@@ -71,6 +83,11 @@ const towns = [
     faqs: [
       { q: 'Does the remote location around Sagres cause problems for camera or alarm connectivity?', a: 'It can — mobile and broadband coverage is less consistent than on the busier coast, so a network assessment is worth doing alongside any camera or alarm installation rather than assuming standard coverage will reach.' },
       { q: 'Are properties near Sagres typically close enough together to share a security setup?', a: 'No — properties here tend to sit further apart than elsewhere in the Algarve, so each one usually needs its own independent coverage rather than relying on a neighbour\'s cameras or a shared development gate.' },
+      { q: 'Does CCTV make sense for a property in Sagres?', a: 'Wider property boundaries with fewer neighbours nearby benefit from full perimeter coverage.' },
+      { q: 'Why would a property in Sagres need its home networking sorted properly?', a: 'A more rural setting makes a properly planned, stable network worth getting right from the start.' },
+      { q: 'Is an alarm system worth it for a property in Sagres?', a: 'Standalone properties with more distance from neighbours benefit from on-site and remote alerting together.' },
+      { q: 'Does a rural property near Sagres get a reliable enough connection for cameras and an alarm to work properly?', a: 'It depends on the property, but a poor connection is one of the most common reasons a security system in a more rural setting becomes unreliable. A <a href="/home-networking">home networking</a> assessment before or alongside installation is worth factoring in rather than assuming standard broadband will cover it.' },
+      { q: 'Can an existing manual gate on a rural property near Sagres be automated instead of replaced?', a: 'Often, yes — automation can be added to a gate that\'s already there, provided it\'s in good enough structural condition to take a motor, which is usually more straightforward than starting with a new gate.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Wider property boundaries with fewer neighbours nearby benefit from full perimeter coverage.' },
@@ -90,6 +107,11 @@ const towns = [
     faqs: [
       { q: 'Do smallholdings and converted farmhouses around Aljezur need different gate setups than a standard villa?', a: 'Often, yes — longer, less formal driveways and larger boundaries mean gate automation and camera coverage typically need to stretch further than a standard villa entrance.' },
       { q: 'Is a stable network connection guaranteed in the Aljezur area?', a: 'Not automatically — the more rural setting means coverage can vary by exact location, so it\'s worth checking as part of any camera or alarm installation.' },
+      { q: 'Is gate automation common for properties in Aljezur?', a: 'Longer driveways and rural approach roads make an automated gate a practical first step.' },
+      { q: 'Does CCTV make sense for a property in Aljezur?', a: 'Larger, less-defined boundaries benefit from cameras covering the approach to the property.' },
+      { q: 'Why would a property in Aljezur need its home networking sorted properly?', a: 'A rural setting means a stable network needs proper planning rather than relying on standard broadband.' },
+      { q: 'Does a rural property near Aljezur get a reliable enough connection for cameras and an alarm to work properly?', a: 'It depends on the property, but a poor connection is one of the most common reasons a security system in a more rural setting becomes unreliable. A <a href="/home-networking">home networking</a> assessment before or alongside installation is worth factoring in rather than assuming standard broadband will cover it.' },
+      { q: 'Can an existing manual gate on a rural property near Aljezur be automated instead of replaced?', a: 'Often, yes — automation can be added to a gate that\'s already there, provided it\'s in good enough structural condition to take a motor, which is usually more straightforward than starting with a new gate.' },
     ],
     relevantServices: [
       { slug: 'gate-automation', reason: 'Longer driveways and rural approach roads make an automated gate a practical first step.' },
@@ -109,6 +131,11 @@ const towns = [
     faqs: [
       { q: 'Do estuary-front apartments in Alvor already have building-level security?', a: 'Many do, at least at the shared entrance, which is why access control here is often about covering the individual unit alongside — not replacing — whatever the building already has.' },
       { q: 'Are villas further back from the Alvor estuary handled differently?', a: 'Yes — they tend to sit on more separated plots, so the focus shifts to boundary and driveway coverage rather than a single shared building entrance.' },
+      { q: 'What access control makes sense for a property in Alvor?', a: 'Estuary-front apartment blocks suit card or fob entry alongside existing building security.' },
+      { q: 'Does CCTV make sense for a property in Alvor?', a: 'Villas further from the centre benefit from full boundary and driveway coverage.' },
+      { q: 'Is an alarm system worth it for a property in Alvor?', a: 'Seasonally used properties benefit from a system that can be checked and armed remotely.' },
+      { q: 'How does CCTV work for a holiday rental in Alvor between guest stays?', a: 'Outdoor cameras covering the entrance and driveway let an owner or property manager confirm guests have arrived or left without being on-site for every changeover. Indoor cameras raise real privacy questions for guests and are generally left out of a rental setup for that reason.' },
+      { q: 'Can guests in Alvor let themselves in without a physical key or lockbox?', a: 'Yes — code-based access control removes the need for a physical key handover or a lockbox at the gate, and the code can be changed automatically between bookings.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Estuary-front apartment blocks suit card or fob entry alongside existing building security.' },
@@ -128,6 +155,10 @@ const towns = [
     faqs: [
       { q: 'Does a commercial premises in Portimão need a different setup to a residential property?', a: 'Yes — commercial premises usually prioritise controlled staff access and networking that can support point-of-sale systems alongside cameras, while residential properties focus more on entrances and boundaries.' },
       { q: 'Are apartment blocks in central Portimão handled the same way as villas on the outskirts?', a: 'No — central apartment blocks typically need access control and intercom at a shared entrance, while villas further out are more focused on full perimeter CCTV and alarm coverage.' },
+      { q: 'What access control makes sense for a property in Portimão?', a: 'Commercial premises and apartment blocks both benefit from controlled entry at shared or staff access points.' },
+      { q: 'Why would a property in Portimão need its home networking sorted properly?', a: 'Business premises running cameras, alarms and point-of-sale systems need networking that can support all of them reliably.' },
+      { q: 'Does CCTV make sense for a property in Portimão?', a: 'Both villas and commercial premises commonly start with camera coverage as the first step.' },
+      { q: 'Do commercial premises in Portimão need a different approach to security than a home?', a: 'The same core systems apply — cameras, access control, alarms — but a commercial premises usually needs staff access management and visitor control alongside it, which is less of a factor on a private home.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Commercial premises and apartment blocks both benefit from controlled entry at shared or staff access points.' },
@@ -147,6 +178,11 @@ const towns = [
     faqs: [
       { q: 'Do the narrow streets in Ferragudo\'s village centre limit where cameras can go?', a: 'They do influence placement — compact, discreetly mounted cameras tend to work better in the tighter village core than the wider setups used on villas further out.' },
       { q: 'Are villas on the outskirts of Ferragudo treated differently to the village-centre houses?', a: 'Yes — outskirts villas usually have a driveway and garden worth covering with gate automation, while village-centre houses focus more on discreet door and window coverage.' },
+      { q: 'Does CCTV make sense for a property in Ferragudo?', a: 'Village-centre properties benefit from compact, discreetly placed cameras suited to a tighter street layout.' },
+      { q: 'Is an alarm system worth it for a property in Ferragudo?', a: 'Closely built properties still benefit from sensor coverage independent of what neighbours can see.' },
+      { q: 'Is gate automation common for properties in Ferragudo?', a: 'Villas on the outskirts more often have a driveway and gate worth automating.' },
+      { q: 'Can access control be added to a historic property in Ferragudo without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Ferragudo?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Village-centre properties benefit from compact, discreetly placed cameras suited to a tighter street layout.' },
@@ -166,6 +202,11 @@ const towns = [
     faqs: [
       { q: 'How does high rental turnover in the Lagoa area change what a camera system needs to do?', a: 'It shifts the priority toward remote viewing — confirming guests have arrived or left, and checking a property is secure between bookings, rather than constant on-site monitoring.' },
       { q: 'Are properties in Lagoa\'s smaller developments managed differently to standalone villas?', a: 'Somewhat — properties in shared developments often need access control to work alongside the development\'s own gate, while standalone villas can be self-contained.' },
+      { q: 'Does CCTV make sense for a property in Lagoa?', a: 'Remote viewing helps confirm guest arrival and departure on rental properties between stays.' },
+      { q: 'What access control makes sense for a property in Lagoa?', a: 'Code-based entry suits rental properties, removing the need for physical key handovers.' },
+      { q: 'Is an alarm system worth it for a property in Lagoa?', a: 'A property between bookings benefits from remote arm and disarm rather than relying on someone being present.' },
+      { q: 'How does CCTV work for a holiday rental in Lagoa between guest stays?', a: 'Outdoor cameras covering the entrance and driveway let an owner or property manager confirm guests have arrived or left without being on-site for every changeover. Indoor cameras raise real privacy questions for guests and are generally left out of a rental setup for that reason.' },
+      { q: 'Can guests in Lagoa let themselves in without a physical key or lockbox?', a: 'Yes — code-based access control removes the need for a physical key handover or a lockbox at the gate, and the code can be changed automatically between bookings.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Remote viewing helps confirm guest arrival and departure on rental properties between stays.' },
@@ -185,12 +226,37 @@ const towns = [
     faqs: [
       { q: 'Does Carvoeiro\'s concentration of rental villas change how alarm systems are typically set up?', a: 'Yes — remote arm and disarm matters more here than in towns with more full-time residents, since a property can be unattended between bookings for stretches at a time.' },
       { q: 'Is a property manager\'s access handled differently to an owner\'s?', a: 'In practice, code-based access control makes this straightforward — a property manager or cleaning team can be given their own code without an owner handing over a physical key.' },
+      { q: 'Does a clifftop or narrow-lane property cost more to fit out than a standard villa?', a: 'It can, mainly down to access for cabling and equipment rather than the system itself — worth flagging the property\'s access and plot shape early so it\'s reflected in the quote from the start.' },
+      { q: 'With guests changing over almost every week through the season, how does access actually get managed?', a: 'Scheduled, code-based access tied to the booking calendar, rather than a code that has to be manually changed after every stay.' },
+      { q: 'Can a property management company have its own login separate from the owner\'s?', a: 'Yes — a management company typically gets its own access to check cameras and alarm status, issued and managed independently of the owner\'s.' },
+      { q: 'Is CCTV coverage different for a cliff-edge property compared to a standard villa boundary?', a: 'Yes — camera positions are planned around the actual terrain and safe mounting points on a cliff-edge plot, rather than a standard perimeter layout.' },
+      { q: 'What happens between the end of one booking and the start of the next?', a: 'A natural window to confirm the property\'s secure and undamaged before new guests arrive — cameras and door sensors can flag anything worth checking during that gap.' },
+      { q: 'Can access be set up so a maintenance contractor gets in only for a scheduled visit?', a: 'Yes — a time-limited code can be issued for just that window rather than a standing code that keeps working afterwards.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'High rental turnover makes remote viewing between guest stays particularly useful.' },
       { slug: 'alarm-systems', reason: 'Properties frequently left unattended benefit from remote arm, disarm and status checks.' },
       { slug: 'access-control', reason: 'Code-based entry simplifies guest check-in without physical keys changing hands.' },
     ],
+    premiumProfile: {
+      eyebrow: 'Carvoeiro in Detail',
+      heading: 'A rental market built on weekly turnover and cliffside plots',
+      intro: "Carvoeiro's property market runs on two things that shape almost every install here: how the plot sits against the coastline, and how often the guests change.",
+      subAreas: [
+        {
+          heading: 'Cliffside Plots and Narrow Lanes Change How Installation Actually Happens',
+          text: "A lot of Carvoeiro's villa stock sits on clifftop or hillside plots with narrow, winding access lanes rather than a wide driveway — practical considerations that affect installation before they affect the system itself. Equipment access, cable runs, and where a camera can realistically be mounted on a cliff-edge boundary all need thinking through on-site rather than assumed from a floor plan. Worth flagging a property's access lane and plot shape early, rather than after a quote's already been given.",
+        },
+        {
+          heading: 'A Rental Market Built on Weekly Turnover',
+          text: "Carvoeiro's rental market runs overwhelmingly on weekly, Saturday-to-Saturday changeovers through the summer season, which means a single villa can see fifteen to twenty different guest groups a year. Each changeover is a moment where a cleaning team needs access, a maintenance check might be needed, and a new set of guests needs a way in — mostly without the owner or a local manager physically present. Code-based access that resets on a schedule tied to the booking calendar, rather than a code someone has to remember to change manually, is what actually holds up across that volume of turnover.",
+        },
+        {
+          heading: 'Working With a Property Manager, Not Just an Owner',
+          text: "A significant share of Carvoeiro's rental villas are run through a local property management company rather than the owner handling bookings directly. That changes who actually needs day-to-day access to the system — a management company typically needs its own login to check cameras and confirm alarm status between guest stays, separate from the owner's own access, and issuing or revoking codes needs to be something the management company can do without contacting the installer every time the booking calendar changes.",
+        },
+      ],
+    },
   },
   {
     slug: 'silves', name: 'Silves', region: 'west', nearby: ['lagoa', 'portimao', 'monchique'],
@@ -204,6 +270,13 @@ const towns = [
     faqs: [
       { q: 'Do rural quintas near Silves need different networking than the town-centre houses?', a: 'Usually — quintas cover more ground, so a network has to reach further and more reliably, while town-centre houses are a more contained setup.' },
       { q: 'Are historic buildings in central Silves harder to fit with access control?', a: 'Not usually a barrier — electronic locks and readers can generally be fitted to existing doors without needing to alter the building\'s original features.' },
+      { q: 'What access control makes sense for a property in Silves?', a: 'Historic town-centre properties benefit from electronic locks without altering original doors and frames.' },
+      { q: 'Does CCTV make sense for a property in Silves?', a: 'Rural quintas with larger boundaries benefit from coverage across the approach and grounds.' },
+      { q: 'Why would a property in Silves need its home networking sorted properly?', a: 'Country properties on the outskirts need a network planned to reach across a larger plot.' },
+      { q: 'Can access control be added to a historic property in Silves without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Silves?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
+      { q: 'Does a rural property near Silves get a reliable enough connection for cameras and an alarm to work properly?', a: 'It depends on the property, but a poor connection is one of the most common reasons a security system in a more rural setting becomes unreliable. A <a href="/home-networking">home networking</a> assessment before or alongside installation is worth factoring in rather than assuming standard broadband will cover it.' },
+      { q: 'Can an existing manual gate on a rural property near Silves be automated instead of replaced?', a: 'Often, yes — automation can be added to a gate that\'s already there, provided it\'s in good enough structural condition to take a motor, which is usually more straightforward than starting with a new gate.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Historic town-centre properties benefit from electronic locks without altering original doors and frames.' },
@@ -223,6 +296,11 @@ const towns = [
     faqs: [
       { q: 'Why does Monchique\'s hillside setting matter for camera placement?', a: 'The irregular, sloped plots common here mean camera angles have to follow the terrain rather than a flat garden layout, so positions are worked out on a site-by-site basis.' },
       { q: 'Is mobile signal reliable enough for remote camera viewing around Monchique?', a: 'It varies by exact location, which is why a network check is worth doing before finalising a camera or alarm setup this far into the hills.' },
+      { q: 'Why would a property in Monchique need its home networking sorted properly?', a: 'Hillside terrain and rural coverage make a properly planned network essential before adding other systems.' },
+      { q: 'Does CCTV make sense for a property in Monchique?', a: 'Larger, irregular plots benefit from cameras covering multiple approach points rather than a single entrance.' },
+      { q: 'Is an alarm system worth it for a property in Monchique?', a: 'Greater distance from neighbours makes independent sensor coverage more important.' },
+      { q: 'Does a rural property near Monchique get a reliable enough connection for cameras and an alarm to work properly?', a: 'It depends on the property, but a poor connection is one of the most common reasons a security system in a more rural setting becomes unreliable. A <a href="/home-networking">home networking</a> assessment before or alongside installation is worth factoring in rather than assuming standard broadband will cover it.' },
+      { q: 'Can an existing manual gate on a rural property near Monchique be automated instead of replaced?', a: 'Often, yes — automation can be added to a gate that\'s already there, provided it\'s in good enough structural condition to take a motor, which is usually more straightforward than starting with a new gate.' },
     ],
     relevantServices: [
       { slug: 'home-networking', reason: 'Hillside terrain and rural coverage make a properly planned network essential before adding other systems.' },
@@ -244,6 +322,13 @@ const towns = [
     faqs: [
       { q: 'Do gated resort villas in Albufeira need a different access setup to the apartment blocks near the old town?', a: 'Yes — gated resort villas usually add their own access control on top of the resort\'s shared gate, while old-town apartment blocks rely more on intercom and card entry at a single shared entrance.' },
       { q: 'How does high rental turnover affect security planning in Albufeira?', a: 'It puts more weight on remote camera viewing and code-based access, so a property can be checked and guest access managed without an owner or manager being on-site for every changeover.' },
+      { q: 'What access control makes sense for a property in Albufeira?', a: 'Dense apartment blocks and gated resorts both rely on managed entry at shared access points.' },
+      { q: 'Does CCTV make sense for a property in Albufeira?', a: 'High rental turnover across villa developments benefits from remote viewing between guest stays.' },
+      { q: 'Is an alarm system worth it for a property in Albufeira?', a: 'Rental villas left unattended between bookings benefit from remote arm and disarm.' },
+      { q: 'How does CCTV work for a holiday rental in Albufeira between guest stays?', a: 'Outdoor cameras covering the entrance and driveway let an owner or property manager confirm guests have arrived or left without being on-site for every changeover. Indoor cameras raise real privacy questions for guests and are generally left out of a rental setup for that reason.' },
+      { q: 'Can guests in Albufeira let themselves in without a physical key or lockbox?', a: 'Yes — code-based access control removes the need for a physical key handover or a lockbox at the gate, and the code can be changed automatically between bookings.' },
+      { q: 'Does a property inside a gated development in Albufeira still need its own alarm or CCTV?', a: 'Yes — a development\'s shared gate and perimeter security cover the development as a whole, not what happens inside an individual property. Cameras and an alarm on your own unit or villa add coverage the development-level security doesn\'t reach.' },
+      { q: 'What happens if a gate fob for a shared entrance in Albufeira gets lost?', a: 'It can be deactivated immediately without affecting any other resident\'s access, and a replacement issued — no need to change codes for the whole development.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Dense apartment blocks and gated resorts both rely on managed entry at shared access points.' },
@@ -263,12 +348,37 @@ const towns = [
     faqs: [
       { q: 'If a villa in Vilamoura is already inside a gated golf estate, is a separate alarm system still worth it?', a: 'Yes — a development\'s shared gate covers the estate\'s perimeter, not an individual property, so a villa\'s own alarm and camera coverage still matters for the property itself.' },
       { q: 'Does gate automation make sense for a property already behind a development gate?', a: 'Often yes — many villas in Vilamoura\'s estates still have their own driveway gate at the property itself, separate from the development\'s main entrance.' },
+      { q: 'Does a marina-front apartment need its own camera if the building already has security?', a: 'Building security covers shared areas — the lobby, parking, communal walkways — not what happens inside or on the terrace of your own unit. A camera on your own balcony or terrace and a smart lock on your door cover what the building\'s system doesn\'t.' },
+      { q: 'How does a villa\'s own driveway gate relate to the golf estate\'s main entrance gate?', a: 'They\'re two separate layers. The estate gate controls who enters the development as a whole; the villa\'s own gate controls who reaches that specific property. Most villas here already have one, and it\'s usually worth automating or upgrading rather than relying on the estate gate alone.' },
+      { q: 'Can an older gate motor from when the villa was originally built be upgraded rather than replaced?', a: 'Often, yes — assessed on the condition of the actual gate and motor rather than assumed to need full replacement.' },
+      { q: 'With guests turning over multiple times through the season, how is access managed without handing out physical keys?', a: 'Code-based entry that resets automatically between bookings, rather than a shared key or an unchanging lockbox code that stays the same across dozens of changeovers a year.' },
+      { q: 'Does the golf estate\'s own security company need to be involved in installing a private system?', a: 'Generally not for coverage of your own property, though it\'s worth checking a development\'s specific rules on external contractors before work begins — every development sets its own.' },
+      { q: 'Can cameras be positioned to cover a pool and garden without overlooking a golf course or a neighbouring villa?', a: 'Yes — field-of-view planning matters particularly here, where villas often sit close to a fairway or to each other.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Properties within gated developments benefit from managed entry at the individual unit alongside the development gate.' },
       { slug: 'gate-automation', reason: "Villas within golf estates commonly have their own driveway gate worth automating separately." },
       { slug: 'cctv-installation', reason: "Coverage of a property's own entrance and grounds complements, rather than replaces, development-level security." },
     ],
+    premiumProfile: {
+      eyebrow: 'Vilamoura in Detail',
+      heading: 'Two very different buyers, one marina town',
+      intro: "Vilamoura isn't one property market — it's two, sitting side by side. A marina-front apartment owner and a golf-estate villa owner are dealing with genuinely different security questions, even though both technically live in Vilamoura.",
+      subAreas: [
+        {
+          heading: 'Marina-Front Apartments: Building Security Plus Your Own Unit',
+          text: "Apartments directly overlooking the marina typically sit within buildings that already have some level of shared security — a manned or camera-covered lobby, controlled parking access. What most owners are missing is coverage of their own unit specifically: a camera on the terrace or balcony, a smart lock on the front door that doesn't require handing a physical key to a cleaner or rental guest, and a way to check the apartment's status from abroad without relying on the building's shared systems, which an owner has no control over and often no visibility into.",
+        },
+        {
+          heading: 'Villas Within the Golf Estates: Two Gates, Not One',
+          text: "A villa inside one of Vilamoura's gated golf developments sits behind two layers of entry: the development's own perimeter gate, and the villa's private driveway gate. The development gate is managed by the estate and covers who gets into the development as a whole; it says nothing about who's actually walking up to a specific villa's front door. Most villas here already have their own gate from when they were built — often manually operated, or automated with equipment that's now over a decade old — and automating or upgrading that gate, plus adding cameras covering the villa's own grounds and pool area, is usually the starting point once an owner realises the development's security stops at the estate boundary.",
+        },
+        {
+          heading: 'Managing Access Through a Long Rental and Event Season',
+          text: "Vilamoura's calendar runs on tourism and golf — high summer season and repeated golf-tourism bookings mean a villa or apartment can turn over guests dozens of times a year, each changeover a moment where the previous access needs revoking and the next one needs setting up. A shared physical key or a lockbox that never changes its code is a genuine, ongoing weak point across that many changeovers; code-based entry that resets automatically between bookings removes it as a recurring risk rather than a one-off fix.",
+        },
+      ],
+    },
   },
   {
     slug: 'quarteira', name: 'Quarteira', region: 'central', nearby: ['vilamoura', 'albufeira', 'almancil'],
@@ -282,6 +392,10 @@ const towns = [
     faqs: [
       { q: 'Do apartments in Quarteira typically have outdoor space worth covering with a camera?', a: 'Not always — many units have a balcony or terrace rather than a garden, so coverage tends to focus on the entrance and any shared or private outdoor space rather than a full perimeter.' },
       { q: 'Is access control more relevant here than CCTV?', a: 'Both matter, but access control at a shared building entrance is often the first thing apartment owners in Quarteira ask about, given how many properties here are apartments rather than standalone villas.' },
+      { q: 'What access control makes sense for a property in Quarteira?', a: 'Apartment block entrances benefit from video intercom and card or fob entry.' },
+      { q: 'Does CCTV make sense for a property in Quarteira?', a: 'Seasonal owners benefit from remote viewing of communal or private outdoor space.' },
+      { q: 'How does CCTV work for a holiday rental in Quarteira between guest stays?', a: 'Outdoor cameras covering the entrance and driveway let an owner or property manager confirm guests have arrived or left without being on-site for every changeover. Indoor cameras raise real privacy questions for guests and are generally left out of a rental setup for that reason.' },
+      { q: 'Can guests in Quarteira let themselves in without a physical key or lockbox?', a: 'Yes — code-based access control removes the need for a physical key handover or a lockbox at the gate, and the code can be changed automatically between bookings.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Apartment block entrances benefit from video intercom and card or fob entry.' },
@@ -301,6 +415,11 @@ const towns = [
     faqs: [
       { q: 'Does a historic building in Loulé\'s old town limit what security equipment can be fitted?', a: 'It can influence the approach — installation is planned around the building\'s existing doors and structure rather than assuming a modern villa\'s setup will transfer directly.' },
       { q: 'Are newer villa developments near Loulé\'s coast handled differently to the old town?', a: 'Yes — newer developments toward the coast tend to go for a fuller setup including CCTV and gate automation, while old-town properties often start with access control and an alarm.' },
+      { q: 'What access control makes sense for a property in Loulé?', a: 'Historic old-town properties suit electronic locks and intercom without altering original doors.' },
+      { q: 'Does CCTV make sense for a property in Loulé?', a: 'Newer villa developments further out benefit from full boundary coverage.' },
+      { q: 'Is gate automation common for properties in Loulé?', a: 'Villa properties toward the coast commonly include a driveway gate worth automating.' },
+      { q: 'Can access control be added to a historic property in Loulé without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Loulé?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Historic old-town properties suit electronic locks and intercom without altering original doors.' },
@@ -320,12 +439,37 @@ const towns = [
     faqs: [
       { q: 'Why do golf resort villas around Almancil typically need more entry points covered than a standard property?', a: 'Larger plots with multiple access points — a main gate, a side entrance, staff or delivery access — mean coverage has to extend beyond a single front door.' },
       { q: 'Does regular staff access change how access control is set up in Almancil?', a: 'Yes — with cleaners, gardeners and pool maintenance regularly coming and going, code-based access that can be reissued easily is usually more practical than physical keys.' },
+      { q: 'Are Quinta do Lago and Vale do Lobo properties treated differently to a standard Almancil villa?', a: 'The same core systems apply, planned for a larger scale — more entry points, larger grounds, and often integration with existing infrastructure already built into the property.' },
+      { q: 'How is access managed for a full household of regular staff without handing out physical keys?', a: 'Individual codes or credentials per person, added and removed independently as staff change.' },
+      { q: 'Does a property manager need their own way to check on the villa while the owner is away?', a: 'Typically, yes — a separate login with its own visibility into cameras and alarm status, independent of the owner\'s own access.' },
+      { q: 'How many cameras does a large villa in this area typically need?', a: 'Determined by walking the actual grounds and access points rather than a fixed number — a pool house, tennis court, and staff or delivery entrance are all common additions beyond the main gate.' },
+      { q: 'Can a new security system integrate with existing infrastructure already built into the villa?', a: 'Often, yes — assessed property by property, since it depends entirely on what\'s already installed.' },
+      { q: 'Is gate automation standard for villas in golf resort developments here?', a: 'Effectively the norm — most properties already have some form of gated entrance, and automating or upgrading it is usually the starting point.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Larger plots with multiple entry points benefit from full perimeter coverage rather than a single camera.' },
       { slug: 'access-control', reason: 'Regular staff access (cleaners, gardeners, pool maintenance) suits managed entry without physical keys.' },
       { slug: 'gate-automation', reason: "Gated entrances are standard across the area's golf resort developments." },
     ],
+    premiumProfile: {
+      eyebrow: 'Almancil in Detail',
+      heading: 'Home to some of the highest-spec properties in the Algarve',
+      intro: "Almancil's parish boundary takes in Quinta do Lago and Vale do Lobo — two of the highest-value residential areas in Portugal — alongside the town centre itself. Security expectations here start from a different baseline than most of the region.",
+      subAreas: [
+        {
+          heading: 'Quinta do Lago and Vale do Lobo: A Different Baseline',
+          text: "Quinta do Lago and Vale do Lobo, both within Almancil's wider area, are home to some of the highest-value private homes in Portugal — villas on large plots, many backing onto golf courses, lagoons or direct beach access. Security expectations here start from a different baseline than the rest of the Algarve: multiple camera-covered access points as standard, gates and perimeter coverage integrated with the property's own grounds rather than an afterthought, and — because many owners visit for a matter of weeks a year — remote monitoring that has to work reliably from thousands of kilometres away, not just from the next town over.",
+        },
+        {
+          heading: 'A Household With Staff, Not Just an Owner',
+          text: "A large villa in this area rarely has just one person coming and going. Cleaners, gardeners, pool maintenance, a property manager, sometimes household staff during a stay — access has to be managed for a small team of regular people as well as the owner, without physical keys multiplying every time someone new joins. Code-based and app-based access lets each person be added or removed individually, and a property manager overseeing the villa while the owner is away needs their own level of access and their own way to confirm the property is secure, separate from the owner's.",
+        },
+        {
+          heading: 'Coverage That Matches the Size of the Grounds',
+          text: "Properties in this area are large enough that a single camera at the front gate misses most of what actually matters — a pool house, a tennis court, staff parking, a second or third gate for deliveries and staff kept separate from the main entrance. Planning coverage means walking the actual grounds and accounting for every access point a property has, rather than assuming a villa this size has just one front door to watch.",
+        },
+      ],
+    },
   },
 
   // East Algarve (Sotavento)
@@ -341,6 +485,10 @@ const towns = [
     faqs: [
       { q: 'Does a commercial property in Faro need different networking to a residential one?', a: 'Usually — commercial premises tend to run more connected systems (cameras, access control, sometimes point-of-sale) at once, which puts more demand on the network than a typical home.' },
       { q: 'Are apartments in central Faro handled the same way as houses in the suburbs?', a: 'No — central apartments usually need access control at a shared entrance, while suburban houses focus more on boundary coverage and a driveway gate.' },
+      { q: 'What access control makes sense for a property in Faro?', a: 'Commercial and office premises benefit from controlled staff access and visitor management.' },
+      { q: 'Why would a property in Faro need its home networking sorted properly?', a: 'Business premises running multiple security systems need networking built to support them reliably.' },
+      { q: 'Does CCTV make sense for a property in Faro?', a: 'Both residential and commercial properties commonly start with camera coverage as a first step.' },
+      { q: 'Do commercial premises in Faro need a different approach to security than a home?', a: 'The same core systems apply — cameras, access control, alarms — but a commercial premises usually needs staff access management and visitor control alongside it, which is less of a factor on a private home.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Commercial and office premises benefit from controlled staff access and visitor management.' },
@@ -360,6 +508,11 @@ const towns = [
     faqs: [
       { q: 'Do Olhão\'s closely built town-centre houses need a different camera setup than properties on the outskirts?', a: 'Yes — town-centre houses usually call for compact, discreetly placed cameras given the tighter street layout, while outskirts properties have more room for wider perimeter coverage.' },
       { q: 'Is gate automation common in Olhão?', a: 'More so on the outskirts, where properties have more land and a driveway — less relevant in the working fishing-town centre, where entrances open directly onto the street.' },
+      { q: 'Does CCTV make sense for a property in Olhão?', a: 'Town-centre properties benefit from compact, discreet camera placement suited to a tighter street layout.' },
+      { q: 'Is an alarm system worth it for a property in Olhão?', a: 'Closely built properties still benefit from independent sensor coverage.' },
+      { q: 'Is gate automation common for properties in Olhão?', a: 'Properties on the outskirts with more land often include a driveway worth automating.' },
+      { q: 'Can access control be added to a historic property in Olhão without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Olhão?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Town-centre properties benefit from compact, discreet camera placement suited to a tighter street layout.' },
@@ -379,6 +532,11 @@ const towns = [
     faqs: [
       { q: 'Why does São Brás de Alportel\'s inland setting change what a security system needs to cover?', a: 'Properties here tend to have more surrounding land than a coastal apartment, so covering the full boundary — not just the entrance — matters more than it would for a smaller coastal plot.' },
       { q: 'Is this a full-time residence area, or mostly holiday homes?', a: 'Mostly full-time or long-term residences, which shifts the focus toward everyday coverage rather than the remote-monitoring priorities of a seasonal holiday-home area.' },
+      { q: 'Does CCTV make sense for a property in São Brás de Alportel?', a: 'Larger inland plots benefit from coverage across the whole boundary rather than just the entrance.' },
+      { q: 'Is an alarm system worth it for a property in São Brás de Alportel?', a: 'Full-time residences benefit from sensor coverage independent of casual passers-by.' },
+      { q: 'Why would a property in São Brás de Alportel need its home networking sorted properly?', a: 'A more rural setting means a stable network needs proper planning from the outset.' },
+      { q: 'Does a rural property near São Brás de Alportel get a reliable enough connection for cameras and an alarm to work properly?', a: 'It depends on the property, but a poor connection is one of the most common reasons a security system in a more rural setting becomes unreliable. A <a href="/home-networking">home networking</a> assessment before or alongside installation is worth factoring in rather than assuming standard broadband will cover it.' },
+      { q: 'Can an existing manual gate on a rural property near São Brás de Alportel be automated instead of replaced?', a: 'Often, yes — automation can be added to a gate that\'s already there, provided it\'s in good enough structural condition to take a motor, which is usually more straightforward than starting with a new gate.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Larger inland plots benefit from coverage across the whole boundary rather than just the entrance.' },
@@ -398,6 +556,11 @@ const towns = [
     faqs: [
       { q: 'Do historic buildings in central Tavira limit camera or sensor placement?', a: 'They can — older town-centre buildings sometimes need installation planned around the existing structure, whereas a modern villa on the outskirts has more flexibility.' },
       { q: 'Why does Tavira\'s retiree and second-home population matter for security planning?', a: 'Because many properties sit empty for real stretches of the year, remote monitoring and app-based alerts tend to matter more here than in towns with a younger, more full-time resident base.' },
+      { q: 'Is an alarm system worth it for a property in Tavira?', a: 'Properties left empty for extended periods benefit from remote arm, disarm and status checks.' },
+      { q: 'Does CCTV make sense for a property in Tavira?', a: 'Remote viewing suits owners checking on a property from outside Portugal for part of the year.' },
+      { q: 'What access control makes sense for a property in Tavira?', a: 'Historic buildings suit electronic locks that work with existing doors rather than requiring structural changes.' },
+      { q: 'Can access control be added to a historic property in Tavira without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Tavira?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
     ],
     relevantServices: [
       { slug: 'alarm-systems', reason: 'Properties left empty for extended periods benefit from remote arm, disarm and status checks.' },
@@ -417,6 +580,11 @@ const towns = [
     faqs: [
       { q: 'Are there many gated developments in Castro Marim, or mostly standalone houses?', a: 'Mostly standalone houses — there\'s a smaller number of gated or shared developments here than in the busier resort towns, so individual property coverage tends to carry more weight.' },
       { q: 'Does being near the Guadiana river change anything about installation?', a: 'Not directly — it\'s more about the town\'s quieter, lower-density character generally, which tends to mean more straightforward CCTV and alarm coverage on standalone properties.' },
+      { q: 'Does CCTV make sense for a property in Castro Marim?', a: 'Standalone houses without a shared development benefit from independent perimeter coverage.' },
+      { q: 'Is an alarm system worth it for a property in Castro Marim?', a: 'Straightforward sensor coverage suits smaller, standalone properties well.' },
+      { q: 'What access control makes sense for a property in Castro Marim?', a: 'The smaller number of gated or shared developments in the area still benefit from managed entry.' },
+      { q: 'Can access control be added to a historic property in Castro Marim without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Castro Marim?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
     ],
     relevantServices: [
       { slug: 'cctv-installation', reason: 'Standalone houses without a shared development benefit from independent perimeter coverage.' },
@@ -436,6 +604,10 @@ const towns = [
     faqs: [
       { q: 'Do the grid-planned apartment blocks in Vila Real de Santo António need different coverage than houses on the town\'s edges?', a: 'Yes — the town-centre blocks typically need access control and video intercom at a shared entrance, while houses on the edges are more focused on boundary and driveway coverage.' },
       { q: 'Does being on the Spanish border affect how the service works here?', a: 'Not for the installation itself, but it does mean a genuinely international mix of owners, which is part of why clear English-language support matters as much as the security work.' },
+      { q: 'What access control makes sense for a property in Vila Real de Santo António?', a: 'Town-centre apartment buildings benefit from video intercom and card or fob entry at shared entrances.' },
+      { q: 'Is an alarm system worth it for a property in Vila Real de Santo António?', a: 'Both apartments and houses benefit from independent sensor coverage regardless of building type.' },
+      { q: 'Can access control be added to a historic property in Vila Real de Santo António without altering the original doors?', a: 'Yes — electronic locks and video intercoms are commonly fitted to work with existing doors and frames, rather than requiring structural changes to a period property.' },
+      { q: 'What\'s the difference between securing a shared apartment building and a standalone house in Vila Real de Santo António?', a: 'A shared building typically means access control at a communal entrance — a video intercom or card reader everyone in the building uses — while a standalone house is fitted independently, with cameras and an alarm covering just that property.' },
     ],
     relevantServices: [
       { slug: 'access-control', reason: 'Town-centre apartment buildings benefit from video intercom and card or fob entry at shared entrances.' },

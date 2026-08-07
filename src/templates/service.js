@@ -30,6 +30,15 @@ function renderService(service) {
     )
     .join('');
 
+  const commonProblemCards = (service.commonProblems || [])
+    .map(
+      (p) => `<div class="card">
+        <h3>&ldquo;${esc(p.symptom)}&rdquo;</h3>
+        <p>${rich(p.text)}</p>
+      </div>`
+    )
+    .join('');
+
   const propertyTypeCards = (service.propertyTypes || [])
     .map(
       (p) => `<div class="card">
@@ -131,6 +140,7 @@ function renderService(service) {
     { id: 'why-it-matters', label: 'Why It Matters' },
     deepDiveHtml ? { id: 'in-depth', label: 'In Depth' } : null,
     scenarioItems ? { id: 'scenarios', label: 'Real-World Scenarios' } : null,
+    commonProblemCards ? { id: 'common-problems', label: 'Common Problems' } : null,
     propertyTypeCards ? { id: 'property-types', label: 'By Property Type' } : null,
     extraCards ? { id: 'in-detail', label: 'In Detail' } : null,
     faqItems ? { id: 'faq', label: 'FAQ' } : null,
@@ -210,6 +220,21 @@ function renderService(service) {
                 ${placeholder(service.scenarioImageAlt, { ratio: 'tall' })}
               </div>
             </div>
+          </div>
+        </section>`
+      : ''
+  }
+
+  ${
+    commonProblemCards
+      ? `<section id="common-problems">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">Common Problems</span>
+              <h2>What owners actually call about</h2>
+              <p class="lede">The specific issues that come up most, and what's usually behind them.</p>
+            </div>
+            <div class="card-grid cols-2">${commonProblemCards}</div>
           </div>
         </section>`
       : ''

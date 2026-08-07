@@ -77,6 +77,18 @@ function renderTown(town) {
   const concernsHtml = linkifyServices(esc(town.concerns), linkedSlugs);
   const proximityHtml = linkifyTownNames(esc(town.proximity), nearby);
 
+  // Premium reframe — only present for towns with a genuinely distinct
+  // property profile (e.g. Vilamoura's marina-vs-golf-estate split), so
+  // this whole block is a no-op for the other 19 town pages.
+  const premiumSubAreaItems = ((town.premiumProfile && town.premiumProfile.subAreas) || [])
+    .map(
+      (s, i) => `<div class="pillar">
+        <span class="num">${String(i + 1).padStart(2, '0')}</span>
+        <div><h3>${esc(s.heading)}</h3><p>${rich(s.text)}</p></div>
+      </div>`
+    )
+    .join('');
+
   const faqItems = (town.faqs || [])
     .map(
       (f) => `<div class="faq-item">
@@ -149,6 +161,21 @@ function renderTown(town) {
       </div>
     </div>
   </section>
+
+  ${
+    premiumSubAreaItems
+      ? `<section id="in-detail">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow">${esc(town.premiumProfile.eyebrow)}</span>
+              <h2>${esc(town.premiumProfile.heading)}</h2>
+              <p class="lede">${esc(town.premiumProfile.intro)}</p>
+            </div>
+            <div class="pillar-list mt-32">${premiumSubAreaItems}</div>
+          </div>
+        </section>`
+      : ''
+  }
 
   ${
     relevantCards
