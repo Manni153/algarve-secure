@@ -2512,6 +2512,20 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     height: 26px;
     margin-bottom: 7px;
   }
+  /* Label row (the 3rd of the icon/value/label stack — see .v-mobile-
+     value/.v-mobile-label in layout.js) at the shared 16px above still
+     wraps "English-Speaking" to 2 lines: measured via canvas at 134px
+     wide against only a 111px column. 12px measures 100.7px — a genuine
+     ~9.6% safety margin, not just a token few px, matching this file's
+     usual bar for "confirmed via measurement, not assumed" (see the H1
+     sizing history above). Value line (.v-mobile-value) stays at the
+     shared 16px — this creates a deliberate bold-value/smaller-caption
+     hierarchy, matching how the old two-tier .v/.l format read before
+     this round's icon/value/label restructure. Tablet is untouched
+     ("English-Speaking" already fits on one line there at 17px, in a
+     much wider ~245px column) and desktop was never in scope (single-
+     line format, doesn't use this class at all). */
+  .page-home .hero-stack--split .hero-trust-inline .v-mobile-label { font-size: 12px !important; }
 }
 
 /* Mobile only (<=767px): fix 4, a partial pullback from the previous
