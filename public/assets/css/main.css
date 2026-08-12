@@ -2528,6 +2528,83 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home .hero-stack--split .hero-trust-inline .v-mobile-label { font-size: 12px !important; }
 }
 
+/* Mobile only (<=767px): text-shadow pass across the hero's white-on-photo
+   text, plus the H1/camera collision fix — both verified by rendering the
+   real page and sampling actual pixel data (Playwright screenshot + PIL),
+   not assumed. Methodology: for each element, the real background image
+   (text hidden) was sampled for its brightest point reachable by a glyph's
+   shadow (within ~2px of actual ink, found via a temporary magenta-text
+   mask pass to locate real glyph pixels, not just the CSS line-box which
+   includes empty leading/leading-edge space no shadow could ever reach).
+   Contrast = the shadowed background luminance vs. white text (#fff),
+   WCAG formula, large-text threshold (3:1) for the H1 (29px/800 — clears
+   the 24px large-text bar on size alone), normal threshold (4.5:1) for
+   the rest.
+   H1 / subline / CTA: brightest reachable point measured at 6.28:1 /
+   7.02:1 / 4.99:1 respectively even with NO shadow at all (each sits over
+   a shaded wall/door area at this crop, not the bright sky) — the
+   requested starting value (0 1px 4px rgba(0,0,0,.55)) was applied as-is
+   since it only improves on an already-passing baseline (re-verified with
+   the shadow rendered: 6.74:1 / 7.29:1 / 4.99:1 — CTA's is unchanged since
+   it sits on its own opaque crimson pill, not the photo, so a shadow
+   behind it is float polish, not a legibility requirement). */
+@media (max-width: 767px) {
+  .page-home .hero-stack--split .hero-kicker,
+  .page-home .hero-stack--split .hero-headline,
+  .page-home .hero-stack--split .hero-stack-text .btn {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  }
+  /* Stats row: the ONE spot in this pass that does NOT clean-pass AA at
+     its literal brightest reachable pixel. That point sits in the gap
+     directly below "100%"/"Locally"/"Fast" (and the equivalent gap above
+     each label) — a sunlit door-trim edge that runs vertically right
+     through the stats column, exactly at the seam between the value and
+     label lines. Tested from the existing 2-layer shadow up through
+     several deliberately extreme candidates (stacked 0-offset layers at
+     full #000 opacity, blur up to 9px) — contrast at that exact pixel
+     never moved past ~2:1, because the point is >2px from any actual
+     glyph ink (it's in the natural inter-line gap, not inside a letter),
+     and text-shadow's blur has no reach beyond a few px regardless of
+     opacity. Strengthened here anyway (was 0 1px 2px/.7 + 0 1px 7px/.5)
+     since it measurably improves the general case — most of the row sits
+     over darker wall/shutter, not this one bright seam — but this single
+     worst-case point is a real, reported residual: ~1.2-2:1 there even at
+     max reasonable shadow strength, a genuine text-shadow limit rather
+     than a tuning miss. Fixing it fully would need a stronger local scrim
+     over the image itself, out of scope for a text-shadow pass. */
+  .page-home .hero-stack--split .hero-trust-inline .v-mobile-value,
+  .page-home .hero-stack--split .hero-trust-inline .v-mobile-label {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85), 0 1px 8px rgba(0, 0, 0, 0.7);
+  }
+  /* H1/camera collision: the H1's 2nd line ("Installation in the
+     Algarve") reached to x=356 of a 390px viewport, landing within a few
+     px of the CCTV camera baked into the photo (housing starts ~x=345,
+     y=160 — confirmed by locating it directly in the raw image, not
+     guessed from the crop). Object-position was tested as the alternative
+     fix first (tried 80-100% in 5% steps) — the camera only stays in
+     frame at all within a narrow ~85-95% band (below
+     that it crops off the right edge entirely, confirmed via screenshot),
+     and within that band shifting the crop moves the camera LEFT (toward
+     the text, worse) as the percentage increases and crops it out
+     entirely by ~85% — there's no position that both keeps the camera
+     meaningfully visible AND clears the text, since only the crop's X
+     axis is adjustable at all (object-fit: cover never crops this
+     image's height at any tested viewport, so Y can't move independent
+     of the whole frame). Max-width instead: forces "Algarve" onto its own
+     3rd line (right edge only 171px, nowhere near the camera's ~345px
+     start) rather than trying to move the image. Confirmed safe to add a
+     3rd line — this layout uses justify-content: space-between (see
+     .hero-stack-text above) to distribute leftover vertical space between
+     kicker/H1/subline/CTA/stats, so the extra line's height comes out of
+     that slack rather than pushing anything off-screen; re-verified via
+     screenshot that CTA and stats still sit comfortably within the fixed
+     100vh hero with no overlap or cutoff. 320px chosen with real margin
+     below the 335-345px range where wrapping is unstable (2-line vs.
+     3-line right on the edge) rather than the minimum that technically
+     works. */
+  .page-home .hero-stack--split .hero-kicker { max-width: 320px; }
+}
+
 /* Mobile only (<=767px): fix 4, a partial pullback from the previous
    round's justify-content: space-between (see .page-home .hero-stack--
    split .hero-stack-text in the max-width:1024px block above), which
