@@ -2686,11 +2686,30 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    segment rate is now ~0.035/point — still not as gentle as desktop's
    very long 85-point fade, but a ~3x reduction from the old hard edge,
    and visibly smooth in a full-hero screenshot at 390px.
-   The plateau (0/9/18/27%) is unchanged from before, still tied to the
-   measured header/H1/subline positions at 390x844 — re-verified after
-   this round's H1/subline font-size bump, since a taller text block
-   could in principle have pushed the headline out from under it (it
-   didn't: headline still ends within the 27% stop with room to spare). */
+   The plateau (0/9/18/27%) was tied to the measured header/H1/subline
+   positions at 390x844 — but the H1/subline gap-tightening round after
+   this one (negative margin-top pulling the subline up toward the H1)
+   also grew the subline a px, and the combination shifted the subline's
+   own bottom edge DOWN in absolute terms (its margin shrank more than
+   its own height grew): re-measured via Playwright at 215.67-246.06px,
+   i.e. 29.15% of the 844px viewport — past the old 27% plateau end, into
+   what was meant to be the fade-out's first step (down to 0.48, a real
+   drop from the plateau's 0.62). Last plateau stop moved 27% -> 31% (the
+   next value already in the sequence, so no new stop or hand-picked
+   number) and the whole fade-out tail shifted by that same +4 points
+   (31/35/39/43/47/51 -> 35/39/43/47/51/55) — preserves the exact shape
+   already tuned above for smoothness, just delayed enough that the
+   subline's own bottom edge now sits 1.85 points inside the plateau
+   rather than 2.15 points past it. Re-verified via real pixel sampling
+   after this change (not assumed, and not the pre-fix numbers): darkest
+   point under the subline's text box is rgb(46,45,41) — 11.02:1 against
+   the rendered 88%-white text — lightest is rgb(84,88,97) — 5.98:1 —
+   both clear the 4.5:1 AA floor for 19px/400 text with real margin. CTA
+   sits on its own opaque crimson pill (this gradient never reaches its
+   text either way) and the stats row keeps its own text-shadow
+   treatment, both untouched by this shift; the tail now finishing at
+   55% instead of 51% only touches image area between the CTA and stats
+   row, well clear of both. */
 @media (max-width: 767px) {
   .page-home .hero-stack--split .hero-stack-media::after {
     background: linear-gradient(
@@ -2698,13 +2717,13 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
       rgba(17, 24, 39, 0.72) 0%,
       rgba(17, 24, 39, 0.68) 9%,
       rgba(17, 24, 39, 0.64) 18%,
-      rgba(17, 24, 39, 0.62) 27%,
-      rgba(17, 24, 39, 0.48) 31%,
-      rgba(17, 24, 39, 0.34) 35%,
-      rgba(17, 24, 39, 0.22) 39%,
-      rgba(17, 24, 39, 0.12) 43%,
-      rgba(17, 24, 39, 0.05) 47%,
-      rgba(17, 24, 39, 0) 51%
+      rgba(17, 24, 39, 0.62) 31%,
+      rgba(17, 24, 39, 0.48) 35%,
+      rgba(17, 24, 39, 0.34) 39%,
+      rgba(17, 24, 39, 0.22) 43%,
+      rgba(17, 24, 39, 0.12) 47%,
+      rgba(17, 24, 39, 0.05) 51%,
+      rgba(17, 24, 39, 0) 55%
     );
   }
 }
