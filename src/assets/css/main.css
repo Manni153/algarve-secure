@@ -2646,44 +2646,6 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home .hero-stack--split .hero-kicker { max-width: 320px; }
 }
 
-/* Mobile only: the shared max-width:1024px block's scrim (~line 2445,
-   still what tablet uses) fades out too early for mobile's own layout.
-   That gradient was tuned before the H2 grew to 22px/600 and started
-   wrapping to 2 lines — measured directly (Playwright, 390x844): the H2's
-   2nd line ("secure — even when you're away") now spans roughly y=250-286
-   (~30-34% of the 844px hero), and the stats row sits at y=400-485
-   (~47-57%). At the shared gradient's own stops (30%:.68, 48%:.5, 65%:.2,
-   80%:0) that puts the H2's 2nd line right where darkness has already
-   started dropping and the stats row mostly past the fade — the text-
-   shadow pass above (~line 2592) covers the rest, but can't fully make up
-   the difference over the photo's brighter patio-side areas. Re-tuned to
-   hold real darkness (.6+) further down, through both the 2nd headline
-   line and the stats row, and only reach clear at the very bottom instead
-   of by 80%, so the lower ~1/5 of the frame that used to already be fully
-   lit now still carries a light fade.
-   767 not the 768 the request framed this as: this file's own tablet
-   breakpoint starts at min-width:768px (~line 2517), and 768px CSS width
-   is a genuinely common real tablet size (iPad Mini/iPad portrait), not
-   just a rounding choice — max-width:768px would have pulled real tablets
-   into a "mobile-only" fix. 767 is the exact cutoff already used
-   throughout this file for mobile-only overrides (e.g. the two blocks
-   directly above), so this stays consistent with that and only touches
-   phones. Desktop (the to-right gradient, ~line 2014) is untouched. */
-@media (max-width: 767px) {
-  .page-home .hero-stack--split .hero-stack-media::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(17, 24, 39, 0.8) 0%,
-      rgba(17, 24, 39, 0.75) 22%,
-      rgba(17, 24, 39, 0.68) 40%,
-      rgba(17, 24, 39, 0.58) 58%,
-      rgba(17, 24, 39, 0.35) 75%,
-      rgba(17, 24, 39, 0.1) 92%,
-      rgba(17, 24, 39, 0) 100%
-    );
-  }
-}
-
 /* Mobile only (<=767px): fix 4, a partial pullback from the previous
    round's justify-content: space-between (see .page-home .hero-stack--
    split .hero-stack-text in the max-width:1024px block above), which
@@ -2785,10 +2747,28 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    the rendered 88%-white text — lightest is rgb(84,88,97) — 5.98:1 —
    both clear the 4.5:1 AA floor for 19px/400 text with real margin. CTA
    sits on its own opaque crimson pill (this gradient never reaches its
-   text either way) and the stats row keeps its own text-shadow
-   treatment, both untouched by this shift; the tail now finishing at
-   55% instead of 51% only touches image area between the CTA and stats
-   row, well clear of both. */
+   text either way).
+   Next round: the "stats row keeps its own text-shadow treatment"
+   assumption above stopped holding once the H2 grew to 22px/600 and
+   started wrapping to 2 lines (a separate, later round) — the row shifted
+   down into brighter photo area the old 55%-and-done taper no longer
+   reached. Sampling actual rendered pixels (not just the gradient's own
+   math, and not assumed) under the stats row's label line found a real
+   failure: bottom edge of the label at x=111/y=484 in a 390x844 render —
+   a sunlit door-trim highlight (raw rgb ~234,156,104) — sat at 2.22:1
+   against white with the old taper already at ~0.05 alpha there, well
+   under the 4.5:1 small-text floor. This is the exact residual the text-
+   shadow pass elsewhere in this file already flagged as a real shadow
+   limit ("would need a stronger local scrim over the image itself, out
+   of scope for a text-shadow pass") — that scope now includes this rule.
+   Extended the 31%/.62 plateau flat through 48% and 60% (previously it
+   started tapering at 35%) so real darkness now covers the H2's 2nd line,
+   the value row, AND the label row's own lower edge, before the same
+   fade-to-clear shape as before resumes, now finishing by 100% instead of
+   55%. Re-verified at the exact failing pixel after the change: 7.74:1 —
+   clears 4.5:1 with real margin. The lower ~40% of the frame that used to
+   already be fully lit now carries a light fade rather than none. CTA is
+   still untouched (own opaque pill, as above). */
 @media (max-width: 767px) {
   .page-home .hero-stack--split .hero-stack-media::after {
     background: linear-gradient(
@@ -2797,12 +2777,11 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
       rgba(17, 24, 39, 0.68) 9%,
       rgba(17, 24, 39, 0.64) 18%,
       rgba(17, 24, 39, 0.62) 31%,
-      rgba(17, 24, 39, 0.48) 35%,
-      rgba(17, 24, 39, 0.34) 39%,
-      rgba(17, 24, 39, 0.22) 43%,
-      rgba(17, 24, 39, 0.12) 47%,
-      rgba(17, 24, 39, 0.05) 51%,
-      rgba(17, 24, 39, 0) 55%
+      rgba(17, 24, 39, 0.62) 48%,
+      rgba(17, 24, 39, 0.6) 60%,
+      rgba(17, 24, 39, 0.35) 75%,
+      rgba(17, 24, 39, 0.12) 90%,
+      rgba(17, 24, 39, 0) 100%
     );
   }
 }
