@@ -1648,6 +1648,18 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
 .page-home #services .card-link-arrow-text { display: none; }
 .page-home #services .card-link-icon { display: inline-flex; flex-shrink: 0; }
 
+/* Solid crimson by default (not just on hover) — was the lowest-contrast
+   element in each card (light-grey pill, dark-grey text). Reuses
+   var(--terracotta), the same token the hero phone CTA button's own
+   background is built from (~line 183) and this codebase's own designated
+   "CTA buttons and phone links only" color — not a new, merely-similar
+   red. White text/icon (the chevron SVG uses stroke="currentColor", so it
+   follows this rule's color automatically, no separate icon rule needed)
+   against var(--terracotta) measures 5.68:1 via the WCAG formula, clear
+   of the 4.5:1 AA floor for this button's 0.88rem/700 text, so the base
+   red itself (not the darker hover shade) is the right base color. Size/
+   padding/border-radius/placement all unchanged — only background, text
+   color and the hover treatment below are new. */
 .page-home #services .card-link {
   display: flex;
   align-items: center;
@@ -1657,11 +1669,11 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   padding: 13px 20px;
   border: none;
   border-radius: 999px;
-  background: #e5e7eb;
-  color: #1f2937;
+  background: var(--terracotta);
+  color: var(--white);
   font-weight: 700;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
-.page-home #services .card:hover .card-link { background: #d7dbe1; }
 
 /* ---- Mobile-only swipeable carousel (max-width:767px) -------------------
    Desktop/tablet (768px+) keep the plain grid completely untouched — this
@@ -1769,6 +1781,22 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home #services .card-link {
     align-self: stretch;
     margin-top: auto;
+  }
+  /* Hover only enhances an already-fully-styled crimson button (the base
+     rule above is already solid var(--terracotta) with white text/icon at
+     rest, no hover needed to reach that state) — darkens to
+     var(--terracotta-dark), this design system's own existing "hover /
+     pressed" shade for this exact color (~line 18), roughly a 10% darkening
+     already, not a newly-invented value. Small lift (translateY + a soft
+     crimson-tinted shadow) on top, desktop-only via this file's existing
+     1025px+ breakpoint — tablet/mobile never trigger a hover state here.
+     Keyed off .card:hover (the whole card is one <a>, see home.js), not
+     .card-link:hover, matching this rule's own pre-existing hover pattern
+     one level up. */
+  .page-home #services .card:hover .card-link {
+    background: var(--terracotta-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(156, 23, 45, 0.32);
   }
 }
 
