@@ -166,14 +166,16 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
   // mobileStatsText (mobile+tablet, <=1024px) vs desktopStatsText
   // (1025px+) — both rendered, toggled by breakpoint via CSS (.v-desktop/
   // .v-mobile, see main.css), same "render both, hide via CSS" pattern
-  // used elsewhere on this page. Lets mobile/tablet use a shortened label
-  // ("100% English") while desktop keeps the fuller original text,
-  // without duplicating the whole stats block. Falls back to rendering
-  // desktopStatsText alone (old behaviour) when no mobile-specific text
-  // is supplied.
+  // used elsewhere on this page. Desktop stays a single combined-string
+  // line ("100% English-Speaking"); mobile/tablet render each stat as
+  // icon / value / label — three stacked rows, each a separate .v-mobile
+  // span (both share the .v-mobile class so the existing display-toggle
+  // and font-size rules in main.css apply to both without changes there).
+  // Falls back to rendering desktopStatsText alone (old behaviour) when
+  // no mobile-specific data is supplied.
   const inlineStatsHtml = twoColDesktop && desktopStatsText && mobileStatsText
     ? `<div class="hero-trust-inline">${desktopStatsText
-        .map((t, i) => `<div class="stat">${heroStatIcons[i] || ''}<span class="v v-desktop">${esc(t)}</span><span class="v v-mobile">${esc(mobileStatsText[i])}</span></div>`)
+        .map((t, i) => `<div class="stat">${heroStatIcons[i] || ''}<span class="v v-desktop">${esc(t)}</span><span class="v v-mobile v-mobile-value">${esc(mobileStatsText[i].value)}</span><span class="v v-mobile v-mobile-label">${esc(mobileStatsText[i].label)}</span></div>`)
         .join('')}</div>`
     : twoColDesktop && desktopStatsText
     ? `<div class="hero-trust-inline">${desktopStatsText
