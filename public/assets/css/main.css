@@ -2145,7 +2145,18 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
      changed paragraph text on all 33 pages, not just this hero. Scoped
      override instead: 17px -> 18px (+5.9%, proportionally less than the
      H1's +11.5%, keeping the H1/subline size hierarchy intact). */
-  .page-home .hero-stack--split .hero-headline { font-size: 19px; }
+  /* 19px was already the max size that keeps this line on one row within
+     its 350px column (confirmed via Playwright: 19.9px is the actual wrap
+     ceiling, 19.95px+ forces 2 lines) — too tight a ceiling for a real
+     "make it bigger" bump, since even maxing out only gets +5%. Accepted
+     the 2-line wrap instead: 22px (+15.8%, in the same 10-15%-ish range
+     this file has used for other deliberate size bumps) wraps naturally
+     at "Stop wondering if your property is okay." / (line break) with no
+     awkward mid-word break. Re-verified there's room for the extra ~40px
+     this adds: the stats row's bottom edge still lands with ~360px of
+     clearance above the fixed 844px (100vh) hero's bottom edge, nowhere
+     close to the CTA/stats overlapping or the hero clipping content. */
+  .page-home .hero-stack--split .hero-headline { font-size: 22px; }
   .page-home .hero-headline { margin-bottom: 0.2em; }
   .page-home .hero-subtext { margin-bottom: 12px; }
   /* Was the shared, non-page-home .hero-stack .btn { margin-top: 4px; }
