@@ -2511,6 +2511,20 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     width: 26px;
     height: 26px;
     margin-bottom: 7px;
+    /* Icons inherited the shared max-width:1024px block's single-layer
+       drop-shadow (0 1px 3px/.45, ~line 2482) unchanged, but the labels
+       right below them were later strengthened to a two-layer text-shadow
+       (0 1px 3px/.85 + 0 1px 8px/.7, see .v-mobile-value/.v-mobile-label
+       below) — leaving icons on the weaker, single-layer treatment while
+       the text next to them got a stronger one. text-shadow can't reach
+       SVG strokes at all (a separate filter: drop-shadow() is the only
+       equivalent for vector shapes), so this brings the icon filter up to
+       the exact same two values as the label's current text-shadow —
+       same offsets/blur radii/opacities, just expressed as two stacked
+       drop-shadow() layers instead of two text-shadow layers, so icon and
+       label read as one consistent treatment rather than two techniques
+       at two different strengths. */
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85)) drop-shadow(0 1px 8px rgba(0, 0, 0, 0.7));
   }
   /* Label row (the 3rd of the icon/value/label stack — see .v-mobile-
      value/.v-mobile-label in layout.js) at the shared 16px above still
