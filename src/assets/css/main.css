@@ -2145,7 +2145,7 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
      changed paragraph text on all 33 pages, not just this hero. Scoped
      override instead: 17px -> 18px (+5.9%, proportionally less than the
      H1's +11.5%, keeping the H1/subline size hierarchy intact). */
-  .page-home .hero-stack--split .hero-headline { font-size: 18px; }
+  .page-home .hero-stack--split .hero-headline { font-size: 19px; }
   .page-home .hero-headline { margin-bottom: 0.2em; }
   .page-home .hero-subtext { margin-bottom: 12px; }
   /* Was the shared, non-page-home .hero-stack .btn { margin-top: 4px; }
@@ -2652,6 +2652,20 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home .hero-subtext { margin-bottom: 0; }
   .page-home .hero-stack-text .btn { margin-top: 0; }
   .page-home .hero-stack--split .hero-trust-inline { margin-top: 0; }
+
+  /* Fix 5: H1-to-subline and subline-to-CTA gaps both ride on the 40px
+     flex gap above, uniform across every pair in the column (kicker-
+     headline, headline-btn, btn-stats). Pulling in just these two pairs
+     without touching the btn-stats gap (not part of this request) needs
+     negative margin on the pulled element itself — margin is per-item, so
+     it only affects the gap on that item's own side, unlike the shared
+     `gap` property. -22px on the headline cuts its 42px gap from the H1
+     (2px kicker margin-bottom + 40px gap) down to 20px; -22px on the btn
+     cuts its 40px gap from the subline down to 18px. Both re-verified via
+     measurement (not assumed) after the subline's font-size bump below,
+     since a taller line-box shifts the exact px math. */
+  .page-home .hero-stack--split .hero-headline { margin-top: -22px; }
+  .page-home .hero-stack-text .btn { margin-top: -22px; }
 }
 
 /* Mobile only (<=767px): fix 3 (previous round) added a second band here
