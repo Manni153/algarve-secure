@@ -1956,13 +1956,13 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     border-radius: 0;
   }
   /* Desktop's own image (terracotta wall/blue door/camera, home.js's
-     desktop1025Webp/Jpg) is a different composition than the mobile/
-     tablet coffee-cup photo the inline --hero-obj-pos custom property
-     was tuned for (50% 45%) — overridden here with a plain value
-     (higher specificity than the unscoped var()-based rule). This
-     source asset is already close to the hero box's own aspect ratio
-     (1344x768 vs. the box's ~1.6-1.78:1), so cropping is minimal either
-     way — centered vertically keeps the door, tile and the camera on
+     desktopWebp/Jpg — a wide 2048x1152 crop, distinct from mobile/
+     tablet's own dedicated portrait image below 1025px) needs its own
+     object-position, not the mobile/tablet-tuned inline --hero-obj-pos
+     value — overridden here with a plain value (higher specificity than
+     the unscoped var()-based rule). This source asset is already close
+     to the hero box's own aspect ratio at desktop widths, so cropping is
+     minimal either way — centered keeps the door, tile and the camera on
      the open right-hand wall all comfortably in frame. */
   .page-home .hero-stack--split .hero-stack-media picture img {
     object-position: 50% 50%;
@@ -2323,21 +2323,29 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     object-fit: cover;
     border-radius: 0;
   }
-  /* Door-and-camera crop: at these narrow/tall aspect ratios cover shows
-     only ~26-42% of the source photo's width (measured — a 390x844 box
-     visible-width is ~532px of the image's 2048px, 390x680 ~661px,
-     820-wide tablet ~850-860px depending on device height), while the
-     door (centred ~38% across the frame) and the camera (~94% across,
-     top-right under the eave) sit ~1150px apart in the source — wider
-     than any of those visible windows. The two literally cannot both be
-     in frame at once here; verified by direct screenshot rather than
-     assumed. Weighted toward the door (the larger, clearer subject, and
-     the one the villa composition is actually built around) — the camera
-     is out of frame on mobile/tablet as a result. Flagged in the
-     implementation report rather than papered over with a crop that
-     claims to show both and doesn't. */
+  /* This is now a dedicated portrait (1632x2048) image composed for this
+     aspect ratio, not a crop of the desktop photo — see home.js's image
+     config and the single 1025px <picture> breakpoint in layout.js's
+     heroIntro(). Because the image itself is already taller than any
+     tested container (390x680 through 820x1180 all have a wider aspect
+     ratio than the source's own 0.797), object-fit: cover here only ever
+     crops width, never height — the full vertical extent (camera near
+     the top, door through the middle) always renders, so only
+     object-position-x matters.
+     90% was reached empirically, not by centering on the midpoint between
+     the door and camera (that first guess, ~65%, actually cropped the
+     camera out entirely — confirmed by rendering the real crop, not
+     assumed from the source coordinates alone: the two aren't symmetric
+     around their midpoint once you account for the camera sitting right
+     at the image's own right edge). Generated the actual worst-case crop
+     (390x844, the narrowest visible window at ~946px of the 1632px
+     source) at several object-position values and inspected each one
+     directly — 90% is the point where both the door (left third) and the
+     camera (top right corner) are fully in frame with real margin on
+     both sides; also confirmed comfortable at 390x680 and 820x1180,
+     which have wider visible windows and more room to spare. */
   .page-home .hero-stack--split .hero-stack-media picture img {
-    object-position: 32% 40%;
+    object-position: 90% 50%;
   }
   /* Scrim: top-to-bottom (not desktop's left-right) — darkest behind the
      header/text block at the top, easing out by roughly the point the

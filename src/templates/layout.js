@@ -176,27 +176,25 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
   const ctaNoteHtml = twoColDesktop && ctaNote ? `<p class="hero-cta-note">${esc(ctaNote)}</p>` : '';
 
   // When a real image is supplied, render a responsive <picture> (WebP with
-  // a JPEG fallback, a smaller mobile tier and a larger desktop/tablet tier)
-  // instead of the placeholder. Above-the-fold and LCP-critical, so eager
-  // load with high fetch priority rather than the below-the-fold lazy path.
-  // desktop1025Webp/Jpg (optional): a THIRD, true-desktop-only tier
-  // (branch: claude/hero-fullbleed-desktop), for pages that want a
-  // different image at >=1025px specifically, distinct from the existing
-  // 768px+ tier which also covers tablet. <source> elements are evaluated
-  // in order and the first matching one wins, so this has to render
-  // BEFORE the 768px sources below. Only home.js currently supplies
-  // these fields — every other caller of heroIntro() leaves them
-  // undefined, so this renders as an empty string and their markup is
-  // byte-for-byte unchanged.
-  const desktop1025Sources = image && image.desktop1025Webp
-    ? `<source media="(min-width: 1025px)" type="image/webp" srcset="${image.desktop1025Webp}">
-        <source media="(min-width: 1025px)" type="image/jpeg" srcset="${image.desktop1025Jpg}">`
-    : '';
+  // a JPEG fallback) instead of the placeholder. Above-the-fold and
+  // LCP-critical, so eager load with high fetch priority rather than the
+  // below-the-fold lazy path.
+  // Exactly ONE breakpoint, at 1025px — mobile and tablet (<=1024px) both
+  // resolve to the same image.mobileWebp/mobileJpg source, desktop
+  // (1025px+) gets its own image.desktopWebp/desktopJpg. Used to be three
+  // tiers (a true-mobile-only image, a 768px+ tier covering tablet, and a
+  // 1025px+-only desktop override) from when mobile/tablet were still
+  // cropped from the desktop photo — collapsed to two once mobile/tablet
+  // got their own purpose-composed image instead of a crop, since there's
+  // no longer a reason for tablet to sit in its own tier between them.
+  // <source> elements are evaluated in order and the first match wins, so
+  // the 1025px+ (desktop) source has to render first. Only home.js
+  // currently supplies `image` — every other caller of heroIntro() leaves
+  // it undefined and renders the placeholder branch below instead.
   const mediaHtml = image
     ? `<picture>
-        ${desktop1025Sources}
-        <source media="(min-width: 768px)" type="image/webp" srcset="${image.desktopWebp}">
-        <source media="(min-width: 768px)" type="image/jpeg" srcset="${image.desktopJpg}">
+        <source media="(min-width: 1025px)" type="image/webp" srcset="${image.desktopWebp}">
+        <source media="(min-width: 1025px)" type="image/jpeg" srcset="${image.desktopJpg}">
         <source type="image/webp" srcset="${image.mobileWebp}">
         <img src="${image.mobileJpg}" alt="${esc(alt)}"${image.objectPosition ? ` style="--hero-obj-pos: ${esc(image.objectPosition)};"` : ''} loading="eager" fetchpriority="high">
       </picture>`

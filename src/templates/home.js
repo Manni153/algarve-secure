@@ -79,24 +79,24 @@ function renderHome() {
     subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
     trustStats: site.trustStats,
     desktopStatsText: site.heroStatsDesktop,
-    // Mobile/tablet/desktop full-bleed hero (branch: claude/hero-
+    // Full-bleed hero, two dedicated images (branch: claude/hero-
     // fullbleed-mobile-tablet, extending claude/hero-fullbleed-desktop):
-    // every tier now points at the same approved door/camera villa photo
-    // — the old coffee-cup image is gone from the hero entirely. Three
-    // <source> tiers are still emitted (see heroIntro in layout.js) only
-    // because object-position differs enough by breakpoint that keeping
-    // them lets each breakpoint's crop be tuned independently via CSS
-    // (see the object-position overrides in main.css); the underlying
-    // file is identical across all three; no actual different-resolution
-    // asset is being served per tier.
+    // desktop (1025px+) keeps its own wide (2048x1152) crop of the villa;
+    // mobile and tablet (<=1024px, both breakpoints together) share ONE
+    // portrait (1632x2048) image composed for that aspect ratio from the
+    // start, not cropped from the desktop photo — see heroIntro in
+    // layout.js for the single 1025px <picture> breakpoint that splits
+    // them. This replaces the previous round's door-vs-camera crop
+    // tradeoff entirely: the portrait composition keeps both comfortably
+    // in frame at cover on every mobile/tablet width that's been tested
+    // (390-820px), where the old desktop-photo crop geometrically could
+    // not fit both at once.
     image: {
-      mobileWebp: '/assets/images/hero-security-desktop.webp',
-      mobileJpg: '/assets/images/hero-security-desktop.jpg',
+      mobileWebp: '/assets/images/hero-security-mobile.webp',
+      mobileJpg: '/assets/images/hero-security-mobile.jpg',
       desktopWebp: '/assets/images/hero-security-desktop.webp',
       desktopJpg: '/assets/images/hero-security-desktop.jpg',
-      desktop1025Webp: '/assets/images/hero-security-desktop.webp',
-      desktop1025Jpg: '/assets/images/hero-security-desktop.jpg',
-      objectPosition: '35% 38%',
+      objectPosition: '90% 50%',
     },
     twoColDesktop: true,
   });
