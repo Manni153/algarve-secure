@@ -2133,7 +2133,19 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
      "header to H1" gap. margin-bottom 6px -> 10px, opening up the H1-to-
      subline gap too — both part of this round's "too tightly packed"
      request. */
-  .page-home .hero-kicker { font-size: 26px; margin-top: 10px; margin-bottom: 10px; }
+  /* Bumped 26px -> 29px (+11.5%, within the requested 10-15% range) —
+     re-verified via Playwright that "Installation in the Algarve" (the
+     wrapped 2nd line) still fits the 350px text column and the H1 still
+     breaks to exactly 2 lines, not 3, at 390px (see the old 26px-vs-28px
+     comment above for the margin history this re-checks). */
+  .page-home .hero-kicker { font-size: 29px; margin-top: 10px; margin-bottom: 10px; }
+  /* Subline (the smaller "Stop wondering..." line, .hero-headline) was
+     inheriting the shared --rs-body-size-mobile token (17px) used by
+     ordinary body copy sitewide — bumping that token directly would have
+     changed paragraph text on all 33 pages, not just this hero. Scoped
+     override instead: 17px -> 18px (+5.9%, proportionally less than the
+     H1's +11.5%, keeping the H1/subline size hierarchy intact). */
+  .page-home .hero-stack--split .hero-headline { font-size: 18px; }
   .page-home .hero-headline { margin-bottom: 0.2em; }
   .page-home .hero-subtext { margin-bottom: 12px; }
   /* Was the shared, non-page-home .hero-stack .btn { margin-top: 4px; }
@@ -2553,15 +2565,27 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
 
 /* Mobile only (<=767px): fix 3 (previous round) added a second band here
    behind the stats row, on top of the top band behind the header/H1/
-   subline — this round removes that second band per request (the stats
-   row's readability now comes entirely from the strengthened per-word
-   text-shadow on .v/.l below, not a dark backdrop). Top band is
-   untouched: same stop positions/alphas as before, still tied to the
-   measured header/H1/subline positions at 390x844 (kicker 11.8-18.6%,
-   headline 23.6-26.8%) — re-check these if the vertical rhythm above
-   changes again. The gradient's last stop (0 alpha at 35%, just past the
-   CTA) now simply carries through to 100%, so the CTA, the stats row and
-   the image below all read at full brightness. */
+   subline — that round removed the second band (the stats row's
+   readability now comes entirely from the strengthened per-word text-
+   shadow on .v/.l below, not a dark backdrop).
+   This round: fixed a visible hard edge in the remaining top band's
+   fade-out. It was ending in two abrupt jumps (0.62->0.18 over just 4
+   points, then 0.18->0 over another 4) — measured at 0.11 alpha/point,
+   ~4.6x steeper than desktop's own steepest segment (0.024 alpha/point,
+   see the left-right scrim at 1025px+ above) — which read as a visible
+   line rather than a fade. Replaced with 6 evenly-spaced, gradually-
+   shrinking steps (31/35/39/43/47/51%), same kind of decelerating ease
+   desktop uses, just compressed into a shorter run since mobile doesn't
+   need to protect anything past the CTA (the stats row's own text-
+   shadow, not this gradient, is what keeps it readable). Max single-
+   segment rate is now ~0.035/point — still not as gentle as desktop's
+   very long 85-point fade, but a ~3x reduction from the old hard edge,
+   and visibly smooth in a full-hero screenshot at 390px.
+   The plateau (0/9/18/27%) is unchanged from before, still tied to the
+   measured header/H1/subline positions at 390x844 — re-verified after
+   this round's H1/subline font-size bump, since a taller text block
+   could in principle have pushed the headline out from under it (it
+   didn't: headline still ends within the 27% stop with room to spare). */
 @media (max-width: 767px) {
   .page-home .hero-stack--split .hero-stack-media::after {
     background: linear-gradient(
@@ -2570,8 +2594,12 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
       rgba(17, 24, 39, 0.68) 9%,
       rgba(17, 24, 39, 0.64) 18%,
       rgba(17, 24, 39, 0.62) 27%,
-      rgba(17, 24, 39, 0.18) 31%,
-      rgba(17, 24, 39, 0) 35%
+      rgba(17, 24, 39, 0.48) 31%,
+      rgba(17, 24, 39, 0.34) 35%,
+      rgba(17, 24, 39, 0.22) 39%,
+      rgba(17, 24, 39, 0.12) 43%,
+      rgba(17, 24, 39, 0.05) 47%,
+      rgba(17, 24, 39, 0) 51%
     );
   }
 }
