@@ -57,6 +57,15 @@ module.exports = {
   // trust points, for the homepage hero's inline stats row.
   heroStatsDesktop: ['100% English-Speaking', 'Locally Based', 'Fast Response'],
 
+  // Mobile AND tablet (<=1024px) share this shortened first entry
+  // ("English" not "English-Speaking") so both breakpoints read
+  // consistently — desktop (1025px+) keeps the fuller heroStatsDesktop
+  // text above, unaffected. Only the first stat differs; the other two
+  // are identical strings, duplicated here so the template can render one
+  // uniform mobile/tablet-vs-desktop swap for all three without a special
+  // case for just one.
+  heroStatsShort: ['100% English', 'Locally Based', 'Fast Response'],
+
   trustSection: [
     {
       heading: 'English-Speaking, Start to Finish',

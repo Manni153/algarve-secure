@@ -79,6 +79,7 @@ function renderHome() {
     subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
     trustStats: site.trustStats,
     desktopStatsText: site.heroStatsDesktop,
+    mobileStatsText: site.heroStatsShort,
     // Full-bleed hero, two dedicated images (branch: claude/hero-
     // fullbleed-mobile-tablet, extending claude/hero-fullbleed-desktop):
     // desktop (1025px+) keeps its own wide (2048x1152) crop of the villa;

@@ -136,7 +136,7 @@ function renderBreadcrumb(items) {
 // used by the homepage only. Every other page keeps the single-column,
 // stacked-then-image layout at every breakpoint. Mobile/tablet are
 // unaffected either way: the split only activates at the desktop breakpoint.
-function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, ctaNote, trustStats, desktopStatsText, image, twoColDesktop }) {
+function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, ctaNote, trustStats, desktopStatsText, mobileStatsText, image, twoColDesktop }) {
   // Mobile (<768px) uses trustStats' two-tier bold-value + caption-label
   // format (.v/.l); tablet+ (768px+) uses desktopStatsText's single
   // combined-line format (.vs) instead — both rendered into the same
@@ -163,7 +163,19 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
   // a single span — no separate bold-value/caption split — independent of
   // trustStats, which still drives the mobile/tablet band's original
   // two-line format unchanged.
-  const inlineStatsHtml = twoColDesktop && desktopStatsText
+  // mobileStatsText (mobile+tablet, <=1024px) vs desktopStatsText
+  // (1025px+) — both rendered, toggled by breakpoint via CSS (.v-desktop/
+  // .v-mobile, see main.css), same "render both, hide via CSS" pattern
+  // used elsewhere on this page. Lets mobile/tablet use a shortened label
+  // ("100% English") while desktop keeps the fuller original text,
+  // without duplicating the whole stats block. Falls back to rendering
+  // desktopStatsText alone (old behaviour) when no mobile-specific text
+  // is supplied.
+  const inlineStatsHtml = twoColDesktop && desktopStatsText && mobileStatsText
+    ? `<div class="hero-trust-inline">${desktopStatsText
+        .map((t, i) => `<div class="stat">${heroStatIcons[i] || ''}<span class="v v-desktop">${esc(t)}</span><span class="v v-mobile">${esc(mobileStatsText[i])}</span></div>`)
+        .join('')}</div>`
+    : twoColDesktop && desktopStatsText
     ? `<div class="hero-trust-inline">${desktopStatsText
         .map((t, i) => `<div class="stat">${heroStatIcons[i] || ''}<span class="v">${esc(t)}</span></div>`)
         .join('')}</div>`

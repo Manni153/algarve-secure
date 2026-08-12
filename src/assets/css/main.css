@@ -1353,6 +1353,22 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home .hero-trust-inline { align-items: flex-end; }
 }
 
+/* Mobile/tablet (<=1024px) vs desktop (1025px+) stat text: heroIntro()
+   renders both a shortened .v-mobile span ("100% English") and the fuller
+   original .v-desktop span ("100% English-Speaking") for every stat when
+   a mobile-specific variant is supplied (currently the homepage only —
+   see home.js's mobileStatsText) — toggled here by breakpoint rather than
+   swapping the underlying data, so desktop's copy stays byte-identical
+   regardless of what mobile/tablet show. Both share the plain .v class
+   too, so the existing per-breakpoint font-size rules below apply to
+   whichever one is actually visible without needing their own copies. */
+.page-home .hero-trust-inline .v-desktop { display: none; }
+.page-home .hero-trust-inline .v-mobile { display: block; }
+@media (min-width: 1025px) {
+  .page-home .hero-trust-inline .v-desktop { display: block; }
+  .page-home .hero-trust-inline .v-mobile { display: none; }
+}
+
 /* In-prose links: ink with an underline, not a color-based affordance —
    crimson is reserved for buttons only in this pass. */
 .page-home p a { color: var(--rs-ink); text-decoration: underline; text-underline-offset: 2px; }
@@ -2458,6 +2474,110 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home .hero-stack--split .hero-trust-inline .l { font-size: 14px !important; }
   .page-home .hero-stack--split .hero-trust-inline .v { font-size: 17px !important; line-height: 1.3; }
   .page-home .hero-stack--split .hero-trust-inline .stat svg { width: 28px; height: 28px; }
+}
+/* Mobile only (<=767px): fix 2 of the latest round. The shared max-width:
+   1024px block above sized the label down to 14px specifically to fit
+   "100% English-Speaking" without a 3rd wrap line — now that fix 1
+   shortens that label to "100% English" (site.js's heroStatsShort) for
+   mobile+tablet, mobile has room to size back up, closer to tablet's own
+   17px/28px rather than staying at the old cramped values. All three
+   stats share this one rule, so the bump is uniform across the row, not
+   a special case for the shortened one. */
+@media (max-width: 767px) {
+  .page-home .hero-stack--split .hero-trust-inline .l { font-size: 13px !important; }
+  .page-home .hero-stack--split .hero-trust-inline .v { font-size: 16px !important; line-height: 1.25; }
+  .page-home .hero-stack--split .hero-trust-inline .stat svg {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 7px;
+  }
+}
+
+/* Mobile only (<=767px): fix 4, a partial pullback from the previous
+   round's justify-content: space-between (see .page-home .hero-stack--
+   split .hero-stack-text in the max-width:1024px block above), which
+   distributed 100% of the hero's leftover vertical space between kicker/
+   H1/subline/CTA/stats — correct for killing the old "dead stretch of
+   image below the stats row" problem, but read as spread thin rather
+   than one cohesive block on shorter mobile screens.
+   First attempt here used justify-content: center, which was worse, not
+   better: centering a short block inside the tall 100%-height column just
+   moved ALL the leftover space into two single gaps (a dead zone above
+   the kicker and another below the stats row) instead of distributing it
+   between elements — confirmed via measurement, the gap above the kicker
+   alone came out to ~210px. flex-start + a fixed, moderate gap is the
+   actual middle ground: elements stay anchored right under the header
+   (like the original, pre-space-between layout) but with a deliberate,
+   real gap between each one instead of that layout's near-zero margins —
+   "one cohesive block, not cramped" — while whatever's left over after
+   the block's own height just stays as ordinary image below it, same as
+   any hero image, rather than being force-distributed either to zero
+   (original) or to the full remaining height (previous round). Tablet
+   (768-1024px, more vertical room to begin with) keeps the previous
+   round's space-between untouched, as does desktop. */
+@media (max-width: 767px) {
+  .page-home .hero-stack--split .hero-stack-text {
+    justify-content: flex-start;
+    /* 18px measured out too close to the old cramped-original spacing —
+       kicker-to-trust span only ~286px of the 844px viewport, barely
+       different from before space-between existed. 40px lands the block
+       around ~450px (~53% of an initial 390x844 viewport, confirmed via
+       measurement) — real, deliberate room between every element without
+       stretching to claim the full leftover height the way space-between
+       did. */
+    gap: 40px;
+  }
+  /* The individual elements' own margins below predate this gap (tuned
+     for the old top-anchored, no-gap layout) and would otherwise stack on
+     top of it, re-creating the "spread thin" look this fix removes.
+     Trimmed down so the fixed 14px gap above is the primary source of
+     space between elements, with just a little of each element's own
+     margin remaining for its own internal rhythm (e.g. the H1's tighter
+     margin-top than margin-bottom, so it sits closer to the header above
+     it than to the subline below). */
+  .page-home .hero-kicker { margin-top: 4px; margin-bottom: 2px; }
+  .page-home .hero-headline { margin-bottom: 0; }
+  .page-home .hero-subtext { margin-bottom: 0; }
+  .page-home .hero-stack-text .btn { margin-top: 0; }
+  .page-home .hero-stack--split .hero-trust-inline { margin-top: 0; }
+}
+
+/* Mobile only (<=767px): fix 3, two soft directional bands instead of the
+   shared (mobile+tablet) continuous top-to-bottom scrim above — a top
+   band behind the header/H1/subline, a bottom band behind the stats row,
+   with the CTA/mid-section left clear/unshadowed (the crimson button
+   already carries its own contrast). Stop positions are tied to the
+   actual measured element positions at 390x844 after fix 4's spacing
+   (kicker 11.8-18.6%, headline 23.6-26.8%, btn 31.6-38.2% [clear],
+   stats 42.9-53.6% of viewport height) — re-check these percentages if
+   the vertical rhythm above changes again, since a spacing edit could
+   drift the real text out from under a band.
+   Every alpha value here was verified, not eyeballed: composited over a
+   worst-case pure-white background (the lightest a real photo highlight
+   could be — actual photo pixels are never lighter, so this is the
+   hardest case for contrast) and checked against the WCAG relative-
+   luminance formula. Both bands' minimum alpha under real text (0.62 top
+   / ~0.64 bottom) composites to ~5.0-5.3:1 against white text, clearing
+   the 4.5:1 AA floor for normal text with real margin; each band's
+   darkest point (0.72 top / 0.70 bottom) is even higher (~6.6-7.1:1). */
+@media (max-width: 767px) {
+  .page-home .hero-stack--split .hero-stack-media::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(17, 24, 39, 0.72) 0%,
+      rgba(17, 24, 39, 0.68) 9%,
+      rgba(17, 24, 39, 0.64) 18%,
+      rgba(17, 24, 39, 0.62) 27%,
+      rgba(17, 24, 39, 0.18) 31%,
+      rgba(17, 24, 39, 0) 35%,
+      rgba(17, 24, 39, 0) 39%,
+      rgba(17, 24, 39, 0.65) 43%,
+      rgba(17, 24, 39, 0.7) 49%,
+      rgba(17, 24, 39, 0.65) 54%,
+      rgba(17, 24, 39, 0.25) 60%,
+      rgba(17, 24, 39, 0) 66%
+    );
+  }
 }
 
 /* Footer background + logo match — now applies at every breakpoint (was
