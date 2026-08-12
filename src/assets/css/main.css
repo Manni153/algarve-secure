@@ -1619,6 +1619,15 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
 .page-home #services .card.flagship { border: none; }
 .page-home #services .card .placeholder,
 .page-home #services .card .badge { display: none; }
+/* Card background: was mobile-only (reusing the desktop Services nav
+   dropdown's own hover token, var(--hero2-panel-grey) / #e8eef2 — see
+   .home-header-dropdown a:hover, ~line 500), now applies at every
+   breakpoint so tablet/desktop's plain 3-column grid matches mobile's
+   carousel cards. Unscoped here (no media query) instead of duplicating
+   the declaration inside the max-767px block below, which still owns the
+   carousel-specific background/width/gap trio — background just no
+   longer needs to be one of the three things scoped there. */
+.page-home #services .card { background: var(--hero2-panel-grey); }
 
 .page-home #services .card-icon-block {
   display: flex;
@@ -1712,17 +1721,6 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     width: 80%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    /* Reuses the exact token the desktop Services nav dropdown already
-       uses for its own hover state (.home-header-dropdown a:hover, ~line
-       500) — var(--hero2-panel-grey), #e8eef2 — rather than a new,
-       merely-similar color. Only background changes here: padding,
-       border-radius and box-shadow all still come from the untouched
-       .card / .page-home .card rules above, so shape and depth are
-       identical to before, just recolored. Desktop/tablet keep the base
-       .card background (var(--white)) — this is scoped to the mobile-
-       only carousel selector alongside the width change above, not a
-       change to .card itself. */
-    background: var(--hero2-panel-grey);
   }
   /* Thin fill bar, not 7 dots — track + a single fill element whose width
      the scroll-driven JS (main.js) sets to (current card index + 1) / 7,
