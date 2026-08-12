@@ -75,9 +75,19 @@
   if (carouselTrack && carouselFill) {
     var cardCount = carouselTrack.children.length;
     var updateCarouselProgress = function () {
-      var cardWidth = carouselTrack.clientWidth;
-      if (!cardWidth || !cardCount) return;
-      var index = Math.round(carouselTrack.scrollLeft / cardWidth);
+      // Step = the actual on-screen distance between two consecutive
+      // cards' left edges (card width + the gap between them), read from
+      // the rendered layout rather than assumed — was carouselTrack.
+      // clientWidth back when each card filled the whole track (flex:0 0
+      // 100%, no gap), so "one trackful" and "one card" were the same
+      // distance. Cards are narrower than the track now (peeking-next-
+      // card carousel, see main.css), so that's no longer true; measuring
+      // real offsetLeft here keeps this correct without hardcoding the
+      // CSS's width/gap values into JS.
+      var cards = carouselTrack.children;
+      var step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : carouselTrack.clientWidth;
+      if (!step || !cardCount) return;
+      var index = Math.round(carouselTrack.scrollLeft / step);
       index = Math.max(0, Math.min(cardCount - 1, index));
       carouselFill.style.width = ((index + 1) / cardCount) * 100 + '%';
     };

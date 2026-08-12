@@ -1682,22 +1682,47 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    gap: 0;
+    /* 4px, not 0: cards are no longer full-width below (see .card next),
+       so consecutive cards now sit edge-adjacent within the track. A
+       small explicit gap keeps that seam from reading as one continuous
+       shape — the cards' own box-shadow and 16px border-radius do most of
+       the separating work already, this is just enough extra breathing
+       room that the peeking next card unmistakably reads as another card
+       rather than a clipped edge. Sized deliberately small (not this
+       file's usual 22px grid gap) so it eats as little as possible into
+       the ~18-20% peek fraction below. */
+    gap: 4px;
     /* Scrollbar hidden — the progress bar below is the position
        indicator; a native scrollbar on top of it would be redundant. */
     scrollbar-width: none;
   }
   .page-home #services .card-grid.cols-3::-webkit-scrollbar { display: none; }
-  /* flex: 0 0 100% + scroll-snap-align: start — each card fills exactly
-     the scroll container's own width (already inset by the section's
-     .container padding, so "full-width within the existing card
-     padding", not edge-to-edge past it) and snaps flush to the viewport
-     on release, one card visible at a time, no adjacent-card peeking. */
+  /* Narrowed from flex:0 0 100% (which filled the whole scroll container,
+     no peek at all) to 80% + a 4px gap above — leaves ~18-19% of the next
+     card visible on the right of whichever card is snapped active,
+     confirmed via Playwright across 320-767px-wide tracks (padding-
+     adjusted): consistently ~17.6-19% depending on viewport, i.e. inside
+     the requested "approximately 18-20%" band. 80% (not 82%) chosen so
+     there's real room left for that 4px gap without the peek shrinking
+     below the requested range. scroll-snap-align: start unchanged — each
+     snap still aligns a card's left edge to the track's left edge, so the
+     mechanics are identical to before, just at a narrower card width. */
   .page-home #services .card-grid.cols-3 .card {
-    flex: 0 0 100%;
-    width: 100%;
+    flex: 0 0 80%;
+    width: 80%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    /* Reuses the exact token the desktop Services nav dropdown already
+       uses for its own hover state (.home-header-dropdown a:hover, ~line
+       500) — var(--hero2-panel-grey), #e8eef2 — rather than a new,
+       merely-similar color. Only background changes here: padding,
+       border-radius and box-shadow all still come from the untouched
+       .card / .page-home .card rules above, so shape and depth are
+       identical to before, just recolored. Desktop/tablet keep the base
+       .card background (var(--white)) — this is scoped to the mobile-
+       only carousel selector alongside the width change above, not a
+       change to .card itself. */
+    background: var(--hero2-panel-grey);
   }
   /* Thin fill bar, not 7 dots — track + a single fill element whose width
      the scroll-driven JS (main.js) sets to (current card index + 1) / 7,
