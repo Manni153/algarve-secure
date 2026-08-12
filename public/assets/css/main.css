@@ -2439,10 +2439,19 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     padding-right: 0;
     min-width: 0;
   }
+  /* Strengthened from a single 0 1px 4px/0.45 shadow: now that the stats
+     row (mobile) sits with no dark band behind it at all, and tablet's
+     stats already sat past the shared gradient's own fade-to-clear point
+     with nothing behind them either, the words need to carry their own
+     readability rather than lean on a backdrop. Two layers — a tight,
+     fairly opaque contact shadow right against the glyph edges, plus a
+     softer, wider halo — reads as a deliberate "shadow around the word"
+     rather than a blur, and holds up over both the darker roofline/wall
+     areas and the brighter patio areas of the photo behind these stats. */
   .page-home .hero-stack--split .hero-trust-inline .v,
   .page-home .hero-stack--split .hero-trust-inline .l {
     color: #ffffff;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 1px 7px rgba(0, 0, 0, 0.5);
   }
   /* Fix 2: dropped from 18px so "100% English-Speaking" (the long label —
      see site.js's heroStatsDesktop) wraps to 2 natural lines at "100%" /
@@ -2542,24 +2551,17 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-home .hero-stack--split .hero-trust-inline { margin-top: 0; }
 }
 
-/* Mobile only (<=767px): fix 3, two soft directional bands instead of the
-   shared (mobile+tablet) continuous top-to-bottom scrim above — a top
-   band behind the header/H1/subline, a bottom band behind the stats row,
-   with the CTA/mid-section left clear/unshadowed (the crimson button
-   already carries its own contrast). Stop positions are tied to the
-   actual measured element positions at 390x844 after fix 4's spacing
-   (kicker 11.8-18.6%, headline 23.6-26.8%, btn 31.6-38.2% [clear],
-   stats 42.9-53.6% of viewport height) — re-check these percentages if
-   the vertical rhythm above changes again, since a spacing edit could
-   drift the real text out from under a band.
-   Every alpha value here was verified, not eyeballed: composited over a
-   worst-case pure-white background (the lightest a real photo highlight
-   could be — actual photo pixels are never lighter, so this is the
-   hardest case for contrast) and checked against the WCAG relative-
-   luminance formula. Both bands' minimum alpha under real text (0.62 top
-   / ~0.64 bottom) composites to ~5.0-5.3:1 against white text, clearing
-   the 4.5:1 AA floor for normal text with real margin; each band's
-   darkest point (0.72 top / 0.70 bottom) is even higher (~6.6-7.1:1). */
+/* Mobile only (<=767px): fix 3 (previous round) added a second band here
+   behind the stats row, on top of the top band behind the header/H1/
+   subline — this round removes that second band per request (the stats
+   row's readability now comes entirely from the strengthened per-word
+   text-shadow on .v/.l below, not a dark backdrop). Top band is
+   untouched: same stop positions/alphas as before, still tied to the
+   measured header/H1/subline positions at 390x844 (kicker 11.8-18.6%,
+   headline 23.6-26.8%) — re-check these if the vertical rhythm above
+   changes again. The gradient's last stop (0 alpha at 35%, just past the
+   CTA) now simply carries through to 100%, so the CTA, the stats row and
+   the image below all read at full brightness. */
 @media (max-width: 767px) {
   .page-home .hero-stack--split .hero-stack-media::after {
     background: linear-gradient(
@@ -2569,13 +2571,7 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
       rgba(17, 24, 39, 0.64) 18%,
       rgba(17, 24, 39, 0.62) 27%,
       rgba(17, 24, 39, 0.18) 31%,
-      rgba(17, 24, 39, 0) 35%,
-      rgba(17, 24, 39, 0) 39%,
-      rgba(17, 24, 39, 0.65) 43%,
-      rgba(17, 24, 39, 0.7) 49%,
-      rgba(17, 24, 39, 0.65) 54%,
-      rgba(17, 24, 39, 0.25) 60%,
-      rgba(17, 24, 39, 0) 66%
+      rgba(17, 24, 39, 0) 35%
     );
   }
 }
