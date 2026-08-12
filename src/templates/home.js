@@ -75,7 +75,7 @@ function renderHome() {
     // natural wrap. Wording/punctuation is byte-identical to h1Text above
     // — no copy change, purely a line-break placement.
     h1Html: 'Security &amp; Smart&nbsp;Home Installation<br class="hero-kicker-break"> in the Algarve',
-    headlineHtml: 'Stop wondering if your property is <em>okay</em>.',
+    headlineHtml: 'Keep your Algarve property secure &mdash; even when you&rsquo;re away',
     subtext: 'CCTV, alarms and smart home systems — installed and explained in plain English.',
     trustStats: site.trustStats,
     desktopStatsText: site.heroStatsDesktop,
