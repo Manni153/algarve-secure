@@ -31,28 +31,52 @@ module.exports = {
     { label: 'Contact', href: '/contact' },
   ],
 
+  // Compact labels for the inline desktop header nav — shorter than
+  // serviceNav's drawer labels since the header row has limited width.
+  headerServiceNav: [
+    { label: 'CCTV', href: '/cctv-installation' },
+    { label: 'Alarms', href: '/alarm-systems' },
+    { label: 'Access Control', href: '/access-control' },
+    { label: 'Gate Automation', href: '/gate-automation' },
+    { label: 'Fire Detection', href: '/fire-detection' },
+    { label: 'Home Networking', href: '/home-networking' },
+    { label: 'Smart Home Automation', href: '/smart-home-automation' },
+  ],
+
+  // Mobile (<768px) uses this two-tier value/label format directly, per
+  // request — shortened labels ("Based"/"Response", not the older longer
+  // "Algarve-Based Installer"/"Response Across the Algarve") specifically
+  // chosen to read cleanly as a short second line under a bold first line.
   trustStats: [
     { value: '100%', label: 'English-Speaking' },
-    { value: 'Local', label: 'Algarve-Based Installer' },
-    { value: 'Fast', label: 'Response Across the Algarve' },
+    { value: 'Local', label: 'Based' },
+    { value: 'Fast', label: 'Response' },
   ],
+
+  // Tablet (768px+) and desktop single-line versions of the same three
+  // trust points, for the homepage hero's inline stats row.
+  heroStatsDesktop: ['100% English-Speaking', 'Locally Based', 'Fast Response'],
 
   trustSection: [
     {
       heading: 'English-Speaking, Start to Finish',
       text: 'Every call, quote and site visit is handled in clear English — no translation, no guesswork, from the first conversation to the finished install.',
+      icon: 'chat',
     },
     {
       heading: 'Local Algarve Installer',
       text: 'Based in the Algarve and working across the region, with a real understanding of villas, apartments, gated communities and holiday rental properties.',
+      icon: 'pin',
     },
     {
       heading: 'Supplied & Installed as One System',
       text: 'Equipment is supplied and installed as a single job, rather than sourced separately and handed off, so your cameras, alarms and access control are set up to work together properly from day one.',
+      icon: 'tools',
     },
     {
       heading: 'One Company, Every System',
       text: 'CCTV, alarms, access control, gate automation, fire detection and networking are all handled under one roof, so a camera system and an alarm system are designed to work together rather than being sourced from two different suppliers.',
+      icon: 'link',
     },
   ],
 
