@@ -1700,6 +1700,11 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
      3-column under the old rule. */
   .page-home #services .card-grid.cols-3 {
     display: flex;
+    /* Explicit, not relied-on-as-default: flex's own default IS stretch,
+       so every card already matched the track's own height before this —
+       the actual bug was one level down (see .card below), this is just
+       made explicit per the request rather than left implicit. */
+    align-items: stretch;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -1733,6 +1738,32 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     width: 80%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    /* Matches desktop's own equal-height treatment (flex column + margin-
+       top: auto on the button, ~line 1801) rather than inventing a
+       different technique — mobile just reaches it a different way
+       (stretched by the track's align-items: stretch above, vs. desktop's
+       explicit min-height on the row). Without this, the track already
+       stretched every card's own box to the tallest card's height (flex's
+       default align-items is stretch, so that part was never actually
+       broken), but the card's CONTENTS still laid out top-down as plain
+       block flow — the extra height just became dead space below an
+       already-positioned button instead of being absorbed above it, which
+       is why descriptions of different lengths still made the buttons
+       land at different distances from the top (though not from a
+       shrunk-card bottom). display: flex here turns the card into a
+       column its own children (icon/heading/copy/button) stack inside,
+       so the auto margin below on .card-link has a flex context to push
+       against. */
+    display: flex;
+    flex-direction: column;
+  }
+  /* Pushes the button to the bottom of its now-flex-column card, same
+     mechanism desktop already uses (margin-top: auto inside a flex
+     column) — mobile just needed the column context above first. Card
+     content/copy, the icon block, and every other card style are
+     untouched; only vertical placement of this one element changes. */
+  .page-home #services .card-link {
+    margin-top: auto;
   }
   /* Thin fill bar, not 7 dots — track + a single fill element whose width
      the scroll-driven JS (main.js) sets to (current card index + 1) / 7,
