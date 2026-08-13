@@ -112,6 +112,17 @@ function placeholder(alt, { ratio } = {}) {
   </div>`;
 }
 
+// Real-photography counterpart to placeholder() — same ratio classes and
+// rounded-frame sizing, a real <picture> (WebP with a JPEG fallback)
+// instead of the labelled placeholder box.
+function photo(alt, { webp, jpg, ratio } = {}) {
+  const ratioClass = ratio ? ` ratio-${ratio}` : '';
+  return `<picture class="photo-frame${ratioClass}">
+    <source type="image/webp" srcset="${webp}">
+    <img src="${jpg}" alt="${esc(alt)}" loading="lazy">
+  </picture>`;
+}
+
 function renderBreadcrumb(items) {
   if (!items || !items.length) return '';
   const parts = items
@@ -202,9 +213,10 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
   // got their own purpose-composed image instead of a crop, since there's
   // no longer a reason for tablet to sit in its own tier between them.
   // <source> elements are evaluated in order and the first match wins, so
-  // the 1025px+ (desktop) source has to render first. Only home.js
-  // currently supplies `image` — every other caller of heroIntro() leaves
-  // it undefined and renders the placeholder branch below instead.
+  // the 1025px+ (desktop) source has to render first. Only home.js and
+  // town.js's Lagos design-system-pilot page currently supply `image` —
+  // every other caller of heroIntro() leaves it undefined and renders the
+  // placeholder branch below instead.
   const mediaHtml = image
     ? `<picture>
         <source media="(min-width: 1025px)" type="image/webp" srcset="${image.desktopWebp}">
@@ -463,6 +475,7 @@ module.exports = {
   esc,
   rich,
   placeholder,
+  photo,
   heroIntro,
   reassuranceBand,
   renderPage,

@@ -764,6 +764,15 @@ body.nav-open { overflow: hidden; }
 .placeholder.ratio-wide { aspect-ratio: 16 / 9; min-height: 0; }
 .placeholder.ratio-square { aspect-ratio: 1 / 1; min-height: 0; }
 
+/* Real-photography counterpart to .placeholder above (see photo() in
+   layout.js) — same rounded-frame shape and ratio classes, a real image
+   filling it instead of the dashed placeholder box. */
+.photo-frame { display: block; border-radius: 14px; overflow: hidden; }
+.photo-frame.ratio-tall { aspect-ratio: 4 / 5; }
+.photo-frame.ratio-wide { aspect-ratio: 16 / 9; }
+.photo-frame.ratio-square { aspect-ratio: 1 / 1; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 /* -------------------------------------------------------------------------
    Two-column — plain contained layout, no bleed, no per-page alternation.
    ------------------------------------------------------------------------- */
@@ -3284,10 +3293,9 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
 /* ---- Hero: full-bleed image layer + gradient scrim + text-shadow, same
    mechanism as the homepage's own hero (desktop: left-right gradient,
    two-column split; mobile/tablet: top-bottom gradient, single column,
-   100vh on load). No dedicated photography exists for this town yet, so
-   the existing placeholder becomes the full-bleed layer instead of a
-   <picture> — the placeholder needs its own explicit fill rule since the
-   homepage's equivalent targets `picture`/`img`, which don't exist here. */
+   100vh on load). Lagos has its own dedicated photography (town.js
+   supplies heroIntro's `image` param), so the fill rules below target
+   `picture`/`picture img` directly, same as the homepage's equivalent. */
 @media (min-width: 1025px) {
   .page-lagos-rs .hero-stack--split {
     position: relative;
@@ -3323,14 +3331,21 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     box-shadow: none;
     border: none;
   }
-  .page-lagos-rs .hero-stack--split .hero-stack-media .placeholder {
-    position: absolute;
-    inset: 0;
+  .page-lagos-rs .hero-stack--split .hero-stack-media picture,
+  .page-lagos-rs .hero-stack--split .hero-stack-media picture img {
     width: 100%;
     height: 100%;
     min-height: 0;
+    max-height: none;
+    object-fit: cover;
     border-radius: 0;
-    border: none;
+  }
+  /* Centered crop: the desktop asset is already a tight 2048x1152 crop of
+     the villa (same source as the homepage's own desktop hero image), not
+     the mobile/tablet portrait repositioned, so it wants a plain centered
+     position rather than the mobile crop's tuned offset. */
+  .page-lagos-rs .hero-stack--split .hero-stack-media picture img {
+    object-position: 50% 50%;
   }
   .page-lagos-rs .hero-stack--split .hero-stack-media::after {
     content: '';
@@ -3403,14 +3418,22 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     box-shadow: none;
     border: none;
   }
-  .page-lagos-rs .hero-stack--split .hero-stack-media .placeholder {
-    position: absolute;
-    inset: 0;
+  .page-lagos-rs .hero-stack--split .hero-stack-media picture,
+  .page-lagos-rs .hero-stack--split .hero-stack-media picture img {
     width: 100%;
     height: 100%;
     min-height: 0;
+    max-height: none;
+    aspect-ratio: unset;
+    object-fit: cover;
     border-radius: 0;
-    border: none;
+  }
+  /* Same dedicated portrait (1632x2048) mobile/tablet asset shape as the
+     homepage's own hero, with the same camera-near-the-top-right, door-
+     center-left composition — reusing the homepage's own tuned 90% 50%
+     crop keeps both fully in frame across the tested widths. */
+  .page-lagos-rs .hero-stack--split .hero-stack-media picture img {
+    object-position: 90% 50%;
   }
   .page-lagos-rs .hero-stack--split .hero-stack-media::after {
     content: '';
@@ -3445,19 +3468,6 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs .hero-stack--split .hero-stack-text .btn {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
   }
-}
-
-/* The homepage's own full-bleed hero always has a real <picture>, which
-   the .hero-stack-media .placeholder fill rules above don't touch — this
-   page's placeholder still renders its .ph-label caption text exactly as
-   designed elsewhere on the site (small caption, centered), which reads
-   as stray overlapping text once the placeholder becomes a full-viewport
-   background layer sitting behind the real hero copy. Visually hidden
-   only in this one full-bleed context (every other placeholder on the
-   site keeps its visible label, unchanged) — the alt text is still
-   present via role="img" aria-label for anyone using a screen reader. */
-.page-lagos-rs .hero-stack--split .hero-stack-media .placeholder .ph-label {
-  display: none;
 }
 
 /* The closing CTA band (the dark section directly above the footer) still

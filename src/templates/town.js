@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, renderPage, serviceIcon } = require('./layout');
+const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = require('./layout');
 
 // Design-system pilot: applies the homepage's finalized visual system
 // (colours, typography, buttons, service cards, hero gradient/text-shadow,
@@ -170,7 +170,9 @@ function renderTown(town) {
   };
 
   const hero = heroIntro({
-    alt: `[Placeholder: security camera being mounted on a property exterior wall in ${town.name}]`,
+    alt: isDesignSystemPilot
+      ? 'Terracotta-walled Algarve villa in Lagos with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance'
+      : `[Placeholder: security camera being mounted on a property exterior wall in ${town.name}]`,
     breadcrumb: [{ label: 'Home', href: '/' }, { label: town.name }],
     h1Text: `Security & Smart Home Installation in ${town.name}`,
     headlineHtml: esc(town.heroHeadline),
@@ -179,10 +181,17 @@ function renderTown(town) {
     // Full-bleed split hero (the homepage's own hero mechanism — gradient
     // scrim, text-shadow, breakpoint-specific direction) is opted into for
     // the design-system pilot page only; every other town keeps its
-    // original boxed, in-flow hero image untouched. No image asset is
-    // supplied (town pages don't have dedicated photography), so this
-    // renders the existing placeholder as the full-bleed layer instead —
-    // see .page-lagos-rs .hero-stack-media .placeholder in main.css.
+    // original boxed, in-flow hero image untouched. Lagos has its own
+    // dedicated photography (below); every other town page still has none,
+    // so heroIntro renders the placeholder as before for them.
+    image: isDesignSystemPilot
+      ? {
+          mobileWebp: '/assets/images/hero-security-lagos-mobile.webp',
+          mobileJpg: '/assets/images/hero-security-lagos-mobile.jpg',
+          desktopWebp: '/assets/images/hero-security-lagos-desktop.webp',
+          desktopJpg: '/assets/images/hero-security-lagos-desktop.jpg',
+        }
+      : undefined,
     twoColDesktop: isDesignSystemPilot,
   });
 
@@ -207,7 +216,15 @@ function renderTown(town) {
           <a href="${site.telHref}" class="btn btn-icon mt-32">${site.phoneDisplay}</a>
         </div>
         <div class="two-col-media">
-          ${placeholder(town.streetscapeAlt || `Street or coastal view of ${town.name}, Algarve`, { ratio: 'tall' })}
+          ${
+            isDesignSystemPilot
+              ? photo('Terrace of a Lagos villa overlooking the Algarve coastline and cliffs', {
+                  webp: '/assets/images/lagos-villa-terrace.webp',
+                  jpg: '/assets/images/lagos-villa-terrace.jpg',
+                  ratio: 'tall',
+                })
+              : placeholder(town.streetscapeAlt || `Street or coastal view of ${town.name}, Algarve`, { ratio: 'tall' })
+          }
         </div>
       </div>${blockClose}
     </div>
