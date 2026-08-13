@@ -336,22 +336,6 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
    regardless (see below), so this only ever renders visually <1025px. */
 .site-header--home .hamburger { background: none; border: none; }
 
-/* Phone icon: crimson on mobile only (this file's own max-767px mobile
-   cutoff), in both header states. .header-phone .icon draws itself via
-   background-color: currentColor (line 261), so it normally just follows
-   whatever .header-phone's text color is — near-black after scroll
-   (line 330 above) or white before scroll while the header is still
-   transparent over the hero (.site-header--home-transparent, line 399
-   below only overrides .header-phone's color, not this rule). Overriding
-   background-color directly here breaks that inheritance for the icon
-   only: the phone NUMBER keeps following its normal before/after-scroll
-   color untouched, only the icon itself turns crimson, and it does so in
-   both states since .site-header--home (unlike -transparent) stays on
-   the element throughout the scroll transition. */
-@media (max-width: 767px) {
-  .site-header--home .header-phone .icon { background-color: var(--terracotta); }
-}
-
 @media (min-width: 1025px) {
   /* Logo: bigger — the only lockup left in the bar now that the nav links
      are gone at this breakpoint, so it carries more visual weight.
@@ -435,23 +419,6 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
    (#DC143C) unchanged — already a bright accent that reads clearly
    against a dark image, same reasoning as leaving the CTA and stat
    icons untouched below. */
-
-/* Desktop header phone number + icon: crimson, in both header states —
-   same requirement as the mobile-only icon override above, just for the
-   1025px+ bar and covering the number too, not only the icon. Placed
-   here (after both the near-black rule at line 330 and the transparent-
-   state white rule just above) so it wins the cascade in both states —
-   same specificity as each (single class + single class), later source
-   order decides. Only .color changes; .icon's background-color:
-   currentColor (line 261) already follows it automatically, so the icon
-   needs no separate rule here (unlike the mobile-only override above,
-   which deliberately decoupled the icon from the number's own color). */
-@media (min-width: 1025px) {
-  .site-header--home .header-phone,
-  .site-header--home-transparent .header-phone {
-    color: var(--terracotta);
-  }
-}
 
 /* -------------------------------------------------------------------------
    Homepage desktop nav bar (Services dropdown + Service Areas/About/
