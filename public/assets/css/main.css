@@ -436,6 +436,23 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
    against a dark image, same reasoning as leaving the CTA and stat
    icons untouched below. */
 
+/* Desktop header phone number + icon: crimson, in both header states —
+   same requirement as the mobile-only icon override above, just for the
+   1025px+ bar and covering the number too, not only the icon. Placed
+   here (after both the near-black rule at line 330 and the transparent-
+   state white rule just above) so it wins the cascade in both states —
+   same specificity as each (single class + single class), later source
+   order decides. Only .color changes; .icon's background-color:
+   currentColor (line 261) already follows it automatically, so the icon
+   needs no separate rule here (unlike the mobile-only override above,
+   which deliberately decoupled the icon from the number's own color). */
+@media (min-width: 1025px) {
+  .site-header--home .header-phone,
+  .site-header--home-transparent .header-phone {
+    color: var(--terracotta);
+  }
+}
+
 /* -------------------------------------------------------------------------
    Homepage desktop nav bar (Services dropdown + Service Areas/About/
    Contact) — .home-header-nav only exists in the markup when isHome is
