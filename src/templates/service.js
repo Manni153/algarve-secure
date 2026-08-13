@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
 
 function renderService(service) {
   const otherServices = services.filter((s) => s.slug !== service.slug);
@@ -139,10 +139,6 @@ function renderService(service) {
     subtext: service.heroTagline,
     ctaNote: service.ctaNote,
   });
-
-  const reassurance = service.reassurance
-    ? reassuranceBand({ heading: service.reassurance.heading, body: service.reassurance.body })
-    : '';
 
   // Jump-link table of contents — only lists sections this service actually
   // has, so it stays accurate if a section is ever conditionally empty.
@@ -298,8 +294,6 @@ function renderService(service) {
         </section>`
       : ''
   }
-
-  ${reassurance}
 
   <section class="cta-band">
     <div class="container">
