@@ -3362,7 +3362,14 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     );
   }
   .page-lagos-rs .hero-stack--split .hero-kicker { color: #ffffff; }
-  .page-lagos-rs .hero-stack--split .hero-headline { color: rgba(255, 255, 255, 0.88); }
+  /* Matches the homepage's own .hero-stack--split .hero-headline size/
+     weight at this breakpoint (27px/600, up from the shared 23px/400
+     .hero-headline rule above) — no other property changed. */
+  .page-lagos-rs .hero-stack--split .hero-headline {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 27px;
+    font-weight: 600;
+  }
   .page-lagos-rs .hero-stack--split .hero-subtext {
     color: rgba(255, 255, 255, 0.82);
     white-space: normal;
@@ -3467,6 +3474,13 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs .hero-stack--split .hero-subtext,
   .page-lagos-rs .hero-stack--split .hero-stack-text .btn {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  }
+  /* Matches the homepage's own .hero-stack--split .hero-headline size/
+     weight at this breakpoint (22px/600, up from the shared 17px/400
+     .hero-headline rule above) — no other property changed. */
+  .page-lagos-rs .hero-stack--split .hero-headline {
+    font-size: 22px;
+    font-weight: 600;
   }
 }
 
