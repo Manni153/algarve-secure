@@ -2956,3 +2956,485 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   height: 0.45em;
   overflow: visible;
 }
+
+/* ==========================================================================
+   Lagos design-system pilot — applies the homepage's finalized visual
+   system (colours, typography, buttons, service cards, hero gradient/
+   text-shadow, header/nav chrome) to the /lagos town page ONLY, per
+   explicit request. Scoped entirely under .page-lagos-rs (renderPage's
+   mainClass, set only for this one town — see town.js's
+   DESIGN_SYSTEM_PILOT_SLUG) so every other town page and the homepage
+   itself are byte-for-byte unaffected.
+
+   Deliberately NOT implemented by widening any .page-home selector to
+   also match .page-lagos-rs — every rule below is its own fresh
+   declaration, so nothing here can affect .page-home's behaviour however
+   indirectly, and nothing in the .page-home block above (or anywhere
+   else in this file) needed to change to produce this.
+
+   Reuses the same global tokens the homepage's own system reads
+   (--rs-*, --hero2-*, --terracotta, --font-nunito(-sans)) rather than
+   redefining any colour — those tokens were already global :root values,
+   never homepage-exclusive, so no new colour values are introduced here.
+
+   Header/nav-drawer/dropdown chrome needs NO new rules at all: .site-
+   header--home, .home-header-nav and .nav-panel's white/ice-blue
+   treatment were never actually .page-home-scoped in the first place
+   (confirmed while documenting the design spec this implements) — they
+   key purely off .site-header--home/.home-header-nav/.nav-panel classes.
+   Passing useHomeHeader: true into renderPage() for Lagos (town.js)
+   reuses them as-is; main.js's scroll-transparency selector was widened
+   by one clause to also watch this page's hero (see main.js).
+
+   Two deliberate content-preserving departures from the homepage's own
+   hero CSS, both because Lagos has real per-town copy the homepage's
+   hero doesn't: the subtext line stays VISIBLE here (the homepage hides
+   it entirely — hiding it on Lagos would delete real content, which the
+   request explicitly says to keep), and the hero text column uses a
+   flex-start + fixed-gap distribution rather than the homepage's
+   stats-row-driven space-between (Lagos's hero has no stats row to
+   distribute space around). Everything else mirrors the homepage system
+   as documented.
+   ========================================================================== */
+
+.page-lagos-rs { background: var(--rs-bg); font-family: var(--rs-font); }
+.page-lagos-rs {
+  --serif: var(--font-nunito-sans);
+  --body: var(--font-nunito-sans);
+  --ui: var(--font-nunito-sans);
+  --rs-font: var(--font-nunito-sans);
+}
+
+/* ---- Typography ---------------------------------------------------- */
+.page-lagos-rs h1,
+.page-lagos-rs h2,
+.page-lagos-rs h3,
+.page-lagos-rs h4,
+.page-lagos-rs p,
+.page-lagos-rs li,
+.page-lagos-rs .lede,
+.page-lagos-rs .hero-subtext,
+.page-lagos-rs .btn {
+  font-family: var(--rs-font);
+}
+
+.page-lagos-rs .hero-headline {
+  font-size: var(--rs-body-size-mobile);
+  font-weight: 400;
+  line-height: var(--rs-body-lh-mobile);
+  letter-spacing: normal;
+  color: var(--hero2-steel);
+}
+@media (min-width: 768px) {
+  .page-lagos-rs .hero-headline { font-size: var(--rs-body-size); line-height: var(--rs-body-lh); }
+}
+
+.page-lagos-rs h2 {
+  font-size: var(--rs-h2-size-mobile);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--rs-ink);
+}
+@media (min-width: 768px) { .page-lagos-rs h2 { font-size: var(--rs-h2-size); } }
+
+.page-lagos-rs h3 {
+  font-size: var(--rs-h3-size-mobile);
+  font-weight: 700;
+  color: var(--rs-ink);
+}
+@media (min-width: 768px) { .page-lagos-rs h3 { font-size: var(--rs-h3-size); } }
+
+.page-lagos-rs p,
+.page-lagos-rs li,
+.page-lagos-rs .lede,
+.page-lagos-rs .hero-subtext {
+  font-size: var(--rs-body-size-mobile);
+  line-height: var(--rs-body-lh-mobile);
+  color: var(--rs-ink);
+  max-width: var(--rs-max-line);
+}
+@media (min-width: 768px) {
+  .page-lagos-rs p,
+  .page-lagos-rs li,
+  .page-lagos-rs .lede,
+  .page-lagos-rs .hero-subtext {
+    font-size: var(--rs-body-size);
+    line-height: var(--rs-body-lh);
+  }
+}
+
+.page-lagos-rs .eyebrow,
+.page-lagos-rs .card-link {
+  color: var(--rs-muted);
+  font-size: var(--rs-small-size);
+}
+
+.page-lagos-rs .hero-kicker {
+  color: var(--hero2-steel);
+  font-size: var(--rs-h1-size-mobile);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-family: var(--font-nunito);
+}
+@media (min-width: 768px) { .page-lagos-rs .hero-kicker { font-size: var(--rs-h1-size); } }
+@media (min-width: 1025px) {
+  .page-lagos-rs .hero-kicker {
+    font-size: clamp(38px, 2.6vw + 6px, 45px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--hero2-steel);
+  }
+  .page-lagos-rs .hero-headline {
+    font-size: 23px;
+    font-weight: 400;
+    line-height: var(--rs-body-lh);
+    letter-spacing: normal;
+    color: var(--hero2-steel);
+  }
+}
+
+/* ---- Buttons --------------------------------------------------------
+   "Learn more" pill: see the Cards section below (#services .card-link)
+   — the site-wide hero/CTA .btn component is handled here instead. */
+.page-lagos-rs .btn-lg {
+  height: var(--rs-btn-height);
+  max-width: var(--rs-btn-maxwidth);
+  padding: 0 32px;
+  border-radius: var(--rs-radius-btn);
+  font-size: var(--rs-btn-font-size);
+  font-weight: 700;
+}
+.page-lagos-rs .hero-stack-text .btn { align-self: flex-start; }
+.page-lagos-rs .hero-stack-text .btn,
+.page-lagos-rs .cta-band .btn {
+  background: var(--hero2-crimson);
+}
+.page-lagos-rs .hero-stack-text .btn:hover,
+.page-lagos-rs .cta-band .btn:hover {
+  background: var(--hero2-crimson);
+  filter: brightness(0.92);
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-lagos-rs .hero-stack-text .btn { height: 58px; padding: 0 34px; font-size: 19px; margin-top: 8px; }
+}
+@media (min-width: 1025px) {
+  .page-lagos-rs .hero-stack-text .btn { height: 60px; padding: 0 36px; font-size: 20px; margin-top: 16px; }
+  .page-lagos-rs .cta-band .btn { height: 60px; padding: 0 36px; font-size: 20px; }
+}
+
+/* ---- Cards: the "Most Relevant" card-grid, re-skinned to match the
+   homepage's #services cards exactly (icon tile, crimson pill button,
+   bottom-alignment fix at all three breakpoints — including the tablet
+   fix applied to the homepage itself, mirrored here). town.js gives this
+   section id="services" and the homepage's exact card-icon-block/
+   card-link markup only when rendering Lagos — see renderTown(). ------- */
+.page-lagos-rs .card {
+  border-radius: var(--rs-radius-card);
+  padding: var(--rs-card-padding);
+  box-shadow: var(--rs-card-shadow);
+}
+.page-lagos-rs #services .card { background: var(--hero2-panel-grey); }
+.page-lagos-rs #services .card-icon-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 20px;
+  border-radius: var(--rs-radius-card);
+  background: var(--hero2-steel);
+}
+.page-lagos-rs #services .card-icon-block svg { width: 38px; height: 38px; }
+.page-lagos-rs #services .card h3 { text-align: center; }
+.page-lagos-rs #services .card-link-icon { display: inline-flex; flex-shrink: 0; }
+.page-lagos-rs #services .card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--terracotta);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+@media (max-width: 767px) {
+  .page-lagos-rs #services .card-grid.cols-3 {
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+    scrollbar-width: none;
+  }
+  .page-lagos-rs #services .card-grid.cols-3::-webkit-scrollbar { display: none; }
+  .page-lagos-rs #services .card-grid.cols-3 .card {
+    flex: 0 0 80%;
+    width: 80%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-lagos-rs #services .card-link { margin-top: auto; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-lagos-rs #services .card { display: flex; flex-direction: column; }
+  .page-lagos-rs #services .card-link { margin-top: auto; }
+}
+@media (min-width: 1025px) {
+  .page-lagos-rs #services .card {
+    display: flex;
+    flex-direction: column;
+    min-height: 460px;
+  }
+  .page-lagos-rs #services .card-link {
+    align-self: stretch;
+    margin-top: auto;
+  }
+  .page-lagos-rs #services .card:hover .card-link {
+    background: var(--terracotta-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(156, 23, 45, 0.32);
+  }
+}
+
+/* ---- Hero: full-bleed image layer + gradient scrim + text-shadow, same
+   mechanism as the homepage's own hero (desktop: left-right gradient,
+   two-column split; mobile/tablet: top-bottom gradient, single column,
+   100vh on load). No dedicated photography exists for this town yet, so
+   the existing placeholder becomes the full-bleed layer instead of a
+   <picture> — the placeholder needs its own explicit fill rule since the
+   homepage's equivalent targets `picture`/`img`, which don't exist here. */
+@media (min-width: 1025px) {
+  .page-lagos-rs .hero-stack--split {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    height: 100vh;
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .page-lagos-rs .hero-stack--split .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-text {
+    align-self: auto;
+    justify-content: flex-start;
+    max-width: 780px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: 0;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-media .placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0;
+    border: none;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(17, 24, 39, 0.74) 0%,
+      rgba(17, 24, 39, 0.66) 35%,
+      rgba(17, 24, 39, 0.55) 58%,
+      rgba(17, 24, 39, 0.22) 72%,
+      rgba(17, 24, 39, 0) 85%
+    );
+  }
+  .page-lagos-rs .hero-stack--split .hero-kicker { color: #ffffff; }
+  .page-lagos-rs .hero-stack--split .hero-headline { color: rgba(255, 255, 255, 0.88); }
+  .page-lagos-rs .hero-stack--split .hero-subtext {
+    color: rgba(255, 255, 255, 0.82);
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  .page-lagos-rs .hero-stack--split .hero-cta-note { color: rgba(255, 255, 255, 0.75); }
+  .page-lagos-rs .hero-stack--split .breadcrumb,
+  .page-lagos-rs .hero-stack--split .breadcrumb a { color: rgba(255, 255, 255, 0.75); }
+  .page-lagos-rs .hero-stack--split .breadcrumb a:hover { color: #ffffff; }
+}
+
+@media (max-width: 1024px) {
+  .page-lagos-rs .hero-stack--split {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    height: 100vh;
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .page-lagos-rs .hero-stack--split .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border-radius: 0;
+    padding-top: calc(var(--header-h) + 20px);
+    padding-bottom: 96px;
+    margin-top: 0;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-text {
+    max-width: none;
+    align-self: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: 0;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-media .placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0;
+    border: none;
+  }
+  .page-lagos-rs .hero-stack--split .hero-stack-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(17, 24, 39, 0.78) 0%,
+      rgba(17, 24, 39, 0.68) 30%,
+      rgba(17, 24, 39, 0.5) 48%,
+      rgba(17, 24, 39, 0.2) 65%,
+      rgba(17, 24, 39, 0) 80%
+    );
+  }
+  .page-lagos-rs .hero-stack--split .hero-kicker { color: #ffffff; }
+  .page-lagos-rs .hero-stack--split .hero-headline { color: rgba(255, 255, 255, 0.88); }
+  .page-lagos-rs .hero-stack--split .hero-subtext { color: rgba(255, 255, 255, 0.82); }
+  .page-lagos-rs .hero-stack--split .hero-stack-text .btn { align-self: flex-start; }
+  .page-lagos-rs .hero-stack--split .breadcrumb,
+  .page-lagos-rs .hero-stack--split .breadcrumb a { color: rgba(255, 255, 255, 0.75); }
+  .page-lagos-rs .hero-stack--split .breadcrumb a:hover { color: #ffffff; }
+}
+
+/* Mobile only (<=767px): text sits directly on the photo, same text-
+   shadow treatment the homepage uses at this breakpoint for the same
+   reason. */
+@media (max-width: 767px) {
+  .page-lagos-rs .hero-stack--split .hero-kicker,
+  .page-lagos-rs .hero-stack--split .hero-headline,
+  .page-lagos-rs .hero-stack--split .hero-subtext,
+  .page-lagos-rs .hero-stack--split .hero-stack-text .btn {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  }
+}
+
+/* The homepage's own full-bleed hero always has a real <picture>, which
+   the .hero-stack-media .placeholder fill rules above don't touch — this
+   page's placeholder still renders its .ph-label caption text exactly as
+   designed elsewhere on the site (small caption, centered), which reads
+   as stray overlapping text once the placeholder becomes a full-viewport
+   background layer sitting behind the real hero copy. Visually hidden
+   only in this one full-bleed context (every other placeholder on the
+   site keeps its visible label, unchanged) — the alt text is still
+   present via role="img" aria-label for anyone using a screen reader. */
+.page-lagos-rs .hero-stack--split .hero-stack-media .placeholder .ph-label {
+  display: none;
+}
+
+/* Both of the page's existing dark (--ink) sections already have their
+   own correct light-on-dark colours from the shared, unscoped .cta-band
+   and .reassurance-band rules earlier in this file — the blanket
+   typography rules above (.page-lagos-rs h2/.eyebrow/.lede) apply
+   page-wide and unintentionally override them back to the dark --rs-ink
+   tone meant for the page's light sections, since those blanket rules
+   don't know which section they're rendering into. Restated here at
+   higher specificity (two classes + element vs. the blanket rule's one)
+   so both dark sections stay legible regardless of source order. */
+.page-lagos-rs .cta-band h2,
+.page-lagos-rs .cta-band .eyebrow,
+.page-lagos-rs .reassurance-band h2 {
+  color: var(--cream);
+}
+.page-lagos-rs .cta-band .lede {
+  color: rgba(247, 241, 228, 0.82);
+}
+.page-lagos-rs .reassurance-band p {
+  color: rgba(247, 241, 228, 0.78);
+}
+
+/* ---- Footer: renders the same roof-mark wordmark markup as the
+   homepage's footer whenever useHomeHeader is true (see wordmarkHtml()
+   in layout.js) — this positions/colours it the same way, otherwise the
+   roof-mark SVG would render unpositioned. Full steel-background/white-
+   text treatment mirrored alongside it for one consistent system, not
+   just to fix the roof mark. */
+.page-lagos-rs ~ .site-footer {
+  --ui: var(--font-nunito-sans);
+  --body: var(--font-nunito-sans);
+  background: #475569;
+  color: rgba(255, 255, 255, 0.85);
+}
+.page-lagos-rs ~ .site-footer .footer-masthead p { color: rgba(255, 255, 255, 0.85); }
+.page-lagos-rs ~ .site-footer .footer-col a { color: rgba(255, 255, 255, 0.85); }
+.page-lagos-rs ~ .site-footer .footer-col a:hover { color: #ffffff; }
+.page-lagos-rs ~ .site-footer .footer-bottom p { color: rgba(255, 255, 255, 0.85); }
+.page-lagos-rs ~ .site-footer .footer-col h4 { color: #ffffff; }
+.page-lagos-rs ~ .site-footer .wordmark { font-family: var(--font-nunito); color: #ffffff; }
+.page-lagos-rs ~ .site-footer .wordmark span.accent { color: #ffffff; }
+.page-lagos-rs ~ .site-footer .wordmark-h-wrap { position: relative; display: inline-block; line-height: 1; }
+.page-lagos-rs ~ .site-footer .wordmark-roof {
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.16em;
+  width: 1.3em;
+  height: 0.45em;
+  overflow: visible;
+}

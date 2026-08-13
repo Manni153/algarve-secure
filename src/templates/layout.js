@@ -404,19 +404,28 @@ function renderFloatingButtons() {
 
 // Title tags and meta descriptions are managed entirely outside this
 // codebase (hosting-platform level) — deliberately not generated here.
-function renderPage({ path, bodyHtml, schema, mainClass }) {
+// useHomeHeader lets a single non-homepage page (currently: the Lagos
+// town page, a one-page pilot of the homepage's design system — see
+// town.js) opt into the same white-header/dropdown-nav/Nunito-fonts
+// treatment as the homepage, independent of mainClass/isHome. isHome
+// itself still only reflects mainClass === 'page-home' — this doesn't
+// make that page "the homepage" in any other sense (schema, mainClass,
+// path are all untouched), it only reuses the header/footer/font chrome.
+function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader }) {
   const isHome = mainClass === 'page-home';
+  const useHeaderChrome = isHome || Boolean(useHomeHeader);
   const canonical = `${site.baseUrl}${path === '/' ? '' : path}`;
   const schemaHtml = (schema || [])
     .map((s) => `<script type="application/ld+json">${JSON.stringify(s).replace(/<\/script/gi, '<\\/script')}</script>`)
     .join('\n');
-  // Homepage typography test (Nunito/Nunito Sans) — gated on isHome the
-  // same way renderHeader's homepage-only markup is, so none of the
-  // other 32 pages make this extra request while the test is in
-  // progress. To roll this out site-wide later: change `isHome ?` below
-  // to `true ?` (or drop the ternary) — nothing else about this block,
-  // or the CSS that consumes it, needs to move or be duplicated per page.
-  const homeFontsLink = isHome
+  // Homepage typography test (Nunito/Nunito Sans) — gated on
+  // useHeaderChrome (was isHome directly) the same way renderHeader's
+  // homepage-style markup is, so none of the other 31 pages make this
+  // extra request. To roll this out site-wide later: change
+  // `useHeaderChrome ?` below to `true ?` (or drop the ternary) —
+  // nothing else about this block, or the CSS that consumes it, needs to
+  // move or be duplicated per page.
+  const homeFontsLink = useHeaderChrome
     ? '<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">'
     : '';
   return `<!doctype html>
@@ -438,12 +447,12 @@ ${homeFontsLink}
 ${schemaHtml}
 </head>
 <body>
-${renderHeader(isHome)}
+${renderHeader(useHeaderChrome)}
 ${renderNavDrawer()}
 <main${mainClass ? ` class="${mainClass}"` : ''}>
 ${bodyHtml}
 </main>
-${renderFooter(isHome)}
+${renderFooter(useHeaderChrome)}
 ${renderFloatingButtons()}
 <script src="/assets/js/main.js"></script>
 </body>

@@ -3,7 +3,15 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage, serviceIcon } = require('./layout');
+
+// Design-system pilot: applies the homepage's finalized visual system
+// (colours, typography, buttons, service cards, hero gradient/text-shadow,
+// nav/dropdown — see main.css's ".page-lagos-rs" block) to this ONE town
+// page only, per explicit request. Every other town page below is byte-
+// for-byte unchanged — this flag is the only thing that branches their
+// otherwise-shared rendering logic.
+const DESIGN_SYSTEM_PILOT_SLUG = 'lagos';
 
 // Hesitation-addressing block, varied by town character rather than repeated
 // verbatim on all 22 pages. Each variant appears on at most three towns.
@@ -106,6 +114,8 @@ function linkifyTownNames(text, nearby) {
 }
 
 function renderTown(town) {
+  const isDesignSystemPilot = town.slug === DESIGN_SYSTEM_PILOT_SLUG;
+
   const serviceRows = services
     .map(
       (s) => `<a href="/${s.slug}">
@@ -115,10 +125,26 @@ function renderTown(town) {
     )
     .join('');
 
+  // Markup for the "Most Relevant" card grid — the one section on a town
+  // page that already matches the homepage's #services card structure
+  // (a card-grid.cols-3 of linked cards). On the pilot page, this gets the
+  // homepage's exact card internals (icon tile + arrow-icon "Learn more"
+  // pill) so main.css's .page-lagos-rs #services rules — mirroring
+  // .page-home #services exactly — have the same elements to style.
+  // Every other town keeps the original plain card (heading + reason +
+  // text-arrow link), completely unchanged.
   const relevantCards = (town.relevantServices || [])
     .map((r) => {
       const s = services.find((sv) => sv.slug === r.slug);
       if (!s) return '';
+      if (isDesignSystemPilot) {
+        return `<a href="/${s.slug}" class="card">
+          <div class="card-icon-block">${serviceIcon(s.slug)}</div>
+          <h3>${esc(s.name)} in ${esc(town.name)}</h3>
+          <p>${esc(r.reason)}</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a>`;
+      }
       return `<a href="/${s.slug}" class="card">
         <h3>${esc(s.name)} in ${esc(town.name)}</h3>
         <p>${esc(r.reason)}</p>
@@ -188,6 +214,14 @@ function renderTown(town) {
     headlineHtml: esc(town.heroHeadline),
     subtext: town.heroSubtext,
     ctaNote: CTA_NOTES[TOWN_CTA_NOTE[town.slug] ?? 0],
+    // Full-bleed split hero (the homepage's own hero mechanism — gradient
+    // scrim, text-shadow, breakpoint-specific direction) is opted into for
+    // the design-system pilot page only; every other town keeps its
+    // original boxed, in-flow hero image untouched. No image asset is
+    // supplied (town pages don't have dedicated photography), so this
+    // renders the existing placeholder as the full-bleed layer instead —
+    // see .page-lagos-rs .hero-stack-media .placeholder in main.css.
+    twoColDesktop: isDesignSystemPilot,
   });
 
   const reassurance = reassuranceBand(
@@ -246,7 +280,7 @@ function renderTown(town) {
 
   ${
     relevantCards
-      ? `<section>
+      ? `<section${isDesignSystemPilot ? ' id="services"' : ''}>
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">Most Relevant</span>
@@ -312,6 +346,8 @@ function renderTown(town) {
     path: `/${town.slug}`,
     bodyHtml: body,
     schema: [breadcrumbSchema, faqSchema].filter(Boolean),
+    mainClass: isDesignSystemPilot ? 'page-lagos-rs' : undefined,
+    useHomeHeader: isDesignSystemPilot,
   });
 }
 

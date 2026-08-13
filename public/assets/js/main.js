@@ -107,8 +107,12 @@
   // min-width:1025px wrapper on .site-header--home-transparent) — both
   // guards removed once mobile/tablet grew their own full-bleed hero,
   // since .hero-stack--split is now full-bleed at every width.
+  // .page-lagos-rs added alongside .page-home: the Lagos town page opts
+  // into this same full-bleed/transparent-header mechanism as a one-page
+  // pilot of the homepage's design system (see town.js/main.css) — every
+  // other page still has no element this selector can match.
   var homeHeader = document.querySelector('.site-header--home');
-  var heroStackSplit = document.querySelector('.page-home .hero-stack--split');
+  var heroStackSplit = document.querySelector('.page-home .hero-stack--split, .page-lagos-rs .hero-stack--split');
   if (homeHeader && heroStackSplit) {
     var updateHeaderTransparency = function () {
       var stillOverHero = heroStackSplit.getBoundingClientRect().bottom > 0;
