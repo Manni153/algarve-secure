@@ -3005,6 +3005,23 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   --rs-font: var(--font-nunito-sans);
 }
 
+/* ---- Section rhythm --------------------------------------------------
+   This page never opted into .page-home's tuned section spacing, so its
+   <section> elements were falling back to the sitewide default (56px
+   under 900px, flat 84px from 900px up) instead of matching the
+   homepage's rhythm (56px mobile / 96px tablet from 768px / 48px desktop
+   from 1025px). Mirrored here verbatim so Lagos reads the same as the
+   homepage at every breakpoint. */
+.page-lagos-rs section {
+  padding: var(--rs-section-gap) 0;
+}
+@media (min-width: 768px) {
+  .page-lagos-rs section { padding: var(--rs-section-gap-desktop) 0; }
+}
+@media (min-width: 1025px) {
+  .page-lagos-rs section { padding: 48px 0; }
+}
+
 /* ---- Typography ---------------------------------------------------- */
 .page-lagos-rs h1,
 .page-lagos-rs h2,
