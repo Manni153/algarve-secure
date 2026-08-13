@@ -3108,12 +3108,19 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   font-weight: 700;
 }
 .page-lagos-rs .hero-stack-text .btn { align-self: flex-start; }
+/* Flat --hero2-crimson (no gradient/darkening) on every CTA button on this
+   page — the hero button, the lower cta-band button, and the "Local to
+   Lagos" button just below the hero (.two-col-text .btn) — so they all
+   read as the exact same red rather than the base .btn rule's terracotta
+   gradient, which rendered visibly darker on the .two-col-text button. */
 .page-lagos-rs .hero-stack-text .btn,
-.page-lagos-rs .cta-band .btn {
+.page-lagos-rs .cta-band .btn,
+.page-lagos-rs .two-col-text .btn {
   background: var(--hero2-crimson);
 }
 .page-lagos-rs .hero-stack-text .btn:hover,
-.page-lagos-rs .cta-band .btn:hover {
+.page-lagos-rs .cta-band .btn:hover,
+.page-lagos-rs .two-col-text .btn:hover {
   background: var(--hero2-crimson);
   filter: brightness(0.92);
 }
@@ -3206,6 +3213,51 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     box-shadow: 0 8px 18px rgba(156, 23, 45, 0.32);
   }
 }
+
+/* Thin fill bar tracking scroll position through the mobile carousel above
+   — same markup/mechanism as the homepage's own #services carousel (see
+   main.js, which reads card count off the DOM rather than assuming 7, so
+   no JS changes were needed here). Hidden by default, shown only inside
+   the max-767px carousel block, matching .page-home's own rule pair. */
+.page-lagos-rs #services .carousel-progress { display: none; }
+@media (max-width: 767px) {
+  .page-lagos-rs #services .carousel-progress {
+    display: block;
+    height: 4px;
+    margin-top: 24px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+  }
+  .page-lagos-rs #services .carousel-progress-fill {
+    height: 100%;
+    width: 14.2857%;
+    border-radius: 999px;
+    background: var(--hero2-crimson);
+    transition: width 0.15s ease-out;
+  }
+}
+
+/* ---- Old-theme cleanup: two full-bleed sections (the "What to know
+   before installing" property-profile section, and the plain "Services"
+   link list further down) still used the shared, unscoped .section-alt
+   rule's warm --sand-alt wash — a leftover from the site's old peach
+   palette, never updated when this page moved to the homepage's --rs-bg
+   system. The homepage itself has no alternating section washes (see the
+   "Emphasis blocks" comment above .page-home .rs-block — "the page itself
+   is one flat --rs-bg colour throughout"), so the correct homepage
+   equivalent is to blend these sections into the same flat --rs-bg the
+   rest of the page already uses, rather than giving them a new colour of
+   their own. .service-list's hover state used the same --sand-alt wash on
+   what is, structurally, a card-surface row — corrected to
+   --hero2-panel-grey, the token this page's own card surfaces already use
+   (see #services .card above). */
+.page-lagos-rs .section-alt {
+  background: var(--rs-bg);
+  border-top: none;
+  border-bottom: none;
+}
+.page-lagos-rs .service-list a:hover { background: var(--hero2-panel-grey); }
 
 /* ---- Hero: full-bleed image layer + gradient scrim + text-shadow, same
    mechanism as the homepage's own hero (desktop: left-right gradient,
@@ -3386,15 +3438,31 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   display: none;
 }
 
-/* Both of the page's existing dark (--ink) sections already have their
-   own correct light-on-dark colours from the shared, unscoped .cta-band
-   and .reassurance-band rules earlier in this file — the blanket
-   typography rules above (.page-lagos-rs h2/.eyebrow/.lede) apply
-   page-wide and unintentionally override them back to the dark --rs-ink
-   tone meant for the page's light sections, since those blanket rules
-   don't know which section they're rendering into. Restated here at
-   higher specificity (two classes + element vs. the blanket rule's one)
-   so both dark sections stay legible regardless of source order. */
+/* The closing CTA band (the dark section directly above the footer) still
+   read as the old --ink navy from the shared, unscoped .cta-band rule —
+   one shade off the homepage's own equivalent block, which was moved to
+   --hero2-steel in an earlier pass (see the "Old dark-blue cleanup" note
+   near .page-home .rs-block--dark) specifically so it reads as one
+   continuous dark zone with the steel footer directly beneath it, rather
+   than a visible seam between two different darks. Matched here so this
+   page's own footer (already steel via useHomeHeader) doesn't sit against
+   a differently-coloured band above it. The reassurance band earlier on
+   the page is deliberately left on --ink — it isn't adjacent to the
+   footer, and every other (non-pilot) town page still uses --ink there
+   too, so leaving it keeps this page consistent with that shared pattern. */
+.page-lagos-rs .cta-band {
+  background: var(--hero2-steel);
+}
+
+/* Both of the page's existing dark sections already have their own
+   correct light-on-dark colours from the shared, unscoped .cta-band and
+   .reassurance-band rules earlier in this file — the blanket typography
+   rules above (.page-lagos-rs h2/.eyebrow/.lede) apply page-wide and
+   unintentionally override them back to the dark --rs-ink tone meant for
+   the page's light sections, since those blanket rules don't know which
+   section they're rendering into. Restated here at higher specificity
+   (two classes + element vs. the blanket rule's one) so both dark
+   sections stay legible regardless of source order. */
 .page-lagos-rs .cta-band h2,
 .page-lagos-rs .cta-band .eyebrow,
 .page-lagos-rs .reassurance-band h2 {

@@ -127,27 +127,35 @@ function renderTown(town) {
 
   // Markup for the "Most Relevant" card grid — the one section on a town
   // page that already matches the homepage's #services card structure
-  // (a card-grid.cols-3 of linked cards). On the pilot page, this gets the
-  // homepage's exact card internals (icon tile + arrow-icon "Learn more"
-  // pill) so main.css's .page-lagos-rs #services rules — mirroring
-  // .page-home #services exactly — have the same elements to style.
-  // Every other town keeps the original plain card (heading + reason +
-  // text-arrow link), completely unchanged.
-  const relevantCards = (town.relevantServices || [])
-    .map((r) => {
-      const s = services.find((sv) => sv.slug === r.slug);
-      if (!s) return '';
+  // (a card-grid.cols-3 of linked cards). Was previously limited to the
+  // 3 services in town.relevantServices ("most relevant" for that town's
+  // property mix), which under-rendered against the homepage's own
+  // #services section (all 7, always) — services are a shared data source
+  // (services.js), not a per-page hardcoded list, so the fix applies here
+  // for every town: all 7 services now render, using the town-specific
+  // relevance reason where one is curated and falling back to the
+  // service's own homepage copy (heroSubhead) for the rest — the same
+  // fallback text the homepage's own cards use. On the pilot page, this
+  // gets the homepage's exact card internals (icon tile + arrow-icon
+  // "Learn more" pill) so main.css's .page-lagos-rs #services rules —
+  // mirroring .page-home #services exactly — have the same elements to
+  // style. Every other town keeps the original plain card (heading +
+  // reason + text-arrow link), just with all 7 now instead of 3.
+  const relevantCards = services
+    .map((s) => {
+      const curated = (town.relevantServices || []).find((r) => r.slug === s.slug);
+      const reasonText = curated ? curated.reason : s.heroSubhead;
       if (isDesignSystemPilot) {
         return `<a href="/${s.slug}" class="card">
           <div class="card-icon-block">${serviceIcon(s.slug)}</div>
           <h3>${esc(s.name)} in ${esc(town.name)}</h3>
-          <p>${esc(r.reason)}</p>
+          <p>${esc(reasonText)}</p>
           <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
         </a>`;
       }
       return `<a href="/${s.slug}" class="card">
         <h3>${esc(s.name)} in ${esc(town.name)}</h3>
-        <p>${esc(r.reason)}</p>
+        <p>${esc(reasonText)}</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>`;
     })
@@ -283,11 +291,12 @@ function renderTown(town) {
       ? `<section${isDesignSystemPilot ? ' id="services"' : ''}>
           <div class="container">
             <div class="section-head">
-              <span class="eyebrow">Most Relevant</span>
-              <h2>Best-suited services for ${esc(town.name)} properties</h2>
-              <p class="lede">Every service is available here — these tend to matter most given the local property mix.</p>
+              <span class="eyebrow">What We Install</span>
+              <h2>Security &amp; smart home services for ${esc(town.name)} properties</h2>
+              <p class="lede">All seven services are available here, each planned around how ${esc(town.name)} properties are actually used.</p>
             </div>
             <div class="card-grid cols-3">${relevantCards}</div>
+            ${isDesignSystemPilot ? '<div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-fill"></div></div>' : ''}
           </div>
         </section>`
       : ''
