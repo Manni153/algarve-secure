@@ -1839,6 +1839,30 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   }
 }
 
+/* Tablet (768-1024px): was missing the same bottom-alignment fix mobile and
+   desktop both already had. .card-grid.cols-3 is plain CSS Grid at this
+   width (3-up, ~line 783) and grid's own default align-items is stretch, so
+   each card's outer BOX already matched the tallest card in its row before
+   this fix (confirmed via measurement: 3 cards in one row all rendered at
+   the same 518px height at 820px) — the bug was one level down, same as
+   mobile's pre-fix bug: the card's CONTENTS still laid out top-down as
+   plain block flow, so the extra height became dead space below an
+   already-positioned button instead of being absorbed above it (measured:
+   32px/32px/63px from the bottom across one row, depending on copy length).
+   Fix mirrors mobile's mechanism exactly (rely on the track's own default
+   stretch for equal card heights, only add flex-column + margin-top: auto
+   here) rather than desktop's explicit min-height — tablet's grid already
+   provides the equal-height half of the job for free. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-home #services .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .page-home #services .card-link {
+    margin-top: auto;
+  }
+}
+
 /* ---- Buttons: capped width, fixed height, never full-width ------------- */
 .page-home .btn-lg {
   height: var(--rs-btn-height);
