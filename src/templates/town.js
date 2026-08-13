@@ -186,12 +186,19 @@ function renderTown(town) {
     twoColDesktop: isDesignSystemPilot,
   });
 
+  // Design-system pilot only: wraps a section's content in the homepage's
+  // "emphasis block" panel (white rounded surface on the flat page
+  // background — see .page-lagos-rs .rs-block in main.css). Every other
+  // town keeps its plain/section-alt backgrounds untouched.
+  const blockOpen = isDesignSystemPilot ? '<div class="rs-block">' : '';
+  const blockClose = isDesignSystemPilot ? '</div>' : '';
+
   const body = `
   ${hero}
 
   <section>
     <div class="container">
-      <div class="two-col">
+      ${blockOpen}<div class="two-col">
         <div class="two-col-text">
           <span class="eyebrow">Local to ${esc(town.name)}</span>
           <h2>Security &amp; smart home installation in ${esc(town.name)}</h2>
@@ -202,13 +209,13 @@ function renderTown(town) {
         <div class="two-col-media">
           ${placeholder(town.streetscapeAlt || `Street or coastal view of ${town.name}, Algarve`, { ratio: 'tall' })}
         </div>
-      </div>
+      </div>${blockClose}
     </div>
   </section>
 
-  <section class="section-alt">
+  <section${isDesignSystemPilot ? '' : ' class="section-alt"'}>
     <div class="container">
-      <div class="section-head">
+      ${blockOpen}<div class="section-head">
         <span class="eyebrow">Security in ${esc(town.name)}</span>
         <h2>What to know before installing in ${esc(town.name)}</h2>
       </div>
@@ -217,7 +224,7 @@ function renderTown(town) {
         <p>${rich(propertyProfileHtml)}</p>
         <h3>What Owners Tend to Ask About</h3>
         <p>${rich(concernsHtml)}</p>
-      </div>
+      </div>${blockClose}
     </div>
   </section>
 
@@ -252,13 +259,13 @@ function renderTown(town) {
       : ''
   }
 
-  <section class="section-alt">
+  <section${isDesignSystemPilot ? '' : ' class="section-alt"'}>
     <div class="container">
-      <div class="section-head">
+      ${blockOpen}<div class="section-head">
         <span class="eyebrow">Services</span>
         <h2>What we install in ${esc(town.name)}</h2>
       </div>
-      <div class="service-list">${serviceRows}</div>
+      <div class="service-list">${serviceRows}</div>${blockClose}
     </div>
   </section>
 
@@ -266,11 +273,11 @@ function renderTown(town) {
     faqItems
       ? `<section id="faq">
           <div class="container">
-            <div class="section-head">
+            ${blockOpen}<div class="section-head">
               <span class="eyebrow">Questions</span>
               <h2>Frequently asked questions about ${esc(town.name)}</h2>
             </div>
-            <div class="faq-list">${faqItems}</div>
+            <div class="faq-list">${faqItems}</div>${blockClose}
           </div>
         </section>`
       : ''
@@ -278,25 +285,38 @@ function renderTown(town) {
 
   <section>
     <div class="container">
-      <div class="section-head">
+      ${blockOpen}<div class="section-head">
         <span class="eyebrow">Nearby</span>
         <h2>Also serving areas near ${esc(town.name)}</h2>
       </div>
       <div class="narrow" style="margin: 0 auto 32px;">
         <p>${rich(proximityHtml)}</p>
       </div>
-      <div class="link-line center">${nearbyLine}</div>
+      <div class="link-line center">${nearbyLine}</div>${blockClose}
     </div>
   </section>
 
-  <section class="cta-band">
+  ${
+    isDesignSystemPilot
+      ? `<section>
+          <div class="container">
+            <div class="cta-band rs-block">
+              <span class="eyebrow">Get Started</span>
+              <h2>Speak to Algarve Smart Home about your property in ${esc(town.name)}</h2>
+              <p class="lede">Call now to talk through cameras, alarms or smart home options — in English, with no confusion.</p>
+              <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
+            </div>
+          </div>
+        </section>`
+      : `<section class="cta-band">
     <div class="container">
       <span class="eyebrow">Get Started</span>
       <h2>Speak to Algarve Smart Home about your property in ${esc(town.name)}</h2>
       <p class="lede">Call now to talk through cameras, alarms or smart home options — in English, with no confusion.</p>
       <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
     </div>
-  </section>
+  </section>`
+  }
   `;
 
   return renderPage({

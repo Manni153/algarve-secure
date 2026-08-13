@@ -3022,6 +3022,23 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs section { padding: 48px 0; }
 }
 
+/* ---- Emphasis blocks ---------------------------------------------------
+   Mirrors .page-home .rs-block: a white rounded panel that gives each
+   section its own contained surface against the flat --rs-bg page
+   background, same as the homepage. The CTA band reuses this shape too —
+   its steel colour already comes from the .page-lagos-rs .cta-band
+   background rule further down, and its light-on-dark text already comes
+   from the sitewide unscoped .cta-band rule, so no separate --dark
+   variant is needed here. */
+.page-lagos-rs .rs-block {
+  background: var(--rs-surface);
+  border-radius: var(--rs-radius-block);
+  padding: var(--rs-block-padding);
+}
+@media (min-width: 768px) {
+  .page-lagos-rs .rs-block { padding: var(--rs-block-padding-desktop); }
+}
+
 /* ---- Typography ---------------------------------------------------- */
 .page-lagos-rs h1,
 .page-lagos-rs h2,
@@ -3255,25 +3272,13 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   }
 }
 
-/* ---- Old-theme cleanup: two full-bleed sections (the "What to know
-   before installing" property-profile section, and the plain "Services"
-   link list further down) still used the shared, unscoped .section-alt
-   rule's warm --sand-alt wash — a leftover from the site's old peach
-   palette, never updated when this page moved to the homepage's --rs-bg
-   system. The homepage itself has no alternating section washes (see the
-   "Emphasis blocks" comment above .page-home .rs-block — "the page itself
-   is one flat --rs-bg colour throughout"), so the correct homepage
-   equivalent is to blend these sections into the same flat --rs-bg the
-   rest of the page already uses, rather than giving them a new colour of
-   their own. .service-list's hover state used the same --sand-alt wash on
-   what is, structurally, a card-surface row — corrected to
-   --hero2-panel-grey, the token this page's own card surfaces already use
-   (see #services .card above). */
-.page-lagos-rs .section-alt {
-  background: var(--rs-bg);
-  border-top: none;
-  border-bottom: none;
-}
+/* .service-list's hover state used the old warm --sand-alt wash on what
+   is, structurally, a card-surface row — corrected to --hero2-panel-grey,
+   the token this page's own card surfaces already use (see #services
+   .card above). The section-alt class itself is no longer emitted on
+   this page (its former sections now use the shared .rs-block panel
+   system instead — see the Emphasis blocks rule below), so only the
+   hover rule survives here. */
 .page-lagos-rs .service-list a:hover { background: var(--hero2-panel-grey); }
 
 /* ---- Hero: full-bleed image layer + gradient scrim + text-shadow, same
