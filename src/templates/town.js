@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -60,6 +60,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-alvor-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Alvor with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  portimao: {
+    mobileWebp: '/assets/images/hero-security-portimao-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-portimao-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-portimao-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-portimao-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Portimão with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -91,6 +98,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/alvor-villa-terrace.webp',
     jpg: '/assets/images/alvor-villa-terrace.jpg',
     alt: 'Villa terrace near Alvor overlooking the estuary and coastline',
+  },
+  portimao: {
+    webp: '/assets/images/portimao-villa-terrace.webp',
+    jpg: '/assets/images/portimao-villa-terrace.jpg',
+    alt: 'Villa terrace near Portimão overlooking the Arade estuary and waterfront',
   },
 };
 
