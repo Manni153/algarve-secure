@@ -12,18 +12,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.algarvesecure.com/"},{"@type":"ListItem","position":2,"name":"Alvor","item":"https://www.algarvesecure.com/alvor"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do estuary-front apartments in Alvor already have building-level security?","acceptedAnswer":{"@type":"Answer","text":"Many do, at least at the shared entrance, which is why access control here is often about covering the individual unit alongside — not replacing — whatever the building already has."}},{"@type":"Question","name":"Are villas further back from the Alvor estuary handled differently?","acceptedAnswer":{"@type":"Answer","text":"Yes — they tend to sit on more separated plots, so the focus shifts to boundary and driveway coverage rather than a single shared building entrance."}},{"@type":"Question","name":"Do all estuary-front buildings in Alvor already have some access control in place?","acceptedAnswer":{"@type":"Answer","text":"Many do at the shared entrance, though what's there varies by building — worth having the existing setup assessed rather than assuming it covers what an individual owner needs."}},{"@type":"Question","name":"How far back from the estuary do villas typically sit before boundary coverage becomes the main focus?","acceptedAnswer":{"@type":"Answer","text":"There's no fixed line — it comes down to whether a property has its own garden and driveway or sits within a shared building, which is usually obvious from a quick description of the property."}},{"@type":"Question","name":"Since a number of properties in Alvor are used seasonally, does that change how an alarm gets set up?","acceptedAnswer":{"@type":"Answer","text":"Yes — remote arm, disarm and status checks matter more for a property that's empty for stretches of the year than for a full-time home where someone's usually around to notice something's wrong."}},{"@type":"Question","name":"Does CCTV work differently for a holiday rental near the Alvor estuary compared to a villa further back?","acceptedAnswer":{"@type":"Answer","text":"The core setup is the same — outdoor coverage of the entrance and driveway — but estuary-front apartments often have some of that visibility already from building-level cameras, so it's worth checking what's already covering the shared entrance before adding a private camera."}},{"@type":"Question","name":"For an estuary-front rental in Alvor, does guest access work through the building or independently?","acceptedAnswer":{"@type":"Answer","text":"Depends on the building — some estuary-front blocks already manage a shared entry system guests can be added to, while a standalone villa further back needs its own independent code-based setup."}}]}</script>
 </head>
 <body>
 
-  <nav class="site-header bleed" aria-label="Primary">
+  <nav class="site-header site-header--home bleed" aria-label="Primary">
     <div class="container">
-      <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
+      <a href="/" class="wordmark">Algarve <span class="accent">Smart <span class="wordmark-h-wrap">H<svg class="wordmark-roof" viewBox="0 0 28 11" fill="none" aria-hidden="true" focusable="false"><path d="M2 9.3 14 1.8 26 9.3" stroke="#DC143C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ome</span></a>
       <ul class="header-nav"><li><a href="/cctv-installation">CCTV</a></li><li><a href="/alarm-systems">Alarms</a></li><li><a href="/access-control">Access Control</a></li><li><a href="/gate-automation">Gate Automation</a></li><li><a href="/fire-detection">Fire Detection</a></li><li><a href="/home-networking">Home Networking</a></li><li><a href="/smart-home-automation">Smart Home Automation</a></li></ul>
       
+      <nav class="home-header-nav" aria-label="Primary">
+        <div class="home-header-nav-item">
+          <button type="button" class="home-header-nav-trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">Services</button>
+          <div class="home-header-dropdown"><a href="/cctv-installation">CCTV</a><a href="/alarm-systems">Alarms</a><a href="/access-control">Access Control</a><a href="/gate-automation">Gate Automation</a><a href="/fire-detection">Fire Detection</a><a href="/home-networking">Home Networking</a><a href="/smart-home-automation">Smart Home Automation</a></div>
+        </div>
+        <a href="#areas" class="home-header-nav-link">Service Areas</a>
+        <a href="/about" class="home-header-nav-link">About</a>
+        <a href="/contact" class="home-header-nav-link">Contact</a>
+      </nav>
       <div class="header-actions">
         <a href="tel:+351923272806" class="header-phone" aria-label="Call Algarve Smart Home">
           <span class="icon" aria-hidden="true"></span><span class="phone-digits">+351 923 272 806</span>
@@ -60,10 +69,10 @@
       </div>
     </nav>
   </div>
-<main>
+<main class="page-lagos-rs">
 
   
-  <section class="hero-stack bleed">
+  <section class="hero-stack hero-stack--split bleed">
     <div class="container">
       <div class="hero-stack-text">
         <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <span>Alvor</span></p>
@@ -72,20 +81,23 @@
         <p class="hero-subtext">Estuary-front apartments and hillside villas, each covered the way that property actually needs.</p>
         <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
         
-        
+        <div class="hero-trust-inline"><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1.5" y="3" width="21" height="12.5" rx="6"/><path d="M6.6 17.4C5.7 19 4.2 20.4 2.3 21.3"/><circle cx="12" cy="9.25" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">100% English-Speaking</span><span class="v v-mobile v-mobile-value">100%</span><span class="v v-mobile v-mobile-label">English-Speaking</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.3C7.7 2.3 4.3 5.8 4.3 10c0 5.9 7.7 12.7 7.7 12.7s7.7-6.8 7.7-12.7c0-4.2-3.4-7.7-7.7-7.7Z"/><circle cx="12" cy="9.7" r="1.6" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">Locally Based</span><span class="v v-mobile v-mobile-value">Locally</span><span class="v v-mobile v-mobile-label">Based</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">Fast Response</span><span class="v v-mobile v-mobile-value">Fast</span><span class="v v-mobile v-mobile-label">Response</span></div></div>
       </div>
       <div class="hero-stack-media">
-        <div class="placeholder" role="img" aria-label="[Placeholder: security camera being mounted on a property exterior wall in Alvor]">
-    <span class="ph-label">[Placeholder: security camera being mounted on a property exterior wall in Alvor]</span>
-  </div>
+        <picture>
+        <source media="(min-width: 1025px)" type="image/webp" srcset="/assets/images/hero-security-alvor-desktop.webp">
+        <source media="(min-width: 1025px)" type="image/jpeg" srcset="/assets/images/hero-security-alvor-desktop.jpg">
+        <source type="image/webp" srcset="/assets/images/hero-security-alvor-mobile.webp">
+        <img src="/assets/images/hero-security-alvor-mobile.jpg" alt="Terracotta-walled Algarve villa near Alvor with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance" loading="eager" fetchpriority="high">
+      </picture>
       </div>
     </div>
   </section>
-  
+  <div class="hero-trust-band hero-trust-band--split bleed"><div class="container"><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1.5" y="3" width="21" height="12.5" rx="6"/><path d="M6.6 17.4C5.7 19 4.2 20.4 2.3 21.3"/><circle cx="12" cy="9.25" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v">100%</span><span class="l">English-Speaking</span><span class="vs">100% English-Speaking</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.3C7.7 2.3 4.3 5.8 4.3 10c0 5.9 7.7 12.7 7.7 12.7s7.7-6.8 7.7-12.7c0-4.2-3.4-7.7-7.7-7.7Z"/><circle cx="12" cy="9.7" r="1.6" fill="#DC143C" stroke="none"/></svg><span class="v">Local</span><span class="l">Based</span><span class="vs">Locally Based</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v">Fast</span><span class="l">Response</span><span class="vs">Fast Response</span></div></div></div>
 
   <section>
     <div class="container">
-      <div class="two-col">
+      <div class="rs-block"><div class="two-col">
         <div class="two-col-text">
           <span class="eyebrow">Local to Alvor</span>
           <h2>Security &amp; smart home installation in Alvor</h2>
@@ -94,17 +106,18 @@
           <a href="tel:+351923272806" class="btn btn-icon mt-32">+351 923 272 806</a>
         </div>
         <div class="two-col-media">
-          <div class="placeholder ratio-tall" role="img" aria-label="[Placeholder: Apartment block overlooking the Alvor estuary]">
-    <span class="ph-label">[Placeholder: Apartment block overlooking the Alvor estuary]</span>
-  </div>
+          <picture class="photo-frame ratio-tall">
+    <source type="image/webp" srcset="/assets/images/alvor-villa-terrace.webp">
+    <img src="/assets/images/alvor-villa-terrace.jpg" alt="Villa terrace near Alvor overlooking the estuary and coastline" loading="lazy">
+  </picture>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
+      <div class="rs-block"><div class="section-head">
         <span class="eyebrow">Security in Alvor</span>
         <h2>What to know before installing in Alvor</h2>
       </div>
@@ -113,13 +126,13 @@
         <p>Alvor's property mix reflects its growth from fishing town to residential destination — apartment blocks near the estuary and marina, and villas further back toward the surrounding hills. Estuary-front apartments are often part of larger developments with shared grounds, while the villas tend to sit on individual plots with more separation from neighbours.</p>
         <h3>What Owners Tend to Ask About</h3>
         <p>Apartment owners near the estuary are usually more focused on their own unit's entry security, since the building itself often already has some shared-entrance measures in place. Villa owners further back tend to think more about the whole property boundary and about coverage while away, since a number of properties in Alvor are used seasonally rather than year-round.</p>
-      </div>
+      </div></div>
     </div>
   </section>
 
   
 
-  <section>
+  <section id="services">
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">What We Install</span>
@@ -127,41 +140,48 @@
               <p class="lede">All seven services are available here, each planned around how Alvor properties are actually used.</p>
             </div>
             <div class="card-grid cols-3"><a href="/cctv-installation" class="card">
-        <h3>CCTV Installation in Alvor</h3>
-        <p>Villas further from the centre benefit from full boundary and driveway coverage.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/alarm-systems" class="card">
-        <h3>Alarm Systems in Alvor</h3>
-        <p>Seasonally used properties benefit from a system that can be checked and armed remotely.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/access-control" class="card">
-        <h3>Access Control in Alvor</h3>
-        <p>Estuary-front apartment blocks suit card or fob entry alongside existing building security.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/gate-automation" class="card">
-        <h3>Gate Automation in Alvor</h3>
-        <p>Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/fire-detection" class="card">
-        <h3>Fire Detection in Alvor</h3>
-        <p>Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/home-networking" class="card">
-        <h3>Home Networking in Alvor</h3>
-        <p>Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/smart-home-automation" class="card">
-        <h3>Smart Home Automation in Alvor</h3>
-        <p>Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a></div>
-            
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M8.26 13.1V11.56"/><rect x="6.5" y="13.1" width="6.6" height="4.18" rx="1.1"/><path d="M13.1 14.2v1.98l3.74 1.87v-5.72Z" fill="#FFFFFF" stroke="none"/></svg></div>
+          <h3>CCTV Installation in Alvor</h3>
+          <p>Villas further from the centre benefit from full boundary and driveway coverage.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/alarm-systems" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 10.9c-1.87 0-3.3 1.43-3.3 3.3v1.43c0 .66-.22 1.21-.66 1.65l-.44.44h8.8l-.44-.44c-.44-.44-.66-.99-.66-1.65V14.2c0-1.87-1.43-3.3-3.3-3.3Z"/><path d="M10.46 18.82c.22.77.88 1.21 1.54 1.21s1.32-.44 1.54-1.21"/></svg></div>
+          <h3>Alarm Systems in Alvor</h3>
+          <p>Seasonally used properties benefit from a system that can be checked and armed remotely.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/access-control" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><rect x="7.05" y="10.9" width="9.9" height="9.9" rx="1.98"/><circle cx="9.8" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="9.8" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/></svg></div>
+          <h3>Access Control in Alvor</h3>
+          <p>Estuary-front apartment blocks suit card or fob entry alongside existing building security.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/gate-automation" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M7.05 19.7v-7.04h9.9V19.7"/></svg></div>
+          <h3>Gate Automation in Alvor</h3>
+          <p>Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/fire-detection" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 8.82c1.1 1.54-.44 2.53-.33 3.96.11.88.88 1.43.88 1.43s1.1-.77 1.21-1.98c1.21 1.21 1.76 2.53 1.76 3.85 0 2.09-1.54 3.41-3.52 3.41s-3.52-1.32-3.52-3.41c0-1.65.88-2.97 1.76-3.96.11.88.66 1.43.66 1.43S10.35 11.68 12 8.82Z"/></svg></div>
+          <h3>Fire Detection in Alvor</h3>
+          <p>Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/home-networking" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><rect x="7.05" y="16.4" width="9.9" height="3.52" rx="1.1"/><path d="M12 16.4v-3.74"/><circle cx="12" cy="12" r="0.99" fill="#FFFFFF" stroke="none"/></svg></div>
+          <h3>Home Networking in Alvor</h3>
+          <p>Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/smart-home-automation" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 11.12v3.63"/><path d="M8.7 13.43a4.4 4.4 0 1 0 6.6 0"/></svg></div>
+          <h3>Smart Home Automation in Alvor</h3>
+          <p>Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a></div>
+            <div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-fill"></div></div>
           </div>
         </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
+      <div class="rs-block"><div class="section-head">
         <span class="eyebrow">Services</span>
         <h2>What we install in Alvor</h2>
       </div>
@@ -186,13 +206,13 @@
       </a><a href="/smart-home-automation">
         <h3>Smart Home Automation in Alvor</h3>
         <span class="arrow">&rarr;</span>
-      </a></div>
+      </a></div></div>
     </div>
   </section>
 
   <section id="faq">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">Questions</span>
               <h2>Frequently asked questions about Alvor</h2>
             </div>
@@ -217,31 +237,33 @@
       </div><div class="faq-item">
         <h3>For an estuary-front rental in Alvor, does guest access work through the building or independently?</h3>
         <p>Depends on the building — some estuary-front blocks already manage a shared entry system guests can be added to, while a standalone villa further back needs its own independent code-based setup.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
   <section>
     <div class="container">
-      <div class="section-head">
+      <div class="rs-block"><div class="section-head">
         <span class="eyebrow">Nearby</span>
         <h2>Also serving areas near Alvor</h2>
       </div>
       <div class="narrow" style="margin: 0 auto 32px;">
         <p>Alvor sits between <a href="/praia-da-luz">Praia da Luz</a>, about 15 minutes west, and <a href="/portimao">Portimão</a>, a similar distance east. <a href="/lagos">Lagos</a> is a bit further west along the same coast road, straightforward for owners covering more than one property in the area.</p>
       </div>
-      <div class="link-line center"><a href="/praia-da-luz">Praia da Luz</a><span class="sep">&middot;</span><a href="/portimao">Portimão</a><span class="sep">&middot;</span><a href="/lagos">Lagos</a></div>
+      <div class="link-line center"><a href="/praia-da-luz">Praia da Luz</a><span class="sep">&middot;</span><a href="/portimao">Portimão</a><span class="sep">&middot;</span><a href="/lagos">Lagos</a></div></div>
     </div>
   </section>
 
-  <section class="cta-band">
-    <div class="container">
-      <span class="eyebrow">Get Started</span>
-      <h2>Speak to Algarve Smart Home about your property in Alvor</h2>
-      <p class="lede">Call now to talk through cameras, alarms or smart home options — in English, with no confusion.</p>
-      <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
-    </div>
-  </section>
+  <section>
+          <div class="container">
+            <div class="cta-band rs-block">
+              <span class="eyebrow">Get Started</span>
+              <h2>Speak to Algarve Smart Home about your property in Alvor</h2>
+              <p class="lede">Call now to talk through cameras, alarms or smart home options — in English, with no confusion.</p>
+              <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
+            </div>
+          </div>
+        </section>
   
 </main>
 
@@ -249,7 +271,7 @@
     <div class="container">
       <div class="footer-masthead">
         <div>
-          <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
+          <a href="/" class="wordmark">Algarve <span class="accent">Smart <span class="wordmark-h-wrap">H<svg class="wordmark-roof" viewBox="0 0 28 11" fill="none" aria-hidden="true" focusable="false"><path d="M2 9.3 14 1.8 26 9.3" stroke="#DC143C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ome</span></a>
           <p>English-speaking security systems and smart home installation for homeowners across the Algarve.</p>
         </div>
         <a href="tel:+351923272806" class="btn btn-icon">+351 923 272 806</a>
