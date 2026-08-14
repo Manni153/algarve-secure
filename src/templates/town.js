@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -74,6 +74,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-ferragudo-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Ferragudo with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  lagoa: {
+    mobileWebp: '/assets/images/hero-security-lagoa-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-lagoa-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-lagoa-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-lagoa-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Lagoa with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -115,6 +122,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/ferragudo-villa-terrace.webp',
     jpg: '/assets/images/ferragudo-villa-terrace.jpg',
     alt: 'Villa terrace near Ferragudo overlooking the river inlet and waterfront',
+  },
+  lagoa: {
+    webp: '/assets/images/lagoa-villa-terrace.webp',
+    jpg: '/assets/images/lagoa-villa-terrace.jpg',
+    alt: 'Villa terrace near Lagoa overlooking cliffside coves and the Atlantic',
   },
 };
 
