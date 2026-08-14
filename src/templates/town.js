@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -81,6 +81,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-lagoa-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Lagoa with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  carvoeiro: {
+    mobileWebp: '/assets/images/hero-security-carvoeiro-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-carvoeiro-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-carvoeiro-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-carvoeiro-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Carvoeiro with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -127,6 +134,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/lagoa-villa-terrace.webp',
     jpg: '/assets/images/lagoa-villa-terrace.jpg',
     alt: 'Villa terrace near Lagoa overlooking cliffside coves and the Atlantic',
+  },
+  carvoeiro: {
+    webp: '/assets/images/carvoeiro-villa-terrace.webp',
+    jpg: '/assets/images/carvoeiro-villa-terrace.jpg',
+    alt: 'Villa terrace near Carvoeiro overlooking a limestone cove and beach',
   },
 };
 
