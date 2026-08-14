@@ -177,7 +177,16 @@ function renderTown(town) {
     h1Text: `Security & Smart Home Installation in ${town.name}`,
     headlineHtml: esc(town.heroHeadline),
     subtext: town.heroSubtext,
-    ctaNote: CTA_NOTES[TOWN_CTA_NOTE[town.slug] ?? 0],
+    // Dropped on the design-system pilot page only, matching the
+    // homepage's own hero (which never passes a ctaNote at all) — every
+    // other town keeps its note unchanged.
+    ctaNote: isDesignSystemPilot ? undefined : CTA_NOTES[TOWN_CTA_NOTE[town.slug] ?? 0],
+    // Same trust-stats row as the homepage hero, reusing the same sitewide
+    // data (site.js) — pilot page only, so every other town's hero is
+    // unaffected (heroIntro renders nothing here when these are undefined).
+    trustStats: isDesignSystemPilot ? site.trustStats : undefined,
+    desktopStatsText: isDesignSystemPilot ? site.heroStatsDesktop : undefined,
+    mobileStatsText: isDesignSystemPilot ? site.heroStatsShort : undefined,
     // Full-bleed split hero (the homepage's own hero mechanism — gradient
     // scrim, text-shadow, breakpoint-specific direction) is opted into for
     // the design-system pilot page only; every other town keeps its

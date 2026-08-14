@@ -1276,10 +1276,12 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    stay at round 2's 15px. !important still needed since both have their
    own mobile-shrink rules elsewhere in this file (down to ~10px). */
 .page-home .hero-trust-band .l,
-.page-home .hero-trust-inline .l { font-size: 15px !important; color: var(--rs-muted); }
+.page-home .hero-trust-inline .l,
+.page-lagos-rs .hero-trust-inline .l { font-size: 15px !important; color: var(--rs-muted); }
 .page-home .hero-trust-band .v,
 .page-home .hero-trust-band .vs,
-.page-home .hero-trust-inline .v { font-size: 22px !important; font-weight: 800; color: var(--rs-ink); }
+.page-home .hero-trust-inline .v,
+.page-lagos-rs .hero-trust-inline .v { font-size: 22px !important; font-weight: 800; color: var(--rs-ink); }
 /* .vs (tablet+'s single combined-line format, e.g. "100% English-
    Speaking") only ever shows at 768px+ — see the max-width:767px block
    further down, which hides it and shows .v/.l instead. Hidden by
@@ -1303,13 +1305,18 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    to the exact steel blue-grey from the client palette, per instruction —
    the value no longer reads near-black/bold-emphasised against the label. */
 @media (min-width: 1025px) {
-  .page-home .hero-trust-inline { border-top-color: var(--hero2-soft-grey); }
-  .page-home .hero-trust-inline .stat { border-right-color: var(--hero2-soft-grey); }
+  .page-home .hero-trust-inline,
+  .page-lagos-rs .hero-trust-inline { border-top-color: var(--hero2-soft-grey); }
+  .page-home .hero-trust-inline .stat,
+  .page-lagos-rs .hero-trust-inline .stat { border-right-color: var(--hero2-soft-grey); }
   .page-home .hero-trust-inline .l,
-  .page-home .hero-trust-inline .v { color: var(--hero2-steel); }
+  .page-home .hero-trust-inline .v,
+  .page-lagos-rs .hero-trust-inline .l,
+  .page-lagos-rs .hero-trust-inline .v { color: var(--hero2-steel); }
   /* Latest pass: single combined-text stats (no separate value/label) —
      no wrapping within a stat regardless of column width. */
-  .page-home .hero-trust-inline .v { white-space: nowrap; }
+  .page-home .hero-trust-inline .v,
+  .page-lagos-rs .hero-trust-inline .v { white-space: nowrap; }
   /* Fix for visibly uneven gaps: the base rule (non-page-home, ~line 483)
      lays this row out as display:grid with three EQUAL-width columns
      (repeat(3, 1fr)). Each stat is left-anchored in its own column, so any
@@ -1319,13 +1326,15 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
      much larger. Flex + a fixed gap sizes each stat to its own text, so
      the visual gap between every pair is identical regardless of label
      length. */
-  .page-home .hero-trust-inline { display: flex; align-items: baseline; gap: 38px; }
+  .page-home .hero-trust-inline,
+  .page-lagos-rs .hero-trust-inline { display: flex; align-items: baseline; gap: 38px; }
 }
 /* Round 4: an actual 32px gap for the mobile/tablet trust band, replacing
    the old 16px padding-based spacing — the divider borders stay as the
    visual separator, the gap gives them real breathing room either side. */
 .page-home .hero-trust-band .container { gap: 32px; }
-.page-home .hero-trust-inline .stat { padding-right: 0; }
+.page-home .hero-trust-inline .stat,
+.page-lagos-rs .hero-trust-inline .stat { padding-right: 0; }
 .page-home .hero-trust-band .stat { padding-left: 0; padding-right: 0; }
 
 /* Hero stats-row icons: each .stat becomes its own small flex column so
@@ -1333,6 +1342,7 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    row (.hero-trust-inline / .hero-trust-band .container) aligns the
    .stat items themselves. */
 .page-home .hero-trust-inline .stat,
+.page-lagos-rs .hero-trust-inline .stat,
 .page-home .hero-trust-band .stat {
   display: flex;
   flex-direction: column;
@@ -1358,6 +1368,7 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   min-width: 0;
 }
 .page-home .hero-trust-inline .stat svg,
+.page-lagos-rs .hero-trust-inline .stat svg,
 .page-home .hero-trust-band .stat svg {
   margin-bottom: 8px;
 }
@@ -1367,7 +1378,8 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    row still reads as evenly seated on one line rather than baseline-
    aligning against a non-text first child. */
 @media (min-width: 1025px) {
-  .page-home .hero-trust-inline { align-items: flex-end; }
+  .page-home .hero-trust-inline,
+  .page-lagos-rs .hero-trust-inline { align-items: flex-end; }
 }
 
 /* Mobile/tablet (<=1024px) vs desktop (1025px+) stat text: heroIntro()
@@ -1379,11 +1391,15 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
    regardless of what mobile/tablet show. Both share the plain .v class
    too, so the existing per-breakpoint font-size rules below apply to
    whichever one is actually visible without needing their own copies. */
-.page-home .hero-trust-inline .v-desktop { display: none; }
-.page-home .hero-trust-inline .v-mobile { display: block; }
+.page-home .hero-trust-inline .v-desktop,
+.page-lagos-rs .hero-trust-inline .v-desktop { display: none; }
+.page-home .hero-trust-inline .v-mobile,
+.page-lagos-rs .hero-trust-inline .v-mobile { display: block; }
 @media (min-width: 1025px) {
-  .page-home .hero-trust-inline .v-desktop { display: block; }
-  .page-home .hero-trust-inline .v-mobile { display: none; }
+  .page-home .hero-trust-inline .v-desktop,
+  .page-lagos-rs .hero-trust-inline .v-desktop { display: block; }
+  .page-home .hero-trust-inline .v-mobile,
+  .page-lagos-rs .hero-trust-inline .v-mobile { display: none; }
 }
 
 /* In-prose links: ink with an underline, not a color-based affordance —
@@ -3105,6 +3121,10 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     line-height: var(--rs-body-lh);
   }
 }
+/* Matches the homepage's own hero exactly — its subtext line is likewise
+   never shown, with .hero-headline (above) carrying the supporting-copy
+   role instead. */
+.page-lagos-rs .hero-subtext { display: none; }
 
 .page-lagos-rs .eyebrow,
 .page-lagos-rs .card-link {
@@ -3376,10 +3396,27 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     overflow: visible;
     text-overflow: clip;
   }
-  .page-lagos-rs .hero-stack--split .hero-cta-note { color: rgba(255, 255, 255, 0.75); }
   .page-lagos-rs .hero-stack--split .breadcrumb,
   .page-lagos-rs .hero-stack--split .breadcrumb a { color: rgba(255, 255, 255, 0.75); }
   .page-lagos-rs .hero-stack--split .breadcrumb a:hover { color: #ffffff; }
+  /* Hero stats row, matching the homepage's own .hero-stack--split
+     .hero-trust-inline treatment at this breakpoint verbatim (white
+     text/icons over the photo, thin dividers, larger 25px labels). */
+  .page-lagos-rs .hero-stack--split .hero-trust-inline { border-top-color: rgba(255, 255, 255, 0.28); }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat { border-right-color: rgba(255, 255, 255, 0.28); padding-right: 20px; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat:last-child { padding-right: 0; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .v,
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .l {
+    color: #ffffff;
+    font-size: 25px !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat svg {
+    stroke: #ffffff;
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+  }
 }
 
 @media (max-width: 1024px) {
@@ -3463,6 +3500,43 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs .hero-stack--split .breadcrumb,
   .page-lagos-rs .hero-stack--split .breadcrumb a { color: rgba(255, 255, 255, 0.75); }
   .page-lagos-rs .hero-stack--split .breadcrumb a:hover { color: #ffffff; }
+  /* Hero stats row, matching the homepage's own .hero-stack--split
+     .hero-trust-inline treatment at this breakpoint verbatim: a compact
+     3-up grid on the photo's scrim instead of desktop's wide flex row. */
+  .page-lagos-rs .hero-stack--split .hero-trust-inline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat {
+    border-right: none;
+    padding-right: 0;
+    min-width: 0;
+  }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .v,
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .l {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 1px 7px rgba(0, 0, 0, 0.5);
+  }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .l { font-size: 12px !important; line-height: 1.25; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .v { font-size: 14px !important; line-height: 1.3; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat svg {
+    stroke: #ffffff;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+  }
+}
+/* Tablet only: matches the homepage's own slightly larger stats/type at
+   this breakpoint (see the equivalent .page-home block above). */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .l { font-size: 14px !important; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .v { font-size: 17px !important; line-height: 1.3; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat svg { width: 28px; height: 28px; }
 }
 
 /* Mobile only (<=767px): text sits directly on the photo, same text-
@@ -3482,6 +3556,20 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     font-size: 22px;
     font-weight: 600;
   }
+  /* Matches the homepage's own .hero-kicker size at this breakpoint
+     (29px, down from the shared 36px --rs-h1-size-mobile default). */
+  .page-lagos-rs .hero-kicker { font-size: 29px; }
+  /* Matches the homepage's own mobile-only hero stats sizing (up from
+     the shared max-width:1024px block's 12px/14px/22px above). */
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .l { font-size: 13px !important; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .v { font-size: 16px !important; line-height: 1.25; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .stat svg {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 7px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85)) drop-shadow(0 1px 8px rgba(0, 0, 0, 0.7));
+  }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline .v-mobile-label { font-size: 12px !important; }
 }
 
 /* The closing CTA band (the dark section directly above the footer) still
