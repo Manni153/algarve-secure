@@ -16,6 +16,13 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // photos yet still render the standard placeholder box in that slot.
 const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil', 'faro', 'olhao', 'sao-bras-de-alportel', 'tavira', 'castro-marim', 'vila-real-de-santo-antonio']);
 
+// Services-first rollout: moves the "What We Install" services card grid
+// (matching the homepage's own section order) to sit directly under the
+// hero, ahead of "Local to <town>" and the rest — rolled out one town at a
+// time same as DESIGN_SYSTEM_PILOT_SLUGS above, starting with the pilot
+// town. Towns NOT in this set keep the original section order untouched.
+const SERVICES_FIRST_SLUGS = new Set(['lagos']);
+
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
 // standard placeholder box as the hero's full-bleed layer instead.
@@ -502,9 +509,9 @@ function renderTown(town) {
   const blockOpen = isDesignSystemPilot ? '<div class="rs-block">' : '';
   const blockClose = isDesignSystemPilot ? '</div>' : '';
 
-  const body = `
-  ${hero}
+  const isServicesFirst = SERVICES_FIRST_SLUGS.has(town.slug);
 
+  const localToTownSection = `
   <section>
     <div class="container">
       ${blockOpen}<div class="two-col">
@@ -524,8 +531,9 @@ function renderTown(town) {
         </div>
       </div>${blockClose}
     </div>
-  </section>
+  </section>`;
 
+  const whatToKnowSection = `
   <section${isDesignSystemPilot ? '' : ' class="section-alt"'}>
     <div class="container">
       ${blockOpen}<div class="section-head">
@@ -539,11 +547,11 @@ function renderTown(town) {
         <p>${rich(concernsHtml)}</p>
       </div>${blockClose}
     </div>
-  </section>
+  </section>`;
 
-  ${
-    premiumSubAreaItems
-      ? `<section id="in-detail">
+  const inDetailSection = premiumSubAreaItems
+    ? `
+  <section id="in-detail">
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">${esc(town.premiumProfile.eyebrow)}</span>
@@ -553,12 +561,16 @@ function renderTown(town) {
             <div class="pillar-list mt-32">${premiumSubAreaItems}</div>
           </div>
         </section>`
-      : ''
-  }
+    : '';
 
-  ${
-    relevantCards
-      ? `<section${isDesignSystemPilot ? ' id="services"' : ''}>
+  // "What We Install" — same card-grid section as the homepage's own
+  // #services. Ordered directly after the hero for towns in
+  // SERVICES_FIRST_SLUGS (see note above); every other town keeps it
+  // further down the page, after the "Local to <town>" / "What to know"
+  // sections, as before.
+  const whatWeInstallSection = relevantCards
+    ? `
+  <section${isDesignSystemPilot ? ' id="services"' : ''}>
           <div class="container">
             <div class="section-head">
               <span class="eyebrow">What We Install</span>
@@ -569,9 +581,9 @@ function renderTown(town) {
             ${isDesignSystemPilot ? '<div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-fill"></div></div>' : ''}
           </div>
         </section>`
-      : ''
-  }
+    : '';
 
+  const servicesListSection = `
   <section${isDesignSystemPilot ? '' : ' class="section-alt"'}>
     <div class="container">
       ${blockOpen}<div class="section-head">
@@ -580,11 +592,11 @@ function renderTown(town) {
       </div>
       <div class="service-list">${serviceRows}</div>${blockClose}
     </div>
-  </section>
+  </section>`;
 
-  ${
-    faqItems
-      ? `<section id="faq">
+  const faqSection = faqItems
+    ? `
+  <section id="faq">
           <div class="container">
             ${blockOpen}<div class="section-head">
               <span class="eyebrow">Questions</span>
@@ -593,9 +605,9 @@ function renderTown(town) {
             <div class="faq-list">${faqItems}</div>${blockClose}
           </div>
         </section>`
-      : ''
-  }
+    : '';
 
+  const nearbySection = `
   <section>
     <div class="container">
       ${blockOpen}<div class="section-head">
@@ -607,11 +619,11 @@ function renderTown(town) {
       </div>
       <div class="link-line center">${nearbyLine}</div>${blockClose}
     </div>
-  </section>
+  </section>`;
 
-  ${
-    isDesignSystemPilot
-      ? `<section>
+  const ctaSection = isDesignSystemPilot
+    ? `
+  <section>
           <div class="container">
             <div class="cta-band rs-block">
               <span class="eyebrow">Get Started</span>
@@ -621,15 +633,38 @@ function renderTown(town) {
             </div>
           </div>
         </section>`
-      : `<section class="cta-band">
+    : `
+  <section class="cta-band">
     <div class="container">
       <span class="eyebrow">Get Started</span>
       <h2>Speak to Algarve Smart Home about your property in ${esc(town.name)}</h2>
       <p class="lede">Call now to talk through cameras, alarms or smart home options — in English, with no confusion.</p>
       <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
     </div>
-  </section>`
-  }
+  </section>`;
+
+  const body = isServicesFirst
+    ? `
+  ${hero}
+  ${whatWeInstallSection}
+  ${localToTownSection}
+  ${whatToKnowSection}
+  ${inDetailSection}
+  ${servicesListSection}
+  ${faqSection}
+  ${nearbySection}
+  ${ctaSection}
+  `
+    : `
+  ${hero}
+  ${localToTownSection}
+  ${whatToKnowSection}
+  ${inDetailSection}
+  ${whatWeInstallSection}
+  ${servicesListSection}
+  ${faqSection}
+  ${nearbySection}
+  ${ctaSection}
   `;
 
   return renderPage({
