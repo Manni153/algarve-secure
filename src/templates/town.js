@@ -58,6 +58,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     jpg: '/assets/images/praia-da-luz-villa-terrace.jpg',
     alt: 'Villa balcony in Praia da Luz overlooking the beach and coastline',
   },
+  sagres: {
+    webp: '/assets/images/sagres-villa-terrace.webp',
+    jpg: '/assets/images/sagres-villa-terrace.jpg',
+    alt: 'Villa terrace near Sagres overlooking clifftop coastline and the Atlantic',
+  },
 };
 
 // Short line under the hero CTA button, varied across towns.
