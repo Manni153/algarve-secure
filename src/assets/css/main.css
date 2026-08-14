@@ -3367,6 +3367,19 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs .hero-stack--split .hero-stack-media picture img {
     object-position: 50% 50%;
   }
+  /* Rollout towns without their own photography yet (see
+     hasPilotPhotography in town.js) render the standard placeholder box
+     here instead of a <picture> — needs its own explicit full-bleed fill
+     rule since the picture rules above only target picture/img. */
+  .page-lagos-rs .hero-stack--split .hero-stack-media .placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0;
+    border: none;
+  }
   .page-lagos-rs .hero-stack--split .hero-stack-media::after {
     content: '';
     position: absolute;
@@ -3479,6 +3492,19 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs .hero-stack--split .hero-stack-media picture img {
     object-position: 90% 50%;
   }
+  /* Rollout towns without their own photography yet (see
+     hasPilotPhotography in town.js) render the standard placeholder box
+     here instead of a <picture> — needs its own explicit full-bleed fill
+     rule since the picture rules above only target picture/img. */
+  .page-lagos-rs .hero-stack--split .hero-stack-media .placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0;
+    border: none;
+  }
   .page-lagos-rs .hero-stack--split .hero-stack-media::after {
     content: '';
     position: absolute;
@@ -3579,6 +3605,18 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85)) drop-shadow(0 1px 8px rgba(0, 0, 0, 0.7));
   }
   .page-lagos-rs .hero-stack--split .hero-trust-inline .v-mobile-label { font-size: 12px !important; }
+}
+
+/* Rollout towns without photography yet still render the placeholder's
+   own .ph-label caption text (small caption, centered) exactly as
+   designed elsewhere on the site — but that reads as stray overlapping
+   text once the placeholder becomes a full-viewport background layer
+   sitting behind the real hero copy. Visually hidden only in this one
+   full-bleed context (every other placeholder on the site keeps its
+   visible label, unchanged) — the alt text is still present via
+   role="img" aria-label for anyone using a screen reader. */
+.page-lagos-rs .hero-stack--split .hero-stack-media .placeholder .ph-label {
+  display: none;
 }
 
 /* The closing CTA band (the dark section directly above the footer) still
