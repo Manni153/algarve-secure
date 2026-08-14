@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil', 'faro', 'olhao', 'sao-bras-de-alportel']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil', 'faro', 'olhao', 'sao-bras-de-alportel', 'tavira']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -158,6 +158,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-sao-bras-de-alportel-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near São Brás de Alportel with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  tavira: {
+    mobileWebp: '/assets/images/hero-security-tavira-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-tavira-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-tavira-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-tavira-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Tavira with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -259,6 +266,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/sao-bras-de-alportel-villa-terrace.webp',
     jpg: '/assets/images/sao-bras-de-alportel-villa-terrace.jpg',
     alt: 'Villa terrace near São Brás de Alportel overlooking the surrounding hills and countryside',
+  },
+  tavira: {
+    webp: '/assets/images/tavira-villa-terrace.webp',
+    jpg: '/assets/images/tavira-villa-terrace.jpg',
+    alt: 'Villa terrace near Tavira overlooking the Gilão river and historic town',
   },
 };
 
