@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -130,6 +130,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-loule-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Loulé with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  almancil: {
+    mobileWebp: '/assets/images/hero-security-almancil-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-almancil-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-almancil-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-almancil-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Almancil with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -211,6 +218,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/loule-villa-terrace.webp',
     jpg: '/assets/images/loule-villa-terrace.jpg',
     alt: 'Villa terrace near Loulé overlooking the historic town and surrounding hills',
+  },
+  almancil: {
+    webp: '/assets/images/almancil-villa-terrace.webp',
+    jpg: '/assets/images/almancil-villa-terrace.jpg',
+    alt: 'Villa terrace near Almancil overlooking golf courses and manicured grounds',
   },
 };
 
