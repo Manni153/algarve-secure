@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil', 'faro', 'olhao']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil', 'faro', 'olhao', 'sao-bras-de-alportel']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -151,6 +151,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-olhao-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Olhão with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  'sao-bras-de-alportel': {
+    mobileWebp: '/assets/images/hero-security-sao-bras-de-alportel-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-sao-bras-de-alportel-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-sao-bras-de-alportel-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-sao-bras-de-alportel-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near São Brás de Alportel with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -247,6 +254,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/olhao-villa-terrace.webp',
     jpg: '/assets/images/olhao-villa-terrace.jpg',
     alt: 'Villa terrace near Olhão overlooking the Ria Formosa lagoon and fishing harbour',
+  },
+  'sao-bras-de-alportel': {
+    webp: '/assets/images/sao-bras-de-alportel-villa-terrace.webp',
+    jpg: '/assets/images/sao-bras-de-alportel-villa-terrace.jpg',
+    alt: 'Villa terrace near São Brás de Alportel overlooking the surrounding hills and countryside',
   },
 };
 
