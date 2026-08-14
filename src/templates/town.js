@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -109,6 +109,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-albufeira-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Albufeira with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  vilamoura: {
+    mobileWebp: '/assets/images/hero-security-vilamoura-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-vilamoura-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-vilamoura-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-vilamoura-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Vilamoura with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -175,6 +182,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/albufeira-villa-terrace.webp',
     jpg: '/assets/images/albufeira-villa-terrace.jpg',
     alt: 'Villa terrace near Albufeira overlooking a cliffside beach and coastline',
+  },
+  vilamoura: {
+    webp: '/assets/images/vilamoura-villa-terrace.webp',
+    jpg: '/assets/images/vilamoura-villa-terrace.jpg',
+    alt: 'Villa terrace near Vilamoura overlooking the marina and golf estates',
   },
 };
 
