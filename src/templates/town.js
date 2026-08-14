@@ -19,6 +19,11 @@ const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres']);
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
 // standard placeholder box as the hero's full-bleed layer instead.
+// Standing convention: every future town added to DESIGN_SYSTEM_PILOT_SLUGS
+// gets its own desktopWebp/desktopJpg/mobileWebp/mobileJpg pair copied from
+// the same two source photos — algarve-security-installation-villa-desktop
+// for desktop, algarve-security-installation-villa-mobile for mobile/tablet
+// — not fresh per-town photography.
 const TOWN_HERO_PHOTO = {
   lagos: {
     mobileWebp: '/assets/images/hero-security-lagos-mobile.webp',
