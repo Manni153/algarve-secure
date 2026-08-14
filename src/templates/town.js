@@ -20,8 +20,9 @@ const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'a
 // (matching the homepage's own section order) to sit directly under the
 // hero, ahead of "Local to <town>" and the rest — rolled out one town at a
 // time same as DESIGN_SYSTEM_PILOT_SLUGS above, starting with the pilot
-// town. Towns NOT in this set keep the original section order untouched.
-const SERVICES_FIRST_SLUGS = new Set(['lagos']);
+// town (Lagos) and now covering every town. Towns NOT in this set would
+// keep the original section order untouched, but none remain.
+const SERVICES_FIRST_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique', 'albufeira', 'vilamoura', 'quarteira', 'loule', 'almancil', 'faro', 'olhao', 'sao-bras-de-alportel', 'tavira', 'castro-marim', 'vila-real-de-santo-antonio']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
