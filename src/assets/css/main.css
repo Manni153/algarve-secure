@@ -3559,6 +3559,15 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   /* Matches the homepage's own .hero-kicker size at this breakpoint
      (29px, down from the shared 36px --rs-h1-size-mobile default). */
   .page-lagos-rs .hero-kicker { font-size: 29px; }
+  /* Spacing pass: matches the homepage mobile hero's actual measured
+     gaps between H1/H2/CTA/stats (20px / 18px / 40px), derived from the
+     homepage's own space-between flex layout — a different mechanism
+     from this page's fixed 14px gap + per-element margin, so the
+     equivalent values here are back-solved to land on the same visible
+     gap rather than copying the homepage's raw margin numbers. */
+  .page-lagos-rs .hero-stack--split .hero-kicker { margin-bottom: 6px; }
+  .page-lagos-rs .hero-stack--split .hero-headline { margin-bottom: 0; }
+  .page-lagos-rs .hero-stack--split .hero-trust-inline { margin-top: 26px; }
   /* Matches the homepage's own mobile-only hero stats sizing (up from
      the shared max-width:1024px block's 12px/14px/22px above). */
   .page-lagos-rs .hero-stack--split .hero-trust-inline .l { font-size: 13px !important; }
