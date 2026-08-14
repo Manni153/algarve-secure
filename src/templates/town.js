@@ -14,7 +14,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // description photography are supplied independently per town (see
 // TOWN_HERO_PHOTO/TOWN_DESCRIPTION_PHOTO below) — towns without their own
 // photos yet still render the standard placeholder box in that slot.
-const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves']);
+const DESIGN_SYSTEM_PILOT_SLUGS = new Set(['lagos', 'praia-da-luz', 'sagres', 'aljezur', 'alvor', 'portimao', 'ferragudo', 'lagoa', 'carvoeiro', 'silves', 'monchique']);
 
 // Per-town full-bleed hero photography (same villa photoshoot, reused
 // across every rollout town so far). Towns not listed here render the
@@ -95,6 +95,13 @@ const TOWN_HERO_PHOTO = {
     desktopJpg: '/assets/images/hero-security-silves-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa near Silves with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
+  monchique: {
+    mobileWebp: '/assets/images/hero-security-monchique-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-monchique-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-monchique-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-monchique-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa near Monchique with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
 };
 
 // Per-town "Local to <town>" description photo, supplied independently of
@@ -151,6 +158,11 @@ const TOWN_DESCRIPTION_PHOTO = {
     webp: '/assets/images/silves-villa-terrace.webp',
     jpg: '/assets/images/silves-villa-terrace.jpg',
     alt: 'Villa terrace near Silves overlooking the Arade river valley and orange groves',
+  },
+  monchique: {
+    webp: '/assets/images/monchique-villa-terrace.webp',
+    jpg: '/assets/images/monchique-villa-terrace.jpg',
+    alt: 'Villa terrace near Monchique overlooking forested mountains and mist-filled valleys',
   },
 };
 
