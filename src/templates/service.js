@@ -11,7 +11,15 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // icon-tile "Explore" cards, white header/nav chrome) to service pages
 // approved for it, one at a time, starting with the flagship CCTV page.
 // Every service NOT in this set is byte-for-byte unchanged.
-const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation']);
+const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation', 'alarm-systems']);
+
+// Minimal-images rollout — separate from the design-system set above.
+// CCTV had all four of its two-col placeholder slots reduced to just two
+// real photos (scenarios/in-detail dropped their media column entirely,
+// collapsing to single-column layouts), per explicit request. Every other
+// pilot page (e.g. Alarm Systems) keeps its placeholder boxes in every
+// slot until told otherwise — same design language, unreduced imagery.
+const SERVICE_MINIMAL_IMAGES_SLUGS = new Set(['cctv-installation']);
 
 // Per-service full-bleed hero photography for the pilot page(s) — same
 // standard villa photoshoot/pair reused across most rollout towns (see
@@ -25,6 +33,13 @@ const SERVICE_HERO_PHOTO = {
     desktopWebp: '/assets/images/hero-security-cctv-installation-desktop.webp',
     desktopJpg: '/assets/images/hero-security-cctv-installation-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
+  'alarm-systems': {
+    mobileWebp: '/assets/images/hero-security-alarm-systems-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-alarm-systems-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-alarm-systems-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-alarm-systems-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa with a discreet security camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
 };
 
@@ -53,6 +68,7 @@ const SERVICE_DESCRIPTION_PHOTO = {
 
 function renderService(service) {
   const isPilot = SERVICE_DESIGN_SYSTEM_PILOT_SLUGS.has(service.slug);
+  const isMinimalImages = SERVICE_MINIMAL_IMAGES_SLUGS.has(service.slug);
   // Design-system pilot only: wraps a section's content in the homepage's
   // "emphasis block" panel (white rounded surface on the flat page
   // background — see .page-lagos-rs .rs-block in main.css). Every other
@@ -314,7 +330,7 @@ function renderService(service) {
 
   ${
     scenarioItems
-      ? isPilot
+      ? isMinimalImages
         ? `<section id="scenarios">
           <div class="container">
             <div class="section-head">
@@ -324,9 +340,9 @@ function renderService(service) {
             <div class="pillar-list mt-32">${scenarioItems}</div>
           </div>
         </section>`
-        : `<section class="section-alt" id="scenarios">
+        : `<section${isPilot ? '' : ' class="section-alt"'} id="scenarios">
           <div class="container">
-            <div class="two-col">
+            ${blockOpen}<div class="two-col">
               <div class="two-col-text">
                 <span class="eyebrow">Real-World Scenarios</span>
                 <h2>Where ${esc(service.name.toLowerCase())} actually gets used</h2>
@@ -335,7 +351,7 @@ function renderService(service) {
               <div class="two-col-media">
                 ${placeholder(service.scenarioImageAlt, { ratio: 'tall' })}
               </div>
-            </div>
+            </div>${blockClose}
           </div>
         </section>`
       : ''
@@ -373,7 +389,7 @@ function renderService(service) {
 
   ${
     extraCards
-      ? isPilot
+      ? isMinimalImages
         ? `<section id="in-detail">
           <div class="container">
             ${blockOpen}<div class="section-head">
@@ -383,9 +399,9 @@ function renderService(service) {
             <div class="card-grid cols-2 mt-32">${extraCards}</div>${blockClose}
           </div>
         </section>`
-        : `<section class="section-alt" id="in-detail">
+        : `<section${isPilot ? '' : ' class="section-alt"'} id="in-detail">
           <div class="container">
-            <div class="two-col reverse">
+            ${blockOpen}<div class="two-col reverse">
               <div class="two-col-media">
                 ${placeholder(service.detailImageAlt, { ratio: 'tall' })}
               </div>
@@ -394,7 +410,7 @@ function renderService(service) {
                 <h2>${esc(service.name)}, done properly</h2>
               </div>
             </div>
-            <div class="card-grid cols-2 mt-32">${extraCards}</div>
+            <div class="card-grid cols-2 mt-32">${extraCards}</div>${blockClose}
           </div>
         </section>`
       : ''
