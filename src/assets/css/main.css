@@ -3232,6 +3232,12 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   box-shadow: var(--rs-card-shadow);
 }
 .page-lagos-rs #services .card { background: var(--hero2-panel-grey); }
+/* Matches .page-home #services exactly (same source rule, same reason):
+   the flagship card's outline and "Flagship Service" badge belong on the
+   homepage's own services grid, not repeated on every other page's
+   "Explore"/relevant-services grid that happens to include the CCTV card. */
+.page-lagos-rs #services .card.flagship { border: none; }
+.page-lagos-rs #services .card .badge { display: none; }
 .page-lagos-rs #services .card-icon-block {
   display: flex;
   align-items: center;
