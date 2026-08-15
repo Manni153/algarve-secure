@@ -64,6 +64,13 @@ const SERVICE_DESCRIPTION_PHOTO = {
       alt: 'CCTV camera installed by an expert technician on an Algarve villa',
     },
   },
+  'alarm-systems': {
+    included: {
+      webp: '/assets/images/alarm-system-installed.webp',
+      jpg: '/assets/images/alarm-system-installed.jpg',
+      alt: 'Alarm motion sensor installed indoors on an Algarve property wall',
+    },
+  },
 };
 
 function renderService(service) {
