@@ -11,7 +11,7 @@ const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = re
 // icon-tile "Explore" cards, white header/nav chrome) to service pages
 // approved for it, one at a time, starting with the flagship CCTV page.
 // Every service NOT in this set is byte-for-byte unchanged.
-const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation', 'alarm-systems', 'access-control']);
+const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation', 'alarm-systems', 'access-control', 'gate-automation']);
 
 // Minimal-images rollout — separate from the design-system set above.
 // CCTV had all four of its two-col placeholder slots reduced to just two
@@ -46,6 +46,13 @@ const SERVICE_HERO_PHOTO = {
     mobileJpg: '/assets/images/hero-security-access-control-mobile.jpg',
     desktopWebp: '/assets/images/hero-security-access-control-desktop.webp',
     desktopJpg: '/assets/images/hero-security-access-control-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa with a discreet security camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
+  'gate-automation': {
+    mobileWebp: '/assets/images/hero-security-gate-automation-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-gate-automation-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-gate-automation-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-gate-automation-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa with a discreet security camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
   },
 };
