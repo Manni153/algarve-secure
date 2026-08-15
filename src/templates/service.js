@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, renderPage, serviceIcon } = require('./layout');
+const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = require('./layout');
 
 // Design-system rollout for service pages — mirrors the town-page rollout
 // (see town.js's DESIGN_SYSTEM_PILOT_SLUGS): applies the homepage's
@@ -25,6 +25,19 @@ const SERVICE_HERO_PHOTO = {
     desktopWebp: '/assets/images/hero-security-cctv-installation-desktop.webp',
     desktopJpg: '/assets/images/hero-security-cctv-installation-desktop.jpg',
     alt: 'Terracotta-walled Algarve villa with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
+};
+
+// "What's Included" section description photo — a single image used at
+// every breakpoint (no separate mobile/desktop crop, unlike the hero
+// pair above), supplied independently per service on its own schedule,
+// same as town.js's TOWN_DESCRIPTION_PHOTO. Services not listed here
+// still render the standard placeholder box in that slot.
+const SERVICE_DESCRIPTION_PHOTO = {
+  'cctv-installation': {
+    webp: '/assets/images/cctv-installed-professionally.webp',
+    jpg: '/assets/images/cctv-installed-professionally.jpg',
+    alt: 'CCTV camera professionally installed on an Algarve villa exterior wall',
   },
 };
 
@@ -178,6 +191,7 @@ function renderService(service) {
     .join('');
 
   const heroPhoto = SERVICE_HERO_PHOTO[service.slug];
+  const descriptionPhoto = SERVICE_DESCRIPTION_PHOTO[service.slug];
 
   const hero = heroIntro({
     alt: heroPhoto ? heroPhoto.alt : service.imageAlt,
@@ -245,7 +259,11 @@ function renderService(service) {
           <ul class="check-list mt-32">${includedList}</ul>
         </div>
         <div class="two-col-media">
-          ${placeholder(service.imageAlt, { ratio: 'tall' })}
+          ${
+            descriptionPhoto
+              ? photo(descriptionPhoto.alt, { webp: descriptionPhoto.webp, jpg: descriptionPhoto.jpg, ratio: 'tall' })
+              : placeholder(service.imageAlt, { ratio: 'tall' })
+          }
         </div>
       </div>${blockClose}
     </div>
