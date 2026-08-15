@@ -28,16 +28,26 @@ const SERVICE_HERO_PHOTO = {
   },
 };
 
-// "What's Included" section description photo — a single image used at
-// every breakpoint (no separate mobile/desktop crop, unlike the hero
-// pair above), supplied independently per service on its own schedule,
-// same as town.js's TOWN_DESCRIPTION_PHOTO. Services not listed here
-// still render the standard placeholder box in that slot.
+// In-page description photos — one image per content section, each used
+// at every breakpoint (no separate mobile/desktop crop, unlike the hero
+// pair above), supplied independently per service/section on its own
+// schedule, same as town.js's TOWN_DESCRIPTION_PHOTO. Keyed by service
+// slug, then by section (included/whyItMatters/scenarios/inDetail —
+// matching the four two-col placeholder slots service.js renders).
+// Services/sections not listed here still render the standard
+// placeholder box in that slot.
 const SERVICE_DESCRIPTION_PHOTO = {
   'cctv-installation': {
-    webp: '/assets/images/cctv-installed-professionally.webp',
-    jpg: '/assets/images/cctv-installed-professionally.jpg',
-    alt: 'CCTV camera professionally installed on an Algarve villa exterior wall',
+    included: {
+      webp: '/assets/images/cctv-installed-professionally.webp',
+      jpg: '/assets/images/cctv-installed-professionally.jpg',
+      alt: 'CCTV camera professionally installed on an Algarve villa exterior wall',
+    },
+    whyItMatters: {
+      webp: '/assets/images/cctv-installed-by-experts.webp',
+      jpg: '/assets/images/cctv-installed-by-experts.jpg',
+      alt: 'CCTV camera installed by an expert technician on an Algarve villa',
+    },
   },
 };
 
@@ -191,7 +201,7 @@ function renderService(service) {
     .join('');
 
   const heroPhoto = SERVICE_HERO_PHOTO[service.slug];
-  const descriptionPhoto = SERVICE_DESCRIPTION_PHOTO[service.slug];
+  const descriptionPhotos = SERVICE_DESCRIPTION_PHOTO[service.slug] || {};
 
   const hero = heroIntro({
     alt: heroPhoto ? heroPhoto.alt : service.imageAlt,
@@ -260,8 +270,8 @@ function renderService(service) {
         </div>
         <div class="two-col-media">
           ${
-            descriptionPhoto
-              ? photo(descriptionPhoto.alt, { webp: descriptionPhoto.webp, jpg: descriptionPhoto.jpg, ratio: 'tall' })
+            descriptionPhotos.included
+              ? photo(descriptionPhotos.included.alt, { webp: descriptionPhotos.included.webp, jpg: descriptionPhotos.included.jpg, ratio: 'tall' })
               : placeholder(service.imageAlt, { ratio: 'tall' })
           }
         </div>
@@ -273,7 +283,11 @@ function renderService(service) {
     <div class="container">
       ${blockOpen}<div class="two-col reverse">
         <div class="two-col-media">
-          ${placeholder(`${service.name} in use at an Algarve property`, { ratio: 'tall' })}
+          ${
+            descriptionPhotos.whyItMatters
+              ? photo(descriptionPhotos.whyItMatters.alt, { webp: descriptionPhotos.whyItMatters.webp, jpg: descriptionPhotos.whyItMatters.jpg, ratio: 'tall' })
+              : placeholder(`${service.name} in use at an Algarve property`, { ratio: 'tall' })
+          }
         </div>
         <div class="two-col-text">
           <span class="eyebrow">Why It Matters</span>
