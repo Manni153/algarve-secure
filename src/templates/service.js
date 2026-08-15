@@ -184,7 +184,6 @@ function renderService(service) {
       if (isPilot) {
         return `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
           <div class="card-icon-block">${serviceIcon(s.slug)}</div>
-          ${placeholder(s.imageAlt, { ratio: 'wide' })}
           ${s.flagship ? '<span class="badge">Flagship Service</span>' : ''}
           <h3>${esc(s.name)}</h3>
           <p>${esc(s.heroSubhead)}</p>
@@ -315,9 +314,19 @@ function renderService(service) {
 
   ${
     scenarioItems
-      ? `<section${isPilot ? '' : ' class="section-alt"'} id="scenarios">
+      ? isPilot
+        ? `<section id="scenarios">
           <div class="container">
-            ${blockOpen}<div class="two-col">
+            <div class="section-head">
+              <span class="eyebrow">Real-World Scenarios</span>
+              <h2>Where ${esc(service.name.toLowerCase())} actually gets used</h2>
+            </div>
+            <div class="pillar-list mt-32">${scenarioItems}</div>
+          </div>
+        </section>`
+        : `<section class="section-alt" id="scenarios">
+          <div class="container">
+            <div class="two-col">
               <div class="two-col-text">
                 <span class="eyebrow">Real-World Scenarios</span>
                 <h2>Where ${esc(service.name.toLowerCase())} actually gets used</h2>
@@ -326,7 +335,7 @@ function renderService(service) {
               <div class="two-col-media">
                 ${placeholder(service.scenarioImageAlt, { ratio: 'tall' })}
               </div>
-            </div>${blockClose}
+            </div>
           </div>
         </section>`
       : ''
@@ -364,9 +373,19 @@ function renderService(service) {
 
   ${
     extraCards
-      ? `<section${isPilot ? '' : ' class="section-alt"'} id="in-detail">
+      ? isPilot
+        ? `<section id="in-detail">
           <div class="container">
-            ${blockOpen}<div class="two-col reverse">
+            ${blockOpen}<div class="section-head">
+              <span class="eyebrow">In Detail</span>
+              <h2>${esc(service.name)}, done properly</h2>
+            </div>
+            <div class="card-grid cols-2 mt-32">${extraCards}</div>${blockClose}
+          </div>
+        </section>`
+        : `<section class="section-alt" id="in-detail">
+          <div class="container">
+            <div class="two-col reverse">
               <div class="two-col-media">
                 ${placeholder(service.detailImageAlt, { ratio: 'tall' })}
               </div>
@@ -375,7 +394,7 @@ function renderService(service) {
                 <h2>${esc(service.name)}, done properly</h2>
               </div>
             </div>
-            <div class="card-grid cols-2 mt-32">${extraCards}</div>${blockClose}
+            <div class="card-grid cols-2 mt-32">${extraCards}</div>
           </div>
         </section>`
       : ''
