@@ -83,6 +83,28 @@ const SERVICE_DESCRIPTION_PHOTO = {
       alt: 'Wall-mounted alarm control keypad with app-based remote access',
     },
   },
+  'access-control': {
+    included: {
+      webp: '/assets/images/access-control-intercom-panel.webp',
+      jpg: '/assets/images/access-control-intercom-panel.jpg',
+      alt: 'Video intercom panel installed beside a gated apartment entrance in the Algarve',
+    },
+    whyItMatters: {
+      webp: '/assets/images/access-control-system-installed.webp',
+      jpg: '/assets/images/access-control-system-installed.jpg',
+      alt: 'Video intercom and camera system newly installed at an Algarve property entrance',
+    },
+    scenarios: {
+      webp: '/assets/images/access-control-keypad.webp',
+      jpg: '/assets/images/access-control-keypad.jpg',
+      alt: 'Numeric keypad access reader mounted beside a property entrance',
+    },
+    inDetail: {
+      webp: '/assets/images/access-control-exit-button.webp',
+      jpg: '/assets/images/access-control-exit-button.jpg',
+      alt: 'Touchless exit sensor mounted beside a controlled door entrance',
+    },
+  },
 };
 
 function renderService(service) {
@@ -368,7 +390,11 @@ function renderService(service) {
                 <div class="pillar-list mt-32">${scenarioItems}</div>
               </div>
               <div class="two-col-media">
-                ${placeholder(service.scenarioImageAlt, { ratio: 'tall' })}
+                ${
+                  descriptionPhotos.scenarios
+                    ? photo(descriptionPhotos.scenarios.alt, { webp: descriptionPhotos.scenarios.webp, jpg: descriptionPhotos.scenarios.jpg, ratio: 'tall' })
+                    : placeholder(service.scenarioImageAlt, { ratio: 'tall' })
+                }
               </div>
             </div>${blockClose}
           </div>
@@ -422,7 +448,11 @@ function renderService(service) {
           <div class="container">
             ${blockOpen}<div class="two-col reverse">
               <div class="two-col-media">
-                ${placeholder(service.detailImageAlt, { ratio: 'tall' })}
+                ${
+                  descriptionPhotos.inDetail
+                    ? photo(descriptionPhotos.inDetail.alt, { webp: descriptionPhotos.inDetail.webp, jpg: descriptionPhotos.inDetail.jpg, ratio: 'tall' })
+                    : placeholder(service.detailImageAlt, { ratio: 'tall' })
+                }
               </div>
               <div class="two-col-text">
                 <span class="eyebrow">In Detail</span>
