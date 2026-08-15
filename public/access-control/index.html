@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Access Control","name":"Access Control in the Algarve","description":"Access control puts you in charge of who can get onto a property — cleaners, gardeners, guests and delivery drivers — without needing to hand out physical keys or be on-site to let people in.","areaServed":{"@type":"AdministrativeArea","name":"Algarve, Portugal"},"provider":{"@type":"LocalBusiness","name":"Algarve Smart Home","telephone":"+351923272806"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.algarvesecure.com/"},{"@type":"ListItem","position":2,"name":"Access Control","item":"https://www.algarvesecure.com/access-control"}]}</script>
@@ -20,11 +20,20 @@
 </head>
 <body>
 
-  <nav class="site-header bleed" aria-label="Primary">
+  <nav class="site-header site-header--home bleed" aria-label="Primary">
     <div class="container">
-      <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
+      <a href="/" class="wordmark">Algarve <span class="accent">Smart <span class="wordmark-h-wrap">H<svg class="wordmark-roof" viewBox="0 0 28 11" fill="none" aria-hidden="true" focusable="false"><path d="M2 9.3 14 1.8 26 9.3" stroke="#DC143C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ome</span></a>
       <ul class="header-nav"><li><a href="/cctv-installation">CCTV</a></li><li><a href="/alarm-systems">Alarms</a></li><li><a href="/access-control">Access Control</a></li><li><a href="/gate-automation">Gate Automation</a></li><li><a href="/fire-detection">Fire Detection</a></li><li><a href="/home-networking">Home Networking</a></li><li><a href="/smart-home-automation">Smart Home Automation</a></li></ul>
       
+      <nav class="home-header-nav" aria-label="Primary">
+        <div class="home-header-nav-item">
+          <button type="button" class="home-header-nav-trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">Services</button>
+          <div class="home-header-dropdown"><a href="/cctv-installation">CCTV</a><a href="/alarm-systems">Alarms</a><a href="/access-control">Access Control</a><a href="/gate-automation">Gate Automation</a><a href="/fire-detection">Fire Detection</a><a href="/home-networking">Home Networking</a><a href="/smart-home-automation">Smart Home Automation</a></div>
+        </div>
+        <a href="#areas" class="home-header-nav-link">Service Areas</a>
+        <a href="/about" class="home-header-nav-link">About</a>
+        <a href="/contact" class="home-header-nav-link">Contact</a>
+      </nav>
       <div class="header-actions">
         <a href="tel:+351923272806" class="header-phone" aria-label="Call Algarve Smart Home">
           <span class="icon" aria-hidden="true"></span><span class="phone-digits">+351 923 272 806</span>
@@ -61,10 +70,10 @@
       </div>
     </nav>
   </div>
-<main>
+<main class="page-lagos-rs">
 
   
-  <section class="hero-stack bleed">
+  <section class="hero-stack hero-stack--split bleed">
     <div class="container">
       <div class="hero-stack-text">
         <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <span>Access Control</span></p>
@@ -73,18 +82,21 @@
         <p class="hero-subtext">Electronic locks and video intercoms — no more key cutting, no more lockboxes.</p>
         <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
         
-        
+        <div class="hero-trust-inline"><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1.5" y="3" width="21" height="12.5" rx="6"/><path d="M6.6 17.4C5.7 19 4.2 20.4 2.3 21.3"/><circle cx="12" cy="9.25" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">100% English-Speaking</span><span class="v v-mobile v-mobile-value">100%</span><span class="v v-mobile v-mobile-label">English-Speaking</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.3C7.7 2.3 4.3 5.8 4.3 10c0 5.9 7.7 12.7 7.7 12.7s7.7-6.8 7.7-12.7c0-4.2-3.4-7.7-7.7-7.7Z"/><circle cx="12" cy="9.7" r="1.6" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">Locally Based</span><span class="v v-mobile v-mobile-value">Locally</span><span class="v v-mobile v-mobile-label">Based</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">Fast Response</span><span class="v v-mobile v-mobile-value">Fast</span><span class="v v-mobile v-mobile-label">Response</span></div></div>
       </div>
       <div class="hero-stack-media">
-        <div class="placeholder" role="img" aria-label="[Placeholder: Video intercom panel mounted beside a gated entrance]">
-    <span class="ph-label">[Placeholder: Video intercom panel mounted beside a gated entrance]</span>
-  </div>
+        <picture>
+        <source media="(min-width: 1025px)" type="image/webp" srcset="/assets/images/hero-security-access-control-desktop.webp">
+        <source media="(min-width: 1025px)" type="image/jpeg" srcset="/assets/images/hero-security-access-control-desktop.jpg">
+        <source type="image/webp" srcset="/assets/images/hero-security-access-control-mobile.webp">
+        <img src="/assets/images/hero-security-access-control-mobile.jpg" alt="Terracotta-walled Algarve villa with a discreet security camera mounted above the roofline, olive trees and glass sliding doors at the entrance" loading="eager" fetchpriority="high">
+      </picture>
       </div>
     </div>
   </section>
-  
+  <div class="hero-trust-band hero-trust-band--split bleed"><div class="container"><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1.5" y="3" width="21" height="12.5" rx="6"/><path d="M6.6 17.4C5.7 19 4.2 20.4 2.3 21.3"/><circle cx="12" cy="9.25" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v">100%</span><span class="l">English-Speaking</span><span class="vs">100% English-Speaking</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.3C7.7 2.3 4.3 5.8 4.3 10c0 5.9 7.7 12.7 7.7 12.7s7.7-6.8 7.7-12.7c0-4.2-3.4-7.7-7.7-7.7Z"/><circle cx="12" cy="9.7" r="1.6" fill="#DC143C" stroke="none"/></svg><span class="v">Local</span><span class="l">Based</span><span class="vs">Locally Based</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v">Fast</span><span class="l">Response</span><span class="vs">Fast Response</span></div></div></div>
 
-  <nav class="toc" aria-label="Page sections">
+  <nav class="toc toc-rs" aria-label="Page sections">
     <div class="container">
       <span class="toc-label">On this page</span>
       <div class="toc-links"><a href="#included">What's Included</a><a href="#why-it-matters">Why It Matters</a><a href="#in-depth">In Depth</a><a href="#scenarios">Real-World Scenarios</a><a href="#common-problems">Common Problems</a><a href="#property-types">By Property Type</a><a href="#in-detail">In Detail</a><a href="#faq">FAQ</a></div>
@@ -93,7 +105,7 @@
 
   <section id="included">
     <div class="container">
-      <div class="two-col">
+      <div class="rs-block"><div class="two-col">
         <div class="two-col-text">
           <span class="eyebrow">What's Included</span>
           <h2>What our Access Control service covers</h2>
@@ -105,13 +117,13 @@
     <span class="ph-label">[Placeholder: Video intercom panel mounted beside a gated entrance]</span>
   </div>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
 
-  <section class="section-alt" id="why-it-matters">
+  <section id="why-it-matters">
     <div class="container">
-      <div class="two-col reverse">
+      <div class="rs-block"><div class="two-col reverse">
         <div class="two-col-media">
           <div class="placeholder ratio-tall" role="img" aria-label="Access Control in use at an Algarve property">
     <span class="ph-label">Access Control in use at an Algarve property</span>
@@ -123,23 +135,23 @@
           <p>For gated villas, condominiums and rental properties, controlling who comes through the front gate matters — especially when you’re not there to answer the door yourself. Access control makes it possible to manage entry for cleaners, gardeners, guests and delivery drivers without handing out physical keys.</p>
           <a href="tel:+351923272806" class="btn btn-icon mt-32">+351 923 272 806</a>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
 
   <section id="in-depth">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">In Depth</span>
               <h2>How access control actually works</h2>
             </div>
-            <div class="narrow" style="margin: 0 auto;"><h3>Deciding Between a Keypad, a Card Reader and a Video Intercom</h3><p>Which access method makes sense depends on who needs to get in and how often. A property with a small, fairly fixed group of people coming and going — an owner, a cleaner, a gardener — often works fine with a keypad or fob, where a code or fob can be reissued without a locksmith call-out. A building with a rotating cast of visitors, deliveries and guests benefits more from a video intercom, where a person can be seen and spoken to before the door or gate is released. Many properties end up with a combination: a fob for regular access and an intercom at the main entrance for everyone else.</p><h3>Where Access Control Meets the Rest of the Property</h3><p>Access control rarely stands alone. It usually connects to whatever handles the <a href="/gate-automation">gate</a> — so a code that opens the front door can open the driveway gate too — and increasingly ties into the same app used for <a href="/cctv-installation">cameras</a> and the <a href="/alarm-systems">alarm</a>, so checking who came through the gate and seeing the camera footage from that moment happen in one place rather than two separate systems that don't talk to each other.</p><h3>Why Managing Credentials Matters More Than the Hardware Itself</h3><p>The reader or lock on the door is a one-time install; managing who has a code or fob is an ongoing job that outlasts it. A property with a cleaner, a gardener, occasional rental guests and family visiting from abroad ends up issuing and revoking access far more often than the hardware itself ever changes — which is why how easily a code can be added, scheduled or switched off matters as much as which reader is fitted. A system where every change means a callout gets used less carefully than one an owner can manage themselves in a couple of taps, and that difference tends to show up months after installation, not on day one.</p></div>
+            <div class="narrow" style="margin: 0 auto;"><h3>Deciding Between a Keypad, a Card Reader and a Video Intercom</h3><p>Which access method makes sense depends on who needs to get in and how often. A property with a small, fairly fixed group of people coming and going — an owner, a cleaner, a gardener — often works fine with a keypad or fob, where a code or fob can be reissued without a locksmith call-out. A building with a rotating cast of visitors, deliveries and guests benefits more from a video intercom, where a person can be seen and spoken to before the door or gate is released. Many properties end up with a combination: a fob for regular access and an intercom at the main entrance for everyone else.</p><h3>Where Access Control Meets the Rest of the Property</h3><p>Access control rarely stands alone. It usually connects to whatever handles the <a href="/gate-automation">gate</a> — so a code that opens the front door can open the driveway gate too — and increasingly ties into the same app used for <a href="/cctv-installation">cameras</a> and the <a href="/alarm-systems">alarm</a>, so checking who came through the gate and seeing the camera footage from that moment happen in one place rather than two separate systems that don't talk to each other.</p><h3>Why Managing Credentials Matters More Than the Hardware Itself</h3><p>The reader or lock on the door is a one-time install; managing who has a code or fob is an ongoing job that outlasts it. A property with a cleaner, a gardener, occasional rental guests and family visiting from abroad ends up issuing and revoking access far more often than the hardware itself ever changes — which is why how easily a code can be added, scheduled or switched off matters as much as which reader is fitted. A system where every change means a callout gets used less carefully than one an owner can manage themselves in a couple of taps, and that difference tends to show up months after installation, not on day one.</p></div></div>
           </div>
         </section>
 
-  <section class="section-alt" id="scenarios">
+  <section id="scenarios">
           <div class="container">
-            <div class="two-col">
+            <div class="rs-block"><div class="two-col">
               <div class="two-col-text">
                 <span class="eyebrow">Real-World Scenarios</span>
                 <h2>Where access control actually gets used</h2>
@@ -162,13 +174,13 @@
     <span class="ph-label">[Placeholder: Keypad or fob reader mounted at a villa gate entrance]</span>
   </div>
               </div>
-            </div>
+            </div></div>
           </div>
         </section>
 
   <section id="common-problems">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">Common Problems</span>
               <h2>What owners actually call about</h2>
               <p class="lede">The specific issues that come up most, and what's usually behind them.</p>
@@ -200,13 +212,13 @@
       </div><div class="card">
         <h3>&ldquo;Electronic lock feels sluggish or occasionally doesn't release on the first try&rdquo;</h3>
         <p>Usually a battery or alignment issue with the lock itself, rather than a problem with the reader or the credential — flag it early — a lock that's starting to struggle is far easier to sort before it fails outright.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
   <section id="property-types">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">By Property Type</span>
               <h2>How this applies to your property</h2>
               <p class="lede">The same service, sized differently depending on what you own.</p>
@@ -223,13 +235,13 @@
       </div><div class="card">
         <h3>Holiday Rental</h3>
         <p>Code-based entry removes the need for physical key handovers or lockboxes between guest stays.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
-  <section class="section-alt" id="in-detail">
+  <section id="in-detail">
           <div class="container">
-            <div class="two-col reverse">
+            <div class="rs-block"><div class="two-col reverse">
               <div class="two-col-media">
                 <div class="placeholder ratio-tall" role="img" aria-label="[Placeholder: Electronic door lock with card reader on an apartment entrance]">
     <span class="ph-label">[Placeholder: Electronic door lock with card reader on an apartment entrance]</span>
@@ -252,13 +264,13 @@
       </div><div class="card">
         <h3>Intercom Integration</h3>
         <p>Access control ties into the property’s video intercom setup, so entry and communication work as one system rather than separate installs.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
   <section id="faq">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">Questions</span>
               <h2>Frequently asked questions</h2>
             </div>
@@ -298,70 +310,78 @@
       </div><div class="faq-item">
         <h3>Can lighting be added to the same setup?</h3>
         <p>Basic remote-controlled lighting can be added alongside an access control or camera install — switched from the same app, as part of the <a href="/smart-home-automation">smart home add-on</a> rather than a separate project.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
-  <section class="cta-band">
-    <div class="container">
-      <span class="eyebrow">Get Started</span>
-      <h2>Talk through your access control options</h2>
-      <p class="lede">Call now and we'll talk you through what makes sense for your property — in English, with no jargon.</p>
-      <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
-    </div>
-  </section>
+  <section>
+          <div class="container">
+            <div class="cta-band rs-block">
+              <span class="eyebrow">Get Started</span>
+              <h2>Talk through your access control options</h2>
+              <p class="lede">Call now and we'll talk you through what makes sense for your property — in English, with no jargon.</p>
+              <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
+            </div>
+          </div>
+        </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
+      <div class="rs-block"><div class="section-head">
         <span class="eyebrow">Where We Work</span>
         <h2>Access Control across the Algarve</h2>
       </div>
       <div class="narrow region-links" style="margin: 0 auto;">
     <p>Across the <strong>West Algarve</strong>, access control is installed in <a href="/lagos">Lagos</a>, <a href="/praia-da-luz">Praia da Luz</a>, <a href="/sagres">Sagres</a>, <a href="/aljezur">Aljezur</a>, <a href="/alvor">Alvor</a>, <a href="/portimao">Portimão</a>, <a href="/ferragudo">Ferragudo</a>, <a href="/lagoa">Lagoa</a>, <a href="/carvoeiro">Carvoeiro</a>, <a href="/silves">Silves</a> and <a href="/monchique">Monchique</a>.</p>
     <p>In the <strong>Central Algarve</strong>, that coverage runs through <a href="/albufeira">Albufeira</a>, <a href="/vilamoura">Vilamoura</a>, <a href="/quarteira">Quarteira</a>, <a href="/loule">Loulé</a> and <a href="/almancil">Almancil</a>.</p>
-    <p>And along the <strong>East Algarve</strong>, it reaches <a href="/faro">Faro</a>, <a href="/olhao">Olhão</a>, <a href="/sao-bras-de-alportel">São Brás de Alportel</a>, <a href="/tavira">Tavira</a>, <a href="/castro-marim">Castro Marim</a> and <a href="/vila-real-de-santo-antonio">Vila Real de Santo António</a> — the full stretch to the Spanish border.</p></div>
+    <p>And along the <strong>East Algarve</strong>, it reaches <a href="/faro">Faro</a>, <a href="/olhao">Olhão</a>, <a href="/sao-bras-de-alportel">São Brás de Alportel</a>, <a href="/tavira">Tavira</a>, <a href="/castro-marim">Castro Marim</a> and <a href="/vila-real-de-santo-antonio">Vila Real de Santo António</a> — the full stretch to the Spanish border.</p></div></div>
     </div>
   </section>
 
-  <section>
+  <section id="services">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Explore</span>
         <h2>More of what we install</h2>
       </div>
       <div class="card-grid cols-3"><a href="/cctv-installation" class="card flagship">
-        <span class="badge">Flagship Service</span>
-        <h3>CCTV Installation</h3>
-        <p>Indoor and outdoor camera systems with remote viewing, planned around each property's actual entrances and blind spots.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/alarm-systems" class="card">
-        
-        <h3>Alarm Systems</h3>
-        <p>Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/gate-automation" class="card">
-        
-        <h3>Gate Automation</h3>
-        <p>Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/fire-detection" class="card">
-        
-        <h3>Fire Detection</h3>
-        <p>Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/home-networking" class="card">
-        
-        <h3>Home Networking</h3>
-        <p>Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/smart-home-automation" class="card">
-        
-        <h3>Smart Home Automation</h3>
-        <p>Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a></div>
-      
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M8.26 13.1V11.56"/><rect x="6.5" y="13.1" width="6.6" height="4.18" rx="1.1"/><path d="M13.1 14.2v1.98l3.74 1.87v-5.72Z" fill="#FFFFFF" stroke="none"/></svg></div>
+          <span class="badge">Flagship Service</span>
+          <h3>CCTV Installation</h3>
+          <p>Indoor and outdoor camera systems with remote viewing, planned around each property's actual entrances and blind spots.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/alarm-systems" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 10.9c-1.87 0-3.3 1.43-3.3 3.3v1.43c0 .66-.22 1.21-.66 1.65l-.44.44h8.8l-.44-.44c-.44-.44-.66-.99-.66-1.65V14.2c0-1.87-1.43-3.3-3.3-3.3Z"/><path d="M10.46 18.82c.22.77.88 1.21 1.54 1.21s1.32-.44 1.54-1.21"/></svg></div>
+          
+          <h3>Alarm Systems</h3>
+          <p>Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/gate-automation" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M7.05 19.7v-7.04h9.9V19.7"/></svg></div>
+          
+          <h3>Gate Automation</h3>
+          <p>Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/fire-detection" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 8.82c1.1 1.54-.44 2.53-.33 3.96.11.88.88 1.43.88 1.43s1.1-.77 1.21-1.98c1.21 1.21 1.76 2.53 1.76 3.85 0 2.09-1.54 3.41-3.52 3.41s-3.52-1.32-3.52-3.41c0-1.65.88-2.97 1.76-3.96.11.88.66 1.43.66 1.43S10.35 11.68 12 8.82Z"/></svg></div>
+          
+          <h3>Fire Detection</h3>
+          <p>Optical smoke detectors and addressable fire panels, built for prevention, safety and a quick response.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/home-networking" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><rect x="7.05" y="16.4" width="9.9" height="3.52" rx="1.1"/><path d="M12 16.4v-3.74"/><circle cx="12" cy="12" r="0.99" fill="#FFFFFF" stroke="none"/></svg></div>
+          
+          <h3>Home Networking</h3>
+          <p>Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/smart-home-automation" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 11.12v3.63"/><path d="M8.7 13.43a4.4 4.4 0 1 0 6.6 0"/></svg></div>
+          
+          <h3>Smart Home Automation</h3>
+          <p>Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a></div>
+      <div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-fill"></div></div>
     </div>
   </section>
   
@@ -371,7 +391,7 @@
     <div class="container">
       <div class="footer-masthead">
         <div>
-          <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
+          <a href="/" class="wordmark">Algarve <span class="accent">Smart <span class="wordmark-h-wrap">H<svg class="wordmark-roof" viewBox="0 0 28 11" fill="none" aria-hidden="true" focusable="false"><path d="M2 9.3 14 1.8 26 9.3" stroke="#DC143C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ome</span></a>
           <p>English-speaking security systems and smart home installation for homeowners across the Algarve.</p>
         </div>
         <a href="tel:+351923272806" class="btn btn-icon">+351 923 272 806</a>
