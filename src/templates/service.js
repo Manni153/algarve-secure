@@ -87,12 +87,12 @@ const SERVICE_DESCRIPTION_PHOTO = {
     included: {
       webp: '/assets/images/access-control-intercom-panel.webp',
       jpg: '/assets/images/access-control-intercom-panel.jpg',
-      alt: 'Video intercom panel installed beside a gated apartment entrance in the Algarve',
+      alt: 'Video intercom access control unit installed at an Algarve apartment building entrance',
     },
     whyItMatters: {
       webp: '/assets/images/access-control-system-installed.webp',
       jpg: '/assets/images/access-control-system-installed.jpg',
-      alt: 'Video intercom and camera system newly installed at an Algarve property entrance',
+      alt: 'Video intercom camera and panel installed professionally at an Algarve property entrance',
     },
     scenarios: {
       webp: '/assets/images/access-control-keypad.webp',
