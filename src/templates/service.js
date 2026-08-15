@@ -70,6 +70,11 @@ const SERVICE_DESCRIPTION_PHOTO = {
       jpg: '/assets/images/alarm-system-installed.jpg',
       alt: 'Alarm motion sensor installed indoors on an Algarve property wall',
     },
+    whyItMatters: {
+      webp: '/assets/images/alarm-system-control-panel.webp',
+      jpg: '/assets/images/alarm-system-control-panel.jpg',
+      alt: 'Wall-mounted alarm control keypad with app-based remote access',
+    },
   },
 };
 
