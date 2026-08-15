@@ -19,7 +19,7 @@ const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation', 'alarm-s
 // collapsing to single-column layouts), per explicit request. Every other
 // pilot page (e.g. Alarm Systems) keeps its placeholder boxes in every
 // slot until told otherwise — same design language, unreduced imagery.
-const SERVICE_MINIMAL_IMAGES_SLUGS = new Set(['cctv-installation']);
+const SERVICE_MINIMAL_IMAGES_SLUGS = new Set(['cctv-installation', 'alarm-systems']);
 
 // Per-service full-bleed hero photography for the pilot page(s) — same
 // standard villa photoshoot/pair reused across most rollout towns (see
