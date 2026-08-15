@@ -3,9 +3,40 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
+const { esc, rich, placeholder, heroIntro, renderPage, serviceIcon } = require('./layout');
+
+// Design-system rollout for service pages — mirrors the town-page rollout
+// (see town.js's DESIGN_SYSTEM_PILOT_SLUGS): applies the homepage's
+// finalized visual system (full-bleed split hero, rs-block panels,
+// icon-tile "Explore" cards, white header/nav chrome) to service pages
+// approved for it, one at a time, starting with the flagship CCTV page.
+// Every service NOT in this set is byte-for-byte unchanged.
+const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation']);
+
+// Per-service full-bleed hero photography for the pilot page(s) — same
+// standard villa photoshoot/pair reused across most rollout towns (see
+// town.js's TOWN_HERO_PHOTO), rather than dedicated per-service
+// photography. Services not listed here (i.e. every non-pilot page)
+// don't call heroIntro with an `image` at all, so this is a no-op for them.
+const SERVICE_HERO_PHOTO = {
+  'cctv-installation': {
+    mobileWebp: '/assets/images/hero-security-cctv-installation-mobile.webp',
+    mobileJpg: '/assets/images/hero-security-cctv-installation-mobile.jpg',
+    desktopWebp: '/assets/images/hero-security-cctv-installation-desktop.webp',
+    desktopJpg: '/assets/images/hero-security-cctv-installation-desktop.jpg',
+    alt: 'Terracotta-walled Algarve villa with a discreet CCTV camera mounted above the roofline, olive trees and glass sliding doors at the entrance',
+  },
+};
 
 function renderService(service) {
+  const isPilot = SERVICE_DESIGN_SYSTEM_PILOT_SLUGS.has(service.slug);
+  // Design-system pilot only: wraps a section's content in the homepage's
+  // "emphasis block" panel (white rounded surface on the flat page
+  // background — see .page-lagos-rs .rs-block in main.css). Every other
+  // service keeps its plain/section-alt backgrounds untouched.
+  const blockOpen = isPilot ? '<div class="rs-block">' : '';
+  const blockClose = isPilot ? '</div>' : '';
+
   const otherServices = services.filter((s) => s.slug !== service.slug);
 
   const includedList = service.included
@@ -120,24 +151,61 @@ function renderService(service) {
     <p>In the <strong>Central Algarve</strong>, that coverage runs through ${linkList(central.towns)}.</p>
     <p>And along the <strong>East Algarve</strong>, it reaches ${linkList(east.towns)} — the full stretch to the Spanish border.</p>`;
 
+  // On the pilot page, this gets the homepage's exact card internals (icon
+  // tile + arrow-icon "Learn more" pill) so main.css's .page-lagos-rs
+  // #services rules — mirroring .page-home #services exactly — have the
+  // same elements to style. Every other service page keeps the original
+  // plain card (heading + subhead + text-arrow link).
   const otherServiceCards = otherServices
-    .map(
-      (s) => `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
+    .map((s) => {
+      if (isPilot) {
+        return `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
+          <div class="card-icon-block">${serviceIcon(s.slug)}</div>
+          ${placeholder(s.imageAlt, { ratio: 'wide' })}
+          ${s.flagship ? '<span class="badge">Flagship Service</span>' : ''}
+          <h3>${esc(s.name)}</h3>
+          <p>${esc(s.heroSubhead)}</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a>`;
+      }
+      return `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
         ${s.flagship ? '<span class="badge">Flagship Service</span>' : ''}
         <h3>${esc(s.name)}</h3>
         <p>${esc(s.heroSubhead)}</p>
         <span class="card-link">Learn more &rarr;</span>
-      </a>`
-    )
+      </a>`;
+    })
     .join('');
 
+  const heroPhoto = SERVICE_HERO_PHOTO[service.slug];
+
   const hero = heroIntro({
-    alt: service.imageAlt,
+    alt: heroPhoto ? heroPhoto.alt : service.imageAlt,
     breadcrumb: [{ label: 'Home', href: '/' }, { label: service.name }],
     h1Text: service.h1,
     headlineHtml: esc(service.heroHeadline),
     subtext: service.heroTagline,
-    ctaNote: service.ctaNote,
+    // Dropped on the design-system pilot page only, matching the
+    // homepage's own hero (which never passes a ctaNote at all) — every
+    // other service keeps its note unchanged.
+    ctaNote: isPilot ? undefined : service.ctaNote,
+    // Same trust-stats row as the homepage/town-pilot hero, reusing the
+    // same sitewide data (site.js) — pilot page only.
+    trustStats: isPilot ? site.trustStats : undefined,
+    desktopStatsText: isPilot ? site.heroStatsDesktop : undefined,
+    mobileStatsText: isPilot ? site.heroStatsShort : undefined,
+    // Full-bleed split hero (the homepage's own hero mechanism) is opted
+    // into for the pilot; every other service page keeps its original
+    // boxed, in-flow hero image untouched.
+    image: heroPhoto
+      ? {
+          mobileWebp: heroPhoto.mobileWebp,
+          mobileJpg: heroPhoto.mobileJpg,
+          desktopWebp: heroPhoto.desktopWebp,
+          desktopJpg: heroPhoto.desktopJpg,
+        }
+      : undefined,
+    twoColDesktop: isPilot,
   });
 
   // Jump-link table of contents — only lists sections this service actually
@@ -160,7 +228,7 @@ function renderService(service) {
   const body = `
   ${hero}
 
-  <nav class="toc" aria-label="Page sections">
+  <nav class="toc${isPilot ? ' toc-rs' : ''}" aria-label="Page sections">
     <div class="container">
       <span class="toc-label">On this page</span>
       <div class="toc-links">${tocHtml}</div>
@@ -169,7 +237,7 @@ function renderService(service) {
 
   <section id="included">
     <div class="container">
-      <div class="two-col">
+      ${blockOpen}<div class="two-col">
         <div class="two-col-text">
           <span class="eyebrow">What's Included</span>
           <h2>What our ${esc(service.name)} service covers</h2>
@@ -179,13 +247,13 @@ function renderService(service) {
         <div class="two-col-media">
           ${placeholder(service.imageAlt, { ratio: 'tall' })}
         </div>
-      </div>
+      </div>${blockClose}
     </div>
   </section>
 
-  <section class="section-alt" id="why-it-matters">
+  <section${isPilot ? '' : ' class="section-alt"'} id="why-it-matters">
     <div class="container">
-      <div class="two-col reverse">
+      ${blockOpen}<div class="two-col reverse">
         <div class="two-col-media">
           ${placeholder(`${service.name} in use at an Algarve property`, { ratio: 'tall' })}
         </div>
@@ -195,7 +263,7 @@ function renderService(service) {
           <p>${esc(service.whyItMatters)}</p>
           <a href="${site.telHref}" class="btn btn-icon mt-32">${site.phoneDisplay}</a>
         </div>
-      </div>
+      </div>${blockClose}
     </div>
   </section>
 
@@ -203,11 +271,11 @@ function renderService(service) {
     deepDiveHtml
       ? `<section id="in-depth">
           <div class="container">
-            <div class="section-head">
+            ${blockOpen}<div class="section-head">
               <span class="eyebrow">In Depth</span>
               <h2>How ${esc(service.name.toLowerCase())} actually works</h2>
             </div>
-            <div class="narrow" style="margin: 0 auto;">${deepDiveHtml}</div>
+            <div class="narrow" style="margin: 0 auto;">${deepDiveHtml}</div>${blockClose}
           </div>
         </section>`
       : ''
@@ -215,9 +283,9 @@ function renderService(service) {
 
   ${
     scenarioItems
-      ? `<section class="section-alt" id="scenarios">
+      ? `<section${isPilot ? '' : ' class="section-alt"'} id="scenarios">
           <div class="container">
-            <div class="two-col">
+            ${blockOpen}<div class="two-col">
               <div class="two-col-text">
                 <span class="eyebrow">Real-World Scenarios</span>
                 <h2>Where ${esc(service.name.toLowerCase())} actually gets used</h2>
@@ -226,7 +294,7 @@ function renderService(service) {
               <div class="two-col-media">
                 ${placeholder(service.scenarioImageAlt, { ratio: 'tall' })}
               </div>
-            </div>
+            </div>${blockClose}
           </div>
         </section>`
       : ''
@@ -236,12 +304,12 @@ function renderService(service) {
     commonProblemCards
       ? `<section id="common-problems">
           <div class="container">
-            <div class="section-head">
+            ${blockOpen}<div class="section-head">
               <span class="eyebrow">Common Problems</span>
               <h2>What owners actually call about</h2>
               <p class="lede">The specific issues that come up most, and what's usually behind them.</p>
             </div>
-            <div class="card-grid cols-2">${commonProblemCards}</div>
+            <div class="card-grid cols-2">${commonProblemCards}</div>${blockClose}
           </div>
         </section>`
       : ''
@@ -251,12 +319,12 @@ function renderService(service) {
     propertyTypeCards
       ? `<section id="property-types">
           <div class="container">
-            <div class="section-head">
+            ${blockOpen}<div class="section-head">
               <span class="eyebrow">By Property Type</span>
               <h2>How this applies to your property</h2>
               <p class="lede">The same service, sized differently depending on what you own.</p>
             </div>
-            <div class="card-grid cols-2">${propertyTypeCards}</div>
+            <div class="card-grid cols-2">${propertyTypeCards}</div>${blockClose}
           </div>
         </section>`
       : ''
@@ -264,9 +332,9 @@ function renderService(service) {
 
   ${
     extraCards
-      ? `<section class="section-alt" id="in-detail">
+      ? `<section${isPilot ? '' : ' class="section-alt"'} id="in-detail">
           <div class="container">
-            <div class="two-col reverse">
+            ${blockOpen}<div class="two-col reverse">
               <div class="two-col-media">
                 ${placeholder(service.detailImageAlt, { ratio: 'tall' })}
               </div>
@@ -275,7 +343,7 @@ function renderService(service) {
                 <h2>${esc(service.name)}, done properly</h2>
               </div>
             </div>
-            <div class="card-grid cols-2 mt-32">${extraCards}</div>
+            <div class="card-grid cols-2 mt-32">${extraCards}</div>${blockClose}
           </div>
         </section>`
       : ''
@@ -285,42 +353,56 @@ function renderService(service) {
     faqItems
       ? `<section id="faq">
           <div class="container">
-            <div class="section-head">
+            ${blockOpen}<div class="section-head">
               <span class="eyebrow">Questions</span>
               <h2>Frequently asked questions</h2>
             </div>
-            <div class="faq-list">${faqItems}</div>
+            <div class="faq-list">${faqItems}</div>${blockClose}
           </div>
         </section>`
       : ''
   }
 
-  <section class="cta-band">
+  ${
+    isPilot
+      ? `<section>
+          <div class="container">
+            <div class="cta-band rs-block">
+              <span class="eyebrow">Get Started</span>
+              <h2>Talk through your ${esc(service.name.toLowerCase())} options</h2>
+              <p class="lede">Call now and we'll talk you through what makes sense for your property — in English, with no jargon.</p>
+              <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
+            </div>
+          </div>
+        </section>`
+      : `<section class="cta-band">
     <div class="container">
       <span class="eyebrow">Get Started</span>
       <h2>Talk through your ${esc(service.name.toLowerCase())} options</h2>
       <p class="lede">Call now and we'll talk you through what makes sense for your property — in English, with no jargon.</p>
       <a href="${site.telHref}" class="btn btn-lg btn-icon">${site.phoneDisplay}</a>
     </div>
-  </section>
+  </section>`
+  }
 
-  <section class="section-alt">
+  <section${isPilot ? '' : ' class="section-alt"'}>
     <div class="container">
-      <div class="section-head">
+      ${blockOpen}<div class="section-head">
         <span class="eyebrow">Where We Work</span>
         <h2>${esc(service.name)} across the Algarve</h2>
       </div>
-      <div class="narrow region-links" style="margin: 0 auto;">${townLinksHtml}</div>
+      <div class="narrow region-links" style="margin: 0 auto;">${townLinksHtml}</div>${blockClose}
     </div>
   </section>
 
-  <section>
+  <section${isPilot ? ' id="services"' : ''}>
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Explore</span>
         <h2>More of what we install</h2>
       </div>
       <div class="card-grid cols-3">${otherServiceCards}</div>
+      ${isPilot ? '<div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-fill"></div></div>' : ''}
     </div>
   </section>
   `;
@@ -329,6 +411,8 @@ function renderService(service) {
     path: `/${service.slug}`,
     bodyHtml: body,
     schema: [serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean),
+    mainClass: isPilot ? 'page-lagos-rs' : undefined,
+    useHomeHeader: isPilot,
   });
 }
 

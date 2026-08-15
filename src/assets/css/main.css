@@ -3064,6 +3064,31 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   .page-lagos-rs .rs-block { padding: var(--rs-block-padding-desktop); }
 }
 
+/* ---- Table of contents (service pages only — towns have no TOC) -----
+   Re-skinned to sit on the flat --rs-bg page background with chip-style
+   links matching the rest of this system's surfaces/colours, rather than
+   the sitewide .toc's old --sand-alt/--stone palette. */
+.page-lagos-rs .toc-rs {
+  background: var(--rs-bg);
+  border-bottom: none;
+  padding: 20px 0;
+}
+.page-lagos-rs .toc-rs .toc-label {
+  font-family: var(--rs-font);
+  color: var(--rs-muted);
+}
+.page-lagos-rs .toc-rs .toc-links a {
+  font-family: var(--rs-font);
+  font-weight: 700;
+  color: var(--rs-ink);
+  background: var(--rs-surface);
+  border: 1px solid var(--hero2-panel-grey);
+}
+.page-lagos-rs .toc-rs .toc-links a:hover {
+  color: var(--hero2-crimson);
+  border-color: var(--hero2-crimson);
+}
+
 /* ---- Typography ---------------------------------------------------- */
 .page-lagos-rs h1,
 .page-lagos-rs h2,
