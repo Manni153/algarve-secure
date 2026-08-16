@@ -191,6 +191,28 @@ const SERVICE_DESCRIPTION_PHOTO = {
       alt: 'Mesh Wi-Fi node installed at an Algarve property',
     },
   },
+  'smart-home-automation': {
+    included: {
+      webp: '/assets/images/smart-home-thermostat.webp',
+      jpg: '/assets/images/smart-home-thermostat.jpg',
+      alt: 'Smart control thermostat installed at an Algarve property',
+    },
+    whyItMatters: {
+      webp: '/assets/images/smart-home-blinds.webp',
+      jpg: '/assets/images/smart-home-blinds.jpg',
+      alt: 'Smart blinds installed at an Algarve property',
+    },
+    scenarios: {
+      webp: '/assets/images/smart-home-control-panel.webp',
+      jpg: '/assets/images/smart-home-control-panel.jpg',
+      alt: 'Smart home control panel installed at an Algarve property',
+    },
+    inDetail: {
+      webp: '/assets/images/smart-home-lighting-control.webp',
+      jpg: '/assets/images/smart-home-lighting-control.jpg',
+      alt: 'Smart lighting control pad installed at an Algarve property',
+    },
+  },
 };
 
 function renderService(service) {
