@@ -3796,6 +3796,12 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   color: var(--hero2-steel);
 }
 
+/* Same fix as the About page's pillar numerals, applied to the How We
+   Work page's own process-stage numbers (01-04). */
+.page-how-we-work .pillar .num {
+  color: var(--hero2-steel);
+}
+
 /* ---- Footer: renders the same roof-mark wordmark markup as the
    homepage's footer whenever useHomeHeader is true (see wordmarkHtml()
    in layout.js) — this positions/colours it the same way, otherwise the

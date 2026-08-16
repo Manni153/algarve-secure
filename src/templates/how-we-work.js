@@ -80,14 +80,16 @@ function renderHowWeWork() {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">The Process</span>
-        <h2>From enquiry to installation</h2>
-        <p class="lede">Four stages, the same point of contact throughout.</p>
+      <div class="rs-block">
+        <div class="section-head">
+          <span class="eyebrow">The Process</span>
+          <h2>From enquiry to installation</h2>
+          <p class="lede">Four stages, the same point of contact throughout.</p>
+        </div>
+        <div class="pillar-list">${stageItems}</div>
       </div>
-      <div class="pillar-list">${stageItems}</div>
     </div>
   </section>
 
@@ -102,13 +104,15 @@ function renderHowWeWork() {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Questions</span>
-        <h2>Frequently asked questions</h2>
+      <div class="rs-block">
+        <div class="section-head">
+          <span class="eyebrow">Questions</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-list">${faqItems}</div>
       </div>
-      <div class="faq-list">${faqItems}</div>
     </div>
   </section>
 
