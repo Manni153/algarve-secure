@@ -802,20 +802,33 @@ body.nav-open { overflow: hidden; }
 .page-gate-automation #included .two-col-media { order: 1; }
 .page-gate-automation #included .two-col-text { order: 2; }
 
-/* Fire Detection "What's Included" and "Real-World Scenarios" sections,
-   mobile only (below the 768px tablet threshold used elsewhere on this
-   site) — image shows above the heading/text instead of below it. Why It
-   Matters and In Detail already show image-first at every breakpoint (see
-   .two-col.reverse above) since their markup puts the image first in the
-   DOM; Included and Scenarios use the default text-then-media DOM order,
-   so only they need the `order` swap here. Scoped to this one page so
-   the other pilot pages' included/scenarios sections are unaffected, and
-   to <768px only so tablet/desktop keep the existing side-by-side layout. */
+/* Pilot pages' "What's Included" (and, where it exists, "Real-World
+   Scenarios") sections, mobile only (below the 768px tablet threshold used
+   elsewhere on this site) — image shows above the heading/text instead of
+   below it. Why It Matters and In Detail already show image-first at every
+   breakpoint (see .two-col.reverse above) since their markup puts the
+   image first in the DOM; Included and Scenarios use the default
+   text-then-media DOM order, so only they need the `order` swap here.
+   CCTV and Alarm Systems are minimal-images pages (see
+   SERVICE_MINIMAL_IMAGES_SLUGS in service.js) — their Scenarios section
+   has no media column at all, so only Included applies there. Gate
+   Automation already has its own full-width, every-breakpoint layout for
+   Included/In Detail (see the block above) and is deliberately excluded
+   here so that treatment isn't overridden. Scoped to <768px only so
+   tablet/desktop keep the existing side-by-side layout on every page. */
 @media (max-width: 767px) {
+  .page-cctv-installation #included .two-col-media,
+  .page-alarm-systems #included .two-col-media,
+  .page-access-control #included .two-col-media,
+  .page-access-control #scenarios .two-col-media,
   .page-fire-detection #included .two-col-media,
   .page-fire-detection #scenarios .two-col-media {
     order: 1;
   }
+  .page-cctv-installation #included .two-col-text,
+  .page-alarm-systems #included .two-col-text,
+  .page-access-control #included .two-col-text,
+  .page-access-control #scenarios .two-col-text,
   .page-fire-detection #included .two-col-text,
   .page-fire-detection #scenarios .two-col-text {
     order: 2;
