@@ -117,7 +117,7 @@ const SERVICE_DESCRIPTION_PHOTO = {
       webp: '/assets/images/gate-automation-swing-operators.webp',
       jpg: '/assets/images/gate-automation-swing-operators.jpg',
       alt: 'Swing gate motor operators installed at a driveway entrance',
-      ratio: 'tall-desktop-wide',
+      ratio: 'wide',
     },
     whyItMatters: {
       webp: '/assets/images/gate-automation-sliding-roller.webp',
@@ -133,7 +133,7 @@ const SERVICE_DESCRIPTION_PHOTO = {
       webp: '/assets/images/gate-automation-single-swing.webp',
       jpg: '/assets/images/gate-automation-single-swing.jpg',
       alt: 'Single swing gate motor mounted beside a driveway gate',
-      ratio: 'tall-desktop-wide',
+      ratio: 'wide',
     },
   },
 };

@@ -773,14 +773,6 @@ body.nav-open { overflow: hidden; }
 .photo-frame.ratio-square { aspect-ratio: 1 / 1; }
 .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Desktop-only landscape override — mobile/tablet keep the standard tall
-   (4:5) frame unchanged; only used by the Gate Automation page's included/
-   in-detail photos, which are landscape source images. */
-.photo-frame.ratio-tall-desktop-wide { aspect-ratio: 4 / 5; }
-@media (min-width: 1025px) {
-  .photo-frame.ratio-tall-desktop-wide { aspect-ratio: 16 / 9; }
-}
-
 /* -------------------------------------------------------------------------
    Two-column — plain contained layout, no bleed, no per-page alternation.
    ------------------------------------------------------------------------- */
@@ -792,21 +784,23 @@ body.nav-open { overflow: hidden; }
 .two-col.reverse .two-col-media { order: 1; }
 .two-col-text .btn { margin-top: 8px; }
 
-/* Gate Automation "What's Included" section, desktop only — image goes
-   full-width above the heading/text instead of sitting in a side column.
-   Scoped to this one page + section so the other pilot pages' (CCTV,
-   Alarm Systems, Access Control) included sections are unaffected, and to
-   1025px+ only so mobile/tablet keep the existing side-by-side two-col
-   layout for now. DOM order stays text-then-media (unchanged markup);
-   `order` just flips the visual order, same technique .two-col.reverse
-   already uses above. */
-@media (min-width: 1025px) {
-  .page-gate-automation #included .two-col {
-    grid-template-columns: 1fr;
-  }
-  .page-gate-automation #included .two-col-media { order: 1; }
-  .page-gate-automation #included .two-col-text { order: 2; }
+/* Gate Automation "What's Included" and "In Detail" sections, every
+   breakpoint — image goes full-width above the heading/text instead of
+   sitting in a side column. Scoped to this one page + these two sections
+   so the other pilot pages' (CCTV, Alarm Systems, Access Control) included/
+   in-detail sections, and this page's own Why It Matters / Real-World
+   Scenarios sections, are unaffected. In Detail's markup already puts the
+   image first in the DOM (see .two-col.reverse above), so it only needs
+   the grid-template-columns override; Included's DOM order is
+   text-then-media, so it also needs the `order` swap, same technique
+   .two-col.reverse uses. Both photos render at the (always-landscape)
+   ratio-wide aspect ratio — see photo() calls in service.js. */
+.page-gate-automation #included .two-col,
+.page-gate-automation #in-detail .two-col {
+  grid-template-columns: 1fr;
 }
+.page-gate-automation #included .two-col-media { order: 1; }
+.page-gate-automation #included .two-col-text { order: 2; }
 
 /* -------------------------------------------------------------------------
    Trust grid — three equal cards, centered heading above. Direct.
