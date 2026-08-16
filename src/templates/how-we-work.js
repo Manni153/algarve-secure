@@ -6,15 +6,15 @@ const { esc, heroIntro, renderPage } = require('./layout');
 const stages = [
   {
     heading: 'Get in Touch',
-    text: 'You call or message Algarve Smart Home directly — the same phone number and WhatsApp link you see everywhere on this site. That first conversation happens in English and covers the basics: what the property is, what you\'re trying to cover, and roughly what you have in mind.',
+    text: 'Call or message on WhatsApp and you\'re straight through to Rui — the same person whose team assesses, supplies and fits your system. Whichever way you reach out, there\'s no call centre and no waiting for a callback.',
   },
   {
     heading: 'Assessment',
-    text: 'Details from that conversation are passed to the local partner team who carry out the work in your area. Depending on the property, that can mean a site visit, or working from photos and a description you provide, to work out camera positions, sensor coverage, or where a gate motor or access point makes sense.',
+    text: 'From that first conversation, Rui and his team work out what your property actually needs — camera positions, sensor coverage, or where a gate motor or access point makes sense. Depending on the job, that might happen on the call, from photos you send over, or with a site visit.',
   },
   {
     heading: 'Installation',
-    text: 'The local partner team installs and configures the equipment on-site. Because the same team supplies and fits it, the finished system is set up to work together — cameras, alarms and access control aren\'t pieced together from separate, disconnected jobs.',
+    text: 'Rui\'s own team installs and configures everything on-site — no subcontractors, so the people who scoped the job are the ones doing the work.',
   },
   {
     heading: 'Ongoing Support',
@@ -25,7 +25,7 @@ const stages = [
 const faqs = [
   {
     q: 'Do I need to contact the installation partner separately?',
-    a: 'No. You contact Algarve Smart Home, by phone or WhatsApp, for enquiries, quotes and ongoing support. The local partner team handles the on-site work, but Algarve Smart Home stays the point of contact throughout.',
+    a: 'No. Whether you call or message on WhatsApp, you\'re speaking with Rui and his team from the first message through to support afterwards — there\'s no separate installer to loop in.',
   },
   {
     q: 'Does this change how the installation is carried out?',
@@ -98,7 +98,7 @@ function renderHowWeWork() {
       <div class="rs-block"><div class="narrow" style="margin: 0 auto;">
         <span class="eyebrow">Why It's Set Up This Way</span>
         <h2>One number, coverage across the whole region</h2>
-        <p>Coordinating with local installation partners means Algarve Smart Home can cover towns across the whole Algarve — from Sagres to Vila Real de Santo António — through people who already work in those areas day-to-day, rather than one small team trying to reach every property in the region alone.</p>
+        <p>One number, one WhatsApp — both connect you straight to Rui and his team, the same people who cover the whole Algarve themselves, from Sagres to Vila Real de Santo António. There's no network of different subcontractors depending on where your property is; it's one consistent, experienced team either way.</p>
         <p>For you, the practical difference is small: one number to call, one point of contact for support, and a system installed by people who know the area.</p>
       </div></div>
     </div>
