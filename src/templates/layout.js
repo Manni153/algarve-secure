@@ -423,7 +423,7 @@ function renderFloatingButtons() {
 // itself still only reflects mainClass === 'page-home' — this doesn't
 // make that page "the homepage" in any other sense (schema, mainClass,
 // path are all untouched), it only reuses the header/footer/font chrome.
-function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader }) {
+function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader, title, metaDescription }) {
   const isHome = mainClass === 'page-home';
   const useHeaderChrome = isHome || Boolean(useHomeHeader);
   const canonical = `${site.baseUrl}${path === '/' ? '' : path}`;
@@ -445,7 +445,7 @@ function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="${canonical}">
+${title ? `<title>${esc(title)}</title>\n` : ''}${metaDescription ? `<meta name="description" content="${esc(metaDescription)}">\n` : ''}<link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Algarve Smart Home">
 <meta property="og:url" content="${canonical}">

@@ -23,6 +23,8 @@ const towns = [
   // West Algarve (Barlavento)
   {
     slug: 'lagos', name: 'Lagos', region: 'west', nearby: ['praia-da-luz', 'sagres', 'aljezur'],
+    seoTitle: 'Home Security & Automation in Lagos | Algarve Smart Home',
+    seoDescription: 'CCTV, alarms and gate automation for Lagos old-town apartments and Meia Praia villas, from a locally based, 100% English-speaking team — call today for a quote.',
     character: 'a popular base for expats on the western Algarve coast, with a historic old town and surrounding villa developments',
     heroHeadline: 'Stop wondering if your Lagos property is okay while you\'re away.',
     heroSubtext: 'From old-town apartments to the villas above Meia Praia — planned around how Lagos properties are actually used.',
@@ -50,6 +52,8 @@ const towns = [
   },
   {
     slug: 'praia-da-luz', name: 'Praia da Luz', region: 'west', nearby: ['lagos', 'sagres', 'alvor'],
+    seoTitle: 'Home Security in Praia da Luz | Algarve Smart Home',
+    seoDescription: 'Remote-monitored CCTV and alarms for Praia da Luz second homes left empty between visits, fitted by a locally based, English-speaking team — call today.',
     character: 'a small resort village popular with British and Irish homeowners',
     heroHeadline: 'Know your Praia da Luz holiday home is fine, without flying over to check.',
     heroSubtext: 'Security for second homes that stand empty between visits — checked from the UK as easily as from the village.',
@@ -75,6 +79,8 @@ const towns = [
   },
   {
     slug: 'sagres', name: 'Sagres', region: 'west', nearby: ['praia-da-luz', 'lagos', 'aljezur'],
+    seoTitle: 'Home Security & Automation in Sagres | Algarve Smart Home',
+    seoDescription: 'CCTV, alarms and connectivity for standalone Sagres properties without a neighbour next door, from a locally based, English-speaking team — call today.',
     character: 'a remote coastal town at the Algarve’s south-western tip, popular for its quieter, off-grid feel',
     heroHeadline: 'Keep an eye on a Sagres property that doesn\'t have a neighbour next door.',
     heroSubtext: 'Coverage planned for standalone properties at the Algarve\'s quiet south-western tip, connection included.',
@@ -100,6 +106,8 @@ const towns = [
   },
   {
     slug: 'aljezur', name: 'Aljezur', region: 'west', nearby: ['sagres', 'monchique', 'silves'],
+    seoTitle: 'Security & Smart Automation in Aljezur | Algarve Smart Home',
+    seoDescription: 'Gates, cameras and connectivity for Aljezur farmhouses and smallholdings, installed by a locally based, 100% English-speaking team — get a free quote.',
     character: 'a laid-back town on the west coast, popular with owners drawn to the wilder Costa Vicentina coastline',
     heroHeadline: 'Stop guessing what\'s happening on a rural Aljezur property while you\'re gone.',
     heroSubtext: 'Gates, cameras and connectivity for farmhouses and smallholdings along the Costa Vicentina.',
@@ -125,6 +133,8 @@ const towns = [
   },
   {
     slug: 'alvor', name: 'Alvor', region: 'west', nearby: ['praia-da-luz', 'portimao', 'lagos'],
+    seoTitle: 'Home Security & Automation in Alvor | Algarve Smart Home',
+    seoDescription: 'CCTV and alarms for Alvor estuary-front apartments and hillside villas, fitted the way each property actually needs by an English-speaking team — call today.',
     character: 'a small fishing town turned popular residential and holiday destination',
     heroHeadline: 'Know your Alvor place is fine, even when the town empties out for winter.',
     heroSubtext: 'Estuary-front apartments and hillside villas, each covered the way that property actually needs.',
@@ -150,6 +160,8 @@ const towns = [
   },
   {
     slug: 'portimao', name: 'Portimão', region: 'west', nearby: ['alvor', 'ferragudo', 'lagoa'],
+    seoTitle: 'Home & Business Security in Portimão | Algarve Smart Home',
+    seoDescription: 'CCTV, alarms and access control for Portimão apartments, villas and business premises, from a locally based, English-speaking team — call today for a quote.',
     character: 'a larger town and commercial hub on the western Algarve, with a mix of apartments, villas and businesses',
     heroHeadline: 'From Praia da Rocha to the riverside — know your Portimão property is covered.',
     heroSubtext: 'Apartments, villas and business premises — one installer across the western Algarve\'s largest town.',
@@ -174,6 +186,8 @@ const towns = [
   },
   {
     slug: 'ferragudo', name: 'Ferragudo', region: 'west', nearby: ['portimao', 'lagoa', 'carvoeiro'],
+    seoTitle: 'Home Security & Automation in Ferragudo | Algarve Smart Home',
+    seoDescription: 'Discreet CCTV and alarms for Ferragudo village houses, plus fuller setups for edge-of-town villas, from a locally based, English-speaking team — call today.',
     character: 'a small fishing village opposite Portimão, with a mix of traditional homes and villas',
     heroHeadline: 'Stop wondering if your Ferragudo home is okay between visits.',
     heroSubtext: 'Discreet installations for village-centre houses, fuller setups for the villas on the edge of town.',
@@ -199,6 +213,8 @@ const towns = [
   },
   {
     slug: 'lagoa', name: 'Lagoa', region: 'west', nearby: ['ferragudo', 'carvoeiro', 'portimao'],
+    seoTitle: 'Security & Smart Automation in Lagoa | Algarve Smart Home',
+    seoDescription: 'CCTV and keyless access for Lagoa rental properties that change hands weekly, fitted by a locally based, 100% English-speaking team — get a free quote.',
     character: 'a municipality covering several coastal towns and villages with a strong villa and rental market',
     heroHeadline: 'Know your Lagoa rental is fine before the next guests arrive.',
     heroSubtext: 'Built for rental properties that change hands weekly — checked and managed between every stay.',
@@ -224,6 +240,8 @@ const towns = [
   },
   {
     slug: 'carvoeiro', name: 'Carvoeiro', region: 'west', nearby: ['lagoa', 'ferragudo', 'silves'],
+    seoTitle: 'Home Security & Automation in Carvoeiro | Algarve Smart Home',
+    seoDescription: 'Remote-viewing CCTV and keyless access for Carvoeiro holiday villas and cliffside rentals, from a locally based, English-speaking team — get a free quote.',
     character: 'a small coastal town with a strong concentration of holiday villas and rental properties',
     heroHeadline: 'See what\'s happening at your Carvoeiro rental between bookings.',
     heroSubtext: 'Remote viewing and keyless access for a town that runs on holiday lets and cliffside villas.',
@@ -269,6 +287,8 @@ const towns = [
   },
   {
     slug: 'silves', name: 'Silves', region: 'west', nearby: ['lagoa', 'portimao', 'monchique'],
+    seoTitle: 'Home Security & Automation in Silves | Algarve Smart Home',
+    seoDescription: 'CCTV and alarms for Silves town houses near the castle and countryside quintas, fitted and explained by a locally based, English-speaking team — call today.',
     character: 'an inland town with a growing number of expat homeowners drawn to its quieter pace',
     heroHeadline: 'Know your Silves property is fine without driving over to check.',
     heroSubtext: 'Town houses near the castle and quintas in the countryside — two property types, one point of contact.',
@@ -296,6 +316,8 @@ const towns = [
   },
   {
     slug: 'monchique', name: 'Monchique', region: 'west', nearby: ['silves', 'aljezur', 'portimao'],
+    seoTitle: 'Home Security & Automation in Monchique | Algarve Smart Home',
+    seoDescription: 'CCTV coverage planned around the terrain for hillside Monchique properties, installed by a locally based, English-speaking team — call today for a quote.',
     character: 'a hillside town in the Algarve’s inland hills, popular with owners seeking a quieter rural setting',
     heroHeadline: 'Keep a hillside Monchique property covered, even off the beaten track.',
     heroSubtext: 'Hillside properties need coverage planned on the terrain, not from a floor plan — that\'s the job here.',
@@ -323,6 +345,8 @@ const towns = [
   // Central Algarve
   {
     slug: 'albufeira', name: 'Albufeira', region: 'central', nearby: ['vilamoura', 'quarteira', 'loule'],
+    seoTitle: 'Home & Resort Security in Albufeira | Algarve Smart Home',
+    seoDescription: 'CCTV and alarms for Albufeira villas, apartment blocks and gated resorts through the busiest season, from a locally based, English-speaking team — call today.',
     character: 'one of the Algarve’s busiest resort towns, with a large mix of villas, apartments and holiday rentals',
     heroHeadline: 'Know your Albufeira property is fine, even in the middle of high season.',
     heroSubtext: 'High-turnover rentals, dense apartment blocks and gated resorts — covered through the busiest season.',
@@ -350,6 +374,8 @@ const towns = [
   },
   {
     slug: 'vilamoura', name: 'Vilamoura', region: 'central', nearby: ['albufeira', 'quarteira', 'loule'],
+    seoTitle: 'Home Security & Automation in Vilamoura | Algarve Smart Home',
+    seoDescription: 'CCTV and gate control for Vilamoura marina apartments and golf-estate villas, fitted by a locally based, 100% English-speaking team — get a free quote.',
     character: 'a marina resort area known for golf estates, villas and gated developments',
     heroHeadline: 'Add your own eyes on the gate, even inside a gated Vilamoura estate.',
     heroSubtext: 'Marina apartments and golf-estate villas — private security that works alongside what the development provides.',
@@ -395,6 +421,8 @@ const towns = [
   },
   {
     slug: 'quarteira', name: 'Quarteira', region: 'central', nearby: ['vilamoura', 'albufeira', 'almancil'],
+    seoTitle: 'Home Security & Automation in Quarteira | Algarve Smart Home',
+    seoDescription: 'CCTV and remote checks for Quarteira apartments with shared entrances and terraces, from a locally based, 100% English-speaking team — call today for a quote.',
     character: 'a coastal town neighbouring Vilamoura, with a large number of apartments and holiday homes',
     heroHeadline: 'Know your Quarteira apartment is fine between visits — without asking a neighbour to look.',
     heroSubtext: 'Apartment-focused security: shared entrances, terraces and remote checks for seasonal owners.',
@@ -419,6 +447,8 @@ const towns = [
   },
   {
     slug: 'loule', name: 'Loulé', region: 'central', nearby: ['albufeira', 'almancil', 'quarteira'],
+    seoTitle: 'Home Security & Automation in Loulé | Algarve Smart Home',
+    seoDescription: 'CCTV and alarms for Loulé old-town houses near the market and coastal villa developments, fitted by a locally based, English-speaking team — call today.',
     character: 'an inland and coastal municipality with everything from historic town houses to modern villa developments',
     heroHeadline: 'Stop wondering if your Loulé property is okay, whichever part of town it\'s in.',
     heroSubtext: 'From old-town houses near the market to villa developments toward the coast — planned around where you actually are.',
@@ -444,6 +474,8 @@ const towns = [
   },
   {
     slug: 'almancil', name: 'Almancil', region: 'central', nearby: ['loule', 'quarteira', 'faro'],
+    seoTitle: 'Home Security Installation in Almancil | Algarve Smart Home',
+    seoDescription: 'Access control and CCTV for large Almancil villas near Quinta do Lago with multiple entry points and staff, from a locally based team — get a free quote.',
     character: 'an area known for upmarket villas and golf resort developments',
     heroHeadline: 'Know exactly who\'s on your Almancil property, staff included.',
     heroSubtext: 'Large villas, multiple entry points and household staff — security sized for Quinta do Lago and Vale do Lobo.',
@@ -491,6 +523,8 @@ const towns = [
   // East Algarve (Sotavento)
   {
     slug: 'faro', name: 'Faro', region: 'east', nearby: ['almancil', 'olhao', 'sao-bras-de-alportel'],
+    seoTitle: 'Home & Business Security in Faro | Algarve Smart Home',
+    seoDescription: 'CCTV and alarms for Faro homes and business premises from old town to airport, fitted by a locally based, 100% English-speaking team — call today for a quote.',
     character: 'the Algarve’s capital and main transport hub, with a wide mix of residential property types',
     heroHeadline: 'Keep a Faro property or premises covered, near the airport and beyond.',
     heroSubtext: 'Homes and business premises across the Algarve\'s working capital, from the old town to the airport.',
@@ -515,6 +549,8 @@ const towns = [
   },
   {
     slug: 'olhao', name: 'Olhão', region: 'east', nearby: ['faro', 'sao-bras-de-alportel', 'tavira'],
+    seoTitle: 'Home Security & Automation in Olhão | Algarve Smart Home',
+    seoDescription: 'Compact, discreet CCTV and alarm installs for Olhão’s working fishing town and its growing expat community, from an English-speaking team — call today.',
     character: 'a working fishing town on the eastern Algarve with a growing expat community',
     heroHeadline: 'See what\'s happening at your Olhão property without being there.',
     heroSubtext: 'Compact, discreet installations for a working fishing town — and its growing expat community.',
@@ -540,6 +576,8 @@ const towns = [
   },
   {
     slug: 'sao-bras-de-alportel', name: 'São Brás de Alportel', region: 'east', nearby: ['faro', 'olhao', 'loule'],
+    seoTitle: 'Home Security in São Brás de Alportel | Algarve Smart Home',
+    seoDescription: 'Full-boundary CCTV and alarms for inland São Brás homes with real gardens and land, installed by a locally based, English-speaking team — call today for quote.',
     character: 'an inland market town in the old cork country, with one of the Algarve\'s most established expat communities',
     heroHeadline: 'Know your São Brás property is fine, away from the coastal crowds.',
     heroSubtext: 'Full-boundary coverage for inland homes with real gardens and land, in the old cork country.',
@@ -565,6 +603,8 @@ const towns = [
   },
   {
     slug: 'tavira', name: 'Tavira', region: 'east', nearby: ['olhao', 'sao-bras-de-alportel', 'castro-marim'],
+    seoTitle: 'Home Security & Automation in Tavira | Algarve Smart Home',
+    seoDescription: 'Remote-monitored CCTV and alarms for Tavira homes left empty part of the year, fitted around historic buildings by an English-speaking team — call today.',
     character: 'a quieter, historic town on the eastern Algarve, popular with retirees and second-home owners',
     heroHeadline: 'Check on your Tavira home from outside Portugal, any time you like.',
     heroSubtext: 'Remote monitoring for homes that stand empty part of the year, fitted around historic buildings.',
@@ -590,6 +630,8 @@ const towns = [
   },
   {
     slug: 'castro-marim', name: 'Castro Marim', region: 'east', nearby: ['tavira', 'vila-real-de-santo-antonio', 'sao-bras-de-alportel'],
+    seoTitle: 'Home Security in Castro Marim | Algarve Smart Home',
+    seoDescription: 'Reliable CCTV and alarms for standalone Castro Marim houses and golf-resort villas near the Guadiana, from a locally based, English team — get a free quote.',
     character: 'a small historic town on the eastern Algarve near the Guadiana river',
     heroHeadline: 'Keep a standalone Castro Marim property covered, even without close neighbours.',
     heroSubtext: 'Straightforward, reliable coverage for standalone houses and golf-resort villas near the Guadiana.',
@@ -615,6 +657,8 @@ const towns = [
   },
   {
     slug: 'vila-real-de-santo-antonio', name: 'Vila Real de Santo António', region: 'east', nearby: ['castro-marim', 'tavira', 'olhao'],
+    seoTitle: 'Home Security Installation in Vila Real | Algarve Smart Home',
+    seoDescription: 'CCTV and alarms for Vila Real de Santo António and Monte Gordo homes, fitted by a locally based, 100% English-speaking team — call today for a free quote.',
     character: 'a planned grid town on the Guadiana facing Spain, with the Monte Gordo seafront in the same municipality',
     heroHeadline: 'Know your home in Vila Real or Monte Gordo is fine — without crossing the bridge to check.',
     heroSubtext: 'Grid-town apartments, Monte Gordo seafront blocks and edge-of-town houses — each covered properly.',

@@ -674,6 +674,8 @@ function renderTown(town) {
     schema: [breadcrumbSchema, faqSchema].filter(Boolean),
     mainClass: isDesignSystemPilot ? 'page-lagos-rs' : undefined,
     useHomeHeader: isDesignSystemPilot,
+    title: town.seoTitle,
+    metaDescription: town.seoDescription,
   });
 }
 

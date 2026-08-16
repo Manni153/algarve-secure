@@ -213,6 +213,8 @@ function renderHome() {
     bodyHtml: body,
     schema: [faqSchema],
     mainClass: 'page-home',
+    title: 'Security & Automation in the Algarve | Algarve Smart Home',
+    metaDescription: 'CCTV, alarms and smart home systems for properties across the Algarve, installed by a locally based, 100% English-speaking team — call today for a quote.',
   });
 }
 

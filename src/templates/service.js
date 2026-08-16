@@ -637,6 +637,8 @@ function renderService(service) {
     schema: [serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean),
     mainClass: isPilot ? `page-lagos-rs page-${service.slug}` : undefined,
     useHomeHeader: isPilot,
+    title: service.seoTitle,
+    metaDescription: service.seoDescription,
   });
 }
 
