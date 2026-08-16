@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Fire Detection","name":"Fire Detection in the Algarve","description":"A property standing empty for long stretches is exactly where early fire detection matters most — there’s nobody there to smell smoke or notice a fault before it becomes serious.","areaServed":{"@type":"AdministrativeArea","name":"Algarve, Portugal"},"provider":{"@type":"LocalBusiness","name":"Algarve Smart Home","telephone":"+351923272806"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.algarvesecure.com/"},{"@type":"ListItem","position":2,"name":"Fire Detection","item":"https://www.algarvesecure.com/fire-detection"}]}</script>
@@ -20,11 +20,20 @@
 </head>
 <body>
 
-  <nav class="site-header bleed" aria-label="Primary">
+  <nav class="site-header site-header--home bleed" aria-label="Primary">
     <div class="container">
-      <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
+      <a href="/" class="wordmark">Algarve <span class="accent">Smart <span class="wordmark-h-wrap">H<svg class="wordmark-roof" viewBox="0 0 28 11" fill="none" aria-hidden="true" focusable="false"><path d="M2 9.3 14 1.8 26 9.3" stroke="#DC143C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ome</span></a>
       <ul class="header-nav"><li><a href="/cctv-installation">CCTV</a></li><li><a href="/alarm-systems">Alarms</a></li><li><a href="/access-control">Access Control</a></li><li><a href="/gate-automation">Gate Automation</a></li><li><a href="/fire-detection">Fire Detection</a></li><li><a href="/home-networking">Home Networking</a></li><li><a href="/smart-home-automation">Smart Home Automation</a></li></ul>
       
+      <nav class="home-header-nav" aria-label="Primary">
+        <div class="home-header-nav-item">
+          <button type="button" class="home-header-nav-trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">Services</button>
+          <div class="home-header-dropdown"><a href="/cctv-installation">CCTV</a><a href="/alarm-systems">Alarms</a><a href="/access-control">Access Control</a><a href="/gate-automation">Gate Automation</a><a href="/fire-detection">Fire Detection</a><a href="/home-networking">Home Networking</a><a href="/smart-home-automation">Smart Home Automation</a></div>
+        </div>
+        <a href="#areas" class="home-header-nav-link">Service Areas</a>
+        <a href="/about" class="home-header-nav-link">About</a>
+        <a href="/contact" class="home-header-nav-link">Contact</a>
+      </nav>
       <div class="header-actions">
         <a href="tel:+351923272806" class="header-phone" aria-label="Call Algarve Smart Home">
           <span class="icon" aria-hidden="true"></span><span class="phone-digits">+351 923 272 806</span>
@@ -61,10 +70,10 @@
       </div>
     </nav>
   </div>
-<main>
+<main class="page-lagos-rs page-fire-detection">
 
   
-  <section class="hero-stack bleed">
+  <section class="hero-stack hero-stack--split bleed">
     <div class="container">
       <div class="hero-stack-text">
         <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <span>Fire Detection</span></p>
@@ -73,18 +82,21 @@
         <p class="hero-subtext">Smoke detectors and addressable panels that catch problems while they're still small.</p>
         <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
         
-        
+        <div class="hero-trust-inline"><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1.5" y="3" width="21" height="12.5" rx="6"/><path d="M6.6 17.4C5.7 19 4.2 20.4 2.3 21.3"/><circle cx="12" cy="9.25" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">100% English-Speaking</span><span class="v v-mobile v-mobile-value">100%</span><span class="v v-mobile v-mobile-label">English-Speaking</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.3C7.7 2.3 4.3 5.8 4.3 10c0 5.9 7.7 12.7 7.7 12.7s7.7-6.8 7.7-12.7c0-4.2-3.4-7.7-7.7-7.7Z"/><circle cx="12" cy="9.7" r="1.6" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">Locally Based</span><span class="v v-mobile v-mobile-value">Locally</span><span class="v v-mobile v-mobile-label">Based</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v v-desktop">Fast Response</span><span class="v v-mobile v-mobile-value">Fast</span><span class="v v-mobile v-mobile-label">Response</span></div></div>
       </div>
       <div class="hero-stack-media">
-        <div class="placeholder" role="img" aria-label="[Placeholder: Smoke detector mounted on ceiling in hallway]">
-    <span class="ph-label">[Placeholder: Smoke detector mounted on ceiling in hallway]</span>
-  </div>
+        <picture>
+        <source media="(min-width: 1025px)" type="image/webp" srcset="/assets/images/hero-security-fire-detection-desktop.webp">
+        <source media="(min-width: 1025px)" type="image/jpeg" srcset="/assets/images/hero-security-fire-detection-desktop.jpg">
+        <source type="image/webp" srcset="/assets/images/hero-security-fire-detection-mobile.webp">
+        <img src="/assets/images/hero-security-fire-detection-mobile.jpg" alt="Terracotta-walled Algarve villa with a discreet security camera mounted above the roofline, olive trees and glass sliding doors at the entrance" loading="eager" fetchpriority="high">
+      </picture>
       </div>
     </div>
   </section>
-  
+  <div class="hero-trust-band hero-trust-band--split bleed"><div class="container"><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1.5" y="3" width="21" height="12.5" rx="6"/><path d="M6.6 17.4C5.7 19 4.2 20.4 2.3 21.3"/><circle cx="12" cy="9.25" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v">100%</span><span class="l">English-Speaking</span><span class="vs">100% English-Speaking</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.3C7.7 2.3 4.3 5.8 4.3 10c0 5.9 7.7 12.7 7.7 12.7s7.7-6.8 7.7-12.7c0-4.2-3.4-7.7-7.7-7.7Z"/><circle cx="12" cy="9.7" r="1.6" fill="#DC143C" stroke="none"/></svg><span class="v">Local</span><span class="l">Based</span><span class="vs">Locally Based</span></div><div class="stat"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg><span class="v">Fast</span><span class="l">Response</span><span class="vs">Fast Response</span></div></div></div>
 
-  <nav class="toc" aria-label="Page sections">
+  <nav class="toc toc-rs" aria-label="Page sections">
     <div class="container">
       <span class="toc-label">On this page</span>
       <div class="toc-links"><a href="#included">What's Included</a><a href="#why-it-matters">Why It Matters</a><a href="#in-depth">In Depth</a><a href="#scenarios">Real-World Scenarios</a><a href="#common-problems">Common Problems</a><a href="#property-types">By Property Type</a><a href="#in-detail">In Detail</a><a href="#faq">FAQ</a></div>
@@ -93,7 +105,7 @@
 
   <section id="included">
     <div class="container">
-      <div class="two-col">
+      <div class="rs-block"><div class="two-col">
         <div class="two-col-text">
           <span class="eyebrow">What's Included</span>
           <h2>What our Fire Detection service covers</h2>
@@ -105,13 +117,13 @@
     <span class="ph-label">[Placeholder: Smoke detector mounted on ceiling in hallway]</span>
   </div>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
 
-  <section class="section-alt" id="why-it-matters">
+  <section id="why-it-matters">
     <div class="container">
-      <div class="two-col reverse">
+      <div class="rs-block"><div class="two-col reverse">
         <div class="two-col-media">
           <div class="placeholder ratio-tall" role="img" aria-label="Fire Detection in use at an Algarve property">
     <span class="ph-label">Fire Detection in use at an Algarve property</span>
@@ -123,23 +135,23 @@
           <p>A property that stands empty for long stretches is exactly where early detection matters most — there’s nobody there to smell smoke or notice a fault before it turns serious. Addressable panels and optical detectors are built to catch that early, whether the property is occupied or not.</p>
           <a href="tel:+351923272806" class="btn btn-icon mt-32">+351 923 272 806</a>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
 
   <section id="in-depth">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">In Depth</span>
               <h2>How fire detection actually works</h2>
             </div>
-            <div class="narrow" style="margin: 0 auto;"><h3>Why Detector Placement Follows the Property's Layout, Not a Fixed Count</h3><p>The number of detectors a property needs comes from its layout, not a general rule of thumb. Bedrooms, hallways connecting sleeping areas, and living spaces where electrical equipment runs are the typical starting points, with additional coverage added for larger properties, multiple floors, or outbuildings where a fire could develop unnoticed for longer. Interlinking the detectors means a trigger anywhere in the property is heard everywhere in it, which matters most in larger homes or ones with guests unfamiliar with the layout.</p><h3>Addressable Panels and Why They Matter More on Bigger Properties</h3><p>A basic smoke detector just sounds an alarm; an addressable panel identifies exactly which detector triggered it. On a small apartment that distinction barely matters, but on a larger villa, a property with outbuildings, or a commercial premises, knowing the location immediately — rather than searching room to room — is the difference that addressable systems are built to provide.</p><h3>Assessing What a Property Already Has Before Adding Anything</h3><p>A large share of the work on existing properties starts with figuring out what's actually there rather than assuming a blank slate. Villas bought with detectors already fitted by a previous owner, or a builder, often have equipment of unknown age, unknown type, and no record of when it was last checked — and a detector that looks fine mounted on the ceiling gives no visual clue about whether its sensor chamber still works reliably. The assessment covers what's installed, whether it's interlinked or standalone, whether coverage actually matches how the property is laid out now rather than how it was laid out when the detectors went in, and what — if anything — needs replacing versus what can stay. It's usually a more efficient starting point than treating every property as a fresh install, since a surprising amount of existing equipment turns out to be salvageable once it's actually looked at.</p></div>
+            <div class="narrow" style="margin: 0 auto;"><h3>Why Detector Placement Follows the Property's Layout, Not a Fixed Count</h3><p>The number of detectors a property needs comes from its layout, not a general rule of thumb. Bedrooms, hallways connecting sleeping areas, and living spaces where electrical equipment runs are the typical starting points, with additional coverage added for larger properties, multiple floors, or outbuildings where a fire could develop unnoticed for longer. Interlinking the detectors means a trigger anywhere in the property is heard everywhere in it, which matters most in larger homes or ones with guests unfamiliar with the layout.</p><h3>Addressable Panels and Why They Matter More on Bigger Properties</h3><p>A basic smoke detector just sounds an alarm; an addressable panel identifies exactly which detector triggered it. On a small apartment that distinction barely matters, but on a larger villa, a property with outbuildings, or a commercial premises, knowing the location immediately — rather than searching room to room — is the difference that addressable systems are built to provide.</p><h3>Assessing What a Property Already Has Before Adding Anything</h3><p>A large share of the work on existing properties starts with figuring out what's actually there rather than assuming a blank slate. Villas bought with detectors already fitted by a previous owner, or a builder, often have equipment of unknown age, unknown type, and no record of when it was last checked — and a detector that looks fine mounted on the ceiling gives no visual clue about whether its sensor chamber still works reliably. The assessment covers what's installed, whether it's interlinked or standalone, whether coverage actually matches how the property is laid out now rather than how it was laid out when the detectors went in, and what — if anything — needs replacing versus what can stay. It's usually a more efficient starting point than treating every property as a fresh install, since a surprising amount of existing equipment turns out to be salvageable once it's actually looked at.</p></div></div>
           </div>
         </section>
 
-  <section class="section-alt" id="scenarios">
+  <section id="scenarios">
           <div class="container">
-            <div class="two-col">
+            <div class="rs-block"><div class="two-col">
               <div class="two-col-text">
                 <span class="eyebrow">Real-World Scenarios</span>
                 <h2>Where fire detection actually gets used</h2>
@@ -162,13 +174,13 @@
     <span class="ph-label">[Placeholder: Interlinked smoke detector mounted in a villa bedroom hallway]</span>
   </div>
               </div>
-            </div>
+            </div></div>
           </div>
         </section>
 
   <section id="common-problems">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">Common Problems</span>
               <h2>What owners actually call about</h2>
               <p class="lede">The specific issues that come up most, and what's usually behind them.</p>
@@ -197,13 +209,13 @@
       </div><div class="card">
         <h3>&ldquo;Detector in an outbuilding or garage isn't covered by the main panel&rdquo;</h3>
         <p>Coverage needs to be planned to specifically include outbuildings and garages rather than assumed — a separate structure is easy to overlook if it wasn't part of the original conversation about the property.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
   <section id="property-types">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">By Property Type</span>
               <h2>How this applies to your property</h2>
               <p class="lede">The same service, sized differently depending on what you own.</p>
@@ -220,13 +232,13 @@
       </div><div class="card">
         <h3>Business / Warehouse</h3>
         <p>Addressable panels and detector isolation suit larger commercial or warehouse spaces where pinpointing the exact location matters.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
-  <section class="section-alt" id="in-detail">
+  <section id="in-detail">
           <div class="container">
-            <div class="two-col reverse">
+            <div class="rs-block"><div class="two-col reverse">
               <div class="two-col-media">
                 <div class="placeholder ratio-tall" role="img" aria-label="[Placeholder: Addressable fire panel mounted on a utility room wall]">
     <span class="ph-label">[Placeholder: Addressable fire panel mounted on a utility room wall]</span>
@@ -249,13 +261,13 @@
       </div><div class="card">
         <h3>Detectors Age — and Look Fine Doing It</h3>
         <p>A detector's sensing chamber degrades with dust and time long before anything visible changes on the ceiling. Age and service history matter more than appearance, which is why detectors of unknown age in a newly purchased property get assessed rather than trusted on looks.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
   <section id="faq">
           <div class="container">
-            <div class="section-head">
+            <div class="rs-block"><div class="section-head">
               <span class="eyebrow">Questions</span>
               <h2>Frequently asked questions</h2>
             </div>
@@ -289,70 +301,78 @@
       </div><div class="faq-item">
         <h3>Are outbuildings or a garage covered, or only the main house?</h3>
         <p>Coverage needs to be planned in specifically for outbuildings and garages — worth mentioning any separate structures on the property early, rather than assuming they’re automatically included.</p>
-      </div></div>
+      </div></div></div>
           </div>
         </section>
 
-  <section class="cta-band">
-    <div class="container">
-      <span class="eyebrow">Get Started</span>
-      <h2>Talk through your fire detection options</h2>
-      <p class="lede">Call now and we'll talk you through what makes sense for your property — in English, with no jargon.</p>
-      <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
-    </div>
-  </section>
+  <section>
+          <div class="container">
+            <div class="cta-band rs-block">
+              <span class="eyebrow">Get Started</span>
+              <h2>Talk through your fire detection options</h2>
+              <p class="lede">Call now and we'll talk you through what makes sense for your property — in English, with no jargon.</p>
+              <a href="tel:+351923272806" class="btn btn-lg btn-icon">+351 923 272 806</a>
+            </div>
+          </div>
+        </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
+      <div class="rs-block"><div class="section-head">
         <span class="eyebrow">Where We Work</span>
         <h2>Fire Detection across the Algarve</h2>
       </div>
       <div class="narrow region-links" style="margin: 0 auto;">
     <p>Across the <strong>West Algarve</strong>, fire detection is installed in <a href="/lagos">Lagos</a>, <a href="/praia-da-luz">Praia da Luz</a>, <a href="/sagres">Sagres</a>, <a href="/aljezur">Aljezur</a>, <a href="/alvor">Alvor</a>, <a href="/portimao">Portimão</a>, <a href="/ferragudo">Ferragudo</a>, <a href="/lagoa">Lagoa</a>, <a href="/carvoeiro">Carvoeiro</a>, <a href="/silves">Silves</a> and <a href="/monchique">Monchique</a>.</p>
     <p>In the <strong>Central Algarve</strong>, that coverage runs through <a href="/albufeira">Albufeira</a>, <a href="/vilamoura">Vilamoura</a>, <a href="/quarteira">Quarteira</a>, <a href="/loule">Loulé</a> and <a href="/almancil">Almancil</a>.</p>
-    <p>And along the <strong>East Algarve</strong>, it reaches <a href="/faro">Faro</a>, <a href="/olhao">Olhão</a>, <a href="/sao-bras-de-alportel">São Brás de Alportel</a>, <a href="/tavira">Tavira</a>, <a href="/castro-marim">Castro Marim</a> and <a href="/vila-real-de-santo-antonio">Vila Real de Santo António</a> — the full stretch to the Spanish border.</p></div>
+    <p>And along the <strong>East Algarve</strong>, it reaches <a href="/faro">Faro</a>, <a href="/olhao">Olhão</a>, <a href="/sao-bras-de-alportel">São Brás de Alportel</a>, <a href="/tavira">Tavira</a>, <a href="/castro-marim">Castro Marim</a> and <a href="/vila-real-de-santo-antonio">Vila Real de Santo António</a> — the full stretch to the Spanish border.</p></div></div>
     </div>
   </section>
 
-  <section>
+  <section id="services">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Explore</span>
         <h2>More of what we install</h2>
       </div>
       <div class="card-grid cols-3"><a href="/cctv-installation" class="card flagship">
-        <span class="badge">Flagship Service</span>
-        <h3>CCTV Installation</h3>
-        <p>Indoor and outdoor camera systems with remote viewing, planned around each property's actual entrances and blind spots.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/alarm-systems" class="card">
-        
-        <h3>Alarm Systems</h3>
-        <p>Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/access-control" class="card">
-        
-        <h3>Access Control</h3>
-        <p>Intelligent readers, electronic locks and video intercoms, so only the people you want on the property can get in.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/gate-automation" class="card">
-        
-        <h3>Gate Automation</h3>
-        <p>Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/home-networking" class="card">
-        
-        <h3>Home Networking</h3>
-        <p>Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a><a href="/smart-home-automation" class="card">
-        
-        <h3>Smart Home Automation</h3>
-        <p>Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.</p>
-        <span class="card-link">Learn more &rarr;</span>
-      </a></div>
-      
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M8.26 13.1V11.56"/><rect x="6.5" y="13.1" width="6.6" height="4.18" rx="1.1"/><path d="M13.1 14.2v1.98l3.74 1.87v-5.72Z" fill="#FFFFFF" stroke="none"/></svg></div>
+          <span class="badge">Flagship Service</span>
+          <h3>CCTV Installation</h3>
+          <p>Indoor and outdoor camera systems with remote viewing, planned around each property's actual entrances and blind spots.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/alarm-systems" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 10.9c-1.87 0-3.3 1.43-3.3 3.3v1.43c0 .66-.22 1.21-.66 1.65l-.44.44h8.8l-.44-.44c-.44-.44-.66-.99-.66-1.65V14.2c0-1.87-1.43-3.3-3.3-3.3Z"/><path d="M10.46 18.82c.22.77.88 1.21 1.54 1.21s1.32-.44 1.54-1.21"/></svg></div>
+          
+          <h3>Alarm Systems</h3>
+          <p>Intruder alarm systems with motion sensors, connected control panels and app-based alerts, for villas, apartments and holiday homes.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/access-control" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><rect x="7.05" y="10.9" width="9.9" height="9.9" rx="1.98"/><circle cx="9.8" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="9.8" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/></svg></div>
+          
+          <h3>Access Control</h3>
+          <p>Intelligent readers, electronic locks and video intercoms, so only the people you want on the property can get in.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/gate-automation" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M7.05 19.7v-7.04h9.9V19.7"/></svg></div>
+          
+          <h3>Gate Automation</h3>
+          <p>Motorised gates and barriers, plus security doors and sectional gates, with remote and app control.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/home-networking" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><rect x="7.05" y="16.4" width="9.9" height="3.52" rx="1.1"/><path d="M12 16.4v-3.74"/><circle cx="12" cy="12" r="0.99" fill="#FFFFFF" stroke="none"/></svg></div>
+          
+          <h3>Home Networking</h3>
+          <p>Structured cabling, network racks and backup power, built to support your cameras, alarms and access control reliably.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a><a href="/smart-home-automation" class="card">
+          <div class="card-icon-block"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z"/><path d="M12 11.12v3.63"/><path d="M8.7 13.43a4.4 4.4 0 1 0 6.6 0"/></svg></div>
+          
+          <h3>Smart Home Automation</h3>
+          <p>Your gate, cameras and alarm brought into one app, with simple add-ons like remote-controlled lighting.</p>
+          <span class="card-link"><span class="card-link-label">Learn more</span> <span class="card-link-arrow-text" aria-hidden="true">&rarr;</span><svg class="card-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.25"/><path d="M9.2 8.3 13.4 12 9.2 15.7"/></svg></span>
+        </a></div>
+      <div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-fill"></div></div>
     </div>
   </section>
   
@@ -362,7 +382,7 @@
     <div class="container">
       <div class="footer-masthead">
         <div>
-          <a href="/" class="wordmark">Algarve <span class="accent">Smart Home</span></a>
+          <a href="/" class="wordmark">Algarve <span class="accent">Smart <span class="wordmark-h-wrap">H<svg class="wordmark-roof" viewBox="0 0 28 11" fill="none" aria-hidden="true" focusable="false"><path d="M2 9.3 14 1.8 26 9.3" stroke="#DC143C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ome</span></a>
           <p>English-speaking security systems and smart home installation for homeowners across the Algarve.</p>
         </div>
         <a href="tel:+351923272806" class="btn btn-icon">+351 923 272 806</a>
