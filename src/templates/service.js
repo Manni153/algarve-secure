@@ -112,6 +112,13 @@ const SERVICE_DESCRIPTION_PHOTO = {
       alt: 'Touchless exit sensor mounted beside a controlled door entrance',
     },
   },
+  'gate-automation': {
+    scenarios: {
+      webp: '/assets/images/gate-automation-vehicle-access.webp',
+      jpg: '/assets/images/gate-automation-vehicle-access.jpg',
+      alt: 'Vehicle approaching an automated gate with access control installed at an Algarve property',
+    },
+  },
 };
 
 function renderService(service) {
