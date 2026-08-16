@@ -6,15 +6,15 @@ const { esc, heroIntro, renderPage } = require('./layout');
 const stages = [
   {
     heading: 'Get in Touch',
-    text: 'Call or message on WhatsApp and you\'re straight through to Rui — the same person whose team assesses, supplies and fits your system. Whichever way you reach out, there\'s no call centre and no waiting for a callback.',
+    text: 'Call or message on WhatsApp and you\'re straight through to our partner — the same person whose team assesses, supplies and fits your system. Whichever way you reach out, there\'s no call centre and no waiting for a callback.',
   },
   {
     heading: 'Assessment',
-    text: 'From that first conversation, Rui and his team work out what your property actually needs — camera positions, sensor coverage, or where a gate motor or access point makes sense. Depending on the job, that might happen on the call, from photos you send over, or with a site visit.',
+    text: 'From that first conversation, our partner and their team work out what your property actually needs — camera positions, sensor coverage, or where a gate motor or access point makes sense. Depending on the job, that might happen on the call, from photos you send over, or with a site visit.',
   },
   {
     heading: 'Installation',
-    text: 'Rui\'s own team installs and configures everything on-site — no subcontractors, so the people who scoped the job are the ones doing the work.',
+    text: 'Our partner\'s own team installs and configures everything on-site — no subcontractors, so the people who scoped the job are the ones doing the work.',
   },
   {
     heading: 'Ongoing Support',
@@ -25,7 +25,7 @@ const stages = [
 const faqs = [
   {
     q: 'Do I need to contact the installation partner separately?',
-    a: 'No. Whether you call or message on WhatsApp, you\'re speaking with Rui and his team from the first message through to support afterwards — there\'s no separate installer to loop in.',
+    a: 'No. Whether you call or message on WhatsApp, you\'re speaking with our partner and their team from the first message through to support afterwards — there\'s no separate installer to loop in.',
   },
   {
     q: 'Does this change how the installation is carried out?',
@@ -98,7 +98,7 @@ function renderHowWeWork() {
       <div class="rs-block"><div class="narrow" style="margin: 0 auto;">
         <span class="eyebrow">Why It's Set Up This Way</span>
         <h2>One number, coverage across the whole region</h2>
-        <p>One number, one WhatsApp — both connect you straight to Rui and his team, the same people who cover the whole Algarve themselves, from Sagres to Vila Real de Santo António. There's no network of different subcontractors depending on where your property is; it's one consistent, experienced team either way.</p>
+        <p>One number, one WhatsApp — both connect you straight to our partner and their team, the same people who cover the whole Algarve themselves, from Sagres to Vila Real de Santo António. There's no network of different subcontractors depending on where your property is; it's one consistent, experienced team either way.</p>
         <p>For you, the practical difference is small: one number to call, one point of contact for support, and a system installed by people who know the area.</p>
       </div></div>
     </div>
