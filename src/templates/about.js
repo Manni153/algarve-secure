@@ -91,6 +91,8 @@ function renderAbout() {
     path: '/about',
     bodyHtml: body,
     schema: [breadcrumbSchema],
+    title: 'About Algarve Smart Home | Local English-Speaking Team',
+    metaDescription: 'Algarve Smart Home installs CCTV, alarms and smart home systems for English-speaking homeowners across the Algarve, with one point of contact throughout.',
     mainClass: 'page-lagos-rs page-about',
     useHomeHeader: true,
   });

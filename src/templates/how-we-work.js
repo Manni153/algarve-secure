@@ -149,6 +149,8 @@ function renderHowWeWork() {
     path: '/how-we-work',
     bodyHtml: body,
     schema: [breadcrumbSchema, faqSchema],
+    title: 'How Algarve Smart Home Works | From Call to Install',
+    metaDescription: 'See how Algarve Smart Home turns an enquiry into a working system — one phone call, a property assessment, professional installation and lasting support.',
     mainClass: 'page-lagos-rs page-how-we-work',
     useHomeHeader: true,
   });

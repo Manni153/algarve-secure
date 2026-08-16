@@ -53,6 +53,8 @@ function renderContact() {
     path: '/contact',
     bodyHtml: body,
     schema: [breadcrumbSchema],
+    title: 'Contact Algarve Smart Home | Call or WhatsApp Today',
+    metaDescription: 'Call or WhatsApp Algarve Smart Home for a fast, straightforward answer about CCTV, alarms, access control or smart home systems — no forms, no waiting.',
     mainClass: 'page-lagos-rs page-contact',
     useHomeHeader: true,
   });
