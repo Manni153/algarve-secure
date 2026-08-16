@@ -542,7 +542,7 @@ const services = [
     name: 'Gate Automation',
     navLabel: 'Gate Automation',
     flagship: false,
-    h1: 'Automated Gate Systems in the Algarve',
+    h1: 'Gate Automation in the Algarve',
     seoTitle: 'Gate Automation in the Algarve | Algarve Smart Home',
     seoDescription: 'Motorised gates and barriers you can open from your car, keypad or phone, fitted by a locally based, 100% English-speaking team — call today for a quote.',
     heroHeadline: 'Open your gate from your phone — no one waiting at the intercom.',
