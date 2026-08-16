@@ -59,30 +59,30 @@ const heroStatIcons = [
   `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1.8C13 6.5 9 10.5 5.5 14c2.8.2 5.6.4 8.5.6-3.5 3.4-7 6.4-8.5 7.9"/><circle cx="5.5" cy="22.5" r="1.5" fill="#DC143C" stroke="none"/></svg>`,
 ];
 
-// Service-card icons (desktop-only card rebuild) — hand-drawn, redrawn as a
-// family: every icon is the same rounded-house outline (identical path,
-// same proportions/position) containing one distinct inner element, so only
-// the inner glyph changes card to card. 24x24 viewBox, 2.5px stroke, round
-// caps/joins, fill none, single colour (white — these sit on a solid
-// steel-blue block, no crimson accent on this set). Small dots/squares that
-// need to read as solid (keypad buttons, antenna ball, camera lens) are
-// filled white rather than stroked, same white as everything else — still
-// "single colour", just filled instead of outlined for those tiny details.
-// House outline and every inner element share one uniform 1.1x scale (about
-// the 12,12 viewBox centre) versus the first pass, after the house read as
-// slightly cramped at true render size — flame was nudged up afterwards
-// specifically so its base doesn't cross the house's own floor line.
+// Service-card icons (desktop-only card rebuild) — standalone symbol only,
+// no house-outline wrapper (the navy rounded-square .card-icon-block tile
+// is the only frame). 24x24 viewBox, 2.5px stroke, round caps/joins, fill
+// none, single colour (white — these sit on a solid steel-blue block, no
+// crimson accent on this set). Small dots/squares that need to read as
+// solid (keypad buttons, antenna ball, camera lens) are filled white rather
+// than stroked, same white as everything else — still "single colour",
+// just filled instead of outlined for those tiny details. Each icon's own
+// path data still sits in its original lower-viewBox position (left over
+// from when a house-roof occupied the top third), so the viewBox's own
+// min-y is shifted down per icon — a pure viewport translation, not a path
+// edit — to recentre that icon's actual ink inside the tile; values were
+// picked by rendering each icon against a crosshair at the tile's true
+// centre and adjusting until the glyph's own bounding box lined up with it.
 // Keyed by service slug (see data/services.js) rather than by index, so the
 // mapping stays correct even if services.js is reordered.
-const houseOutline = 'M2.1 20.8V9.8L12 2.1L21.9 9.8V20.8Z';
 const serviceIcons = {
-  'cctv-installation': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><path d="M8.26 13.1V11.56"/><rect x="6.5" y="13.1" width="6.6" height="4.18" rx="1.1"/><path d="M13.1 14.2v1.98l3.74 1.87v-5.72Z" fill="#FFFFFF" stroke="none"/></svg>`,
-  'alarm-systems': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><path d="M12 10.9c-1.87 0-3.3 1.43-3.3 3.3v1.43c0 .66-.22 1.21-.66 1.65l-.44.44h8.8l-.44-.44c-.44-.44-.66-.99-.66-1.65V14.2c0-1.87-1.43-3.3-3.3-3.3Z"/><path d="M10.46 18.82c.22.77.88 1.21 1.54 1.21s1.32-.44 1.54-1.21"/></svg>`,
-  'access-control': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><rect x="7.05" y="10.9" width="9.9" height="9.9" rx="1.98"/><circle cx="9.8" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="9.8" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/></svg>`,
-  'gate-automation': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><path d="M7.05 19.7v-7.04h9.9V19.7"/></svg>`,
-  'fire-detection': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><path d="M12 8.82c1.1 1.54-.44 2.53-.33 3.96.11.88.88 1.43.88 1.43s1.1-.77 1.21-1.98c1.21 1.21 1.76 2.53 1.76 3.85 0 2.09-1.54 3.41-3.52 3.41s-3.52-1.32-3.52-3.41c0-1.65.88-2.97 1.76-3.96.11.88.66 1.43.66 1.43S10.35 11.68 12 8.82Z"/></svg>`,
-  'home-networking': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><rect x="7.05" y="16.4" width="9.9" height="3.52" rx="1.1"/><path d="M12 16.4v-3.74"/><circle cx="12" cy="12" r="0.99" fill="#FFFFFF" stroke="none"/></svg>`,
-  'smart-home-automation': `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${houseOutline}"/><path d="M12 11.12v3.63"/><path d="M8.7 13.43a4.4 4.4 0 1 0 6.6 0"/></svg>`,
+  'cctv-installation': `<svg viewBox="0 2.8 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.26 13.1V11.56"/><rect x="6.5" y="13.1" width="6.6" height="4.18" rx="1.1"/><path d="M13.1 14.2v1.98l3.74 1.87v-5.72Z" fill="#FFFFFF" stroke="none"/></svg>`,
+  'alarm-systems': `<svg viewBox="0 3.25 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 10.9c-1.87 0-3.3 1.43-3.3 3.3v1.43c0 .66-.22 1.21-.66 1.65l-.44.44h8.8l-.44-.44c-.44-.44-.66-.99-.66-1.65V14.2c0-1.87-1.43-3.3-3.3-3.3Z"/><path d="M10.46 18.82c.22.77.88 1.21 1.54 1.21s1.32-.44 1.54-1.21"/></svg>`,
+  'access-control': `<svg viewBox="0 3.85 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7.05" y="10.9" width="9.9" height="9.9" rx="1.98"/><circle cx="9.8" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="13.87" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="9.8" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/><circle cx="14.2" cy="17.83" r="0.935" fill="#FFFFFF" stroke="none"/></svg>`,
+  'gate-automation': `<svg viewBox="0 4.18 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.05 19.7v-7.04h9.9V19.7"/></svg>`,
+  'fire-detection': `<svg viewBox="0 2.26 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8.82c1.1 1.54-.44 2.53-.33 3.96.11.88.88 1.43.88 1.43s1.1-.77 1.21-1.98c1.21 1.21 1.76 2.53 1.76 3.85 0 2.09-1.54 3.41-3.52 3.41s-3.52-1.32-3.52-3.41c0-1.65.88-2.97 1.76-3.96.11.88.66 1.43.66 1.43S10.35 11.68 12 8.82Z"/></svg>`,
+  'home-networking': `<svg viewBox="0 3.465 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7.05" y="16.4" width="9.9" height="3.52" rx="1.1"/><path d="M12 16.4v-3.74"/><circle cx="12" cy="12" r="0.99" fill="#FFFFFF" stroke="none"/></svg>`,
+  'smart-home-automation': `<svg viewBox="0 3.93 24 24" width="38" height="38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 11.12v3.63"/><path d="M8.7 13.43a4.4 4.4 0 1 0 6.6 0"/></svg>`,
 };
 
 function serviceIcon(slug) {

@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, heroIntro, reassuranceBand, renderPage, cardIcon, serviceIcon } = require('./layout');
+const { esc, rich, heroIntro, reassuranceBand, renderPage, cardIcon, serviceIcon } = require('./layout');
 
 function renderHome() {
   const trustCards = site.trustSection
@@ -20,7 +20,6 @@ function renderHome() {
     .map(
       (s) => `<a href="/${s.slug}" class="card${s.flagship ? ' flagship' : ''}">
         <div class="card-icon-block">${serviceIcon(s.slug)}</div>
-        ${placeholder(s.imageAlt, { ratio: 'wide' })}
         ${s.flagship ? '<span class="badge">Flagship Service</span>' : ''}
         <h3>${esc(s.name)}</h3>
         <p>${esc(s.heroSubhead)}</p>
