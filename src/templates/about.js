@@ -14,7 +14,7 @@ const pillars = [
   },
   {
     heading: 'Supplied and Installed as One Job',
-    text: 'Equipment is sourced and fitted as a single job, so cameras, alarms and smart home devices are set up to work together properly, rather than being pieced together from separate suppliers.',
+    text: 'Your partner sources and fits everything as a single job, so cameras, alarms and smart home devices are set up to work together properly, rather than being pieced together from separate suppliers.',
   },
   {
     heading: 'Support That Doesn’t Disappear After Install',
@@ -35,7 +35,7 @@ function renderAbout() {
   const hero = heroIntro({
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'About' }],
     h1Text: 'About Algarve Smart Home',
-    headlineHtml: 'A local installer that explains everything in plain English.',
+    headlineHtml: 'Connecting you to a local installer who explains everything in plain English.',
     subtext: 'Built around one idea: security systems should be easy to understand, whoever you are.',
     ctaNote: 'Questions welcome — no pitch, just answers.',
     noMedia: true,
@@ -50,7 +50,7 @@ function renderAbout() {
       <div class="rs-block"><div class="narrow" style="margin: 0 auto;">
         <span class="eyebrow">Who We Are</span>
         <h2>Built for English-speaking homeowners in the Algarve</h2>
-        <p>${rich('Algarve Smart Home installs <a href="/cctv-installation">CCTV</a>, <a href="/alarm-systems">alarms</a>, <a href="/access-control">access control</a>, <a href="/gate-automation">gate automation</a>, <a href="/fire-detection">fire detection</a>, <a href="/home-networking">networking</a> and <a href="/smart-home-automation">smart home systems</a> for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.')}</p>
+        <p>${rich('Algarve Smart Home connects you with a local partner who installs <a href="/cctv-installation">CCTV</a>, <a href="/alarm-systems">alarms</a>, <a href="/access-control">access control</a>, <a href="/gate-automation">gate automation</a>, <a href="/fire-detection">fire detection</a>, <a href="/home-networking">networking</a> and <a href="/smart-home-automation">smart home systems</a> for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.')}</p>
         <p>That back-and-forth is exactly why the service is built the way it is: clear English communication, systems you can check on remotely, and support that's easy to reach when you need it, whether you're at the property or on the other side of Europe.</p>
       </div></div>
     </div>
