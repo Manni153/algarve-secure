@@ -619,6 +619,13 @@ body.nav-open { overflow: hidden; }
   .page-lagos-rs .hero-stack--dark .hero-kicker { color: rgba(247, 241, 228, 0.75); }
 }
 
+/* Swapped from the plain --ink navy to the same steel blue-grey as this
+   page's own CTA band and footer, so the hero doesn't read as a
+   different, older dark blue from the rest of the page's dark sections. */
+.page-lagos-rs .hero-stack--dark {
+  background: var(--hero2-steel);
+}
+
 /* Desktop-only note line + duplicate trust stats — only exist in the
    markup on pages opted into twoColDesktop (currently the homepage), but
    still default hidden here and revealed at the desktop breakpoint so
