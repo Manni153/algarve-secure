@@ -822,7 +822,9 @@ body.nav-open { overflow: hidden; }
   .page-access-control #included .two-col-media,
   .page-access-control #scenarios .two-col-media,
   .page-fire-detection #included .two-col-media,
-  .page-fire-detection #scenarios .two-col-media {
+  .page-fire-detection #scenarios .two-col-media,
+  .page-home-networking #included .two-col-media,
+  .page-home-networking #scenarios .two-col-media {
     order: 1;
   }
   .page-cctv-installation #included .two-col-text,
@@ -830,7 +832,9 @@ body.nav-open { overflow: hidden; }
   .page-access-control #included .two-col-text,
   .page-access-control #scenarios .two-col-text,
   .page-fire-detection #included .two-col-text,
-  .page-fire-detection #scenarios .two-col-text {
+  .page-fire-detection #scenarios .two-col-text,
+  .page-home-networking #included .two-col-text,
+  .page-home-networking #scenarios .two-col-text {
     order: 2;
   }
 }
