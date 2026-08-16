@@ -773,6 +773,14 @@ body.nav-open { overflow: hidden; }
 .photo-frame.ratio-square { aspect-ratio: 1 / 1; }
 .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+/* Desktop-only landscape override — mobile/tablet keep the standard tall
+   (4:5) frame unchanged; only used by the Gate Automation page's included/
+   in-detail photos, which are landscape source images. */
+.photo-frame.ratio-tall-desktop-wide { aspect-ratio: 4 / 5; }
+@media (min-width: 1025px) {
+  .photo-frame.ratio-tall-desktop-wide { aspect-ratio: 16 / 9; }
+}
+
 /* -------------------------------------------------------------------------
    Two-column — plain contained layout, no bleed, no per-page alternation.
    ------------------------------------------------------------------------- */

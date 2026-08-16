@@ -117,6 +117,7 @@ const SERVICE_DESCRIPTION_PHOTO = {
       webp: '/assets/images/gate-automation-swing-operators.webp',
       jpg: '/assets/images/gate-automation-swing-operators.jpg',
       alt: 'Swing gate motor operators installed at a driveway entrance',
+      ratio: 'tall-desktop-wide',
     },
     whyItMatters: {
       webp: '/assets/images/gate-automation-sliding-roller.webp',
@@ -132,6 +133,7 @@ const SERVICE_DESCRIPTION_PHOTO = {
       webp: '/assets/images/gate-automation-single-swing.webp',
       jpg: '/assets/images/gate-automation-single-swing.jpg',
       alt: 'Single swing gate motor mounted beside a driveway gate',
+      ratio: 'tall-desktop-wide',
     },
   },
 };
@@ -356,7 +358,7 @@ function renderService(service) {
         <div class="two-col-media">
           ${
             descriptionPhotos.included
-              ? photo(descriptionPhotos.included.alt, { webp: descriptionPhotos.included.webp, jpg: descriptionPhotos.included.jpg, ratio: 'tall' })
+              ? photo(descriptionPhotos.included.alt, { webp: descriptionPhotos.included.webp, jpg: descriptionPhotos.included.jpg, ratio: descriptionPhotos.included.ratio || 'tall' })
               : placeholder(service.imageAlt, { ratio: 'tall' })
           }
         </div>
@@ -479,7 +481,7 @@ function renderService(service) {
               <div class="two-col-media">
                 ${
                   descriptionPhotos.inDetail
-                    ? photo(descriptionPhotos.inDetail.alt, { webp: descriptionPhotos.inDetail.webp, jpg: descriptionPhotos.inDetail.jpg, ratio: 'tall' })
+                    ? photo(descriptionPhotos.inDetail.alt, { webp: descriptionPhotos.inDetail.webp, jpg: descriptionPhotos.inDetail.jpg, ratio: descriptionPhotos.inDetail.ratio || 'tall' })
                     : placeholder(service.detailImageAlt, { ratio: 'tall' })
                 }
               </div>
