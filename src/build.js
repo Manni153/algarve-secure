@@ -72,6 +72,13 @@ function build() {
   // Static assets
   copyDir(path.join(__dirname, 'assets'), path.join(OUT, 'assets'));
 
+  // Favicon files also served from the site root, alongside their
+  // /assets/icons/ copies referenced by <link> tags in layout.js — root
+  // placement is the fallback path browsers/crawlers request by default
+  // when no <link rel="icon"> is found.
+  fs.copyFileSync(path.join(__dirname, 'assets/icons/favicon.ico'), path.join(OUT, 'favicon.ico'));
+  fs.copyFileSync(path.join(__dirname, 'assets/icons/apple-touch-icon.png'), path.join(OUT, 'apple-touch-icon.png'));
+
   // sitemap.xml
   const today = new Date().toISOString().slice(0, 10);
   const urls = pages

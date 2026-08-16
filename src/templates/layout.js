@@ -455,10 +455,15 @@ function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader, title, m
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ${title ? `<title>${esc(title)}</title>\n` : ''}${metaDescription ? `<meta name="description" content="${esc(metaDescription)}">\n` : ''}<link rel="canonical" href="${canonical}">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Algarve Smart Home">
 <meta property="og:url" content="${canonical}">
+<meta property="og:image" content="${site.baseUrl}/assets/icons/icon-512.png">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="${site.baseUrl}/assets/icons/icon-512.png">
 <meta name="theme-color" content="#fbf6ec">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
