@@ -823,7 +823,9 @@ body.nav-open { overflow: hidden; }
   .page-access-control #scenarios .two-col-media,
   .page-fire-detection #included .two-col-media,
   .page-fire-detection #scenarios .two-col-media,
-  .page-home-networking #included .two-col-media {
+  .page-home-networking #included .two-col-media,
+  .page-smart-home-automation #included .two-col-media,
+  .page-smart-home-automation #scenarios .two-col-media {
     order: 1;
   }
   .page-cctv-installation #included .two-col-text,
@@ -832,7 +834,9 @@ body.nav-open { overflow: hidden; }
   .page-access-control #scenarios .two-col-text,
   .page-fire-detection #included .two-col-text,
   .page-fire-detection #scenarios .two-col-text,
-  .page-home-networking #included .two-col-text {
+  .page-home-networking #included .two-col-text,
+  .page-smart-home-automation #included .two-col-text,
+  .page-smart-home-automation #scenarios .two-col-text {
     order: 2;
   }
 }
