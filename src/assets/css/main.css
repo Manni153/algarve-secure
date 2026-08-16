@@ -809,7 +809,7 @@ body.nav-open { overflow: hidden; }
    breakpoint (see .two-col.reverse above) since their markup puts the
    image first in the DOM; Included and Scenarios use the default
    text-then-media DOM order, so only they need the `order` swap here.
-   CCTV and Alarm Systems are minimal-images pages (see
+   CCTV, Alarm Systems and Home Networking are minimal-images pages (see
    SERVICE_MINIMAL_IMAGES_SLUGS in service.js) — their Scenarios section
    has no media column at all, so only Included applies there. Gate
    Automation already has its own full-width, every-breakpoint layout for
@@ -823,8 +823,7 @@ body.nav-open { overflow: hidden; }
   .page-access-control #scenarios .two-col-media,
   .page-fire-detection #included .two-col-media,
   .page-fire-detection #scenarios .two-col-media,
-  .page-home-networking #included .two-col-media,
-  .page-home-networking #scenarios .two-col-media {
+  .page-home-networking #included .two-col-media {
     order: 1;
   }
   .page-cctv-installation #included .two-col-text,
@@ -833,8 +832,7 @@ body.nav-open { overflow: hidden; }
   .page-access-control #scenarios .two-col-text,
   .page-fire-detection #included .two-col-text,
   .page-fire-detection #scenarios .two-col-text,
-  .page-home-networking #included .two-col-text,
-  .page-home-networking #scenarios .two-col-text {
+  .page-home-networking #included .two-col-text {
     order: 2;
   }
 }

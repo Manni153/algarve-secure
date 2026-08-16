@@ -19,7 +19,7 @@ const SERVICE_DESIGN_SYSTEM_PILOT_SLUGS = new Set(['cctv-installation', 'alarm-s
 // collapsing to single-column layouts), per explicit request. Every other
 // pilot page (e.g. Alarm Systems) keeps its placeholder boxes in every
 // slot until told otherwise — same design language, unreduced imagery.
-const SERVICE_MINIMAL_IMAGES_SLUGS = new Set(['cctv-installation', 'alarm-systems']);
+const SERVICE_MINIMAL_IMAGES_SLUGS = new Set(['cctv-installation', 'alarm-systems', 'home-networking']);
 
 // Per-service full-bleed hero photography for the pilot page(s) — same
 // standard villa photoshoot/pair reused across most rollout towns (see
@@ -170,6 +170,18 @@ const SERVICE_DESCRIPTION_PHOTO = {
       webp: '/assets/images/fire-safety-system-installed.webp',
       jpg: '/assets/images/fire-safety-system-installed.jpg',
       alt: 'Fire safety system installed at an Algarve property',
+    },
+  },
+  'home-networking': {
+    included: {
+      webp: '/assets/images/home-networking-cabinet-installation.webp',
+      jpg: '/assets/images/home-networking-cabinet-installation.jpg',
+      alt: 'Network cabinet installed at an Algarve property',
+    },
+    whyItMatters: {
+      webp: '/assets/images/home-networking-mesh-wifi-node.webp',
+      jpg: '/assets/images/home-networking-mesh-wifi-node.jpg',
+      alt: 'Mesh Wi-Fi node installed at an Algarve property',
     },
   },
 };
