@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, rich, placeholder, heroIntro, renderPage } = require('./layout');
+const { esc, rich, heroIntro, renderPage } = require('./layout');
 
 const pillars = [
   {
@@ -33,12 +33,13 @@ function renderAbout() {
     .join('');
 
   const hero = heroIntro({
-    alt: 'Algarve Smart Home installer fitting an outdoor security camera on a villa wall',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'About' }],
     h1Text: 'About Algarve Smart Home',
     headlineHtml: 'A local installer that explains everything in plain English.',
     subtext: 'Built around one idea: security systems should be easy to understand, whoever you are.',
     ctaNote: 'Questions welcome — no pitch, just answers.',
+    noMedia: true,
+    dark: true,
   });
 
   const body = `
@@ -46,17 +47,12 @@ function renderAbout() {
 
   <section>
     <div class="container">
-      <div class="two-col">
-        <div class="two-col-text">
-          <span class="eyebrow">Who We Are</span>
-          <h2>Built for English-speaking homeowners in the Algarve</h2>
-          <p>${rich('Algarve Smart Home installs <a href="/cctv-installation">CCTV</a>, <a href="/alarm-systems">alarms</a>, <a href="/access-control">access control</a>, <a href="/gate-automation">gate automation</a>, <a href="/fire-detection">fire detection</a>, <a href="/home-networking">networking</a> and <a href="/smart-home-automation">smart home systems</a> for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.')}</p>
-          <p>That back-and-forth is exactly why the service is built the way it is: clear English communication, systems you can check on remotely, and support that's easy to reach when you need it, whether you're at the property or on the other side of Europe.</p>
-        </div>
-        <div class="two-col-media">
-          ${placeholder('Close-up of installer wiring a CCTV camera bracket', { ratio: 'tall' })}
-        </div>
-      </div>
+      <div class="rs-block"><div class="narrow" style="margin: 0 auto;">
+        <span class="eyebrow">Who We Are</span>
+        <h2>Built for English-speaking homeowners in the Algarve</h2>
+        <p>${rich('Algarve Smart Home installs <a href="/cctv-installation">CCTV</a>, <a href="/alarm-systems">alarms</a>, <a href="/access-control">access control</a>, <a href="/gate-automation">gate automation</a>, <a href="/fire-detection">fire detection</a>, <a href="/home-networking">networking</a> and <a href="/smart-home-automation">smart home systems</a> for homeowners across the Algarve — many of whom split their time between Portugal and the UK, Ireland, the Netherlands or Germany.')}</p>
+        <p>That back-and-forth is exactly why the service is built the way it is: clear English communication, systems you can check on remotely, and support that's easy to reach when you need it, whether you're at the property or on the other side of Europe.</p>
+      </div></div>
     </div>
   </section>
 
@@ -93,6 +89,8 @@ function renderAbout() {
     path: '/about',
     bodyHtml: body,
     schema: [breadcrumbSchema],
+    mainClass: 'page-lagos-rs page-about',
+    useHomeHeader: true,
   });
 }
 

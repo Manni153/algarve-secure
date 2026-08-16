@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, placeholder, heroIntro, renderPage } = require('./layout');
+const { esc, heroIntro, renderPage } = require('./layout');
 
 const stages = [
   {
@@ -57,12 +57,13 @@ function renderHowWeWork() {
     .join('');
 
   const hero = heroIntro({
-    alt: 'Phone and notepad with an Algarve property photo and site plan on a desk',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'How We Work' }],
     h1Text: 'How Algarve Smart Home Works',
     headlineHtml: 'From first call to finished install — no surprises along the way.',
     subtext: 'A straightforward look at how an enquiry turns into a working system.',
     ctaNote: 'Start with a call — see exactly how it works.',
+    noMedia: true,
+    dark: true,
   });
 
   const body = `
@@ -70,17 +71,12 @@ function renderHowWeWork() {
 
   <section>
     <div class="container">
-      <div class="two-col">
-        <div class="two-col-text">
-          <span class="eyebrow">What Algarve Smart Home Does</span>
-          <h2>A marketing service, connecting you to local installers</h2>
-          <p><strong>Algarve Smart Home is a marketing service connecting Algarve homeowners with local, experienced installation partners.</strong> In practice, that means Algarve Smart Home is your first point of contact — the phone number and WhatsApp link on this site — and the team that actually assesses, supplies and installs the system on your property is a local partner working across the region.</p>
-          <p>That doesn't change what happens on the ground: the same conversation about your property, the same site assessment, the same equipment installed and configured properly. It just means there's one consistent number to call, whether you're getting a quote, arranging an install, or following up with a question afterwards.</p>
-        </div>
-        <div class="two-col-media">
-          ${placeholder('Laptop showing a property site plan alongside a phone with a messaging app open', { ratio: 'tall' })}
-        </div>
-      </div>
+      <div class="rs-block"><div class="narrow" style="margin: 0 auto;">
+        <span class="eyebrow">What Algarve Smart Home Does</span>
+        <h2>A marketing service, connecting you to local installers</h2>
+        <p><strong>Algarve Smart Home is a marketing service connecting Algarve homeowners with local, experienced installation partners.</strong> In practice, that means Algarve Smart Home is your first point of contact — the phone number and WhatsApp link on this site — and the team that actually assesses, supplies and installs the system on your property is a local partner working across the region.</p>
+        <p>That doesn't change what happens on the ground: the same conversation about your property, the same site assessment, the same equipment installed and configured properly. It just means there's one consistent number to call, whether you're getting a quote, arranging an install, or following up with a question afterwards.</p>
+      </div></div>
     </div>
   </section>
 
@@ -97,17 +93,12 @@ function renderHowWeWork() {
 
   <section>
     <div class="container">
-      <div class="two-col reverse">
-        <div class="two-col-media">
-          ${placeholder('Map-style overview of Algarve towns with pins marking coverage areas', { ratio: 'tall' })}
-        </div>
-        <div class="two-col-text">
-          <span class="eyebrow">Why It's Set Up This Way</span>
-          <h2>One number, coverage across the whole region</h2>
-          <p>Coordinating with local installation partners means Algarve Smart Home can cover towns across the whole Algarve — from Sagres to Vila Real de Santo António — through people who already work in those areas day-to-day, rather than one small team trying to reach every property in the region alone.</p>
-          <p>For you, the practical difference is small: one number to call, one point of contact for support, and a system installed by people who know the area.</p>
-        </div>
-      </div>
+      <div class="rs-block"><div class="narrow" style="margin: 0 auto;">
+        <span class="eyebrow">Why It's Set Up This Way</span>
+        <h2>One number, coverage across the whole region</h2>
+        <p>Coordinating with local installation partners means Algarve Smart Home can cover towns across the whole Algarve — from Sagres to Vila Real de Santo António — through people who already work in those areas day-to-day, rather than one small team trying to reach every property in the region alone.</p>
+        <p>For you, the practical difference is small: one number to call, one point of contact for support, and a system installed by people who know the area.</p>
+      </div></div>
     </div>
   </section>
 
@@ -154,6 +145,8 @@ function renderHowWeWork() {
     path: '/how-we-work',
     bodyHtml: body,
     schema: [breadcrumbSchema, faqSchema],
+    mainClass: 'page-lagos-rs page-how-we-work',
+    useHomeHeader: true,
   });
 }
 

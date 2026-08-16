@@ -147,7 +147,7 @@ function renderBreadcrumb(items) {
 // used by the homepage only. Every other page keeps the single-column,
 // stacked-then-image layout at every breakpoint. Mobile/tablet are
 // unaffected either way: the split only activates at the desktop breakpoint.
-function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, ctaNote, trustStats, desktopStatsText, mobileStatsText, image, twoColDesktop }) {
+function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, ctaNote, trustStats, desktopStatsText, mobileStatsText, image, twoColDesktop, noMedia, dark }) {
   // Mobile (<768px) uses trustStats' two-tier bold-value + caption-label
   // format (.v/.l); tablet+ (768px+) uses desktopStatsText's single
   // combined-line format (.vs) instead — both rendered into the same
@@ -217,7 +217,16 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
   // town.js's Lagos design-system-pilot page currently supply `image` —
   // every other caller of heroIntro() leaves it undefined and renders the
   // placeholder branch below instead.
-  const mediaHtml = image
+  // noMedia (About/Contact/How We Work only): these pages have no
+  // photography at all, so the media column — real image or dashed
+  // placeholder box alike — is dropped entirely rather than rendering an
+  // empty box. Paired with `dark`, which gives the now-image-less hero a
+  // deliberate solid --ink background (the same dark-section treatment
+  // used elsewhere for CTA bands/footer) instead of the default
+  // transparent hero that would otherwise just show blank page background.
+  const mediaHtml = noMedia
+    ? ''
+    : image
     ? `<picture>
         <source media="(min-width: 1025px)" type="image/webp" srcset="${image.desktopWebp}">
         <source media="(min-width: 1025px)" type="image/jpeg" srcset="${image.desktopJpg}">
@@ -227,7 +236,7 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
     : placeholder(alt, {});
 
   return `
-  <section class="hero-stack${twoColDesktop ? ' hero-stack--split' : ''} bleed">
+  <section class="hero-stack${twoColDesktop ? ' hero-stack--split' : ''}${dark ? ' hero-stack--dark' : ''} bleed">
     <div class="container">
       <div class="hero-stack-text">
         ${breadcrumb ? renderBreadcrumb(breadcrumb) : ''}
@@ -238,9 +247,9 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
         ${ctaNoteHtml}
         ${inlineStatsHtml}
       </div>
-      <div class="hero-stack-media">
+      ${noMedia ? '' : `<div class="hero-stack-media">
         ${mediaHtml}
-      </div>
+      </div>`}
     </div>
   </section>
   ${statsHtml}`;

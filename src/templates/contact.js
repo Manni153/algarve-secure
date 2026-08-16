@@ -5,12 +5,13 @@ const { heroIntro, renderPage } = require('./layout');
 
 function renderContact() {
   const hero = heroIntro({
-    alt: 'Phone and notepad on a desk beside an Algarve property photo',
     breadcrumb: [{ label: 'Home', href: '/' }, { label: 'Contact' }],
     h1Text: 'Contact Algarve Smart Home',
     headlineHtml: 'Call or WhatsApp — get a straight answer today.',
     subtext: 'Call now for the fastest response, or message us on WhatsApp.',
     ctaNote: 'Fastest way to a clear answer.',
+    noMedia: true,
+    dark: true,
   });
 
   const body = `
@@ -18,7 +19,7 @@ function renderContact() {
 
   <section>
     <div class="container">
-      <div class="section-head">
+      <div class="rs-block"><div class="section-head">
         <span class="eyebrow">Get in Touch</span>
         <h2>Call or WhatsApp us directly</h2>
         <p class="lede">The fastest way to a straight answer — no forms, no waiting on email.</p>
@@ -34,7 +35,7 @@ function renderContact() {
           <p>Message us directly for a quick reply.</p>
           <a href="${site.whatsappHref}" class="btn btn-outline btn-block" target="_blank" rel="noopener">Chat on WhatsApp</a>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
   `;
@@ -52,6 +53,8 @@ function renderContact() {
     path: '/contact',
     bodyHtml: body,
     schema: [breadcrumbSchema],
+    mainClass: 'page-lagos-rs page-contact',
+    useHomeHeader: true,
   });
 }
 

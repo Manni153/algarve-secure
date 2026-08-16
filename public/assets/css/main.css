@@ -586,6 +586,39 @@ body.nav-open { overflow: hidden; }
 .hero-stack .btn { margin-top: 4px; }
 @media (min-width: 1025px) { .hero-stack .btn { margin-top: 0; } }
 
+/* Image-free hero (About, Contact, How We Work only — see heroIntro's
+   `dark`/`noMedia` params) — a solid --ink background stands in for the
+   photo these three pages don't have, reusing the same dark-section
+   language already established for the CTA band and footer rather than
+   leaving the hero on the flat page background with an empty gap where
+   the image would go. Text colours mirror .page-lagos-rs's existing
+   dark-hero breadcrumb treatment (rgba(255,255,255,0.75)) and the
+   header/footer wordmark's crimson-on-dark swap (crimson measures only
+   ~2.4:1 on --ink, so the accent becomes the same peach used there
+   instead). Single-column only — no split-grid rules apply since these
+   pages never pass twoColDesktop. */
+.hero-stack--dark { background: var(--ink); }
+.hero-stack--dark .breadcrumb,
+.hero-stack--dark .breadcrumb a { color: rgba(255, 255, 255, 0.75); }
+.hero-stack--dark .breadcrumb a:hover { color: #ffffff; }
+.hero-stack--dark .hero-kicker { color: rgba(247, 241, 228, 0.75); }
+.hero-stack--dark .hero-headline { color: var(--cream); }
+.hero-stack--dark .hero-headline em { color: #f3caa4; }
+.hero-stack--dark .hero-subtext { color: rgba(247, 241, 228, 0.82); }
+/* .page-lagos-rs's own typography rules (further down this file, for the
+   photo-hero pilot pages) reset .hero-kicker/.hero-headline to
+   --hero2-steel at both the base and 1025px+ tiers — same specificity as
+   the rules just above, so being earlier in the file they'd otherwise
+   lose the cascade. The extra .page-lagos-rs qualifier here only adds
+   specificity to win that fight; the colours themselves are identical to
+   the plain .hero-stack--dark rules above. */
+.page-lagos-rs .hero-stack--dark .hero-kicker { color: rgba(247, 241, 228, 0.75); }
+.page-lagos-rs .hero-stack--dark .hero-headline { color: var(--cream); }
+.page-lagos-rs .hero-stack--dark .hero-headline em { color: #f3caa4; }
+@media (min-width: 1025px) {
+  .page-lagos-rs .hero-stack--dark .hero-kicker { color: rgba(247, 241, 228, 0.75); }
+}
+
 /* Desktop-only note line + duplicate trust stats — only exist in the
    markup on pages opted into twoColDesktop (currently the homepage), but
    still default hidden here and revealed at the desktop breakpoint so
