@@ -56,13 +56,15 @@ function renderAbout() {
     </div>
   </section>
 
-  <section class="section-alt">
+  <section>
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Why Homeowners Choose Us</span>
-        <h2>What makes Algarve Smart Home different</h2>
+      <div class="rs-block">
+        <div class="section-head">
+          <span class="eyebrow">Why Homeowners Choose Us</span>
+          <h2>What makes Algarve Smart Home different</h2>
+        </div>
+        <div class="pillar-list">${pillarItems}</div>
       </div>
-      <div class="pillar-list">${pillarItems}</div>
     </div>
   </section>
 
