@@ -3777,6 +3777,18 @@ a.card:hover { box-shadow: 0 14px 34px rgba(15, 50, 56, 0.12); }
   color: rgba(247, 241, 228, 0.78);
 }
 
+/* About page only: its two blue-ish accents (in-prose links and the
+   pillar-list numerals) otherwise inherit the shared --teal-muted /
+   --ink-700 tones used site-wide. Pinned here to the same steel blue-grey
+   as this page's own footer/CTA band, so every blue on the page reads as
+   one deliberate colour rather than several similar-but-different ones. */
+.page-about .rs-block p a {
+  color: var(--hero2-steel);
+}
+.page-about .pillar .num {
+  color: var(--hero2-steel);
+}
+
 /* ---- Footer: renders the same roof-mark wordmark markup as the
    homepage's footer whenever useHomeHeader is true (see wordmarkHtml()
    in layout.js) — this positions/colours it the same way, otherwise the
