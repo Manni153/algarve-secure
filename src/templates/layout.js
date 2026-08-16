@@ -213,10 +213,13 @@ function heroIntro({ alt, breadcrumb, h1Text, h1Html, headlineHtml, subtext, cta
   // got their own purpose-composed image instead of a crop, since there's
   // no longer a reason for tablet to sit in its own tier between them.
   // <source> elements are evaluated in order and the first match wins, so
-  // the 1025px+ (desktop) source has to render first. Only home.js and
-  // town.js's Lagos design-system-pilot page currently supply `image` —
-  // every other caller of heroIntro() leaves it undefined and renders the
-  // placeholder branch below instead.
+  // the 1025px+ (desktop) source has to render first. home.js, all 7
+  // service.js pages and all 22 town.js pages supply `image` now that
+  // every service/town has its own hero photography; about.js, contact.js
+  // and how-we-work.js pass noMedia instead (see below) rather than
+  // leaving `image` undefined, so the placeholder branch below is
+  // currently unreachable in practice — kept as a safety fallback for any
+  // future page that adds a hero without photography yet.
   // noMedia (About/Contact/How We Work only): these pages have no
   // photography at all, so the media column — real image or dashed
   // placeholder box alike — is dropped entirely rather than rendering an
