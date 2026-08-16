@@ -792,6 +792,22 @@ body.nav-open { overflow: hidden; }
 .two-col.reverse .two-col-media { order: 1; }
 .two-col-text .btn { margin-top: 8px; }
 
+/* Gate Automation "What's Included" section, desktop only — image goes
+   full-width above the heading/text instead of sitting in a side column.
+   Scoped to this one page + section so the other pilot pages' (CCTV,
+   Alarm Systems, Access Control) included sections are unaffected, and to
+   1025px+ only so mobile/tablet keep the existing side-by-side two-col
+   layout for now. DOM order stays text-then-media (unchanged markup);
+   `order` just flips the visual order, same technique .two-col.reverse
+   already uses above. */
+@media (min-width: 1025px) {
+  .page-gate-automation #included .two-col {
+    grid-template-columns: 1fr;
+  }
+  .page-gate-automation #included .two-col-media { order: 1; }
+  .page-gate-automation #included .two-col-text { order: 2; }
+}
+
 /* -------------------------------------------------------------------------
    Trust grid — three equal cards, centered heading above. Direct.
    ------------------------------------------------------------------------- */
