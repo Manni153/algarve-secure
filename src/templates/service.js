@@ -143,6 +143,28 @@ const SERVICE_DESCRIPTION_PHOTO = {
       ratio: 'wide',
     },
   },
+  'fire-detection': {
+    included: {
+      webp: '/assets/images/fire-detection-installation.webp',
+      jpg: '/assets/images/fire-detection-installation.jpg',
+      alt: 'Smoke detector being installed on a ceiling in an Algarve property',
+    },
+    whyItMatters: {
+      webp: '/assets/images/fire-detection-system-installed.webp',
+      jpg: '/assets/images/fire-detection-system-installed.jpg',
+      alt: 'Fire detection system installed on a property wall',
+    },
+    scenarios: {
+      webp: '/assets/images/fire-extinguisher-installed.webp',
+      jpg: '/assets/images/fire-extinguisher-installed.jpg',
+      alt: 'Fire extinguisher installed at an Algarve property',
+    },
+    inDetail: {
+      webp: '/assets/images/fire-safety-system-installed.webp',
+      jpg: '/assets/images/fire-safety-system-installed.jpg',
+      alt: 'Fire safety system installed at an Algarve property',
+    },
+  },
 };
 
 function renderService(service) {
