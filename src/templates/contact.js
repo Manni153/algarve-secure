@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { heroIntro, renderPage } = require('./layout');
+const { heroIntro, renderPage, breadcrumbListSchema } = require('./layout');
 
 function renderContact() {
   const hero = heroIntro({
@@ -40,14 +40,10 @@ function renderContact() {
   </section>
   `;
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
-      { '@type': 'ListItem', position: 2, name: 'Contact', item: `${site.baseUrl}/contact` },
-    ],
-  };
+  const breadcrumbSchema = breadcrumbListSchema([
+    { name: 'Home', item: `${site.baseUrl}/` },
+    { name: 'Contact', item: `${site.baseUrl}/contact` },
+  ]);
 
   return renderPage({
     path: '/contact',

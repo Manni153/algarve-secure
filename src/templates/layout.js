@@ -423,6 +423,44 @@ function renderFloatingButtons() {
   </a>`;
 }
 
+// Canonical business entity: one HomeAndConstructionBusiness, identified by
+// a stable @id, injected into every page's JSON-LD by renderPage() below.
+// Service-page and town-page Service schema reference it via
+// `provider: { '@id': BUSINESS_ID }` instead of repeating the object.
+// Deliberately minimal — name/telephone/url/image/areaServed only. No
+// address (none is confirmed) and no certification/licensing claims.
+const BUSINESS_ID = `${site.baseUrl}/#business`;
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': BUSINESS_ID,
+  name: 'Algarve Smart Home',
+  telephone: site.phoneTel,
+  url: `${site.baseUrl}/`,
+  image: `${site.baseUrl}/assets/icons/icon-512.png`,
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Algarve, Portugal',
+  },
+};
+
+// Shared BreadcrumbList JSON-LD builder. Takes an ordered list of
+// { name, item } steps (item omitted for a non-navigable step) and numbers
+// the positions automatically, so every template builds its breadcrumb
+// schema the same way instead of hand-rolling the itemListElement array.
+function breadcrumbListSchema(steps) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: steps.map((step, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: step.name,
+      ...(step.item ? { item: step.item } : {}),
+    })),
+  };
+}
+
 // Title tags and meta descriptions are managed entirely outside this
 // codebase (hosting-platform level) — deliberately not generated here.
 // useHomeHeader lets a single non-homepage page (currently: the Lagos
@@ -436,7 +474,10 @@ function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader, title, m
   const isHome = mainClass === 'page-home';
   const useHeaderChrome = isHome || Boolean(useHomeHeader);
   const canonical = `${site.baseUrl}${path === '/' ? '' : path}`;
-  const schemaHtml = (schema || [])
+  // businessSchema renders on every page (not just those that pass their
+  // own schema) — it's the single source other pages' Service schema
+  // references via BUSINESS_ID, so it always needs to be resolvable.
+  const schemaHtml = [businessSchema, ...(schema || [])]
     .map((s) => `<script type="application/ld+json">${JSON.stringify(s).replace(/<\/script/gi, '<\\/script')}</script>`)
     .join('\n');
   // Homepage typography test (Nunito/Nunito Sans) — gated on
@@ -496,4 +537,6 @@ module.exports = {
   renderBreadcrumb,
   cardIcon,
   serviceIcon,
+  BUSINESS_ID,
+  breadcrumbListSchema,
 };

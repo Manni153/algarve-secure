@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { nearbyTowns } = require('../data/towns');
-const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = require('./layout');
+const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon, BUSINESS_ID, breadcrumbListSchema } = require('./layout');
 
 // Design-system rollout: applies the homepage's finalized visual system
 // (colours, typography, buttons, service cards, hero gradient/text-shadow,
@@ -459,13 +459,25 @@ function renderTown(town) {
       }
     : null;
 
-  const breadcrumbSchema = {
+  const breadcrumbSchema = breadcrumbListSchema([
+    { name: 'Home', item: `${site.baseUrl}/` },
+    { name: 'Areas We Cover', item: `${site.baseUrl}/#areas` },
+    { name: town.name, item: `${site.baseUrl}/${town.slug}` },
+  ]);
+
+  // Service schema mirrors service.js's — ties this page to the canonical
+  // business entity via @id — but scoped to this one town rather than one
+  // service, since a town page covers all seven services together.
+  const townServiceSchema = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
-      { '@type': 'ListItem', position: 2, name: town.name, item: `${site.baseUrl}/${town.slug}` },
-    ],
+    '@type': 'Service',
+    serviceType: 'Security & Smart Home Installation',
+    name: `Security & Smart Home Installation in ${town.name}`,
+    provider: { '@id': BUSINESS_ID },
+    areaServed: {
+      '@type': 'City',
+      name: town.name,
+    },
   };
 
   const hero = heroIntro({
@@ -671,7 +683,7 @@ function renderTown(town) {
   return renderPage({
     path: `/${town.slug}`,
     bodyHtml: body,
-    schema: [breadcrumbSchema, faqSchema].filter(Boolean),
+    schema: [townServiceSchema, breadcrumbSchema, faqSchema].filter(Boolean),
     mainClass: isDesignSystemPilot ? 'page-lagos-rs' : undefined,
     useHomeHeader: isDesignSystemPilot,
     title: town.seoTitle,

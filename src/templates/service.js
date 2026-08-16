@@ -3,7 +3,7 @@
 const site = require('../data/site');
 const services = require('../data/services');
 const { regionGroups } = require('../data/towns');
-const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon } = require('./layout');
+const { esc, rich, placeholder, photo, heroIntro, renderPage, serviceIcon, BUSINESS_ID, breadcrumbListSchema } = require('./layout');
 
 // Design-system rollout for service pages — mirrors the town-page rollout
 // (see town.js's DESIGN_SYSTEM_PILOT_SLUGS): applies the homepage's
@@ -306,21 +306,14 @@ function renderService(service) {
       '@type': 'AdministrativeArea',
       name: 'Algarve, Portugal',
     },
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Algarve Smart Home',
-      telephone: site.phoneTel,
-    },
+    provider: { '@id': BUSINESS_ID },
   };
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
-      { '@type': 'ListItem', position: 2, name: service.name, item: `${site.baseUrl}/${service.slug}` },
-    ],
-  };
+  const breadcrumbSchema = breadcrumbListSchema([
+    { name: 'Home', item: `${site.baseUrl}/` },
+    { name: 'Services', item: `${site.baseUrl}/#services` },
+    { name: service.name, item: `${site.baseUrl}/${service.slug}` },
+  ]);
 
   // Every service page still links to all 22 town pages, but as flowing,
   // regionally-framed sentences with town-name anchors rather than a

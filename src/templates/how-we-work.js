@@ -1,7 +1,7 @@
 'use strict';
 
 const site = require('../data/site');
-const { esc, heroIntro, renderPage } = require('./layout');
+const { esc, heroIntro, renderPage, breadcrumbListSchema } = require('./layout');
 
 const stages = [
   {
@@ -136,14 +136,10 @@ function renderHowWeWork() {
     })),
   };
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.baseUrl}/` },
-      { '@type': 'ListItem', position: 2, name: 'How We Work', item: `${site.baseUrl}/how-we-work` },
-    ],
-  };
+  const breadcrumbSchema = breadcrumbListSchema([
+    { name: 'Home', item: `${site.baseUrl}/` },
+    { name: 'How We Work', item: `${site.baseUrl}/how-we-work` },
+  ]);
 
   return renderPage({
     path: '/how-we-work',
