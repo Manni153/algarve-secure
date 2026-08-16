@@ -802,6 +802,26 @@ body.nav-open { overflow: hidden; }
 .page-gate-automation #included .two-col-media { order: 1; }
 .page-gate-automation #included .two-col-text { order: 2; }
 
+/* Fire Detection "What's Included" and "Real-World Scenarios" sections,
+   mobile only (below the 768px tablet threshold used elsewhere on this
+   site) — image shows above the heading/text instead of below it. Why It
+   Matters and In Detail already show image-first at every breakpoint (see
+   .two-col.reverse above) since their markup puts the image first in the
+   DOM; Included and Scenarios use the default text-then-media DOM order,
+   so only they need the `order` swap here. Scoped to this one page so
+   the other pilot pages' included/scenarios sections are unaffected, and
+   to <768px only so tablet/desktop keep the existing side-by-side layout. */
+@media (max-width: 767px) {
+  .page-fire-detection #included .two-col-media,
+  .page-fire-detection #scenarios .two-col-media {
+    order: 1;
+  }
+  .page-fire-detection #included .two-col-text,
+  .page-fire-detection #scenarios .two-col-text {
+    order: 2;
+  }
+}
+
 /* -------------------------------------------------------------------------
    Trust grid — three equal cards, centered heading above. Direct.
    ------------------------------------------------------------------------- */
