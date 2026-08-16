@@ -113,10 +113,25 @@ const SERVICE_DESCRIPTION_PHOTO = {
     },
   },
   'gate-automation': {
+    included: {
+      webp: '/assets/images/gate-automation-swing-operators.webp',
+      jpg: '/assets/images/gate-automation-swing-operators.jpg',
+      alt: 'Swing gate motor operators installed at a driveway entrance',
+    },
+    whyItMatters: {
+      webp: '/assets/images/gate-automation-sliding-roller.webp',
+      jpg: '/assets/images/gate-automation-sliding-roller.jpg',
+      alt: 'Sliding roller gate installed at an Algarve property entrance',
+    },
     scenarios: {
-      webp: '/assets/images/gate-automation-vehicle-access.webp',
-      jpg: '/assets/images/gate-automation-vehicle-access.jpg',
+      webp: '/assets/images/gate-automation-vehicle-access-control.webp',
+      jpg: '/assets/images/gate-automation-vehicle-access-control.jpg',
       alt: 'Vehicle approaching an automated gate with access control installed at an Algarve property',
+    },
+    inDetail: {
+      webp: '/assets/images/gate-automation-single-swing.webp',
+      jpg: '/assets/images/gate-automation-single-swing.jpg',
+      alt: 'Single swing gate motor mounted beside a driveway gate',
     },
   },
 };
