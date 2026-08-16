@@ -6,7 +6,7 @@ const phoneTel = '+351923272806';
 module.exports = {
   brand: 'Algarve Smart Home',
   domainDisplay: 'AlgarveSecure.com',
-  baseUrl: 'https://www.algarvesecure.com',
+  baseUrl: 'https://www.algarvesmarthome.com',
   phoneDisplay,
   phoneTel,
   telHref: `tel:${phoneTel}`,
