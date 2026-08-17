@@ -79,6 +79,10 @@ function build() {
   fs.copyFileSync(path.join(__dirname, 'assets/icons/favicon.ico'), path.join(OUT, 'favicon.ico'));
   fs.copyFileSync(path.join(__dirname, 'assets/icons/apple-touch-icon.png'), path.join(OUT, 'apple-touch-icon.png'));
 
+  // Netlify redirect rules (trailing-slash enforcement) — must sit at the
+  // site root to be picked up by Netlify's redirect engine.
+  fs.copyFileSync(path.join(__dirname, '_redirects'), path.join(OUT, '_redirects'));
+
   // sitemap.xml
   const today = new Date().toISOString().slice(0, 10);
   const urls = pages
