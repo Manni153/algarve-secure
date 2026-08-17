@@ -83,12 +83,17 @@ function build() {
   // site root to be picked up by Netlify's redirect engine.
   fs.copyFileSync(path.join(__dirname, '_redirects'), path.join(OUT, '_redirects'));
 
-  // sitemap.xml
+  // sitemap.xml — every <loc> gets a trailing slash (p.loc itself is left
+  // as-is, e.g. '/monchique', since writePage() above still needs the
+  // no-slash form to build the right output folder) so every sitemap URL
+  // matches its own page's canonical tag exactly and the form the
+  // /_redirects rule treats as canonical, rather than the pre-redirect
+  // form that 301s on the way in.
   const today = new Date().toISOString().slice(0, 10);
   const urls = pages
     .map(
       (p) => `  <url>
-    <loc>${site.baseUrl}${p.loc === '/' ? '/' : p.loc}</loc>
+    <loc>${site.baseUrl}${p.loc.endsWith('/') ? p.loc : `${p.loc}/`}</loc>
     <lastmod>${today}</lastmod>
     <priority>${p.priority}</priority>
   </url>`

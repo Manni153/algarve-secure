@@ -482,11 +482,16 @@ function breadcrumbListSchema(steps) {
 function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader, title, metaDescription }) {
   const isHome = mainClass === 'page-home';
   const useHeaderChrome = isHome || Boolean(useHomeHeader);
-  // Trailing slash on the homepage matches sitemap.xml's own homepage
-  // entry (build.js: `p.loc === '/' ? '/' : p.loc`) — both now resolve to
-  // the identical string baseUrl + '/', not two different URLs for the
-  // same page.
-  const canonical = `${site.baseUrl}${path === '/' ? '/' : path}`;
+  // Trailing slash on every page, not just the homepage — matches
+  // sitemap.xml's own entries (build.js) and the /_redirects rule that
+  // 301s the no-slash form to this one, so the canonical tag always
+  // already points at the form a crawler ends up on, no extra hop.
+  // Centralized here (path is only ever read for this, nowhere else in
+  // this function or file) rather than appending a slash to `path` at
+  // each individual renderPage() call site, so no future page can add
+  // itself without it.
+  const canonicalPath = path.endsWith('/') ? path : `${path}/`;
+  const canonical = `${site.baseUrl}${canonicalPath}`;
   // businessSchema renders on every page (not just those that pass their
   // own schema) — it's the single source other pages' Service schema
   // references via BUSINESS_ID, so it always needs to be resolvable.
