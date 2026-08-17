@@ -482,7 +482,11 @@ function breadcrumbListSchema(steps) {
 function renderPage({ path, bodyHtml, schema, mainClass, useHomeHeader, title, metaDescription }) {
   const isHome = mainClass === 'page-home';
   const useHeaderChrome = isHome || Boolean(useHomeHeader);
-  const canonical = `${site.baseUrl}${path === '/' ? '' : path}`;
+  // Trailing slash on the homepage matches sitemap.xml's own homepage
+  // entry (build.js: `p.loc === '/' ? '/' : p.loc`) — both now resolve to
+  // the identical string baseUrl + '/', not two different URLs for the
+  // same page.
+  const canonical = `${site.baseUrl}${path === '/' ? '/' : path}`;
   // businessSchema renders on every page (not just those that pass their
   // own schema) — it's the single source other pages' Service schema
   // references via BUSINESS_ID, so it always needs to be resolvable.
