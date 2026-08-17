@@ -474,35 +474,56 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
   .home-header-nav-link:hover,
   .home-header-nav-trigger:hover { color: var(--hero2-near-black); }
 
+  /* .home-header-dropdown is now the *hoverable hit area*, not the visible
+     panel — it starts flush against the trigger (top: 100%, no gap) and
+     carries an invisible 16px top padding as a hover bridge, so the
+     cursor never crosses a dead zone (no element under it) on the way
+     from the trigger down into the panel; :hover on a descendant keeps
+     .home-header-nav-item's :hover true the whole way, whereas a real
+     gap in the layout — the old `top: calc(100% + 16px)` — meant that
+     16px strip belonged to neither element, so :hover (and the delayed
+     close transition below) could lose the diagonal-mouse-move race and
+     close before the cursor ever reached the panel. The actual visible
+     panel (background/shadow/radius/padding) moved to the nested
+     .home-header-dropdown-panel, offset by that same 16px via its own
+     position within the padded box — same visual gap, continuous hover. */
   .home-header-dropdown {
     position: absolute;
-    top: calc(100% + 16px);
+    top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(-6px);
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
-    padding: 8px;
+    transform: translateX(-50%);
+    padding-top: 16px;
     min-width: 210px;
-    display: flex;
-    flex-direction: column;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     /* Delay only applies going OUT of view (leaving the trigger/panel) —
-       the short grace period the brief asks for, so moving the cursor
-       diagonally from the trigger down into the panel doesn't close it.
-       The hover/is-open rule below overrides this with a zero-delay
-       transition so it still opens immediately. */
-    transition: opacity 0.15s ease 0.12s, visibility 0.15s ease 0.12s, transform 0.15s ease 0.12s;
+       a short grace period so moving the cursor away doesn't snap the
+       panel shut instantly. The hover/is-open rule below overrides this
+       with a zero-delay transition so it still opens immediately. */
+    transition: opacity 0.15s ease 0.12s, visibility 0.15s ease 0.12s;
   }
   .home-header-nav-item:hover .home-header-dropdown,
   .home-header-nav-item.is-open .home-header-dropdown {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-    transition: opacity 0.12s ease, visibility 0.12s ease, transform 0.12s ease;
+    transition: opacity 0.12s ease, visibility 0.12s ease;
+  }
+  .home-header-dropdown-panel {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-6px);
+    transition: transform 0.15s ease 0.12s;
+  }
+  .home-header-nav-item:hover .home-header-dropdown-panel,
+  .home-header-nav-item.is-open .home-header-dropdown-panel {
+    transform: translateY(0);
+    transition: transform 0.12s ease;
   }
   .home-header-dropdown a {
     padding: 10px 14px;

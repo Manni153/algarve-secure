@@ -289,7 +289,7 @@ function renderHomeHeaderNav() {
         <a href="/" class="home-header-nav-link">Home</a>
         <div class="home-header-nav-item">
           <button type="button" class="home-header-nav-trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">Services</button>
-          <div class="home-header-dropdown">${dropdownLinks}</div>
+          <div class="home-header-dropdown"><div class="home-header-dropdown-panel">${dropdownLinks}</div></div>
         </div>
         <a href="/#areas" class="home-header-nav-link">Service Areas</a>
         <a href="/about" class="home-header-nav-link">About</a>
