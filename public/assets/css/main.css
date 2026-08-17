@@ -284,6 +284,14 @@ h3 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
    the original --ui font (unaffected — this class never renders there). */
 .site-header--home .wordmark { font-family: var(--font-nunito); }
 
+/* Same fix, same root cause, for the mobile hamburger nav drawer's own
+   wordmark heading ("Algarve Smart Home" at the top of the slide-out
+   panel) — it's rendered unconditionally for every page by
+   renderNavDrawer(), as a DOM sibling of <main> just like the header, so
+   it never inherits .page-home/.page-lagos-rs's --ui override either and
+   was falling back to Syne. */
+.nav-panel .wordmark { font-family: var(--font-nunito); }
+
 /* .header-phone's own font-family: var(--ui) never resolves to Nunito Sans
    on this element — .page-home/.page-lagos-rs only redefine --ui on
    <main>, and the header renders as <main>'s DOM sibling (before it), not
