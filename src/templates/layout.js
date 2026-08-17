@@ -270,22 +270,28 @@ function reassuranceBand({ heading, body }) {
   </section>`;
 }
 
-// Desktop-only (1025px+, see main.css) nav bar for the homepage's white
-// header: a Services dropdown (the 7 service pages) plus Service Areas
+// Desktop-only (1025px+, see main.css) nav bar for the white header: a
+// Home link, a Services dropdown (the 7 service pages), Service Areas
 // (the homepage's own #areas section — there's no standalone town-hub
-// page), About and Contact. Only ever called when isHome is true, so this
-// markup never renders on the other 32 pages.
+// page), About and Contact. Called whenever useHeaderChrome is true, which
+// as of the design-system rollout is every one of the 33 pages (all 7
+// services + all 22 towns are in their respective pilot sets, plus
+// home/about/contact/how-we-work) — this is the one shared desktop nav.
+// Service Areas links to the absolute /#areas rather than a bare #areas so
+// it still resolves correctly (navigates to the homepage, then scrolls)
+// when clicked from any page other than the homepage itself.
 function renderHomeHeaderNav() {
   const dropdownLinks = site.headerServiceNav
     .map((s) => `<a href="${s.href}">${esc(s.label)}</a>`)
     .join('');
   return `
       <nav class="home-header-nav" aria-label="Primary">
+        <a href="/" class="home-header-nav-link">Home</a>
         <div class="home-header-nav-item">
           <button type="button" class="home-header-nav-trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">Services</button>
           <div class="home-header-dropdown">${dropdownLinks}</div>
         </div>
-        <a href="#areas" class="home-header-nav-link">Service Areas</a>
+        <a href="/#areas" class="home-header-nav-link">Service Areas</a>
         <a href="/about" class="home-header-nav-link">About</a>
         <a href="/contact" class="home-header-nav-link">Contact</a>
       </nav>`;
